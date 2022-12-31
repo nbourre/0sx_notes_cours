@@ -5,9 +5,10 @@
 - [Quel Arduino?](#quel-arduino)
 - [Le matériel du cours](#le-matériel-du-cours)
   - [Achat](#achat)
-- [Premier essaie](#premier-essaie)
+- [Les premiers pas](#les-premiers-pas)
   - [Logiciel](#logiciel)
   - [Matériel](#matériel)
+  - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
 - [Références](#références)
 
 
@@ -69,7 +70,7 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 - [Plaque de support pour Arduino](https://amzn.to/3jhOVgc).
   - Celle-ci convient aussi pour un Raspberry Pi.
 
-# Premier essaie
+# Les premiers pas
 ## Logiciel
 Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
 
@@ -78,6 +79,36 @@ Vous devez télécharger la version Windows avec MSI Installer. Cliquez sur le l
 ## Matériel
 Vous avez devant vous une plaque de développement Arduino. Il s'agit du même kit que vous devez vous procurer pour ce cours. Il est composé de deux parties : la carte Arduino et la plaque de support.
 
+Branchez le câble USB de la carte Arduino à votre ordinateur. Vous devriez voir une petite lumière verte s'allumer sur la carte. Cela signifie que la carte est alimentée. Toutefois, cela ne signifie pas que la carte est prête à être utilisée.
+
+En effet, on doit s'assurer que les pilotes sont installés.
+
+Pour vérifier si les pilotes sont installés, ouvrez le logiciel Arduino. Vous devriez voir une fenêtre comme celle-ci :
+
+![Alt text](assets/arduino_ide.png)
+
+Maintenant, sélectionnez la barre défilante située dans la barre d'outils.
+
+![Alt text](assets/arduino_ide_board.gif)
+
+Si les pilotes sont installés, vous devriez voir dans la liste déroulante le nom de votre carte Arduino avec le port qui lui est assigné. Dans mon cas, c'était "Arduino Mega or Mega 2560" sur le `COM26` de mon ordinateur. Le numéro du port peut varier selon votre ordinateur.
+
+> **Note :** `COM` est le préfixe donné pour les ports de communication sur les PC Windows. Il peut y avoir plusieurs ports de communication sur un ordinateur. Ceux-ci sont utilisés pour connecter des périphériques externes à l'ordinateur. Par exemple, un clavier, une souris, une imprimante, etc. Les numéros sont attribués en fonction de l'ordre de connexion des périphériques.
+
+## Installation des pilotes - Si nécessaire
+Généralement, Windows installe les pilotes automatiquement. Cependant, si ce n'est pas le cas, vous devez installer les pilotes manuellement.
+
+Lancez le gestionnaire de périphériques de Windows. Pour ce faire, appuyez sur la touche `Windows` de votre clavier et tapez `Gestionnaire de périphériques`. Cliquez sur le premier résultat.
+
+Dans le gestionnaire de périphériques, vous devriez voir une liste de périphériques. Recherchez le périphérique qui correspond à votre carte Arduino.
+
+Cliquez sur le périphérique avec le bouton droit de la souris et sélectionnez `Mettre à jour le pilote`.
+
+Dans la prochaine fenêtre, sélectionnez `Rechercher un pilote sur mon ordinateur`.
+
+![Alt text](assets/install_driver.png)
+
+TODO : Compléter la procédure d'installation des pilotes.
 
 
 # Références
