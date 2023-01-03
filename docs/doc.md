@@ -17,7 +17,7 @@
 ---
 
 
-[test : Plan de leçon](#plan_lecon)
+[test : Plan de leçon](#plan_lecon) <!-- https://github.com/gnab/remark/wiki/Markdown#name -->
 
 ---
 
