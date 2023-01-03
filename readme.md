@@ -6,8 +6,8 @@
   - [Les grandes lignes du cours](#les-grandes-lignes-du-cours)
 
 # Les leçons
-- [Configuration de l'environnement de travail](C01_intro_config.md)
-- [Introduction à la programmation Arduino](C01_intro_prog.md)
+1. [Configuration de l'environnement de travail](C01_intro_config.md)
+2. [Introduction à la programmation Arduino](C01_intro_prog.md)
 
 # Introduction du cours
 Bienvenue dans le cours de développement de systèmes embarqués (420-0SX-SW). Ce cours est donné dans le cadre du programme de diplôme d'étude collégial des techniques de l'informatique du Cégep de Shawinigan. Ce cours est donné en français, mais plusieurs exemples de code seront en anglais.
