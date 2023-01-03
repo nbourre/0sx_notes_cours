@@ -1,1 +1,19 @@
-Index test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+    const file = new URLSearchParams(window.location.search).get("file");
+
+    var slideshow = remark.create({
+        sourceUrl: `${file}.md`,
+        ratio: "16:9"
+    });
+    </script>
+</body>
+</html>
