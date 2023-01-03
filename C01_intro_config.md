@@ -110,6 +110,8 @@ Dans la prochaine fenêtre, sélectionnez `Rechercher un pilote sur mon ordinate
 
 TODO : Compléter la procédure d'installation des pilotes.
 
+TODO : Faire un comparatif entre un Arduino, un raspberry pi et un ordinateur.
+TODO : Parler de l'aspect limité des microcontrôleurs tel que la mémoire et le processeur.
 
 # Références
 - [Ladyada's Learn Arduino - Lesson #2](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-2)
