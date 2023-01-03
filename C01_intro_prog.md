@@ -4,6 +4,7 @@
 - [Comment programmer un Arduino](#comment-programmer-un-arduino)
 - [La fonction `setup`](#la-fonction-setup)
 - [La fonction `loop`](#la-fonction-loop)
+- [Cycle de vie d'un programme](#cycle-de-vie-dun-programme)
 - [Les principaux types de données](#les-principaux-types-de-données)
   - [Précision du type `float`](#précision-du-type-float)
 - [Les variables](#les-variables)
@@ -170,6 +171,10 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 >   }    
 > }
 > ```
+
+# Cycle de vie d'un programme
+
+![Alt text](assets/program_cycle_vie.png)
 
 # Les principaux types de données
 Voici les principaux types de données utilisables dans le langage Arduino :
