@@ -377,8 +377,6 @@ Pour créer un projet, il suffit d'aller dans le bas de la page dans la section 
 
 <video src="assets/wokwi_new_project.mp4" width=640></video>
 
-https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8242-067902a302e1.mp4
-
 ---
 
 ## Exercice - Premier projet
