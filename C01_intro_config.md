@@ -1,5 +1,12 @@
 # Introduction <!-- omit in toc -->
 
+- [Les premiers pas](#les-premiers-pas)
+  - [Moodle](#moodle)
+  - [Teams](#teams)
+  - [Compte GitHub](#compte-github)
+  - [Logiciel](#logiciel)
+  - [Configuration du matériel](#configuration-du-matériel)
+  - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
 - [À propos de cette leçon](#à-propos-de-cette-leçon)
 - [Qu'est-ce qu'un Arduino?](#quest-ce-quun-arduino)
 - [Quel Arduino?](#quel-arduino)
@@ -15,14 +22,57 @@
   - [Résumé](#résumé)
 - [Le matériel du cours](#le-matériel-du-cours)
   - [Achat](#achat)
-- [Les premiers pas](#les-premiers-pas)
-  - [Compte GitHub](#compte-github)
-  - [Logiciel](#logiciel)
-  - [Matériel](#matériel)
-  - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
 - [Exercices](#exercices)
 - [Références](#références)
 
+---
+
+# Les premiers pas
+## Moodle
+Pour avoir accès à certaines de mes notes, vous devrez avoir un compte Moodle et être inscrit à mon cours.
+
+TODO : Compléter la partie Moodle
+
+## Teams
+Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
+
+TODO : Compléter la partie Teams
+
+## Compte GitHub
+Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
+
+GitHub est un site permettant aux développeurs de partager leur code. Il est utilisé par de nombreux développeurs et est un outil très utile pour les projets de programmation. D'ailleurs, plusieurs enseignants utilisent GitHub pour partager leur code avec leurs étudiants.
+
+Tout au long de votre parcours, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
+
+## Logiciel
+Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
+
+Vous devez télécharger la version Windows avec MSI Installer. Cliquez sur le lien pour télécharger le fichier. Une fois le fichier téléchargé, lancez l'installation.
+
+## Configuration du matériel
+Vous avez devant vous une plaque de développement Arduino. Il s'agit du même kit que vous devez vous procurer pour ce cours. Il est composé de deux parties : la carte Arduino et la plaque de support.
+
+Branchez le câble USB de la carte Arduino à votre ordinateur. Vous devriez voir une petite lumière verte s'allumer sur la carte. Cela signifie que la carte est alimentée. Toutefois, cela ne signifie pas que la carte est prête à être utilisée.
+
+En effet, on doit s'assurer que les pilotes sont installés.
+
+Pour vérifier si les pilotes sont installés, ouvrez le logiciel Arduino. Vous devriez voir une fenêtre comme celle-ci :
+
+![Alt text](assets/arduino_ide.png)
+
+Maintenant, sélectionnez la barre défilante située dans la barre d'outils.
+
+![Alt text](assets/arduino_ide_board.gif)
+
+Si les pilotes sont installés, vous devriez voir dans la liste déroulante le nom de votre carte Arduino avec le port qui lui est assigné. Dans mon cas, c'était "Arduino Mega or Mega 2560" sur le `COM26` de mon ordinateur. Le numéro du port peut varier selon votre ordinateur.
+
+> **Note :** `COM` est le préfixe donné pour les ports de communication sur les PC Windows. Il peut y avoir plusieurs ports de communication sur un ordinateur. Ceux-ci sont utilisés pour connecter des périphériques externes à l'ordinateur. Par exemple, un clavier, une souris, une imprimante, etc. Les numéros sont attribués en fonction de l'ordre de connexion des périphériques.
+
+## Installation des pilotes - Si nécessaire
+Généralement, Windows installe les pilotes automatiquement. Cependant, si ce n'est pas le cas, vous devez installer les pilotes manuellement.
+
+Je vous invite à suivre la procédure sur ce site (Anglais): [Sparkfun - How to install CH340 Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
 
 ---
 
@@ -156,42 +206,7 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 - [Plaque de support pour Arduino](https://amzn.to/3jhOVgc).
   - Celle-ci convient aussi pour un Raspberry Pi.
 
-# Les premiers pas
-## Compte GitHub
-Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
 
-GitHub est un site permettant aux développeurs de partager leur code. Il est utilisé par de nombreux développeurs et est un outil très utile pour les projets de programmation. D'ailleurs, plusieurs enseignants utilisent GitHub pour partager leur code avec leurs étudiants.
-
-Tout au long de votre parcours, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
-
-## Logiciel
-Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
-
-Vous devez télécharger la version Windows avec MSI Installer. Cliquez sur le lien pour télécharger le fichier. Une fois le fichier téléchargé, lancez l'installation.
-
-## Matériel
-Vous avez devant vous une plaque de développement Arduino. Il s'agit du même kit que vous devez vous procurer pour ce cours. Il est composé de deux parties : la carte Arduino et la plaque de support.
-
-Branchez le câble USB de la carte Arduino à votre ordinateur. Vous devriez voir une petite lumière verte s'allumer sur la carte. Cela signifie que la carte est alimentée. Toutefois, cela ne signifie pas que la carte est prête à être utilisée.
-
-En effet, on doit s'assurer que les pilotes sont installés.
-
-Pour vérifier si les pilotes sont installés, ouvrez le logiciel Arduino. Vous devriez voir une fenêtre comme celle-ci :
-
-![Alt text](assets/arduino_ide.png)
-
-Maintenant, sélectionnez la barre défilante située dans la barre d'outils.
-
-![Alt text](assets/arduino_ide_board.gif)
-
-Si les pilotes sont installés, vous devriez voir dans la liste déroulante le nom de votre carte Arduino avec le port qui lui est assigné. Dans mon cas, c'était "Arduino Mega or Mega 2560" sur le `COM26` de mon ordinateur. Le numéro du port peut varier selon votre ordinateur.
-
-> **Note :** `COM` est le préfixe donné pour les ports de communication sur les PC Windows. Il peut y avoir plusieurs ports de communication sur un ordinateur. Ceux-ci sont utilisés pour connecter des périphériques externes à l'ordinateur. Par exemple, un clavier, une souris, une imprimante, etc. Les numéros sont attribués en fonction de l'ordre de connexion des périphériques.
-
-## Installation des pilotes - Si nécessaire
-Généralement, Windows installe les pilotes automatiquement. Cependant, si ce n'est pas le cas, vous devez installer les pilotes manuellement.
-
-Je vous invite à suivre la procédure sur ce site (Anglais): [Sparkfun - How to install CH340 Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
 
 ---
 

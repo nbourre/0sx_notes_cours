@@ -15,6 +15,11 @@
 - [Wokwi - Simulateur Arduino](#wokwi---simulateur-arduino)
   - [Créer un projet](#créer-un-projet)
   - [Exercice - Premier projet](#exercice---premier-projet)
+- [Exercices](#exercices)
+  - [Recherches](#recherches)
+  - [Questions](#questions)
+  - [Programmation](#programmation)
+    - [Défi](#défi)
 
 
 # Le langage de programmation
@@ -77,8 +82,6 @@ void maFonctionAvecParametres(int param1, float param2) {
 ```
 
 Il existe également de nombreuses fonctions prédéfinies dans le langage Arduino qui permettent d'interagir avec le microcontrôleur et ses périphériques (lecture et écriture sur les pins, gestion de l'horloge, gestion de la communication série, etc.).
-
-
 
 # Comment programmer un Arduino
 
@@ -384,4 +387,33 @@ https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8
 ## Exercice - Premier projet
 1. Créez un compte GitHub.
 2. Connectez-vous à [Wokwi](https://wokwi.com/) avec votre compte GitHub.
-3. Créez un nouveau projet nommé `c01_ex01` et choisissez le type `Arduino Mega`.
+3. À partir du logiciel Arduino IDE, ouvrir le projet exemple "Blink".
+4. Créez un nouveau projet nommé `c01_ex01` et choisissez le type `Arduino Mega`.
+5. Collez le projet "Blink" dans le nouveau projet Wokwi.
+6. Exécutez le projet.
+7. Modifiez les valeurs de *timing* pour d'autres valeurs et exécutez le projet.
+
+---
+
+# Exercices
+## Recherches
+Dans le but de vous habituer à faire des recherches sur Google, j'ai expressément mis des questions où l'information n'est pas directement dans ce document.
+
+1. Dans certains exemples de code, on retrouve des noms de variable tout en majuscule. Pour quelle raison?
+2. Généralement, quelles sont les valeurs des variables `HIGH`, `LOW` et `LED_BUILTIN`?
+3. Que fait la fonction `delay()`?
+4. Que fait la fonction `pinMode()`?
+5. Combien de mémoire RAM possède le Arduino Mega?
+
+## Questions
+1. Quelle est la différence entre une variable locale et une variable globale?
+2. Quel type de variable est-il préférable d'utiliser pour stocker le temps en milliseconde?
+
+## Programmation
+1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
+2. Modifiez le programme "Fade" pour faire clignoter la LED qui est intégrée sur le Arduino.
+3. Modifiez le programme "Fade" pour faire clignoter la LED plus rapidement.
+
+### Défi
+1. Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
+
