@@ -16,6 +16,7 @@
 - [Le matériel du cours](#le-matériel-du-cours)
   - [Achat](#achat)
 - [Les premiers pas](#les-premiers-pas)
+  - [Compte GitHub](#compte-github)
   - [Logiciel](#logiciel)
   - [Matériel](#matériel)
   - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
@@ -155,6 +156,13 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
   - Celle-ci convient aussi pour un Raspberry Pi.
 
 # Les premiers pas
+## Compte GitHub
+Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
+
+GitHub est un site permettant aux développeurs de partager leur code. Il est utilisé par de nombreux développeurs et est un outil très utile pour les projets de programmation. D'ailleurs, plusieurs enseignants utilisent GitHub pour partager leur code avec leurs étudiants.
+
+Tout au long de votre parcours, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
+
 ## Logiciel
 Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
 

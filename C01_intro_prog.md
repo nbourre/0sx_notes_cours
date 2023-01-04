@@ -1,6 +1,7 @@
 # Introduction <!-- omit in toc -->
 
 - [Le langage de programmation](#le-langage-de-programmation)
+  - [Exemples](#exemples)
 - [Comment programmer un Arduino](#comment-programmer-un-arduino)
 - [La fonction `setup`](#la-fonction-setup)
 - [La fonction `loop`](#la-fonction-loop)
@@ -11,12 +12,21 @@
   - [La portée des variables](#la-portée-des-variables)
   - [Les variables globales](#les-variables-globales)
   - [Les variables statiques](#les-variables-statiques)
+- [Wokwi - Simulateur Arduino](#wokwi---simulateur-arduino)
+  - [Créer un projet](#créer-un-projet)
+  - [Exercice - Premier projet](#exercice---premier-projet)
 
 
 # Le langage de programmation
 Arduino utilise un langage de programmation spécifique appelé "Arduino Language" ou "Arduino C++".
 
 Le langage Arduino est basé sur le langage C++, avec des modifications et des extensions spécifiques pour permettre une utilisation facile des fonctionnalités du microcontrôleur Arduino. Il est donc recommandé de connaître les bases du langage C++ avant de se lancer dans la programmation Arduino.
+
+> **Note**
+> 
+> Si vous avez déjà programmé en C# ou Java, vous verrez que le langage Arduino est très proche de ces langages. C'est d'ailleurs pour cette raison que le langage Arduino est souvent utilisé pour initier les débutants à la programmation.
+
+## Exemples
 
 Voici quelques exemples de structures de base du langage Arduino :
 
@@ -67,6 +77,8 @@ void maFonctionAvecParametres(int param1, float param2) {
 ```
 
 Il existe également de nombreuses fonctions prédéfinies dans le langage Arduino qui permettent d'interagir avec le microcontrôleur et ses périphériques (lecture et écriture sur les pins, gestion de l'horloge, gestion de la communication série, etc.).
+
+
 
 # Comment programmer un Arduino
 
@@ -176,6 +188,8 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 
 ![Alt text](assets/program_cycle_vie.png)
 
+---
+
 # Les principaux types de données
 Voici les principaux types de données utilisables dans le langage Arduino :
 
@@ -236,6 +250,8 @@ int e = (int) d; // e vaut 123456 (perte de précision)
 ```
 
 Il est donc important de prendre en compte ces limitations lors de l'utilisation du type `float` dans vos programmes Arduino. Si vous avez besoin d'une précision supérieure ou d'une plage de valeurs plus grande, il est recommandé d'utiliser le type `double`.
+
+---
 
 # Les variables
 Une variable est un emplacement mémoire dans un ordinateur qui permet de stocker une valeur ou une donnée. En programmation, on utilise des variables pour stocker et manipuler des données dans un programme.
@@ -342,3 +358,26 @@ void boutonClic() {
 Dans cet exemple, la variable statique compteur est déclarée à l'intérieur de la fonction `boutonClic()`, mais sa valeur est conservée entre les exécutions de cette fonction. Ainsi, à chaque exécution de la fonction `boutonClic()`, la valeur de `compteur` est incrémentée de 1 et affichée sur la liaison série.
 
 Les variables statiques sont utiles lorsque vous avez besoin de conserver la valeur d'une variable entre les exécutions d'une fonction, tout en limitant la visibilité de cette variable à l'intérieur de la fonction.
+
+---
+
+# Wokwi - Simulateur Arduino
+Il existe plusieurs sites qui permettent de simuler une partie des fonctionnalités de l'Arduino. Toutefois, je préconise Wokwi. Il est gratuit, il est en ligne, il est simple d'utilisation et il est très complet.
+
+Plusieurs de mes captures d'écran proviendront de [Wokwi](https://wokwi.com/).
+
+Simuler un projet sur un simulateur avant d'effectuer les branchements physiques permet de s'assurer que notre code fonctionne.
+
+> **Note**
+> 
+> À ma dernière vérification, Wokwi ne supportait pas très bien FireFox. Je vous conseille d'utiliser Chrome ou Edge.
+
+## Créer un projet
+Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
+
+![](assets/wokwi_new_project.mp4)
+
+## Exercice - Premier projet
+1. Créez un compte GitHub.
+2. Connectez-vous à [Wokwi](https://wokwi.com/) avec votre compte GitHub.
+3. Créez un nouveau projet nommé `c01_ex01` et choisissez le type `Arduino Mega`.
