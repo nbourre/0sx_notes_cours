@@ -20,6 +20,7 @@
   - [Logiciel](#logiciel)
   - [Matériel](#matériel)
   - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
+- [Exercices](#exercices)
 - [Références](#références)
 
 
@@ -191,6 +192,18 @@ Si les pilotes sont installés, vous devriez voir dans la liste déroulante le n
 Généralement, Windows installe les pilotes automatiquement. Cependant, si ce n'est pas le cas, vous devez installer les pilotes manuellement.
 
 Je vous invite à suivre la procédure sur ce site (Anglais): [Sparkfun - How to install CH340 Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all)
+
+---
+
+# Exercices
+1. Branchez la carte Arduino à votre ordinateur.
+2. Ouvrez le logiciel Arduino IDE.
+3. Trouvez l'exemple "Blink". Où est-il situé?
+4. Téléversez l'exemple "Blink" sur la carte Arduino.
+   - Avez-vous réussi du premier coup? Sinon, trouvez la solution au problème.
+5. Essayez de comprendre le code de l'exemple "Blink".
+6. Selon vous, que fait le code de l'exemple "Blink"?
+
 
 ---
 
