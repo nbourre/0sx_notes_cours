@@ -415,5 +415,5 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 3. Modifiez le programme "Fade" pour faire clignoter la LED plus rapidement.
 
 ### Défi
-1. Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
+- Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
 
