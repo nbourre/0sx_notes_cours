@@ -377,6 +377,10 @@ Pour créer un projet, il suffit d'aller dans le bas de la page dans la section 
 
 ![Video](assets/wokwi_new_project.mp4)
 
+
+https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8242-067902a302e1.mp4
+
+
 ## Exercice - Premier projet
 1. Créez un compte GitHub.
 2. Connectez-vous à [Wokwi](https://wokwi.com/) avec votre compte GitHub.
