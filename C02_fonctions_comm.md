@@ -6,10 +6,18 @@
 - [Introduction](#introduction)
 - [Code de base - Blink](#code-de-base---blink)
 - [DEL par défaut](#del-par-défaut)
-- [pinMode - Gestion des broches](#pinmode---gestion-des-broches)
-- [digitalWrite](#digitalwrite)
-- [delay](#delay)
+- [Fonctions de base](#fonctions-de-base)
+  - [pinMode - Gestion des broches](#pinmode---gestion-des-broches)
+  - [digitalWrite](#digitalwrite)
+  - [delay](#delay)
+  - [millis](#millis)
 - [Fonction en C++](#fonction-en-c)
+  - [Syntaxe](#syntaxe)
+  - [Fonction avec retour de valeur](#fonction-avec-retour-de-valeur)
+  - [Fonction sans retour de valeur (procédure)](#fonction-sans-retour-de-valeur-procédure)
+- [Fonctions de communication](#fonctions-de-communication)
+  - [Serial.begin()](#serialbegin)
+  - [Serial.print() et Serial.println()](#serialprint-et-serialprintln)
 - [Exercices](#exercices)
 
 ---
@@ -68,13 +76,15 @@ void loop() {
 ---
 
 # DEL par défaut
-Une DEL, ou LED en anglais, est une petite lampe qui émet de la lumière quand elle est alimentée. DEL est l'acronyme pour **D**iode **É**lectro**L**uminescente (***L**ight-**E**mitting **d**iode*).
+Une DEL, ou *LED* en anglais, est une petite lampe qui émet de la lumière quand elle est alimentée. DEL est l'acronyme pour **D**iode **É**lectro**L**uminescente (***L**ight-**E**mitting **d**iode*).
 
-Sur les Arduinos, il y a une DEL qui est branchée sur la broche 13. C'est la raison pour laquelle on voit souvent des exemples avec cette DEL, car elle est facile à utiliser.
+Sur les Arduinos, il y a une DEL qui est branchée sur la **broche 13**. C'est la raison pour laquelle on voit souvent des exemples avec cette DEL, car elle est facile à utiliser.
 
 ---
 
-# pinMode - Gestion des broches
+# Fonctions de base
+
+## pinMode - Gestion des broches
 
 La fonction `pinMode` permet de définir le mode d'une broche. Il y a deux modes principaux : `INPUT` et `OUTPUT`.
 
@@ -95,7 +105,7 @@ Dans l'exemple précédent, nous avons utilisé la fonction `pinMode` pour défi
 
 ---
 
-# digitalWrite
+## digitalWrite
 La fonction digitalWrite en Arduino permet de mettre le niveau logique `HIGH` ou `LOW` sur une **broche numérique**.
 
 `HIGH` vaut 1 et `LOW` vaut 0.
@@ -110,7 +120,7 @@ La fonction `digitalWrite` est souvent utilisée pour contrôler des dispositifs
 
 ---
 
-# delay
+## delay
 La fonction `delay` permet de faire une pause dans le programme. Elle prend en paramètre le nombre de millisecondes à attendre. Elle prend un seul argument, qui est le nombre de millisecondes de pause souhaité.
 
 Voici un exemple d'utilisation de la fonction `delay` :
@@ -129,7 +139,16 @@ La fonction `delay` est souvent utilisée pour créer des temporisations ou des 
 
 ---
 
+## millis
+
+La fonction `millis()` dans Arduino est une fonction qui renvoie le nombre de millisecondes qui se sont écoulées depuis le démarrage du microcontrôleur Arduino. Elle peut être utilisée pour calculer des délais précis, tels que le retardement dans une boucle `loop()`. Cela permet aux programmes Arduino d'effectuer des opérations à des intervalles de temps précis, ce qui est très utile pour les projets qui impliquent des délais ou des temps d'exécution.
+
+Elle s'utilise sans paramètre et renvoie un **entier long** (`long int`).
+
+---
+
 # Fonction en C++
+## Syntaxe
 Voici comment déclarer une fonction en Arduino :
 
 ```cpp	
@@ -139,6 +158,10 @@ type additionner(liste_parametres) {
 ```
 
 Le mot-clé `type` peut être remplacé par le type de données du résultat retourné par la fonction. Si la fonction ne retourne pas de résultat, vous pouvez utiliser le mot-clé `void`.
+
+---
+
+## Fonction avec retour de valeur
 
 Voici un exemple de déclaration d'une fonction qui retourne un entier et qui prend deux entiers en paramètre :
 
@@ -175,6 +198,102 @@ void loop() {
 ```
 
 Dans cet exemple, la fonction `additionner` prend deux entiers en paramètre et retourne leur somme. Elle est appelée dans la fonction `loop` et le résultat est affiché sur la liaison série.
+
+---
+
+## Fonction sans retour de valeur (procédure)
+Parfois, on doit répéter des instructions sans que celles-ci n'aient à retourner une valeur. Dans ce cas, on peut déclarer une fonction sans type de retour. On parle alors de **procédure** ou de fonction `void`.
+
+```cpp
+void clignoteLED(int brocheLED, int tauxClignotement) {
+  // Variable statique pour sauvegarder
+  // la valeur de la dernière fois
+  static unsigned long tempsPrecedent = 0; 
+  
+  if (millis() - tempsPrecedent > tauxClignotement) { 
+    digitalWrite(brocheLED, !digitalRead(brocheLED)); 
+    tempsPrecedent = millis();
+  }
+}
+```
+
+---
+
+# Fonctions de communication
+Les fonctions de communication permettent d'envoyer et de recevoir des données à partir d'autres périphériques ou d'autres circuits. Elles sont utilisées pour communiquer avec des périphériques externes, comme des capteurs, des écrans LCD, des modules Bluetooth, etc.
+
+Dans ce cours, nous allons nous intéresser aux fonctions de communication suivantes :
+- `Serial.begin()`
+- `Serial.print()`
+- `Serial.println()`
+
+## Serial.begin()
+La fonction `Serial.begin()` permet de configurer la vitesse de communication avec le port série. Elle prend en paramètre la vitesse de communication en bauds. Par exemple, pour configurer la liaison série à 9600 bauds, on utilise la fonction `Serial.begin(9600)`.
+
+Généralement, on utilise la fonction `Serial.begin()` dans la fonction `setup()`.
+
+Exemple :
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+  // Autre code
+}
+```
+<br />
+
+> **Note**
+> 
+> Un baud est une unité de mesure de la vitesse de transmission de données. Il représente le nombre de bits qui peuvent être transmis par seconde. Par exemple, 9600 bauds signifie que 9600 bits peuvent être transmis par seconde.
+
+---
+
+## Serial.print() et Serial.println()
+
+La fonction `Serial.print()` est une fonction dans l'Arduino qui permet d'envoyer des données série à un port série. Il peut être utilisé pour envoyer un message texte, des données numériques ou des données binaires.
+
+Par exemple, le code suivant permet d'envoyer le message "Bonjour!" à un port série:
+
+```
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.print("Bonjour!");
+  delay(1000);
+}
+```
+
+Ce code initialisera le port série à une vitesse de 9600 bits par seconde, puis enverra le message "Bonjour!" toutes les secondes.
+
+La fonction `Serial.println()` ajoute un retour à la ligne à la fin du message envoyé.
+
+Voici un exemple de code qui utilise les fonctions `Serial.print()` et `Serial.println()` :
+
+```cpp
+
+void setup() {
+  // Initialisation du port
+  // série à 9600 baud
+  Serial.begin(9600);
+}
+
+int counter = 0;
+void loop() {
+  Serial.print("Boucle : ");
+  Serial.println(counter);
+  counter++;
+
+  // Délai pour ne pas ralentir le µC
+  delay(500);
+}
+
+```
+
+![Alt text](assets/ex_serial_print.gif)
+
+---
 
 
 # Exercices

@@ -264,9 +264,9 @@ La portée d'une variable désigne la plage de code dans laquelle la variable es
 
 Il existe plusieurs types de portée de variables dans le langage Arduino :
 
-- Les variables globales sont déclarées en dehors de toutes les fonctions, et sont donc accessibles à toutes les fonctions de votre programme.
-- Les variables locales sont déclarées à l'intérieur d'une fonction, et sont donc uniquement accessibles et utilisables dans cette fonction.
-- Les variables statiques sont déclarées à l'intérieur d'une fonction, mais leur valeur est conservée entre les exécutions de la fonction. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
+- Les **variables globales** sont déclarées en dehors de toutes les fonctions, et sont donc accessibles à toutes les fonctions de votre programme.
+- Les **variables locales** sont déclarées à l'intérieur d'une fonction, et sont donc uniquement accessibles et utilisables dans cette fonction.
+- Les **variables statiques** sont déclarées à l'intérieur d'une fonction, mais leur valeur est conservée entre les exécutions de la fonction. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
 
 Voici un exemple illustrant la portée de différentes variables :
 
