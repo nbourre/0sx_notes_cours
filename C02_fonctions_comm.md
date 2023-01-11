@@ -18,6 +18,7 @@
 - [Fonctions de communication](#fonctions-de-communication)
   - [Serial.begin()](#serialbegin)
   - [Serial.print() et Serial.println()](#serialprint-et-serialprintln)
+- [Moniteur série](#moniteur-série)
 - [Exercices](#exercices)
 
 ---
@@ -293,8 +294,14 @@ void loop() {
 
 ![Alt text](assets/ex_serial_print.gif)
 
+# Moniteur série
+Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moniteur série. Pour cela, cliquez sur le menu `Outils` puis sur `Moniteur série`.
+
+Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
+
 ---
 
 
 # Exercices
 - Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
+- Modifiez le programmation précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
