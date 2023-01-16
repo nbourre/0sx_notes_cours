@@ -37,7 +37,7 @@ Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir u
 ## Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
 
-TODO : Compléter la partie Teams
+- **Lien vers [Teams](https://teams.microsoft.com/l/team/19%3aMAZuLdF2Thx9FkXHF9_mGFCZCWK-L2k1FJXH2zkjL7k1%40thread.tacv2/conversations?groupId=d000a4c4-3d3d-4b05-af28-3d69589e53d3&tenantId=b03caa02-c798-45ad-a2bd-41c7e4851423)**
 
 ## Compte GitHub
 Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
