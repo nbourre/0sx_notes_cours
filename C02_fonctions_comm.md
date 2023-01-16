@@ -299,9 +299,11 @@ Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moni
 
 Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
 
----
+![Alt text](assets/arduino_serial_monitor_start.gif)
 
+---
 
 # Exercices
 - Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
-- Modifiez le programmation précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
+- Modifiez le programme précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
+  - Exemple de sortie : `LED allumée` ou `LED éteinte`

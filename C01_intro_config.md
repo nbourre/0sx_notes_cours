@@ -29,9 +29,10 @@
 
 # Les premiers pas
 ## Moodle
-Pour avoir accès à certaines de mes notes, vous devrez avoir un compte Moodle et être inscrit à mon cours.
+Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir un compte Moodle et être inscrit à mon cours.
 
-TODO : Compléter la partie Moodle
+- **Lien vers le cours** : [Moodle](https://moodle.cshawi.ca/mod/page/view.php?id=9499&forceview=1)
+- **Code pour le cours** : `ohGeez!`
 
 ## Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
