@@ -204,7 +204,7 @@ Un microprocesseur, d'autre part, est un composant central de l'ordinateur qui e
 ## Achat
 Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage et d'un ordinateur. Voici les liens pour acheter les items requis sur Amazon:
 - [Arduino Mega](https://amzn.to/3v0aGDK).
-- [Plaque de support pour Arduino](https://amzn.to/3jhOVgc).
+- [Plaque de support pour Arduino](https://amzn.to/3iN5dxt).
   - Celle-ci convient aussi pour un Raspberry Pi.
 
 
