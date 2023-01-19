@@ -29,7 +29,7 @@ Le langage Arduino est basé sur le langage C++, avec des modifications et des e
 
 > **Note**
 > 
-> Si vous avez déjà programmé en C# ou Java, vous verrez que le langage Arduino est très proche de ces langages. C'est d'ailleurs pour cette raison que le langage Arduino est souvent utilisé pour initier les débutants à la programmation.
+> Si vous avez déjà programmé en C# ou Java, vous verrez que le langage Arduino est très proche de ces langages. C'est d'ailleurs pour cette raison que le langage Arduino est souvent utilisé pour initier les débutants à la programmation embarquée.
 
 ## Exemples
 
@@ -385,7 +385,7 @@ https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8
 ---
 
 ## Exercice - Premier projet
-1. Créez un compte GitHub.
+1. Si ce n'est déjà fait, créez un compte GitHub.
 2. Connectez-vous à [Wokwi](https://wokwi.com/) avec votre compte GitHub.
 3. À partir du logiciel Arduino IDE, ouvrir le projet exemple "Blink".
 4. Créez un nouveau projet nommé `c01_ex01` et choisissez le type `Arduino Mega`.
@@ -411,8 +411,8 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 
 ## Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
-2. Modifiez le programme "Fade" pour faire clignoter la LED qui est intégrée sur le Arduino.
-3. Modifiez le programme "Fade" pour faire clignoter la LED plus rapidement.
+2. Modifiez le programme "Fade" pour faire réagir la LED qui est intégrée sur le Arduino.
+3. Modifiez le programme "Fade" pour faire graduer la LED plus rapidement.
 
 ### Défi
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
