@@ -412,7 +412,7 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 ## Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
 2. Modifiez le programme "Fade" pour faire réagir la LED qui est intégrée sur le Arduino.
-3. Modifiez le programme "Fade" pour faire graduer la LED plus rapidement.
+3. Modifiez le programme "Fade" pour faire gradueryou la LED plus rapidement.
 
 ### Défi
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.

@@ -4,21 +4,20 @@
 # Table des matières <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Code de base - Blink](#code-de-base---blink)
+- [Exemple - Blink](#exemple---blink)
 - [DEL par défaut](#del-par-défaut)
 - [Fonctions de base](#fonctions-de-base)
   - [pinMode - Gestion des broches](#pinmode---gestion-des-broches)
   - [digitalWrite](#digitalwrite)
   - [delay](#delay)
   - [millis](#millis)
-- [Fonction en C++](#fonction-en-c)
-  - [Syntaxe](#syntaxe)
-  - [Fonction avec retour de valeur](#fonction-avec-retour-de-valeur)
-  - [Fonction sans retour de valeur (procédure)](#fonction-sans-retour-de-valeur-procédure)
+- [Exemple `Fade`](#exemple-fade)
+  - [fonction `analogWrite`](#fonction-analogwrite)
 - [Fonctions de communication](#fonctions-de-communication)
   - [Serial.begin()](#serialbegin)
   - [Serial.print() et Serial.println()](#serialprint-et-serialprintln)
-- [Moniteur série](#moniteur-série)
+  - [Moniteur série](#moniteur-série)
+  - [Port série... mais c'est quoi??](#port-série-mais-cest-quoi)
 - [Exercices](#exercices)
 
 ---
@@ -28,7 +27,7 @@ Dans ce cours, nous allons apprendre à utiliser quelques fonctions fondamentale
 
 ---
 
-# Code de base - Blink
+# Exemple - Blink
 
 Voici le code de base pour faire clignoter une LED branchée sur la broche 13 de l'Arduino.
 
@@ -148,75 +147,48 @@ Elle s'utilise sans paramètre et renvoie un **entier long** (`long int`).
 
 ---
 
-# Fonction en C++
-## Syntaxe
-Voici comment déclarer une fonction en Arduino :
+# Exemple `Fade`
 
-```cpp	
-type additionner(liste_parametres) {
-  // Corps de la fonction
-}
-```
-
-Le mot-clé `type` peut être remplacé par le type de données du résultat retourné par la fonction. Si la fonction ne retourne pas de résultat, vous pouvez utiliser le mot-clé `void`.
-
----
-
-## Fonction avec retour de valeur
-
-Voici un exemple de déclaration d'une fonction qui retourne un entier et qui prend deux entiers en paramètre :
-
+Voici un autre exemple de base fournit par Arduino. Il s'agit d'un programme qui fait varier la luminosité d'une DEL en utilisant la fonction `analogWrite`.
+  
 ```cpp
-int additionner(int x, int y) {
-  // Corps de la fonction
-}
-```
-
-Pour appeler une fonction, vous pouvez utiliser son nom suivi de parenthèses contenant les arguments à passer à la fonction. Par exemple :
-
-```cpp
-int resultat = additionner(10, 20);
-```
-
-Voici un exemple complet de fonction en Arduino :
-
-```cpp
-int additionner(int x, int y) {
-  int resultat = x + y;
-  return resultat;
-}
+int led = 9; // LED connectée à la broche 9
+int brightness = 0; // Valeur de luminosité
+int fadeAmount = 5; // Valeur de variation de luminosité
 
 void setup() {
-  Serial.begin(9600);
+  pinMode(led, OUTPUT); // Définit la broche 9 en mode sortie
 }
 
 void loop() {
-  int res = additionner(10, 20);
-  Serial.println(res);
-  delay(1000);
+  analogWrite(led, brightness); // Change la luminosité de la LED
+  brightness = brightness + fadeAmount; // Change la valeur de luminosité
+
+  // Inverse la variation de luminosité quand la valeur de luminosité atteint 0 ou 255
+  if (brightness <= 0 || brightness >= 255) {
+    fadeAmount = -fadeAmount;
+  }
+  // Attend 30 millisecondes avant de recommencer
+  delay(30);
 }
 
 ```
-
-Dans cet exemple, la fonction `additionner` prend deux entiers en paramètre et retourne leur somme. Elle est appelée dans la fonction `loop` et le résultat est affiché sur la liaison série.
 
 ---
 
-## Fonction sans retour de valeur (procédure)
-Parfois, on doit répéter des instructions sans que celles-ci n'aient à retourner une valeur. Dans ce cas, on peut déclarer une fonction sans type de retour. On parle alors de **procédure** ou de fonction `void`.
+## fonction `analogWrite`
+La fonction `analogWrite` permet de générer une tension analogique sur une **broche PWM**. Elle prend en paramètre le numéro de la broche sur laquelle on veut envoyer le signal et la valeur de la tension souhaitée.
+Pour être plus simple, pensez à une valeur en pourcentage sur 255. Voici quelques exemples :
 
 ```cpp
-void clignoteLED(int brocheLED, int tauxClignotement) {
-  // Variable statique pour sauvegarder
-  // la valeur de la dernière fois
-  static unsigned long tempsPrecedent = 0; 
-  
-  if (millis() - tempsPrecedent > tauxClignotement) { 
-    digitalWrite(brocheLED, !digitalRead(brocheLED)); 
-    tempsPrecedent = millis();
-  }
-}
+analogWrite(13, 127); // 50% de 255 = 127
+analogWrite(13, 26); // 10% de 255 = 26
+analogWrite(13, 255); // 100% de 255 = 255
 ```
+
+Sur le Arduino Mega, les broches PWM sont les broches 2 à 13 ainsi que 44, 45 et 46.
+
+Nous verrons en cours de session ce qu'est exactement le **PWM**.
 
 ---
 
@@ -294,12 +266,32 @@ void loop() {
 
 ![Alt text](assets/ex_serial_print.gif)
 
-# Moniteur série
+> **Note**
+> 
+> Il est important de mettre un délai entre chaque envoi de données via le port série. Si vous ne mettez pas de délai, le programme va envoyer les données aussi vite que possible. Cela peut ralentir le programme et causer des problèmes.  
+
+## Moniteur série
 Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moniteur série. Pour cela, cliquez sur le menu `Outils` puis sur `Moniteur série`.
 
 Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
 
 ![Alt text](assets/arduino_serial_monitor_start.gif)
+
+---
+
+## Port série... mais c'est quoi??
+Un port série est un port de communication qui permet d'envoyer et de recevoir des données. Il est composé de 2 fils, un fil pour envoyer des données et un fil pour recevoir des données.
+
+Dans le cas des Arduino, le port série est utilisé pour envoyer des données à l'ordinateur. Il est également possible d'utiliser le port série pour envoyer des données à un autre Arduino.
+
+Les ports séries sont identifiés par les lettres **TX** et **RX**. Le fil TX (transmission) est utilisé pour envoyer des données et le fil RX (réception) est utilisé pour recevoir des données.
+
+Regardez votre Arduino et identifiez les broches TX et RX.
+
+**Question** : Combien en comptez-vous?
+
+
+TODO : Indiquer que le port série 0 est utilisé pour communiquer avec l'ordinateur via le câble USB.
 
 ---
 
