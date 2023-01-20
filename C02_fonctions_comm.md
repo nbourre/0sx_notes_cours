@@ -13,11 +13,15 @@
   - [millis](#millis)
 - [Exemple `Fade`](#exemple-fade)
   - [fonction `analogWrite`](#fonction-analogwrite)
-- [Fonctions de communication](#fonctions-de-communication)
+- [Fonctions de communication série](#fonctions-de-communication-série)
   - [Serial.begin()](#serialbegin)
   - [Serial.print() et Serial.println()](#serialprint-et-serialprintln)
+    - [Exercice](#exercice)
   - [Moniteur série](#moniteur-série)
   - [Port série... mais c'est quoi??](#port-série-mais-cest-quoi)
+    - [Questions](#questions)
+  - [Port série : La science](#port-série--la-science)
+  - [Résumé](#résumé)
 - [Exercices](#exercices)
 
 ---
@@ -192,7 +196,7 @@ Nous verrons en cours de session ce qu'est exactement le **PWM**.
 
 ---
 
-# Fonctions de communication
+# Fonctions de communication série
 Les fonctions de communication permettent d'envoyer et de recevoir des données à partir d'autres périphériques ou d'autres circuits. Elles sont utilisées pour communiquer avec des périphériques externes, comme des capteurs, des écrans LCD, des modules Bluetooth, etc.
 
 Dans ce cours, nous allons nous intéresser aux fonctions de communication suivantes :
@@ -244,6 +248,20 @@ La fonction `Serial.println()` ajoute un retour à la ligne à la fin du message
 
 Voici un exemple de code qui utilise les fonctions `Serial.print()` et `Serial.println()` :
 
+<table>
+<tr>
+<td>
+
+**Code**
+</td>
+<td>
+
+**Résultat**
+</td>
+</tr>
+<tr>
+<td>
+
 ```cpp
 
 void setup() {
@@ -263,12 +281,33 @@ void loop() {
 }
 
 ```
+</td>
+<td>
 
 ![Alt text](assets/ex_serial_print.gif)
 
+</td>
+
+</tr>
+
+
+</table>
+
 > **Note**
 > 
-> Il est important de mettre un délai entre chaque envoi de données via le port série. Si vous ne mettez pas de délai, le programme va envoyer les données aussi vite que possible. Cela peut ralentir le programme et causer des problèmes.  
+> Il est important de mettre un délai entre chaque envoi de données via le port série. Si vous ne mettez pas de délai, le programme va envoyer les données aussi vite que possible. Cela peut ralentir le programme et causer des problèmes.
+
+### Exercice
+- Envoyez le code de l'exemple précédént sur votre carte Arduino.
+- Que remarquez-vous sur l'Arduino?
+
+<details><summary>Réponse</summary>
+
+La led TX de l'Arduino clignote. Cela signifie que des données sont envoyées sur le port série.
+
+</details>
+
+---
 
 ## Moniteur série
 Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moniteur série. Pour cela, cliquez sur le menu `Outils` puis sur `Moniteur série`.
@@ -282,16 +321,49 @@ Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vites
 ## Port série... mais c'est quoi??
 Un port série est un port de communication qui permet d'envoyer et de recevoir des données. Il est composé de 2 fils, un fil pour envoyer des données et un fil pour recevoir des données.
 
-Dans le cas des Arduino, le port série est utilisé pour envoyer des données à l'ordinateur. Il est également possible d'utiliser le port série pour envoyer des données à un autre Arduino.
+Dans le cas des Arduino, un port série est utilisé pour envoyer des données à l'ordinateur. Il est également possible d'utiliser un port série pour envoyer des données à un autre Arduino.
 
 Les ports séries sont identifiés par les lettres **TX** et **RX**. Le fil TX (transmission) est utilisé pour envoyer des données et le fil RX (réception) est utilisé pour recevoir des données.
 
-Regardez votre Arduino et identifiez les broches TX et RX.
+---
 
-**Question** : Combien en comptez-vous?
+### Questions
+- Regardez votre Arduino et identifiez les broches TX et RX. Combien en comptez-vous?
+- Quels sont les numros des broches TX et RX sur l'Arduino Mega?
 
+Le port série 0 est utilisé pour communiquer avec l'ordinateur via le câble USB. En effet, comme la DEL qui est sur le port 13, le port série 0 est branché sur le USB.
 
-TODO : Indiquer que le port série 0 est utilisé pour communiquer avec l'ordinateur via le câble USB.
+> **Note**
+> 
+> Il se peut que vous ne voyez pas `RX0` et `TX0` sur votre Arduino, mais seulement `RX` et `TX`. C'est normal, c'est la même chose.
+
+Les ports séries sur le Mega sont les suivants :
+
+| Port série | Broche TX | Broche RX |
+|------------|-----------|-----------|
+| Serial          | 0         | 1         |
+| Serial1     | 18        | 19        |
+| Serial2          | 16        | 17        |
+| Serial3          | 14        | 15        |
+
+---
+
+## Port série : La science
+Les ports séries utilisent un protocole de communication série, qui signifie que les données sont transmises bit par bit, plutôt que par paquet comme dans le cas des ports USB ou Ethernet.
+
+Vous allez parfois voir le terme **UART** qui signifie **Universal Asynchronous Receiver/Transmitter**. C'est un protocole de communication série qui permet de transmettre des données entre 2 périphériques. Cependant, il s'agit principalement de la même chose que le port série.
+
+Il est important de noter que pour utiliser les ports série, il est nécessaire de configurer les paramètres de communication appropriés tels que la vitesse de transmission, le nombre de bits de données et le contrôle de flux. Cela peut être fait en utilisant des fonctions dédiées dans le code Arduino.
+
+---
+
+## Résumé
+- On doit initialiser le port série avec la fonction `Serial.begin()`.
+- Pour lire et envoyer de l’information, il faut que le logiciel soit à la même vitesse que l’appareil
+  - Donc si l’appareil est à 9600, **il faut que le logiciel soit aussi à la même vitesse**
+  - Sinon, vous obtiendrez un résultat similaire à ceci `3??<ÌxÌ▯▯▯ü³??f<`
+- On met un délai à la fin de l’affichage pour ne pas surutiliser le µC
+
 
 ---
 
