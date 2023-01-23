@@ -207,8 +207,6 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 - [Plaque de support pour Arduino](https://amzn.to/3iN5dxt).
   - Celle-ci convient aussi pour un Raspberry Pi.
 
-
-
 ---
 
 # Exercices
@@ -219,7 +217,6 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
    - Avez-vous réussi du premier coup? Sinon, trouvez la solution au problème.
 5. Essayez de comprendre le code de l'exemple "Blink".
 6. Selon vous, que fait le code de l'exemple "Blink"?
-
 
 ---
 
