@@ -2,10 +2,10 @@ ARDUINO
 
 Guide d’introduction
 
-<img src="intro_arduino/media/image1.png"
+<img src="media/image1.png"
 style="width:2.59406in;height:1.7663in" alt="Arduino — Wikipédia" />
 
-<img src="intro_arduino/media/image2.png"
+<img src="media/image2.png"
 style="width:1.76521in;height:0.51485in" />
 
 Jean-Philippe Boulard (Mars 2022)
@@ -81,7 +81,7 @@ Il s’agit du modèle de base de petite dimension (45mm x 18mm). Le
 contrôleur **ATMega328** fonctionne à 16MHz et il possède une mémoire de
 32KB. Son connecteur USB est de type « Mini-B ».
 
-<img src="intro_arduino/media/image3.png"
+<img src="media/image3.png"
 style="width:1.47927in;height:1.18152in"
 alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
@@ -94,7 +94,7 @@ connecteurs analogue (*pins*) que le modèle NANO. De dimension moyenne
 (54mm x 69mm), il utilise le contrôleur **ATMega328P** à 16 MHz avec un
 mémoire de 32KB. Son connecteur USB est de type « USB-B ».
 
-<img src="intro_arduino/media/image4.png"
+<img src="media/image4.png"
 style="width:2.26071in;height:1.45598in"
 alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
@@ -107,7 +107,7 @@ Il s’agit du modèle plus *costaud*. De plus grande dimension (54mm x
 équipé du contrôleur **ATM2560** à 16MHz et d’une mémoire de 256KB. Son
 connecteur USB est de type « USB-B ».
 
-<img src="intro_arduino/media/image5.png"
+<img src="media/image5.png"
 style="width:2.44331in;height:1.89513in"
 alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
@@ -115,7 +115,7 @@ alt="Une image contenant équipement électronique, circuit Description génér�
 
 ## Comparaison entre les tailles
 
-<img src="intro_arduino/media/image6.png"
+<img src="media/image6.png"
 style="width:5.29861in;height:1.28472in"
 alt="Une image contenant texte, équipement électronique, circuit Description générée automatiquement" />
 
@@ -152,7 +152,7 @@ composantes** » à la suite de cette section.
 
 ## Câble USB type USB-B
 
-<img src="intro_arduino/media/image7.jpeg"
+<img src="media/image7.jpeg"
 style="width:1.42627in;height:1.0692in" />
 
 Le câble USB permet de relier la carte ARDUINO à un ordinateur afin d’y
@@ -164,12 +164,12 @@ alimenter votre carte avec une autre source d’énergie si vous désirez
 qu’elle puisse fonctionner de manière autonome (batteries ou bloc
 d’alimentation).
 
-<img src="intro_arduino/media/image8.png"
+<img src="media/image8.png"
 style="width:3.46087in;height:1.74485in" />
 
 ## Platine d'expérimentation sans soudure (*Breadboard*)
 
-<img src="intro_arduino/media/image9.jpeg"
+<img src="media/image9.jpeg"
 style="width:2.24167in;height:1.47986in" />La platine d’expérimentation
 permet de réaliser un montage avec des composantes électroniques sans
 avoir à les souder.
@@ -179,7 +179,7 @@ avoir à les souder.
   sur les platines standards. Chaque section peut être alimentée de
   manière indépendante.
 
-<img src="intro_arduino/media/image10.png"
+<img src="media/image10.png"
 style="width:2.33795in;height:0.74976in"
 alt="Une image contenant texte Description générée automatiquement" />
 
@@ -189,24 +189,24 @@ alt="Une image contenant texte Description générée automatiquement" />
 - Tous les points d’une ligne sont rattachés ensemble, i.e. ils agissent
   comme si c’était un seul fil.
 
-<img src="intro_arduino/media/image11.png"
+<img src="media/image11.png"
 style="width:0.92368in;height:0.36552in"
 alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
 
 - Une ligne s’arrête avec l’encoche qui délimite les deux sections.
 
-<img src="intro_arduino/media/image12.png"
+<img src="media/image12.png"
 style="width:2.33156in;height:0.38586in"
 alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
 
-<img src="intro_arduino/media/image13.png"
+<img src="media/image13.png"
 style="width:3.30422in;height:2.41429in" alt="breadboard" />
 
 Figure : Branchement interne d'une platine d’expérimentation
 
 ## Fil de raccordement M/M (*Jumper wires*)
 
-<img src="intro_arduino/media/image14.png"
+<img src="media/image14.png"
 style="width:1.36111in;height:1.36111in" />
 
 Les fils de raccordement M/M (pour Mâle/Mâle) sont utilisés pour lier
@@ -221,13 +221,13 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
   > afin de faciliter la lecture de vos circuits et ainsi vous permettre
   > de relever rapidement les erreurs potentielles.
 
-> <img src="intro_arduino/media/image15.jpeg"
+> <img src="media/image15.jpeg"
 > style="width:2.48611in;height:1.86458in" />  
 > (source :<https://www.hackster.io/super-kid/windows-remote-arduino-windows-remote-arduino-experience-a5ea4d>)
 
 ## Fil de raccordement M/F (*Jumper wires)*
 
-<img src="intro_arduino/media/image17.png"
+<img src="media/image17.png"
 style="width:1.40278in;height:1.37472in" />
 
 Les fils de raccordement M/F (pour Mâle/Femelle) sont utilisés pour lier
@@ -241,14 +241,14 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
   > afin de faciliter la lecture de vos circuits et ainsi vous permettre
   > de relever rapidement les erreurs potentielles.
 
-> <img src="intro_arduino/media/image18.jpeg"
+> <img src="media/image18.jpeg"
 > style="width:2.59722in;height:1.83333in" />
 >
 > (Source :
 > <http://electroniqueamateur.blogspot.com/2020/09/capteur-de-son-ky-038-et-arduino.html>
 > )
 
-## <img src="intro_arduino/media/image20.png"
+## <img src="media/image20.png"
 style="width:1.03125in;height:1.5in" />Attache batterie 9V (*9V battery snap*)
 
 L’attache de batterie 9V permet à la carte Arduino d’avoir une
@@ -258,7 +258,7 @@ alimentation électrique sans être rattachée au port USB de l’ordinateur.
 
 (Blanche, rouge, verte, bleue, jaune)
 
-<img src="intro_arduino/media/image21.png"
+<img src="media/image21.png"
 style="width:0.84236in;height:1.49792in" />
 
 Une DEL (*led*) ou **d**iodes **é**lectro**l**uminescentes est un
@@ -280,7 +280,7 @@ repérer facilement.
 <thead>
 <tr class="header">
 <th><strong>Anode (+)</strong></th>
-<th rowspan="2"><img src="intro_arduino/media/image22.png"
+<th rowspan="2"><img src="media/image22.png"
 style="width:0.75in;height:1.64713in" />(1)</th>
 <th><strong>Cathode (-)</strong></th>
 </tr>
@@ -321,7 +321,7 @@ DEL RVB.
 
 ## Résistance (*Resistor*)
 
-<img src="intro_arduino/media/image24.jpeg"
+<img src="media/image24.jpeg"
 style="width:1.29583in;height:0.9in" />
 
 La résistance permet de contrôler l’intensité dans un circuit
@@ -335,20 +335,20 @@ Pour connaitre la valeur d’une résistance, vous pouvez :
 
 - **Utiliser un multimètre :**
 
-<img src="intro_arduino/media/image25.png"
+<img src="media/image25.png"
 style="width:3.18448in;height:2.11382in"
 alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
 
 - **Utiliser le tableau suivant :**
 
-<img src="intro_arduino/media/image26.png"
+<img src="media/image26.png"
 style="width:3.30726in;height:4.68018in" />
 
 # Autres composantes
 
 ## DEL RVB (*LED RGB*)
 
-<img src="intro_arduino/media/image27.png"
+<img src="media/image27.png"
 style="width:1.22495in;height:0.77556in" />
 
 Les DEL RVB combinent trois DEL : une Rouge, une Verte et une Bleu. Cela
@@ -370,7 +370,7 @@ chaque tige qui contrôle la couleur).</span>*
 Utiliser la Cathode (tige la plus grande) comme point de référence. Les
 autres « Anodes » servent pour chacune des couleurs.
 
-<img src="intro_arduino/media/image28.png"
+<img src="media/image28.png"
 style="width:2.9167in;height:1.09463in" />
 
 Source :
@@ -380,8 +380,8 @@ Source :
 
 Dans les kits fournit, il y a quelques boutons poussoir.
 
-| <img src="intro_arduino/media/image29.png"                                                                                              
- style="width:1.91218in;height:0.98591in" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="intro_arduino/media/image30.png"                                                                                                            
+| <img src="media/image29.png"                                                                                              
+ style="width:1.91218in;height:0.98591in" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="media/image30.png"                                                                                                            
                                                                                                                                            style="width:1.31667in;height:1.04236in" />À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.  |
 |-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 
