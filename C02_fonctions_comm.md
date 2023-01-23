@@ -22,6 +22,9 @@
     - [Questions](#questions)
   - [Port série : La science](#port-série--la-science)
   - [Résumé](#résumé)
+- [Algorithme simple pour gérer les états](#algorithme-simple-pour-gérer-les-états)
+  - [État d'un périphérique](#état-dun-périphérique)
+  - [État de l'application](#état-de-lapplication)
 - [Exercices](#exercices)
 
 ---
@@ -364,10 +367,88 @@ Il est important de noter que pour utiliser les ports série, il est nécessaire
   - Sinon, vous obtiendrez un résultat similaire à ceci `3??<ÌxÌ▯▯▯ü³??f<`
 - On met un délai à la fin de l’affichage pour ne pas surutiliser le µC
 
+---
+
+# Algorithme simple pour gérer les états
+Les états dans Arduino sont utilisés pour stocker l'état actuel d'un périphérique ou d'une variable ou d'un mode. Ils peuvent être utilisés pour contrôler des actions ou des comportements dans un programme. Par exemple, dans un programme de contrôle de DEL, vous pouvez utiliser un état pour stocker l'état actuel de la DEL (allumée ou éteinte).
+
+## État d'un périphérique
+Voici un exemple d'utilisation des états pour contrôler une DEL :
+
+```cpp
+//définir la broche de la DEL
+const int ledPin = 13;
+//définir l'état de la DEL
+bool ledState = LOW;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  //inverser l'état de la DEL
+  ledState = !ledState;
+  digitalWrite(ledPin, ledState);
+  delay(1000);
+}
+```
+
+---
+## État de l'application
+Voici un exemple d'utilisation des états pour contrôler un programme :
+
+```cpp
+//définir la broche de la DEL
+const int ledPin = 13;
+//définir l'état de la DEL
+bool ledState = LOW;
+
+//définir l'état de l'application
+int appState = 0; // 0 = 1 fois par seconde, 1 = 4 fois par seconde
+int counter = 0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (appState == 0) {
+    //inverser l'état de la DEL
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    delay(500);
+    counter++;
+    if (counter == 2) {
+      counter = 0;
+      appState = 1;
+    }
+  } else if (appState == 1) {
+    //inverser l'état de la DEL
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    delay(125);
+    counter++;
+    if (counter == 8) {
+      counter = 0;
+      appState = 0;
+    }
+  }
+}
+
+```
+
+---
+
+Il y a plusieurs raisons pour lesquelles il est important d'utiliser des états dans un programme de microcontrôleur:
+
+- Clarté du code: en utilisant des états pour stocker l'état actuel d'un périphérique ou d'une variable, vous pouvez rendre votre code plus clair et plus facile à comprendre. Cela permet également de rendre le code plus facile à déboguer et à maintenir.
+- Meilleure utilisation des ressources: en utilisant des états pour contrôler les actions et les comportements d'un programme, vous pouvez éviter de répéter des actions inutiles ou de consommer inutilement les ressources du microcontrôleur.
+- Interaction en temps réel: en utilisant des états pour réagir aux entrées en temps réel, vous pouvez créer des programmes qui réagissent rapidement aux changements d'état et qui peuvent prendre des décisions en temps réel.
+- Plus grande flexibilité: en utilisant des états pour contrôler les actions d'un programme, vous pouvez facilement ajouter de nouvelles fonctionnalités ou changer le comportement d'un programme sans avoir à réécrire entièrement le code.
+
+En résumé, l'utilisation des états permet de rendre le code plus clair, plus efficace, plus réactif et plus flexible, ce qui est essentiel pour créer des programmes efficaces pour les microcontrôleurs.
 
 ---
 
 # Exercices
-- Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
-- Modifiez le programme précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
-  - Exemple de sortie : `LED allumée` ou `LED éteinte`
+- [Page d'exercices](C02_fonctions_comm_exo.md)
