@@ -1,65 +1,40 @@
-ARDUINO
+# ARDUINO <!-- omit in toc -->
 
-Guide d’introduction
+# Guide d’introduction  <!-- omit in toc -->
 
-<img src="media/image1.png"
-style="width:2.59406in;height:1.7663in" alt="Arduino — Wikipédia" />
+<img src="media/image1.png" alt="Arduino — Wikipédia" />
 
-<img src="media/image2.png"
-style="width:1.76521in;height:0.51485in" />
+<img src="media/image2.png" />
 
-Jean-Philippe Boulard (Mars 2022)
+- Auteur : Jean-Philippe Boulard (Mars 2022)
+- Révision : Nicolas Bourré (H23)
 
-Rév. Nicolas Bourré (A22)
+---
 
-# Table des matières
+- [Introduction](#introduction)
+- [Qu’est-ce que Arduino?](#quest-ce-que-arduino)
+  - [Arduino NANO](#arduino-nano)
+  - [Arduino UNO R3](#arduino-uno-r3)
+  - [Arduino MEGA 2560 (rev3)](#arduino-mega-2560-rev3)
+  - [Comparaison entre les tailles](#comparaison-entre-les-tailles)
+    - [Tableau résumé](#tableau-résumé)
+  - [Références](#références)
+- [Composantes de base](#composantes-de-base)
+  - [Câble USB type USB-B](#câble-usb-type-usb-b)
+  - [Platine d'expérimentation sans soudure (*Breadboard*)](#platine-dexpérimentation-sans-soudure-breadboard)
+  - [Fil de raccordement M/M (*Jumper wires*)](#fil-de-raccordement-mm-jumper-wires)
+  - [Fil de raccordement M/F (*Jumper wires)*](#fil-de-raccordement-mf-jumper-wires)
+  - [\<img src="media/image20.png"](#img-srcmediaimage20png)
+  - [DEL (*LED*)](#del-led)
+    - [Intensité](#intensité)
+  - [Résistance (*Resistor*)](#résistance-resistor)
+- [Autres composantes](#autres-composantes)
+  - [DEL RVB (*LED RGB*)](#del-rvb-led-rgb)
+  - [Bouton poussoir](#bouton-poussoir)
+    - [Référence](#référence)
+- [Ressources et références](#ressources-et-références)
 
-[Introduction [3](#introduction)](#introduction)
-
-[Qu’est-ce que Arduino?
-[4](#quest-ce-que-arduino)](#quest-ce-que-arduino)
-
-[Arduino NANO [4](#arduino-nano)](#arduino-nano)
-
-[Arduino UNO R3 [4](#arduino-uno-r3)](#arduino-uno-r3)
-
-[Arduino MEGA 2560 (rev3)
-[4](#arduino-mega-2560-rev3)](#arduino-mega-2560-rev3)
-
-[Comparaison entre les tailles
-[5](#comparaison-entre-les-tailles)](#comparaison-entre-les-tailles)
-
-[Références [5](#références)](#références)
-
-[Composantes de base [6](#composantes-de-base)](#composantes-de-base)
-
-[Câble USB type USB-B [6](#câble-usb-type-usb-b)](#câble-usb-type-usb-b)
-
-[Platine d'expérimentation sans soudure (*Breadboard*)
-[6](#platine-dexpérimentation-sans-soudure-breadboard)](#platine-dexpérimentation-sans-soudure-breadboard)
-
-[Fil de raccordement M/M (*Jumper wires*)
-[7](#fil-de-raccordement-mm-jumper-wires)](#fil-de-raccordement-mm-jumper-wires)
-
-[Fil de raccordement M/F (*Jumper wires)*
-[7](#fil-de-raccordement-mf-jumper-wires)](#fil-de-raccordement-mf-jumper-wires)
-
-[Attache batterie 9V (*9V battery snap*)
-[8](#attache-batterie-9v-9v-battery-snap)](#attache-batterie-9v-9v-battery-snap)
-
-[DEL (*LED*) [8](#del-led)](#del-led)
-
-[Intensité [8](#intensité)](#intensité)
-
-[Résistance (*Resistor*)
-[9](#résistance-resistor)](#résistance-resistor)
-
-[Autres composantes [10](#autres-composantes)](#autres-composantes)
-
-[DEL RVB (*LED RGB*) [10](#del-rvb-led-rgb)](#del-rvb-led-rgb)
-
-[Ressources et références
-[11](#ressources-et-références)](#ressources-et-références)
+---
 
 # Introduction
 
@@ -68,12 +43,14 @@ Rév. Nicolas Bourré (A22)
 Arduino est une plateforme de prototypage de type « *Open-Source* »
 utilisant un circuit électronique et un microcontrôleur. Le
 fonctionnement simple de ces cartes avec microcontrôleurs, réside dans
-la possibilité à LIRE une information ENTRANTE (*INPUT*) puis après
-analyse, de poser une ACTION (*OUTPUT*).
+la possibilité à LIRE une information ENTRANTE (`INPUT`) puis après
+analyse, de poser une ACTION (`OUTPUT`).
 
 Il existe plusieurs types de cartes Arduino sur le marché. Chacune ayant
 des caractéristiques propres malgré leurs très grands nombres de
 similitudes. Voici les trois (3) modèles les plus communément utilisés :
+
+---
 
 ## Arduino NANO
 
@@ -81,11 +58,11 @@ Il s’agit du modèle de base de petite dimension (45mm x 18mm). Le
 contrôleur **ATMega328** fonctionne à 16MHz et il possède une mémoire de
 32KB. Son connecteur USB est de type « Mini-B ».
 
-<img src="media/image3.png"
-style="width:1.47927in;height:1.18152in"
-alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
+<img src="media/image3.png" alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
 (Référence complète : <https://docs.arduino.cc/hardware/nano> )
+
+---
 
 ## Arduino UNO R3
 
@@ -94,11 +71,12 @@ connecteurs analogue (*pins*) que le modèle NANO. De dimension moyenne
 (54mm x 69mm), il utilise le contrôleur **ATMega328P** à 16 MHz avec un
 mémoire de 32KB. Son connecteur USB est de type « USB-B ».
 
-<img src="media/image4.png"
-style="width:2.26071in;height:1.45598in"
+<img src="media/image4.png" 
 alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
 (Référence complète : <https://docs.arduino.cc/hardware/uno-rev3> )
+
+---
 
 ## Arduino MEGA 2560 (rev3)
 
@@ -108,20 +86,22 @@ Il s’agit du modèle plus *costaud*. De plus grande dimension (54mm x
 connecteur USB est de type « USB-B ».
 
 <img src="media/image5.png"
-style="width:2.44331in;height:1.89513in"
 alt="Une image contenant équipement électronique, circuit Description générée automatiquement" />
 
 (Référence complète : <https://docs.arduino.cc/hardware/mega-2560> )
 
+---
+
 ## Comparaison entre les tailles
 
 <img src="media/image6.png"
-style="width:5.29861in;height:1.28472in"
 alt="Une image contenant texte, équipement électronique, circuit Description générée automatiquement" />
 
 (Source :
 <https://www.arrow.com/en/research-and-events/articles/arduino-uno-vs-mega-vs-micro>
 )
+
+---
 
 ### Tableau résumé
 
@@ -137,10 +117,10 @@ modèles :
 ## Références
 
 Site officiel d’Arduino :
+- <https://www.arduino.cc/en/Guide/Introduction>
+- <https://www.arduino.cc/en/Main/Products>
 
-<https://www.arduino.cc/en/Guide/Introduction>
-
-<https://www.arduino.cc/en/Main/Products>
+---
 
 # Composantes de base
 
@@ -150,10 +130,11 @@ informations de base pour chaque composante. Notez que vos projets
 peuvent être aussi bonifiés avec les éléments de la liste « **Autres
 composantes** » à la suite de cette section.
 
+---
+
 ## Câble USB type USB-B
 
-<img src="media/image7.jpeg"
-style="width:1.42627in;height:1.0692in" />
+<img src="media/image7.jpeg" />
 
 Le câble USB permet de relier la carte ARDUINO à un ordinateur afin d’y
 transférer les applications (codes) que vous avez créées. Il permet
@@ -164,14 +145,12 @@ alimenter votre carte avec une autre source d’énergie si vous désirez
 qu’elle puisse fonctionner de manière autonome (batteries ou bloc
 d’alimentation).
 
-<img src="media/image8.png"
-style="width:3.46087in;height:1.74485in" />
+<img src="media/image8.png"  />
 
 ## Platine d'expérimentation sans soudure (*Breadboard*)
 
-<img src="media/image9.jpeg"
-style="width:2.24167in;height:1.47986in" />La platine d’expérimentation
-permet de réaliser un montage avec des composantes électroniques sans
+<img src="media/image9.jpeg" />
+La platine d’expérimentation permet de réaliser un montage avec des composantes électroniques sans
 avoir à les souder.
 
 - Elle est généralement composée de deux (2) sections de cinq (5) points
@@ -180,7 +159,6 @@ avoir à les souder.
   manière indépendante.
 
 <img src="media/image10.png"
-style="width:2.33795in;height:0.74976in"
 alt="Une image contenant texte Description générée automatiquement" />
 
 - Chaque colonne est identifiée par les lettres de l’alphabet. La
@@ -189,25 +167,19 @@ alt="Une image contenant texte Description générée automatiquement" />
 - Tous les points d’une ligne sont rattachés ensemble, i.e. ils agissent
   comme si c’était un seul fil.
 
-<img src="media/image11.png"
-style="width:0.92368in;height:0.36552in"
-alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
+<img src="media/image11.png" alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
 
 - Une ligne s’arrête avec l’encoche qui délimite les deux sections.
 
-<img src="media/image12.png"
-style="width:2.33156in;height:0.38586in"
-alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
+<img src="media/image12.png" alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
 
-<img src="media/image13.png"
-style="width:3.30422in;height:2.41429in" alt="breadboard" />
+<img src="media/image13.png" />
 
 Figure : Branchement interne d'une platine d’expérimentation
 
 ## Fil de raccordement M/M (*Jumper wires*)
 
-<img src="media/image14.png"
-style="width:1.36111in;height:1.36111in" />
+<img src="media/image14.png" />
 
 Les fils de raccordement M/M (pour Mâle/Mâle) sont utilisés pour lier
 des composantes entre elles sur la platine de montage ainsi que vers la
@@ -221,14 +193,12 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
   > afin de faciliter la lecture de vos circuits et ainsi vous permettre
   > de relever rapidement les erreurs potentielles.
 
-> <img src="media/image15.jpeg"
-> style="width:2.48611in;height:1.86458in" />  
+> <img src="media/image15.jpeg" />  
 > (source :<https://www.hackster.io/super-kid/windows-remote-arduino-windows-remote-arduino-experience-a5ea4d>)
 
 ## Fil de raccordement M/F (*Jumper wires)*
 
-<img src="media/image17.png"
-style="width:1.40278in;height:1.37472in" />
+<img src="media/image17.png"  />
 
 Les fils de raccordement M/F (pour Mâle/Femelle) sont utilisés pour lier
 des modules de capteurs sur la platine de montage ainsi que vers la
@@ -241,15 +211,13 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
   > afin de faciliter la lecture de vos circuits et ainsi vous permettre
   > de relever rapidement les erreurs potentielles.
 
-> <img src="media/image18.jpeg"
-> style="width:2.59722in;height:1.83333in" />
->
+> <img src="media/image18.jpeg"/>
 > (Source :
 > <http://electroniqueamateur.blogspot.com/2020/09/capteur-de-son-ky-038-et-arduino.html>
 > )
 
 ## <img src="media/image20.png"
-style="width:1.03125in;height:1.5in" />Attache batterie 9V (*9V battery snap*)
+ />Attache batterie 9V (*9V battery snap*)
 
 L’attache de batterie 9V permet à la carte Arduino d’avoir une
 alimentation électrique sans être rattachée au port USB de l’ordinateur.
@@ -259,7 +227,7 @@ alimentation électrique sans être rattachée au port USB de l’ordinateur.
 (Blanche, rouge, verte, bleue, jaune)
 
 <img src="media/image21.png"
-style="width:0.84236in;height:1.49792in" />
+ />
 
 Une DEL (*led*) ou **d**iodes **é**lectro**l**uminescentes est un
 dispositif capable d’émettre de la lumière. La DEL est composée d’une
@@ -281,7 +249,7 @@ repérer facilement.
 <tr class="header">
 <th><strong>Anode (+)</strong></th>
 <th rowspan="2"><img src="media/image22.png"
-style="width:0.75in;height:1.64713in" />(1)</th>
+ />(1)</th>
 <th><strong>Cathode (-)</strong></th>
 </tr>
 <tr class="odd">
@@ -322,7 +290,7 @@ DEL RVB.
 ## Résistance (*Resistor*)
 
 <img src="media/image24.jpeg"
-style="width:1.29583in;height:0.9in" />
+ />
 
 La résistance permet de contrôler l’intensité dans un circuit
 électrique. Elle se calcule en « **ohms** ». Plus la valeur d’une
@@ -336,20 +304,19 @@ Pour connaitre la valeur d’une résistance, vous pouvez :
 - **Utiliser un multimètre :**
 
 <img src="media/image25.png"
-style="width:3.18448in;height:2.11382in"
 alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
 
 - **Utiliser le tableau suivant :**
 
 <img src="media/image26.png"
-style="width:3.30726in;height:4.68018in" />
+ />
 
 # Autres composantes
 
 ## DEL RVB (*LED RGB*)
 
 <img src="media/image27.png"
-style="width:1.22495in;height:0.77556in" />
+ />
 
 Les DEL RVB combinent trois DEL : une Rouge, une Verte et une Bleu. Cela
 permet de produire une combinaison de 16 millions de nuances de lumière.
@@ -371,7 +338,7 @@ Utiliser la Cathode (tige la plus grande) comme point de référence. Les
 autres « Anodes » servent pour chacune des couleurs.
 
 <img src="media/image28.png"
-style="width:2.9167in;height:1.09463in" />
+ />
 
 Source :
 <https://www.lighting.philips.be/fr/assistance/assistance-produit/faqs/white-light-and-colour/what-does-rgb-led-mean>
@@ -380,8 +347,7 @@ Source :
 
 Dans les kits fournit, il y a quelques boutons poussoir.
 
-| <img src="media/image29.png"                                                                                              
- style="width:1.91218in;height:0.98591in" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="media/image30.png"                                                                                                            
+| <img src="media/image29.png" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="./media/image30.png"                                                                                                                        
                                                                                                                                            style="width:1.31667in;height:1.04236in" />À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.  |
 |-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 
