@@ -31,7 +31,7 @@
 - [Autres composantes](#autres-composantes)
   - [DEL RVB (*LED RGB*)](#del-rvb-led-rgb)
   - [Bouton poussoir](#bouton-poussoir)
-    - [Référence](#référence)
+    - [Références](#références-1)
 - [Ressources et références](#ressources-et-références)
 
 ---
@@ -297,14 +297,13 @@ Pour connaitre la valeur d’une résistance, vous pouvez :
   <img src="media/image25.png" alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
 
 - **Utiliser le tableau suivant :**
-  <img src="media/image26.png" style="transform:rotate(-90deg);" />
+  <img src="media/image26.png" />
 
 # Autres composantes
 
 ## DEL RVB (*LED RGB*)
 
-<img src="media/image27.png"
- />
+<img src="media/image27.png" />
 
 Les DEL RVB combinent trois DEL : une Rouge, une Verte et une Bleu. Cela
 permet de produire une combinaison de 16 millions de nuances de lumière.
@@ -312,62 +311,42 @@ permet de produire une combinaison de 16 millions de nuances de lumière.
 Elles existent en deux versions : Anode commune ou Cathode commune.
 
 - Dans la version **Anode commune**, nous utilisons le **5V**.
+- Dans la version **Cathode commune**, nous utilisons la **mise à terre (*ground*)**. (Il s’agit de la version présentée ici et disponible dans votre kit.)
 
-- Dans la version **Cathode commune**, nous utilisons la **mise à terre
-  > (*ground*)**.  
-  > (Il s’agit de la version présentée ici et disponible dans votre
-  > kit.)
+> **Note :** Comme pour les autres LED, l’ajout d’une résistance de 220ohms en série est fortement recommandé (i.e une pour chaque tige qui contrôle la couleur)
 
-*<span class="mark">\* \* \* Comme pour les autres LED, l’ajout d’une
-résistance de 220ohms en série est fortement recommandé (i.e une pour
-chaque tige qui contrôle la couleur).</span>*
+Utiliser la Cathode (tige la plus grande) comme point de référence. Les autres « Anodes » servent pour chacune des couleurs.
 
-Utiliser la Cathode (tige la plus grande) comme point de référence. Les
-autres « Anodes » servent pour chacune des couleurs.
+<img src="media/image28.png" />
 
-<img src="media/image28.png"
- />
-
-Source :
-<https://www.lighting.philips.be/fr/assistance/assistance-produit/faqs/white-light-and-colour/what-does-rgb-led-mean>
+[Source : www.lighting.philips.be](https://www.lighting.philips.be/fr/assistance/assistance-produit/faqs/white-light-and-colour/what-does-rgb-led-mean)
 
 ## Bouton poussoir
 
-Dans les kits fournis, il y a quelques boutons poussoir.
+Dans les kits fournis, il y a quelques boutons poussoirs.
 
-| <img src="media/image29.png" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="./media/image30.png"                                                                                                                        
-                                                                                                                                           style="width:1.31667in;height:1.04236in" />À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.  |
-|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+<table>
+<tr>
+<td><img src="media/image29.png" /></td>
+<td>Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.</td>
+<td><img src="./media/image30.png" /></td>
+<td>À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.</td>
+</tr>
+</table>
 
 On retrouve ces boutons dans plusieurs types d’objet électronique. Ils
 sont généralement recouverts d’un plastique pour le design. Pouvez-vous
 en nommer quelques objets du quotidien qui possèderaient des boutons
 similaires?
 
-### Référence
-
+### Références
 - <https://arduinogetstarted.com/tutorials/arduino-button>
-
 - [https://www.cs.uregina.ca](https://www.cs.uregina.ca/Links/class-info/207/Online/Lab3/)
 
 # Ressources et références
 
-Site officiel ARDUINO
-
-<https://www.arduino.cc/>
-
-Guide du « *MEGA2560 Starter Kit* »
-
-<https://cdn.shopify.com/s/files/1/0069/6513/3376/files/the_most_complete_starter_kit_for_mega_v1.0.17.7.9.pdf?5732344175148787081>
-
-Matériels complets du « *MEGA2560 Starter Kit*»
-
-<https://drive.google.com/drive/folders/1xATtuchoAMSYJ-8C5U0dIHVlOGRsg2fC>
-
-Tout sur les DEL (*All About LED’s*)
-
-<https://learn.adafruit.com/all-about-leds>
-
-Chaine de formations sur ARDUINO (en français)
-
-<https://www.youtube.com/channel/UC1f3yfI3YFzhuoScarGSKwA>
+- [Site officiel ARDUINO](https://www.arduino.cc/)
+- [Guide du « *MEGA2560 Starter Kit* »](https://cdn.shopify.com/s/files/1/0069/6513/3376/files/the_most_complete_starter_kit_for_mega_v1.0.17.7.9.pdf?5732344175148787081)
+- [Matériels complets du « *MEGA2560 Starter Kit*»](https://drive.google.com/drive/folders/1xATtuchoAMSYJ-8C5U0dIHVlOGRsg2fC)
+- [Tout sur les DEL (*All About LED’s*)](https://learn.adafruit.com/all-about-leds)
+- [Chaine de formations sur ARDUINO (en français)](https://www.youtube.com/channel/UC1f3yfI3YFzhuoScarGSKwA)
