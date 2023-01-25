@@ -24,7 +24,7 @@
   - [Platine d'expérimentation sans soudure (*Breadboard*)](#platine-dexpérimentation-sans-soudure-breadboard)
   - [Fil de raccordement M/M (*Jumper wires*)](#fil-de-raccordement-mm-jumper-wires)
   - [Fil de raccordement M/F (*Jumper wires)*](#fil-de-raccordement-mf-jumper-wires)
-  - [\<img src="media/image20.png"](#img-srcmediaimage20png)
+  - [Attache batterie 9V (*9V battery snap*)](#attache-batterie-9v-9v-battery-snap)
   - [DEL (*LED*)](#del-led)
     - [Intensité](#intensité)
   - [Résistance (*Resistor*)](#résistance-resistor)
@@ -147,11 +147,13 @@ d’alimentation).
 
 <img src="media/image8.png"  />
 
+---
+
 ## Platine d'expérimentation sans soudure (*Breadboard*)
 
 <img src="media/image9.jpeg" />
-La platine d’expérimentation permet de réaliser un montage avec des composantes électroniques sans
-avoir à les souder.
+
+La platine d’expérimentation permet de réaliser un montage avec des composantes électroniques sans avoir à les souder.
 
 - Elle est généralement composée de deux (2) sections de cinq (5) points
   linéaires chacune. Le nombre de points peut varier entre 400 et 800
@@ -163,7 +165,6 @@ alt="Une image contenant texte Description générée automatiquement" />
 
 - Chaque colonne est identifiée par les lettres de l’alphabet. La
   première section de **A** à **E** et la seconde de **F** à **J**.
-
 - Tous les points d’une ligne sont rattachés ensemble, i.e. ils agissent
   comme si c’était un seul fil.
 
@@ -188,13 +189,11 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
 - Évitez d’utiliser des fils de trop grandes longueurs lors de la
   création de vos montages. Cela rend plus difficile la lecture visuelle
   de votre circuit.
+- Essayez de respecter, autant que possible, les conventions de couleur afin de faciliter la lecture de vos circuits et ainsi vous permettre de relever rapidement les erreurs potentielles.
 
-- Essayez de respecter, autant que possible, les conventions de couleur
-  > afin de faciliter la lecture de vos circuits et ainsi vous permettre
-  > de relever rapidement les erreurs potentielles.
+<img src="media/image15.jpeg" />
 
-> <img src="media/image15.jpeg" />  
-> (source :<https://www.hackster.io/super-kid/windows-remote-arduino-windows-remote-arduino-experience-a5ea4d>)
+[Source : Hackster.io](https://www.hackster.io/super-kid/windows-remote-arduino-windows-remote-arduino-experience-a5ea4d)
 
 ## Fil de raccordement M/F (*Jumper wires)*
 
@@ -206,35 +205,35 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
 
 - Évitez d’utiliser des fils de trop grandes longueurs lors de la
   création de vos montages.
+- Essayez de respecter, autant que possible, les conventions de couleur afin de faciliter la lecture de vos circuits et ainsi vous permettre de relever rapidement les erreurs potentielles.
 
-- Essayez de respecter, autant que possible, les conventions de couleur
-  > afin de faciliter la lecture de vos circuits et ainsi vous permettre
-  > de relever rapidement les erreurs potentielles.
+<img src="media/image18.jpeg"/>
 
-> <img src="media/image18.jpeg"/>
-> (Source :
-> <http://electroniqueamateur.blogspot.com/2020/09/capteur-de-son-ky-038-et-arduino.html>
-> )
+[Source : http://electroniqueamateur.blogspot.com](http://electroniqueamateur.blogspot.com/2020/09/capteur-de-son-ky-038-et-arduino.html>)
 
-## <img src="media/image20.png"
- />Attache batterie 9V (*9V battery snap*)
+---
+
+## Attache batterie 9V (*9V battery snap*)
+
+<img src="media/image20.png"/>
 
 L’attache de batterie 9V permet à la carte Arduino d’avoir une
 alimentation électrique sans être rattachée au port USB de l’ordinateur.
+
+---
 
 ## DEL (*LED*)
 
 (Blanche, rouge, verte, bleue, jaune)
 
-<img src="media/image21.png"
- />
+<img src="media/image21.png" />
 
 Une DEL (*led*) ou **d**iodes **é**lectro**l**uminescentes est un
 dispositif capable d’émettre de la lumière. La DEL est composée d’une
 Anode (**+**) et d’une Cathode (**-**).
 
-La DEL est « polarisée ». C’est-à-dire qu’elle laisse circuler
-l’électricité en respectant la polarité positive et négative. Il existe
+La DEL est **polarisée**. C’est-à-dire qu’elle laisse circuler
+l’électricité que dans un sens ainsi il y a une polarité positive et négative. Il existe
 des différences physiques qui vous permettent de différencier le côté
 positif et le côté négatif. Le tableau ci-dessous vous permettra de les
 repérer facilement.
@@ -248,15 +247,13 @@ repérer facilement.
 <thead>
 <tr class="header">
 <th><strong>Anode (+)</strong></th>
-<th rowspan="2"><img src="media/image22.png"
- />(1)</th>
+<th rowspan="2"><img src="media/image22.png"/>(1)</th>
 <th><strong>Cathode (-)</strong></th>
 </tr>
 <tr class="odd">
 <th><ul>
-<li><p>C’est la broche la plus <strong>longue</strong>;</p></li>
-<li><p>À l‘intérieur de la DEL, c’est la portion la plus
-<strong>petite</strong>;</p></li>
+<li><p>C'est la broche la plus <strong>longue</strong>;</p></li>
+<li><p>À l‘intérieur de la DEL, c’est la portion la plus <strong>petite</strong>;</p></li>
 <li><p>La bordure externe est présente et est
 <strong>arrondie</strong>.</p></li>
 </ul></th>
@@ -284,32 +281,23 @@ résistance de 220 ohms en série est fortement recommandé.</u>***
 
 DEL RVB (LED RGB)
 
-Voir la section « **Autres composantes** » pour plus de détails sur les
-DEL RVB.
+Voir la section « **[Autres composantes](#autres-composantes)** » pour plus de détails sur les DEL RVB.
 
 ## Résistance (*Resistor*)
 
-<img src="media/image24.jpeg"
- />
+<img src="media/image24.jpeg" />
 
-La résistance permet de contrôler l’intensité dans un circuit
-électrique. Elle se calcule en « **ohms** ». Plus la valeur d’une
-résistance est élevée, moins elle laissera circuler l’électricité.
+La résistance permet de contrôler l’intensité dans un circuit électrique. Elle se calcule en « **ohms (&#8486;)** ». Plus la valeur d’une résistance est élevée, moins elle laissera circuler l’électricité.
 
-Dans le cadre de vos projets Arduino, elles devraient toujours être
-présentes sur le circuit d’une DEL.
+Dans le cadre de vos projets Arduino, elles devraient toujours être présentes sur le circuit d’une DEL.
 
 Pour connaitre la valeur d’une résistance, vous pouvez :
 
 - **Utiliser un multimètre :**
-
-<img src="media/image25.png"
-alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
+  <img src="media/image25.png" alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
 
 - **Utiliser le tableau suivant :**
-
-<img src="media/image26.png"
- />
+  <img src="media/image26.png" style="transform:rotate(-90deg);" />
 
 # Autres composantes
 
@@ -345,7 +333,7 @@ Source :
 
 ## Bouton poussoir
 
-Dans les kits fournit, il y a quelques boutons poussoir.
+Dans les kits fournis, il y a quelques boutons poussoir.
 
 | <img src="media/image29.png" /> Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.  | <img src="./media/image30.png"                                                                                                                        
                                                                                                                                            style="width:1.31667in;height:1.04236in" />À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.  |
