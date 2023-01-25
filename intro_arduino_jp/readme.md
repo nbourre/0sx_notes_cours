@@ -159,22 +159,20 @@ La platine d’expérimentation permet de réaliser un montage avec des composan
   linéaires chacune. Le nombre de points peut varier entre 400 et 800
   sur les platines standards. Chaque section peut être alimentée de
   manière indépendante.
-
-<img src="media/image10.png"
-alt="Une image contenant texte Description générée automatiquement" />
+  <img src="media/image10.png" alt="Une image contenant texte Description générée automatiquement" />
 
 - Chaque colonne est identifiée par les lettres de l’alphabet. La
   première section de **A** à **E** et la seconde de **F** à **J**.
 - Tous les points d’une ligne sont rattachés ensemble, i.e. ils agissent
   comme si c’était un seul fil.
 
-<img src="media/image11.png" alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
+  <img src="media/image11.png" alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
 
 - Une ligne s’arrête avec l’encoche qui délimite les deux sections.
 
-<img src="media/image12.png" alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
+  <img src="media/image12.png" alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
 
-<img src="media/image13.png" />
+  <img src="media/image13.png" />
 
 Figure : Branchement interne d'une platine d’expérimentation
 
@@ -182,13 +180,9 @@ Figure : Branchement interne d'une platine d’expérimentation
 
 <img src="media/image14.png" />
 
-Les fils de raccordement M/M (pour Mâle/Mâle) sont utilisés pour lier
-des composantes entre elles sur la platine de montage ainsi que vers la
-carte Arduino. Ils existent dans différentes longueurs et couleurs.
+Les fils de raccordement M/M (pour Mâle/Mâle) sont utilisés pour lier des composantes entre elles sur la platine de montage ainsi que vers la carte Arduino. Ils existent dans différentes longueurs et couleurs.
 
-- Évitez d’utiliser des fils de trop grandes longueurs lors de la
-  création de vos montages. Cela rend plus difficile la lecture visuelle
-  de votre circuit.
+- Évitez d’utiliser des fils de trop grandes longueurs lors de la création de vos montages. Cela rend plus difficile la lecture visuelle de votre circuit.
 - Essayez de respecter, autant que possible, les conventions de couleur afin de faciliter la lecture de vos circuits et ainsi vous permettre de relever rapidement les erreurs potentielles.
 
 <img src="media/image15.jpeg" />
@@ -276,7 +270,7 @@ Truc : Ça fait un « - » comme négatif</p></li>
 ### Intensité
 
 Il est important de ne pas dépasser l’intensité admissible d’une DEL
-pour ne pas la faire griller. Dans le kit, ***<u>l’ajout d’une
+pour ne pas la faire griller. ***<u>L’ajout d’une
 résistance de 220 ohms en série est fortement recommandé.</u>***
 
 DEL RVB (LED RGB)
@@ -294,9 +288,11 @@ Dans le cadre de vos projets Arduino, elles devraient toujours être présentes 
 Pour connaitre la valeur d’une résistance, vous pouvez :
 
 - **Utiliser un multimètre :**
+  
   <img src="media/image25.png" alt="Une image contenant horloge, périphérique, main, jauge Description générée automatiquement" />
 
 - **Utiliser le tableau suivant :**
+  
   <img src="media/image26.png" />
 
 # Autres composantes
