@@ -256,7 +256,7 @@ repérer facilement.
 <li><p>À l’intérieur de la DEL, c’est la portion la plus
 <strong>grosse</strong>;</p></li>
 <li><p>La bordure externe est absente et est <strong>droite.</strong>
-Truc : Ça fait un « - » comme négatif</p></li>
+Truc : Ça fait un « - » comme négatif</p></li>
 </ul></th>
 </tr>
 </thead>
@@ -294,6 +294,8 @@ Pour connaitre la valeur d’une résistance, vous pouvez :
 - **Utiliser le tableau suivant :**
   
   <img src="media/image26.png" />
+
+  Mnémotechnique pour se souvenir de l'ordre des couleurs : **N**otre **B**ar **R**ouge **O**uvre **J**eudi **V**endredi **B**onne **V**odka **G**rosse **B**ière
 
 # Autres composantes
 

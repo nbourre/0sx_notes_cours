@@ -1,6 +1,5 @@
 # Électricité de base <!-- omit in toc -->
 
-- [Branchement de base](#branchement-de-base)
 - [L'électricité sur les appareils](#lélectricité-sur-les-appareils)
   - [Le voltage](#le-voltage)
   - [L'ampérage](#lampérage)
@@ -10,17 +9,12 @@
     - [Entrée](#entrée)
     - [Sortie](#sortie)
   - [Résumé](#résumé)
-- [Les conventions](#les-conventions)
-- [Plaque d'essai](#plaque-dessai)
+- [Faire un montage électrique](#faire-un-montage-électrique)
+  - [Avant de commencer, très important](#avant-de-commencer-très-important)
+  - [Branchement de base](#branchement-de-base)
+  - [Documentation - Introduction à l'Arduino](#documentation---introduction-à-larduino)
+  - [Brancher un LED](#brancher-un-led)
 - [Références](#références)
-
-
-# Branchement de base
-Dans votre kit, je vous suggère le branchement de base permanent suivant :
-
-![Alt text](assets/schemas/branchement_base_bb.png)
-
-Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les fils de courant à chaque fois.
 
 # L'électricité sur les appareils
 L'objectif de cette section n'est pas de vous donner une formation scientifique sur ce qu'est le voltage, l'ampérage, etc. D'ailleurs, ce sont des notions que vous avez vu au secondaire. Je vous suggère de vous référer à votre cours de physique pour vous rafraîchir la mémoire.
@@ -60,7 +54,7 @@ Voici quelques exemples de fiches signalétiques :
 
 | Photo | Description |
 | --- | --- |
-| ![Alt text](assets/appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une fiche à polarité positive |
+| ![Alt text](assets/appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une nécessitant à polarité positive |
 | ![Alt text](assets/appareil_02.jpg) | Appareil acceptant un voltage de 5 volt en courant continu  et nécessitant 1 ampère avec une fiche à polarité positive |
 | ![Alt text](assets/adaptateur_01.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 0.5A avec une fiche à polarité positive |
 | ![Alt text](assets/adaptateur_02.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 150mA avec **une fiche à polarité inconnue...** |
@@ -88,17 +82,28 @@ Selon la documentation de l'Arduino Mega, il ne peut fournir que 40 mA par broch
 ## Résumé
 Ces notions vont vous permettre éventuellement de faire attention lorsque vous branchez des appareils avec des adaptateurs qui ne sont pas d'origine.
 
+---
 
-# Les conventions
+# Faire un montage électrique
 
-> ## Très important
-> La convention veut que les fils rouges soient branchés sur les fils positifs (+) et les fils noirs sur les fils négatifs (-). C'est une convention, mais c'est une convention qui est respectée par la plupart des gens et l'industrie. **C'est donc une convention que vous devez respecter**.
-> 
-> Je retrancherai des points si vous ne respectez pas cette convention!
+## Avant de commencer, très important
+La **convention** veut que les fils rouges soient branchés sur les fils positifs (+) et les fils noirs sur les fils négatifs (-). C'est une convention, mais c'est une convention qui est respectée par la plupart des gens et l'industrie. **C'est donc une convention que vous devez respecter**.
+ 
+**Je retrancherai des points si vous ne respectez pas cette convention!**
 
+## Branchement de base
+Dans votre kit, je vous suggère le branchement de base permanent suivant :
 
+![Alt text](assets/schemas/branchement_base_bb.png)
 
-# Plaque d'essai
+Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les fils de courant à chaque fois.
+
+## Documentation - Introduction à l'Arduino
+Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](intro_arduino_jp/readme.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
+
+## Brancher un LED
+commen
+
 
 # Références
 - [TUTO ARDUINO #1 : INSTALLATION ET FAIRE CLIGNOTER UNE LED!](https://www.youtube.com/watch?v=k0KYfGvZUCw&list=PLm9ko_-biSnQz-1PGorgsi3Q1CSN7HdNh&index=3)
