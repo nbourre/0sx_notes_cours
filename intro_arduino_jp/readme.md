@@ -30,7 +30,7 @@
   - [Résistance (*Resistor*)](#résistance-resistor)
 - [Autres composantes](#autres-composantes)
   - [DEL RVB (*LED RGB*)](#del-rvb-led-rgb)
-  - [Bouton poussoir](#bouton-poussoir)
+  - [Bouton poussoir momentané](#bouton-poussoir-momentané)
     - [Références](#références-1)
 - [Ressources et références](#ressources-et-références)
 
@@ -319,18 +319,14 @@ Utiliser la Cathode (tige la plus grande) comme point de référence. Les autres
 
 [Source : www.lighting.philips.be](https://www.lighting.philips.be/fr/assistance/assistance-produit/faqs/white-light-and-colour/what-does-rgb-led-mean)
 
-## Bouton poussoir
+## Bouton poussoir momentané
 
 Dans les kits fournis, il y a quelques boutons poussoirs.
 
-<table>
-<tr>
-<td><img src="media/image29.png" /></td>
-<td>Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur.</td>
-<td><img src="./media/image30.png" /></td>
-<td>À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé.</td>
-</tr>
-</table>
+| | |
+|:--|:--|
+| <img src="media/image29.png" /> | Le bouton poussoir permet à un utilisateur d’activer des fonctions dans le microcontrôleur. |
+| <img src="media/image30.png" /> | À l’intérieur, il y a 2 côtés. Une connexion entre les deux côtés s’effectue lorsque le bouton est activé. |
 
 On retrouve ces boutons dans plusieurs types d’objet électronique. Ils
 sont généralement recouverts d’un plastique pour le design. Pouvez-vous
