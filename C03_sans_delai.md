@@ -8,6 +8,7 @@
 - [Exemple : un planificateur de tâches simple](#exemple--un-planificateur-de-tâches-simple)
 - [micros() et le débordement](#micros-et-le-débordement)
 - [Explication de la limite de `millis()`](#explication-de-la-limite-de-millis)
+- [Références](#références)
 
 # Introduction
 La fonction `delay()` qui est populaire auprès des débutants a un gros problème. En effet, elle bloque le programme pendant un certain temps. Pendant ce temps, le programme ne fait rien. C'est comme si le programme était en pause. C'est un problème car si le programme est en pause, il ne peut pas réagir aux événements qui se produisent. Par exemple, si le programme est en pause pendant 1 seconde, il ne peut pas réagir à un appui sur un bouton pendant cette seconde.
@@ -156,3 +157,7 @@ Il faudra faire attention au débordement. Il se produit après 70 minutes au li
 La valeur maximum d'un `unsigned long` est de 4 294 967 295 car un `unsigned long` est de 4 octer donc 2^32-1.
 
 Si nous divisons cette valeur par 1000, nous obtenons 4 294 967 secondes. On divise par 60, on obtient 71 582 minutes. On divise par 60, on obtient 1 193 heures. On divise par 24, on obtient 49.7 jours.
+
+# Références
+- [Arduino Tutorial: Using millis() Instead of delay()](https://www.norwegiancreations.com/2017/09/arduino-tutorial-using-millis-instead-of-delay/)
+- [Arduino Tutorial: Avoiding the Overflow Issue When Using millis() and micros()](https://www.norwegiancreations.com/2018/10/arduino-tutorial-avoiding-the-overflow-issue-when-using-millis-and-micros/)
