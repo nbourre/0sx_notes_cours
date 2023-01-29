@@ -2,6 +2,7 @@
 
 # Table des matières <!-- omit in toc -->
 - [Les leçons](#les-leçons)
+- [Extra](#extra)
 - [Introduction du cours](#introduction-du-cours)
   - [Les grandes lignes du cours](#les-grandes-lignes-du-cours)
 
@@ -12,6 +13,12 @@
 2. Semaine 02
    1. [Fonctions de base et affichage Série](C02_fonctions_comm.md)
       - [Exercices](C02_fonctions_comm_exo.md)
+3. Semaine 03
+   1. [Branchement de base](C03_branchement_base.md)
+      - [Exercices](C03_branchement_base_exo.md)
+
+# Extra
+- [Loi d'Ohm](extras/loi_dohm.md)
 
 # Introduction du cours
 Bienvenue dans le cours de développement de systèmes embarqués (420-0SX-SW). Ce cours est donné dans le cadre du programme de diplôme d'étude collégial des techniques de l'informatique du Cégep de Shawinigan. Ce cours est donné en français, mais plusieurs exemples de code seront en anglais.
