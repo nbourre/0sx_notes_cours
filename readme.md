@@ -17,6 +17,7 @@
    1. [Branchement de base](C03_branchement_base.md)
       - [Exercices](C03_branchement_base_exo.md)
    2. [millis() au lieu de delay()](C03_sans_delai.md)
+   3. [Logique anti-rebond](C03_logique_antirebond.md)
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)
