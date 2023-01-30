@@ -29,7 +29,9 @@ Le voltage est la différence de potentiel entre deux points. C'est la force qui
 
 Lorsque l'on branche un circuit électronique il est super important de respecter le voltage de l'appareil, car **si vous branchez un appareil à un adaptateur qui donne trop de voltage, vous risquez de brûler votre appareil.**
 
-Il y a aussi la polarité qui est importante. La polarité est la direction du courant. Il y a deux types de polarité : positive et négative. La polarité est indiquée sur les fiches signalétiques des appareils. **Si vous branchez un appareil avec une polarité négative sur un adaptateur avec une polarité positive, vous risquez de brûler votre appareil.**
+Il y a aussi la **polarité** qui est importante. La polarité est la direction du courant. Il y a deux types de polarité : positive et négative. La polarité est indiquée sur les fiches signalétiques des appareils. **Si vous branchez un appareil avec une polarité négative sur un adaptateur avec une polarité positive, vous risquez de brûler votre appareil.**
+
+![Alt text](assets/gif/electroboom-electric-shock.gif)
 
 ## L'ampérage
 L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage est mesuré en ampère (A).
@@ -37,6 +39,8 @@ L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage
 Un appareil ou composant consomme de l'ampérage. Vous pouvez brancher un adaptateur qui peut fournir plus d'ampérage qu'un appareil a besoin. Car l'appareil ne consommera pas plus d'ampérage que ce qu'il a besoin.
 
  Il est important de respecter la valeur d'ampérage de l'appareil, car **si vous branchez un appareil qui consomme trop d'ampérage sur un adaptateur qui ne peut pas fournir assez d'ampérage, vous risquez de brûler votre appareil.**
+
+![Alt text](assets/gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
 
  ### Exemples
  - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur.
