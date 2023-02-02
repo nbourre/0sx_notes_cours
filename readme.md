@@ -14,10 +14,11 @@
    1. [Fonctions de base et affichage Série](C02_fonctions_comm.md)
       - [Exercices](C02_fonctions_comm_exo.md)
 3. Semaine 03
-   1. [Branchement de base](C03_branchement_base.md)
-      - [Exercices](C03_branchement_base_exo.md)
-   2. [millis() au lieu de delay()](C03_sans_delai.md)
-   3. [Logique anti-rebond](C03_logique_antirebond.md)
+   1. [Branchement de base](C03a_branchement_base.md)
+      - [Exercices](C03a_branchement_base_exo.md)
+   2. [Résistance de rappel et de tirage](C03aa_resistance_de_rappel.md)
+   3. [millis() au lieu de delay()](C03b_sans_delai.md)
+   4. [Logique anti-rebond](C03c_logique_antirebond.md)
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)
