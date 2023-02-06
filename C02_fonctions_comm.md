@@ -26,6 +26,7 @@
   - [État d'un périphérique](#état-dun-périphérique)
   - [État de l'application](#état-de-lapplication)
 - [Exercices](#exercices)
+- [Questions](#questions-1)
 
 ---
 
@@ -452,3 +453,14 @@ En résumé, l'utilisation des états permet de rendre le code plus clair, plus 
 
 # Exercices
 - [Page d'exercices](C02_fonctions_comm_exo.md)
+
+---
+
+# Questions
+- Quelle fonction permet de configurer une broche?
+- Quelle fonction permet de lire la valeur d'une broche?
+- Quelle fonction permet d'écrire une valeur numérique sur une broche?
+- Quelle fonction permet d'écrire une valeur analogique sur une broche?
+- Quelle fonction permet de configurer la vitesse de transmission de données sur le port série?
+- Quelle fonction permet d'écrire du texte sur le port série?
+- Quelle fonction arrête momentanément le programme?

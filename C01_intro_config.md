@@ -23,6 +23,7 @@
 - [Le matériel du cours](#le-matériel-du-cours)
   - [Achat](#achat)
 - [Exercices](#exercices)
+- [Exemple de questions pour une évaluation](#exemple-de-questions-pour-une-évaluation)
 - [Références](#références)
 
 ---
@@ -217,6 +218,15 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
    - Avez-vous réussi du premier coup? Sinon, trouvez la solution au problème.
 5. Essayez de comprendre le code de l'exemple "Blink".
 6. Selon vous, que fait le code de l'exemple "Blink"?
+
+---
+
+# Exemple de questions pour une évaluation
+- Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un rpi au lieu d'un Arduino.
+- Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un Arduino au lieu d'un rpi.
+- Combien de broches numériques y a-t-il sur une carte Arduino Mega?
+- Combien de broches analogiques y a-t-il sur une carte Arduino Mega?
+- Nommez 2 logiciels qui peuvent être utilisés pour programmer une carte Arduino?
 
 ---
 

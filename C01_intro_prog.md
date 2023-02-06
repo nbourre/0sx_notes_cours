@@ -408,6 +408,15 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 ## Questions
 1. Quelle est la différence entre une variable locale et une variable globale?
 2. Quel type de variable est-il préférable d'utiliser pour stocker le temps en milliseconde?
+3. Si je veux partager une variable entre les fonctions, quelle sera la portée de la variable que devrais-je prendre?
+4. Si je veux conserver la valeur d'une variable à l'intérieur d'une même fonction, quelle sera la portée de la variable que devrais-je prendre?
+5. À l'intérieur d'une fonction, si la valeur d'une variable doit être réinitialiser à chaque fois et elle n'est pas utile à l'extérieur de la dite fonction, quelle sera la portée de la variable?
+6. Quelle est la différence entre une variable locale et une variable globale?
+7. Quelle est la différence entre une variable statique et une variable globale?
+8. Quelle est la différence entre une variable locale et une variable statique?
+9. Nommez une utilité pour une variable locale.
+10. Nommez une utilité pour une variable statique.
+11. Nommez une utilité pour une variable globale.
 
 ## Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
