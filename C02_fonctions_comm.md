@@ -457,10 +457,22 @@ En résumé, l'utilisation des états permet de rendre le code plus clair, plus 
 ---
 
 # Questions
-- Quelle fonction permet de configurer une broche?
-- Quelle fonction permet de lire la valeur d'une broche?
-- Quelle fonction permet d'écrire une valeur numérique sur une broche?
-- Quelle fonction permet d'écrire une valeur analogique sur une broche?
-- Quelle fonction permet de configurer la vitesse de transmission de données sur le port série?
-- Quelle fonction permet d'écrire du texte sur le port série?
-- Quelle fonction arrête momentanément le programme?
+1. Quelle fonction permet de configurer une broche?
+2. Quelle fonction permet de lire la valeur numérique d'une broche?
+3. Quelle fonction permet d'écrire une valeur numérique sur une broche?
+4. Quelle fonction permet d'écrire une valeur analogique sur une broche?
+5. Quelle fonction permet de configurer la vitesse de transmission de données sur le port série?
+6. Quelle fonction permet d'écrire du texte sur le port série?
+7. Quelle fonction arrête momentanément le programme?
+
+<details><summary>Réponses</summary>
+
+1. `pinMode()`
+2. `digitalRead()`
+3. `digitalWrite()`
+4. `analogWrite()`
+5. `Serial.begin()`
+6. `Serial.println()` ou `Serial.print()`
+7. `delay()`
+
+</details>

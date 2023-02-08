@@ -222,11 +222,21 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 ---
 
 # Exemple de questions pour une évaluation
-- Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un rpi au lieu d'un Arduino.
-- Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un Arduino au lieu d'un rpi.
-- Combien de broches numériques y a-t-il sur une carte Arduino Mega?
-- Combien de broches analogiques y a-t-il sur une carte Arduino Mega?
-- Nommez 2 logiciels qui peuvent être utilisés pour programmer une carte Arduino?
+1. Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un rpi au lieu d'un Arduino.
+2. Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un Arduino au lieu d'un rpi.
+3. Combien de broches numériques y a-t-il sur une carte Arduino Mega?
+4. Combien de broches analogiques y a-t-il sur une carte Arduino Mega?
+5. Nommez 2 logiciels qui peuvent être utilisés pour programmer une carte Arduino?
+
+<details><summary>Réponses</summary>
+
+1. Le rpi est plus puissant et peut donc faire plus de choses. Il est aussi plus facile de le connecter à un écran et à un clavier. Il vient avec un système d'exploitation. Il vient avec les connexions réseaux.
+2. L'Arduino est moins cher. L'Arduino est plus économique en énergie. L'Arduino est plus petit et plus facile à transporter. L'Arduino est plus facile à programmer.
+3. 54
+4. 16
+5. Arduino IDE, Visual Studio Code avec l'extension PlatformIO. 
+
+</details>
 
 ---
 

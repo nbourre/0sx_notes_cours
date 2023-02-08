@@ -64,10 +64,21 @@ Il n'y a pas vraiment de valeur de résistance standard pour une résistance de 
 # Questions
 Voici des questions possibles dans une évaluation.
 
-- Quelle est la différence entre une résistance de rappel et une résistance de tirage?
-- Comment activer une résistance de tirage sur l'Arduino?
-- Si on utilise une résistance de tirage (ou de rappel) sur l'Arduino, quelle sera la valeur du bouton poussoir s'il est appuyé?
-- Avec ces deux schémas, quel schéma représente le branchement avec la résistance de rappel et quel schéma représente la résistance de tirage?
+1. Quelle est la différence entre une résistance de rappel et une résistance de tirage?
+2. Comment activer une résistance de tirage sur l'Arduino?
+3. Si on utilise une résistance de tirage (ou de rappel) sur l'Arduino, quelle sera la valeur du bouton poussoir s'il est appuyé?
+4. Avec ces deux schémas, quel schéma représente le branchement avec la résistance de rappel et quel schéma représente la résistance de tirage?
+
+<details><summary>Réponses</summary>
+
+1. Une résistance de rappel est une résistance qui est connectée à un circuit pour maintenir un état logique à 0. Une résistance de tirage est une résistance qui est connectée à un circuit pour maintenir un état logique à 1.
+2. `pinMode(numeroBroche, INPUT_PULLUP);`
+3. 0 si tirage et 1 si rappel.
+4. Voir la section avec les schémas.
+
+</details>
+
+---
 
 # Référence
 - [Youtube : Pull up resistor tutorial](https://www.youtube.com/watch?v=wxjerCHCEMg) - 4 minutes

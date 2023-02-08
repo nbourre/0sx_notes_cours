@@ -411,12 +411,25 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 3. Si je veux partager une variable entre les fonctions, quelle sera la portée de la variable que devrais-je prendre?
 4. Si je veux conserver la valeur d'une variable à l'intérieur d'une même fonction, quelle sera la portée de la variable que devrais-je prendre?
 5. À l'intérieur d'une fonction, si la valeur d'une variable doit être réinitialiser à chaque fois et elle n'est pas utile à l'extérieur de la dite fonction, quelle sera la portée de la variable?
-6. Quelle est la différence entre une variable locale et une variable globale?
-7. Quelle est la différence entre une variable statique et une variable globale?
-8. Quelle est la différence entre une variable locale et une variable statique?
-9. Nommez une utilité pour une variable locale.
-10. Nommez une utilité pour une variable statique.
-11. Nommez une utilité pour une variable globale.
+6. Quelle est la différence entre une variable statique et une variable globale?
+7. Quelle est la différence entre une variable locale et une variable statique?
+8. Nommez une utilité pour une variable locale.
+9.  Nommez une utilité pour une variable statique.
+10. Nommez une utilité pour une variable globale.
+
+<details><summary>Réponses</summary>
+
+1. Une variable locale est déclarée à l'intérieur d'une fonction et n'est pas accessible à l'extérieur de la fonction. Une variable globale est déclarée à l'extérieur de toute fonction et est accessible à l'extérieur de toutes les fonctions.
+2. `unsigned long`
+3. Variable globale
+4. Variable statique
+5. Variable locale
+6. Une variable statique conserve sa valeur entre les exécutions d'une fonction et n'est pas accessible aux autres fonctions. Une variable globale est accessible à l'extérieur de toutes les fonctions.
+7. Une variable locale est déclarée à l'intérieur d'une fonction, n'est pas accessible à l'extérieur de la fonction et elle est réinitialisée à chaque exécution de la fonction. Une variable statique est déclarée à l'intérieur d'une fonction et conserve sa valeur entre les exécutions de la fonction.
+8. Exemple : Avoir une variable qui sert à incrémenter un compteur.
+9. Exemple : Conserver la valeur du temps entre les exécutions d'une fonction. Conserver l'état d'une LED entre les exécutions d'une fonction.
+10. Exemple : Conserver l'heure globale du système. Conserver l'état d'un composant pour l'ensemble du système.
+</details>
 
 ## Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
