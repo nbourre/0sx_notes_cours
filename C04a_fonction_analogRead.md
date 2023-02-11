@@ -238,10 +238,7 @@ Cet exemple est disponible [ici](https://wokwi.com/projects/356398829928163329).
 ---
 
 # Exercices
-1. Réalisez l'[Exemple de code de base](#exemple-de-code-de-base)
-2. Ajoutez une DEL branché sur la broche de votre choix. En utilisant la fonction map, faites en sorte que la DEL clignote à une fréquence proportionnelle à la valeur analogique lue par le potentiomètre, c'est-à-dire que si la valeur analogique est de 0, la DEL ne clignote pas. Si la valeur analogique est de 1023, la DEL clignote à toutes les millisecondes.
-3. Réalisez le montage de l'exemple [Sélection de DEL](#sélection-de-del) avec le code de l'exemple [Exemple de code avec la fonction `map()`](#exemple-de-code-avec-la-fonction-map).
-
+- [Exercices](c04x_exercices.md)
 ---
 
 # Références

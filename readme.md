@@ -19,6 +19,10 @@
    2. [Résistance de rappel et de tirage](C03aa_resistance_de_rappel.md)
    3. [millis() au lieu de delay()](C03b_sans_delai.md)
    4. [Logique anti-rebond](C03c_logique_antirebond.md)
+4. Semaine 04
+   1. [Fonction `analogRead`](C04a_fonction_analogRead.md)
+   2. [Fonction `analogWrite`](C04b_fonction_analogWrite.md)
+   3. [Exercices](c04x_exercices.md)
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)

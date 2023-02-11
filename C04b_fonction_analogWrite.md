@@ -5,7 +5,6 @@
 - [PWM : C'est quoi??](#pwm--cest-quoi)
 - [PWM : À quoi ça sert?](#pwm--à-quoi-ça-sert)
 - [Exercices](#exercices)
-  - [Défi](#défi)
 - [Références](#références)
 
 ---
@@ -73,15 +72,7 @@ void loop() {
 ---
 
 # Exercices
-- Avec le montage de l'[exercices](#exercices) #4 des notes sur `analogRead`, faire varier des DEL en utilisant la fonction `analogWrite()`.
-
-## Défi
-- Avec le montage précédent, réalisez un programme qui allume l'ensemble des DEL en échelle et graduellement.
-  - Lorsque la valeur du potentiomètre est en déça de 255, la DEL 1 s'allume graduellement de 0 à 100% donc si le potentiomètre est à 0, la DEL 1 doit être éteinte et si le potentiomètre est à 127, la DEL 1 doit être à 50% de luminosité.
-  - Si le potentiomètre est entre 255 et 511, la DEL 2 s'allume graduellement de 0 à 100% et la DEL 1 doit être allumée à 100%.
-  - Ansi de suite
-
-![Alt text](assets/pot_challenge.gif)
+- [Exercices](c04x_exercices.md)
 
 ---
 
