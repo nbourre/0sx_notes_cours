@@ -4,14 +4,14 @@
 - [Introduction](#introduction)
 - [PWM : C'est quoi??](#pwm--cest-quoi)
 - [PWM : À quoi ça sert?](#pwm--à-quoi-ça-sert)
+- [Exercices](#exercices)
+  - [Défi](#défi)
 - [Références](#références)
 
 ---
 
 # Introduction
 La fonction `analogWrite()` permet d'écrire une valeur analogique en tant que signal [PWM](#pwm--cest-quoi) à une broche. Cette fonction prend deux paramètres: le numéro de la broche et la valeur à écrire. La valeur doit être comprise entre 0 et 255. La valeur 0 correspond à une tension de 0V et la valeur 255 correspond à une tension de 5V. La valeur 127 correspond à une tension de 2.5V.
-
-
 
 # PWM : C'est quoi??
 Le PWM est une technique qui permet de simuler une tension analogique en utilisant une tension numérique. Le principe est de faire varier la durée de la mise en tension d'une broche numérique à une fréquence très élevée. La fréquence est si élevée que l'oeil humain ne peut pas la percevoir. La tension numérique est alors perçue comme une tension analogique.
@@ -69,6 +69,21 @@ void loop() {
 <td><img src="assets/C04_pwm_output.gif"></td>
 </tr>
 </table>
+
+---
+
+# Exercices
+- Avec le montage de l'[exercices](#exercices) #4 des notes sur `analogRead`, faire varier des DEL en utilisant la fonction `analogWrite()`.
+
+## Défi
+- Avec le montage précédent, réalisez un programme qui allume l'ensemble des DEL en échelle et graduellement.
+  - Lorsque la valeur du potentiomètre est en déça de 255, la DEL 1 s'allume graduellement de 0 à 100% donc si le potentiomètre est à 0, la DEL 1 doit être éteinte et si le potentiomètre est à 127, la DEL 1 doit être à 50% de luminosité.
+  - Si le potentiomètre est entre 255 et 511, la DEL 2 s'allume graduellement de 0 à 100% et la DEL 1 doit être allumée à 100%.
+  - Ansi de suite
+
+![Alt text](assets/pot_challenge.gif)
+
+---
 
 # Références
 - [Secrets of Arduino PWM](https://docs.arduino.cc/tutorials/generic/secrets-of-arduino-pwm)

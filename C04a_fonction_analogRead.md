@@ -1,15 +1,32 @@
 # Lecture de valeurs analogiques <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
+- [Qu'est-ce qu'une valeur analogique?](#quest-ce-quune-valeur-analogique)
+- [Comment un microcontrôleur peut-il lire une valeur analogique?](#comment-un-microcontrôleur-peut-il-lire-une-valeur-analogique)
+- [Perte de précision](#perte-de-précision)
+- [Les Arduinos](#les-arduinos)
+- [Exemples de cas pratique](#exemples-de-cas-pratique)
+- [Le potentiomètre](#le-potentiomètre)
+  - [Fonctionnement interne](#fonctionnement-interne)
+- [La fonction `analogRead()`](#la-fonction-analogread)
+- [Exemples](#exemples)
+  - [Base](#base)
+  - [Sélection de DEL](#sélection-de-del)
+- [La fonction `map()`](#la-fonction-map)
+  - [Exemple de code avec la fonction `map()`](#exemple-de-code-avec-la-fonction-map)
+- [Exercices](#exercices)
+- [Références](#références)
+
 
 # Qu'est-ce qu'une valeur analogique?
 Une valeur analogique est une valeur qui peut prendre une infinité de valeurs. Par exemple, la température peut prendre une infinité de valeurs entre -273.15°C et 100°C. La luminosité peut prendre une infinité de valeurs entre 0 et 100%. La position d'un potentiomètre peut prendre une infinité de valeurs entre 0 et 100%. Une valeur analogique est donc une valeur qui peut prendre une infinité de valeurs.
 
+Lorsque l'on dit infinité, c'est que la valeur peut prendre une infinité de valeurs entre deux valeurs. Par exemple, la température peut prendre une infinité de valeurs entre -273.15°C et -273.14°C, entre -273.14°C et -273.13°C, etc.
+
 # Comment un microcontrôleur peut-il lire une valeur analogique?
 Un microcontrôleur ne peut pas lire une valeur analogique directement. Il faut donc convertir la valeur analogique en une valeur numérique. Pour ce faire, on utilise un convertisseur analogique-numérique (ADC). Un ADC est un composant électronique qui convertit une valeur analogique en une valeur numérique.
 
-**Les microcontroleur possède généralement un ou plusieurs ADC intégré**. Par exemple, l'ATMega2560 possède 16 ADC intégrés. Ces ADC sont généralement connectés à des broches spécifiques. Par exemple, les ADC intégrés à l'ATMega2560 sont connectés aux broches **A0 à A15**.
+**Les microcontroleur possède généralement un ou plusieurs ADC intégré**. Par exemple, l'ATMega2560 possède 16 ADC intégrés. Ces ADC sont connectés à des broches spécifiques. Par exemple, les ADC intégrés à l'ATMega2560 sont connectés aux broches **A0 à A15**.
 
 ![Alt text](assets/Pinout-Mega2560rev3_latest.png)
 
@@ -27,28 +44,205 @@ Les Arduinos possèdent plusieurs ADC. **Ils sont de 10-bit**. Cela signifie que
 # Exemples de cas pratique
 On retrouve des composants analogiques partout, par exemple, les **potentiomètres**, les **capteurs de température**, les **microphones**, les **capteurs de luminosité**, etc. Ces composants peuvent être reliés à des broches analogiques de l'Arduino. On peut lire la valeur analogique de ces composants en utilisant les ADC de l'Arduino.
 
+# Le potentiomètre
+Un potentiomètre est un composant électrique qui agit comme une résistance variable. Il a trois bornes : les deux extrémités et un contact coulissant ou rotatif qui se déplace le long d'un élément résistif. En ajustant la position du contact le long de l'élément résistif, le potentiomètre peut faire varier la résistance entre ses deux extrémités, créant ainsi un circuit diviseur de tension variable. Cela permet de l'utiliser comme un contrôle de volume dans du matériel audio, un capteur de position en robotique ou un outil de calibration dans du matériel de laboratoire. Les potentiomètres sont souvent appelés "pots" pour faire court.
+
+![Alt text](assets/Different-types-of-Potentiometers.png)
+
+## Fonctionnement interne
+
+![Alt text](assets/How-Potentiometer-Works-768x231.png)
+
+![Alt text](assets/pot_a.gif)
+
+![Alt text](assets/pot_b.gif)
+
+
+
 # La fonction `analogRead()`
 La fonction pour lire une valeur analogique est `analogRead()`. Cette fonction prend en paramètre le numéro de la broche analogique à lire. Par exemple, si on veut lire la valeur analogique de la broche A0, on utilise la fonction `analogRead(A0)`. La fonction `analogRead()` retournera un entier entre 0 et 1023.
 
-# Exemple de code
+# Exemples
+## Base
 Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branché sur la broche A0 et l'affiche sur le moniteur série.
 
-![Alt text](assets/schemas/potentiometre_bb.png)
+<table>
+  <tr>
+    <td><img src="assets/pot_exemple_bas.gif" /></td>
+    <td>
+
+  ```cpp
+  void setup() {
+    Serial.begin(9600);
+  }
+
+  void loop() {
+    int valeur = analogRead(A0);
+    Serial.println(valeur);
+    delay(1000);
+  }
+  ```
+  </td>
+  </tr>
+
+</table>
+
+---
+
+## Sélection de DEL
+Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branché sur la broche A0 et allume une DEL en fonction de la valeur lue.
+
+<table>
+  <tr>
+    <td><img src="assets/pot_exemple_DEL.gif" /></td>
+    <td>
+
+  ```cpp
+  const int ledPins[] = {2, 3, 4, 5};  // Tableau des numéros de broches
+  int potentiometerPin = A0;           
+  int potentiometerValue = 0;          
+  int ledIndex = 0;                   // Index du DEL allume
+
+  void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < 4; i++) {
+      // Initialisation des DEL en sortie
+      pinMode(ledPins[i], OUTPUT); 
+    }
+  }
+
+  void loop() {
+    potentiometerValue = analogRead(potentiometerPin);
+    
+    if (potentiometerValue < 256) {
+      digitalWrite(ledPins[0], HIGH);
+      digitalWrite(ledPins[1], LOW);
+      digitalWrite(ledPins[2], LOW);
+      digitalWrite(ledPins[3], LOW);
+    } else if (potentiometerValue < 512) {
+      digitalWrite(ledPins[0], LOW);
+      digitalWrite(ledPins[1], HIGH);
+      digitalWrite(ledPins[2], LOW);
+      digitalWrite(ledPins[3], LOW);
+    } else if (potentiometerValue < 768) {
+      digitalWrite(ledPins[0], LOW);
+      digitalWrite(ledPins[1], LOW);
+      digitalWrite(ledPins[2], HIGH);
+      digitalWrite(ledPins[3], LOW);
+    } else {
+      digitalWrite(ledPins[0], LOW);
+      digitalWrite(ledPins[1], LOW);
+      digitalWrite(ledPins[2], LOW);
+      digitalWrite(ledPins[3], HIGH);
+    }
+  }
+  ```
+  </td>
+  </tr>
+</table>
+
+Cet exemple est disponible [ici](https://wokwi.com/projects/356395304066120705).
+
+---
+
+# La fonction `map()`
+La fonction `map()` permet de convertir une valeur d'un intervalle à un autre intervalle. Par exemple, si on veut convertir une valeur de 0 à 1023 en une valeur de 0 à 255, on peut utiliser la fonction `map()`.
 
 ```cpp
-void setup() {
-  Serial.begin(9600);
-}
+int valeur = analogRead(A0);
+int valeur_convertie = map(valeur, 0, 1023, 0, 255);
+```
 
-void loop() {
-  int valeur = analogRead(A0);
-  Serial.println(valeur);
-  delay(1000);
+La fonction `map()` prend en ordre les paramètres suivants :
+- la valeur à convertir;
+- la valeur minimale de l'intervalle de départ;
+- la valeur maximale de l'intervalle de départ;
+- la valeur minimale de l'intervalle d'arrivée;
+- la valeur maximale de l'intervalle d'arrivée.
+
+L'algorithme de la fonction `map()` est le suivant :
+```cpp
+int map(int valeur, int min_depart, int max_depart, int min_arrivee, int max_arrivee) {
+  int decalage_depart = valeur - min_depart;
+  int plage_depart = max_depart - min_depart;
+  int plage_arrivee = max_arrivee - min_arrivee;
+  int valeur_convertie = (decalage_depart / plage_depart ) * plage_arrivee + min_arrivee;
+
+  return valeur_convertie;
 }
 ```
 
-# Exercice
-À l'aide de l'exemple ci-dessus, ajoutez une DEL branché sur la broche de votre choix. Faites en sorte que la DEL clignote à une fréquence proportionnelle à la valeur analogique lue par le potentiomètre, c'est-à-dire que si la valeur analogique est de 0, la DEL ne clignote pas. Si la valeur analogique est de 1023, la DEL clignote à toutes les millisecondes.
+Cette fonction permet aussi d'intervertir deux intervalles. Par exemple, si on veut convertir une valeur de 0 à 1023 en une valeur de 255 à 0, on peut utiliser la fonction `map()`.
+
+```cpp
+int valeur = analogRead(A0);
+int valeur_convertie = map(valeur, 0, 1023, 255, 0);
+```
+
+## Exemple de code avec la fonction `map()`
+Voici le même exemple que [Sélection de DEL](#sélection-de-del) mais avec la fonction `map()`.
 
 
+> **Note** : L'exemple n'est pas le plus efficace, mais il ne sert qu'à illustrer une utilisation de la fonction `map()`.
 
+```cpp
+const int ledPins[] = {2, 3, 4, 5};  // Tableau des numéros de broches
+int potentiometerPin = A0;           
+int potentiometerValue = 0;          
+int ledIndex = 0;                   // Index du DEL allume
+
+unsigned long currentTime = 0;
+unsigned long serialPrevious = 0;
+int serialDelay = 1000;
+
+int mappedIndex = 0;
+
+void setup() {
+  Serial.begin(9600);
+
+  // On utilise une boucle que pour travailler
+  // avec des tableaux
+  for (int i = 0; i < 4; i++) {
+    // Initialisation des DEL en sortie
+    pinMode(ledPins[i], OUTPUT); 
+  }
+}
+
+void loop() {
+  currentTime = millis();
+
+  potentiometerValue = analogRead(potentiometerPin);
+  mappedIndex = map (potentiometerValue, 0, 1023, 0, 3);
+
+  // On utilise une boucle que pour travailler
+  // avec des tableaux
+  for (int i = 0; i < 4; i++) {
+    if (i == mappedIndex) {
+      digitalWrite(ledPins[i], HIGH);
+    }
+    else {
+      digitalWrite(ledPins[i], LOW);
+    }
+  }
+
+  if (currentTime - serialPrevious >= serialDelay) {
+    serialPrevious = currentTime;
+    Serial.print("Valeur : ");
+    Serial.println(potentiometerValue);    
+  }  
+}
+```
+
+Cet exemple est disponible [ici](https://wokwi.com/projects/356398829928163329).
+
+---
+
+# Exercices
+1. Réalisez l'[Exemple de code de base](#exemple-de-code-de-base)
+2. Ajoutez une DEL branché sur la broche de votre choix. En utilisant la fonction map, faites en sorte que la DEL clignote à une fréquence proportionnelle à la valeur analogique lue par le potentiomètre, c'est-à-dire que si la valeur analogique est de 0, la DEL ne clignote pas. Si la valeur analogique est de 1023, la DEL clignote à toutes les millisecondes.
+3. Réalisez le montage de l'exemple [Sélection de DEL](#sélection-de-del) avec le code de l'exemple [Exemple de code avec la fonction `map()`](#exemple-de-code-avec-la-fonction-map).
+
+---
+
+# Références
+- [Arduino Get Started : Potentiometer](https://arduinogetstarted.com/tutorials/arduino-potentiometer)
