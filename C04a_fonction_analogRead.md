@@ -33,13 +33,21 @@ Un microcontrôleur ne peut pas lire une valeur analogique directement. Il faut 
 > **Pratique** : Prenez votre Arduino et repérez les broches A0 à A15.
 
 # Perte de précision
-Lors de la conversion d'une valeur analogique en une valeur numérique, il y a une perte de précision. Par exemple, si on convertit une valeur analogique de 0 à 5V en une valeur numérique de 0 à 1023, il y a une perte de précision. En effet, il y a 1024 valeurs numériques possibles, mais il y a une infinité de valeurs analogiques possible entre 0 et 5V (exemple : 3.1416V). Il y a donc une perte de précision.
+Lors de la conversion d'une valeur analogique en une valeur numérique, il y a une perte de précision. Par exemple, si on convertit une valeur analogique de 0 à 5V en une valeur numérique de 0 à 1023, il y a une perte de précision. En effet, il y a 1024 valeurs numériques possibles, mais il y a une infinité de valeurs analogiques possible entre 0 et 5V (exemple : 3.1416V). Donc la perte de précision est due au tronquage des valeurs numériques.
+
+Exemple :
+- Une valeur de 3.1416V sera convertie en une valeur numérique de $3.1416 / 5 * 1023 = 642.77$. Cette valeur sera tronquée à **`642`**.
+
 
 Voici un exemple de graphique représentant le concept de conversion d'une valeur analogique en une valeur numérique avec la perte de précision.
 ![Alt text](assets/c04_adc_graph.png)
 
+On remarque que les valeurs numérique ne peuvent pas représenter toutes les valeurs analogiques à tous les temps. Les valeurs sont découpées au rythme de l'échantillonnage du programme.
+
 # Les Arduinos
 Les Arduinos possèdent plusieurs ADC. **Ils sont de 10-bit**. Cela signifie que la précision sera de 1024 valeurs soit de 0 à 1023, car 2^10 = 1024. Les valeurs analogiques seront converties en valeurs numériques entre 0 et 1023.
+
+> **Note** : Une résolution de 1-bit signifie qu'on ne pourrait avoir qu'une valeur de 0 ou 1, car il n'y a que deux valeurs possibles. Ainsi une résolution de 2-bit sera de 0 à 3, 3-bit de 0 à 7, ainsi de suite.
 
 # Exemples de cas pratique
 On retrouve des composants analogiques partout, par exemple, les **potentiomètres**, les **capteurs de température**, les **microphones**, les **capteurs de luminosité**, etc. Ces composants peuvent être reliés à des broches analogiques de l'Arduino. On peut lire la valeur analogique de ces composants en utilisant les ADC de l'Arduino.
