@@ -22,7 +22,10 @@
 4. Semaine 04
    1. [Fonction `analogRead`](C04a_fonction_analogRead.md)
    2. [Fonction `analogWrite`](C04b_fonction_analogWrite.md)
-   3. [Exercices](C04x_exercices.md)
+   3. [Traceur série](C04c_traceur_serie.md)
+   4. [Exercices](C04x_exercices.md)
+5. Semaine 05
+   1. 
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)
