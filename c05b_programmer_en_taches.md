@@ -2,7 +2,7 @@
 
 
 # Introduction
-La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant de parties de tâche en séquence très rapidement.
+La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
 
 La programmation multitâches est utilisée dans les systèmes embarqués pour exécuter plusieurs tâches en même temps. Par exemple, un système embarqué peut exécuter une tâche pour lire les données d'un capteur, une autre tâche pour traiter les données, et une autre tâche pour afficher les données sur un écran.
 
@@ -35,7 +35,7 @@ void loop() {
 
 Le problème avec ce code est qu'il ne peut pas faire les deux DEL en même temps. La DEL 1 clignote à 1 Hz, mais la DEL 2 ne clignote pas du tout. Pourquoi? Parce que le code est exécuté en séquence. Le code exécute la première ligne, puis la deuxième, puis la troisième, etc. Il ne peut pas faire les deux DEL en même temps. De plus, le code est bloquant. Il ne peut pas faire autre chose pendant qu'il exécute les lignes 1 à 4.
 
-On pourrait modifier le code en calculant le délaie à utiliser pour chaque DEL. Par exemple, on pourrait utiliser une variable pour stocker le délai à utiliser pour la DEL 1 et une autre variable pour stocker le délai à utiliser pour la DEL 2. On pourrait ensuite utiliser ces variables pour déterminer le délai à utiliser pour chaque DEL. Voici un exemple de code qui pourrait faire ça:
+On pourrait modifier le code en calculant le délai à utiliser pour chaque DEL. Par exemple, on pourrait utiliser une variable pour stocker le délai à utiliser pour la DEL 1 et une autre variable pour stocker le délai à utiliser pour la DEL 2. On pourrait ensuite utiliser ces variables pour déterminer le délai à utiliser pour chaque DEL. Voici un exemple de code qui pourrait faire ça:
 
 ```cpp
 int led1 = 13;
@@ -65,6 +65,8 @@ void loop() {
 ```
 
 Ça fonctionne, mais c'est un peu compliqué. On est chanceux car 500ms est une multiplicateur de 250ms. De plus, le code est toujours bloquant.
+
+Si je veux ajouter une DEL qui clignote à 3Hz. Ça va être une défi!!
 
 # Améliorer l'exemple en utilisant millis()
 On peut améliorer l'exemple en utilisant la fonction `millis()`. La fonction `millis()` retourne le nombre de millisecondes depuis que le programme a commencé à s'exécuter. On peut utiliser cette fonction pour déterminer quand allumer et éteindre les DEL. Voici un exemple de code qui pourrait faire ça:
@@ -114,7 +116,7 @@ Pour ce faire, **il faut identifier les tâches à exécuter**. Dans notre exemp
 
 Ainsi on peut créer **une fonction pour chaque tâche**.
 
-Comme vue dans les cours précédents, **on peut utiliser des variables statiques pour stocker les données d'une tâche**. Par exemple, on peut utiliser une variable statique pour stocker le délai à utiliser pour la DEL 1 et une autre variable statique pour stocker le délai à utiliser pour la DEL 2. On peut ensuite utiliser ces variables pour déterminer le délai à utiliser pour chaque DEL.
+Comme vue dans les cours précédents, **on peut utiliser des variables statiques pour stocker les données d'une tâche**. Par exemple, on peut utiliser une variable statique pour stocker la dernière exécution de la fonction pour la DEL 1 et une autre variable statique pour stocker la dernière exécution de la DEL 2.
 
 Voici un exemple de code qui pourrait faire ça:
 
@@ -163,7 +165,7 @@ Voici un comparatif de l'exemple initiale et de l'exemple final:
         <th>Exemple final</th>
     </tr>
     <tr>
-        <td>
+        <td style="vertical-align:top">
         
 ```cpp
 int led1 = 13;
@@ -193,7 +195,7 @@ void loop() {
 ```
 
 </td>
-<td>
+<td style="vertical-align:top">
         
 ```cpp
 int led1 = 13;
