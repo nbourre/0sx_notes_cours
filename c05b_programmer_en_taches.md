@@ -233,3 +233,7 @@ void blinkLed2() {
   }
 }
 ```
+
+Malgré un code plus long, il est beaucoup plus facile à comprendre et à modifier.
+
+**Il est important de favoriser la lecture du code par les autres ainsi que la maintenance du code.** C'est pourquoi il est important de bien structurer le code.
