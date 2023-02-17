@@ -25,7 +25,7 @@
    3. [Traceur série](C04c_traceur_serie.md)
    4. [Exercices](C04x_exercices.md)
 5. Semaine 05
-   1. 
+   1. [Composants analogues](C05a_composants_analogues.md)
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)
