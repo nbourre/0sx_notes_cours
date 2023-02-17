@@ -160,12 +160,12 @@ void blinkLed2() {
 Voici un comparatif de l'exemple initiale et de l'exemple final:
 
 <table>
-    <tr>
+    <tr  style="vertical-align:top">
         <th>Exemple initial</th>
         <th>Exemple final</th>
     </tr>
     <tr>
-        <td style="vertical-align:top">
+        <td>
         
 ```cpp
 int led1 = 13;
