@@ -237,3 +237,5 @@ void blinkLed2() {
 Malgré un code plus long, il est beaucoup plus facile à comprendre et à modifier.
 
 **Il est important de favoriser la lecture du code par les autres ainsi que la maintenance du code.** C'est pourquoi il est important de bien structurer le code.
+
+TODO : Ajouter d'autres éléments tel que la lecture d'un capteur qui ne nécessite pas d'avoir un délai.
