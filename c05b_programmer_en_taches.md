@@ -135,9 +135,14 @@ void loop() {
 }
 
 void blinkLed1() {
+  // Pour sauvegarder la dernière exécution de la fonction
   static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
-  unsigned int rate = 500;
+
+  // Valeur constante
+  const int rate = 500;
 
   if (currentMillis - previousMillis >= rate) {
     previousMillis = currentMillis;
@@ -146,9 +151,14 @@ void blinkLed1() {
 }
 
 void blinkLed2() {
+  // Pour sauvegarder la dernière exécution de la fonction
   static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
-  unsigned rate = 250;
+
+  // Valeur constante
+  const int rate = 250;
 
   if (currentMillis - previousMillis >= rate) {
     previousMillis = currentMillis;
@@ -212,9 +222,14 @@ void loop() {
 }
 
 void blinkLed1() {
+  // Pour sauvegarder la dernière exécution de la fonction
   static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
-  unsigned int rate = 500;
+
+  // Valeur constante
+  const int rate = 500;
 
   if (currentMillis - previousMillis >= rate) {
     previousMillis = currentMillis;
@@ -223,9 +238,14 @@ void blinkLed1() {
 }
 
 void blinkLed2() {
+  // Pour sauvegarder la dernière exécution de la fonction
   static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
-  unsigned rate = 250;
+
+  // Valeur constante
+  const int rate = 250;
 
   if (currentMillis - previousMillis >= rate) {
     previousMillis = currentMillis;
@@ -234,8 +254,148 @@ void blinkLed2() {
 }
 ```
 
+</td>
+</tr>
+</table>
+
+
 Malgré un code plus long, il est beaucoup plus facile à comprendre et à modifier.
 
 **Il est important de favoriser la lecture du code par les autres ainsi que la maintenance du code.** C'est pourquoi il est important de bien structurer le code.
 
-TODO : Ajouter d'autres éléments tel que la lecture d'un capteur qui ne nécessite pas d'avoir un délai.
+---
+
+# Encore une amélioration
+
+Observez cette partie de code. Que remarquez-vous?
+
+```cpp	
+void blinkLed1() {
+  // Pour sauvegarder la dernière exécution de la fonction
+  static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
+  unsigned long currentMillis = millis();
+
+  // Valeur constante
+  const int rate = 500;
+
+  if (currentMillis - previousMillis >= rate) {
+    previousMillis = currentMillis;
+    digitalWrite(led1, !digitalRead(led1));
+  }
+}
+
+void blinkLed2() {
+  // Pour sauvegarder la dernière exécution de la fonction
+  static unsigned long previousMillis = 0;
+
+  // Pour obtenir le temps actuel
+  unsigned long currentMillis = millis();
+
+  // Valeur constante
+  const int rate = 250;
+
+  if (currentMillis - previousMillis >= rate) {
+    previousMillis = currentMillis;
+    digitalWrite(led2, !digitalRead(led2));
+  }
+}
+
+```
+
+On remarque que la variable `currentMillis` appelle la fonction `millis` à chaque appel. On peut modifier la fonction pour faire en sorte que le code n'appelle la fonction `millis` qu'une seule fois et passer la valeur à la fonction.
+
+```cpp
+unsigned long currentMillis = millis();
+
+int led1 = 13;
+int led2 = 12;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  currentMillis = millis();
+
+  blinkLed1(currentMillis);
+  blinkLed2(currentMillis);
+}
+
+void blinkLed1(int rate, long currentMillis) {
+  static unsigned long previousMillis = 0;
+  const int rate = 500;
+
+  if (currentMillis - previousMillis >= rate) {
+    previousMillis = currentMillis;
+    digitalWrite(led1, !digitalRead(led));
+  }
+}
+
+void blinkLed2(int rate, long currentMillis) {
+  static unsigned long previousMillis = 0;
+  const int rate = 250;
+
+  if (currentMillis - previousMillis >= rate) {
+    previousMillis = currentMillis;
+    digitalWrite(led2, !digitalRead(led));
+  }
+}
+```
+
+Il y a encore place à l'amélioration. Cependant, nous allons voir cela dans un autre cours. Le plus important était de **séparer le code en fonctions/tâches dans le but d'améliorer la lisibilité et la maintenance**.
+
+---
+
+## Lecture d'entrées
+Pour la lecture d'entrées tel que des boutons ou potentiomètres, on peut lire leur état au début de la fonction `loop` et passer la valeur aux fonctions nécessitant cette valeur.
+
+Par exemple, si on veut faire clignoter une LED lorsque le bouton est appuyé, on peut faire:
+
+```cpp
+unsigned long currentMillis = millis();
+int led = 13;
+int button = 2;
+int buttonPressed = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);
+  pinMode(button, INPUT_PULLUP);
+}
+
+void loop() {
+  currentMillis = millis();
+
+  buttonPressed = buttonToggleTask();
+
+  if (buttonPressed) {
+    digitalWrite(led, !digitalRead(led));
+    Serial.println("Released!");
+  }
+}
+
+// Fonction qui indique si on a basculé le bouton
+int buttonToggleTask() {
+  static int previousState = 1;
+  int currentState = digitalRead(button);
+  int toggle = 0;
+  
+  if (currentState && !previousState) {
+    toggle = 1;
+  }
+  
+  previousState = currentState;
+  
+  return toggle;
+}
+```
+
+---
+
+## Exercices
+- Pour le TP3, assurez-vous d'utiliser des fonctions. Votre boucle `loop` devrait être la plus courte possible, mais aussi la plus compréhensible.
+
+
+
