@@ -33,6 +33,12 @@ $$R = \frac{5V - 2V}{20mA} = 150\Omega$$
 > 
 > Prenez note qu'en contrepartie, celle-ci aura une puissance plus faible.
 
+---
+
+# Résumé
+
+![Alt text](../assets/ohms_law.png)
+
 # Références
 - [Calcul de résistance pour une led](http://fantaisyland.fr/calcul-resistance-led/)
 - [LED resistance in the kit](https://forum.arduino.cc/t/led-resistences-in-the-kit/482081)
