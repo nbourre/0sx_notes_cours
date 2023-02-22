@@ -49,6 +49,6 @@ Ceux-ci sont très utiles pour apprendre à utiliser une librairie. Vous pouvez 
 
 Pour accéder aux exemples, vous devez cliquer sur "Fichier" dans la barre d'outils de l'IDE Arduino, puis sur "Exemples". Vous verrez alors une liste de tous les exemples disponibles. Pour accéder aux exemples d'une librairie en particulier, vous devez cliquer sur le nom de la librairie dans la liste.
 
-![Alt text](assets/Arduino_libraries_examples.gif)
+<img src="assets/Arduino_libraries_examples.gif" height=720 />
 
 En résumé, les librairies Arduino sont des outils puissants pour ajouter des fonctionnalités à votre projet. Pour les utiliser, vous devez les télécharger, les installer et les importer dans votre programme. Une fois que vous avez importé une librairie, vous pouvez utiliser les fonctions qu'elle offre pour simplifier votre code et accélérer le développement.
