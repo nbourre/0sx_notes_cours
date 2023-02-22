@@ -124,6 +124,7 @@ void loop() {
 }
 ```
 
+[Hcsr04 Example-1.webm](https://user-images.githubusercontent.com/2332679/220739389-57b4cfe0-2dd2-4353-b683-6010c929af1f.webm)
 
 Le code commence par inclure la bibliothèque "hcsr04" et définir les broches de la carte Arduino à utiliser pour la communication avec le capteur HC-SR04. La fonction HCSR04 est ensuite initialisée avec les broches de déclenchement et d'écho.
 
