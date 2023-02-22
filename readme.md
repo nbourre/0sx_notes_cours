@@ -26,7 +26,15 @@
    4. [Exercices](C04x_exercices.md)
 5. Semaine 05
    1. [Composants analogues](C05a_composants_analogues.md)
-   2. [Programmer en tâches](c05b_programmer_en_taches.md)
+   2. [Programmer en tâches](C05b_programmer_en_taches.md)
+6. Semaine 06
+   1. [Utilisation de librairies](C06a_librairies.md)
+7. Semaine 07
+8. Semaine 08
+9.  Semaine 09
+10. Semaine 10
+11. Semaine 11
+12. Semaine 12
 
 # Extra
 - [Loi d'Ohm](extras/loi_dohm.md)
