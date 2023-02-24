@@ -1,5 +1,5 @@
 # Makerfabs ESP8266 WiFi Shield
-Ceci document est une amélioration et un complément du document [ESP8266 WiFi Shield](https://ca.robotshop.com/products/esp8266-wifi-shield) (RB-Mkf-14) de RobotShop.
+Ce document est une amélioration et un complément du document [ESP8266 WiFi Shield](https://ca.robotshop.com/products/esp8266-wifi-shield) (RB-Mkf-14) de RobotShop.
 
 ![Alt text](esp8266-wifi-shield.webp)
 
@@ -15,11 +15,18 @@ Ceci document est une amélioration et un complément du document [ESP8266 WiFi 
    - Chercher `WiFiEsp` (il ne devrait y avoir qu'un seul choix)
 6. Connectez l'Arduino.
 7. Sélectionnez la carte Arduino et le bon port COM.
-8. Ouvrez le Moniteur Série, sélectionnez `Both NL & CR` et réglez le débit en bauds à 115200.
-9. Changez le débit en bauds du module `ESP8266` à 9600 en tapant cette commande :<br/>
+8. Ouvrez le Moniteur Série, sélectionnez `Both NL & CR` et réglez le débit en bauds à 115200.<
+9. Tapez la commande `AT` dans la moniteur série. Vous devriez recevoir `OK` en retour.
+   - Si vous ne recevez rien, il se peut que n'ayez pas changé les cavaliers sur le shield ou que vous n'avez pas mis `Both NL & CR` dans le moniteur série ou encore le module a été configuré à une autre vitesse de communication.
+10. Changez le débit en bauds du module `ESP8266` à 9600 en tapant cette commande :<br/>
     `AT+CIOBAUD=9600` (cela ne doit être fait qu'une fois).
-10. Déconnectez tout.
-11. Changez le cavalier de sorte que le RX du shield soit relié à la broche n°3 de l'Arduino.
-12. Changez le cavalier de sorte que le TX du shield soit relié à la broche n°2 de l'Arduino.
+    - Cette action change la vitesse de communication du module `ESP8266` en utilisant une commande `AT`. Il faudra en prendre considération lors de configuration future du module.
+11. Déconnectez tout.
+12. Changez le cavalier de sorte que le RX du shield soit relié à la broche n°3 de l'Arduino.
+    - ESP_RX doit être relié à la broche 3 de l'Arduino.
+    - Nous allons utiliser `SoftwareSerial` pour communiquer avec le module `ESP8266`
+13. Changez le cavalier de sorte que le TX du shield soit relié à la broche n°2 de l'Arduino.
+    - ESP_TX doit être relié à la broche 2 de l'Arduino. 
+    - Nous allons utiliser `SoftwareSerial` pour communiquer avec le module `ESP8266`
 
 > **Note :** Pour les étapes 11 et 12, cela dépendra du code envoyer dans l'Arduino.
