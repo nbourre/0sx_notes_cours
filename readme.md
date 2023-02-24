@@ -20,16 +20,19 @@
    3. [millis() au lieu de delay()](C03b_sans_delai.md)
    4. [Logique anti-rebond](C03c_logique_antirebond.md)
 4. Semaine 04
+   1. Examen et révision
+5. Semaine 05
    1. [Fonction `analogRead`](C04a_fonction_analogRead.md)
    2. [Fonction `analogWrite`](C04b_fonction_analogWrite.md)
    3. [Traceur série](C04c_traceur_serie.md)
    4. [Exercices](C04x_exercices.md)
-5. Semaine 05
+6. Semaine 06
    1. [Composants analogues](C05a_composants_analogues.md)
    2. [Programmer en tâches](C05b_programmer_en_taches.md)
-6. Semaine 06
-   1. [Utilisation de librairies](C06a_librairies.md)
 7. Semaine 07
+   1. [Utilisation de librairies](C06a_librairies.md)
+   2. [Capteur ultrasonique](C06b_ultrasonic.md)
+   3. [Capteur d'humidité](C06c_dht11.md)
 8. Semaine 08
 9.  Semaine 09
 10. Semaine 10

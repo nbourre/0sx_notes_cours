@@ -33,6 +33,11 @@ Le HC-SR04 est composé de deux éléments principaux : l'émetteur ultrasonique
 
 > **Jargon** : Nous utilisons le terme *time-of-flight* pour les appareils mesurant les distances en mesurant le temps qu'il faut à un signal pour parcourir une distance. Les capteurs ultrasoniques sont des exemples de capteur *time-of-flight*.
 
+> **Perle de culture** : Plusieurs espèces animales utilisent l'écholocation pour se déplacer dans l'obscurité. Les chauves-souris utilisent des ondes sonores pour localiser leurs proies. Les dauphins utilisent des ondes sonores pour localiser les poissons. Les chauves-souris et les dauphins utilisent des ondes sonores de fréquence élevée (ultrasoniques) pour écholocaliser.
+> 
+> Dans une autre veine, les humains ne sommes pas capables d'entendre les ondes sonores ultrasoniques. En effet, les ondes sonores ultrasoniques ont une fréquence supérieure à 20 kHz, ce qui est au-dessus de la fréquence maximale que l'oreille humaine peut entendre (20 kHz). Cependant, plusieurs animaux sont capables d'entendre les ondes sonores ultrasoniques. Dont les chats et les chiens.
+> ![Alt text](assets/dog_and_cat2.jpg)
+
 # Utilisation du HC-SR04 avec Arduino
 
 Le HC-SR04 est compatible avec la plupart des cartes Arduino. Pour utiliser le capteur avec Arduino, nous devons d'abord connecter le capteur à la carte.
@@ -125,6 +130,7 @@ void loop() {
 ```
 
 [Hcsr04 Example-1.webm](https://user-images.githubusercontent.com/2332679/220739389-57b4cfe0-2dd2-4353-b683-6010c929af1f.webm)
+
 
 Le code commence par inclure la bibliothèque "hcsr04" et définir les broches de la carte Arduino à utiliser pour la communication avec le capteur HC-SR04. La fonction HCSR04 est ensuite initialisée avec les broches de déclenchement et d'écho.
 
