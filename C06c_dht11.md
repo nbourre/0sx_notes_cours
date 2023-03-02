@@ -142,11 +142,60 @@ La librairie DHT fournit des fonctions pour lire la température et l'humidité.
 
 ## Exemple de contrôle d'un ventilateur
 
-TODO : Compléter l'exemple ci-bas
+Voici un exemple simple où l'on contrôle un ventilateur.
 
-Ce code lit les données du capteur DHT11, active ou désactive le ventilateur en fonction de la température mesurée et affiche l'état du ventilateur sur le moniteur série. La fonction `delay(1000)` permet d'attendre une seconde avant de lire les données à nouveau.
+```cpp
+#include "DHT.h"
 
-En utilisant le capteur DHT11 avec l'Arduino Mega, nous pouvons facilement mesurer la température et l'humidité de l'environnement et réaliser des projets de contrôle de l'environnement tels que la surveillance de la température et de l'humidité dans une serre, une chambre de culture ou un habitat.
+#define DHTPIN 2
+#define DHTTYPE DHT11   // DHT 11
+#define FAN_PIN 8
+#define TEMPERATURE_THRESHOLD 30
+
+unsigned long currentTime;
+
+// Construction de l'objet
+// dht
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(FAN_PIN, OUTPUT);
+}
+
+void loop() {
+  currentTime = millis();
+
+  fanTask(currentTime);
+}
+
+// Tâche de contrôle du ventilateur
+void fanTask(unsigned long now) {
+  static unsigned long lastTime = 0;
+  const int rate = 2000;
+
+  if (now - lastTime >= rate) {
+    lastTime = now;
+
+    float temp = dht.readTemperature();
+
+    if (temp > TEMPERATURE_THRESHOLD) {
+      digitalWrite(FAN_PIN, HIGH);
+      Serial.println("Ventilateur activé.");
+    } else {
+      digitalWrite(FAN_PIN, LOW);
+      Serial.println("Ventilateur désactivé.");
+    }
+  }
+}
+
+```
+
+Ce code lit la température du DHT11, active ou désactive le ventilateur en fonction de la température mesurée et affiche l'état du ventilateur sur le moniteur série.
+
+On met un délai de 2000 ms, car la lecture de la température est plutôt l;lente et surtout on ne veut pas que le ventilateur s'active et se désactive trop rapidement.
+
+En utilisant le capteur DHT11, nous pouvons facilement mesurer la température et l'humidité de l'environnement et réaliser des projets de contrôle de l'environnement tels que la surveillance de la température et de l'humidité dans une serre, une chambre de culture ou un habitat ou tout autre système nécessitant une surveillance de température.
 
 # Fouiller dans une librairie
 Dans le premier exemple, vous avez probablement remarqué la fonction `computeHeatIndex()`. Celle-ci est fournit par la librairie `DHT.h`. Mais comment fait-on pour connaître les autres fonctions disponibles dans cette librairie?
