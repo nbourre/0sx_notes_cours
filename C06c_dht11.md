@@ -142,6 +142,7 @@ La librairie DHT fournit des fonctions pour lire la température et l'humidité.
 
 ## Exemple de contrôle d'un ventilateur
 
+TODO : Compléter l'exemple ci-bas
 
 Ce code lit les données du capteur DHT11, active ou désactive le ventilateur en fonction de la température mesurée et affiche l'état du ventilateur sur le moniteur série. La fonction `delay(1000)` permet d'attendre une seconde avant de lire les données à nouveau.
 
@@ -168,5 +169,3 @@ Pour ce faire :
 
 3. Par la suite, il suffit de jeter un coup d'oeil au fichier `.h` pour voir toutes les fonctions disponibles. <br/><br/>
  
-
-

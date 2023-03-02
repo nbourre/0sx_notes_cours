@@ -11,6 +11,7 @@ Au secondaire, vous avez tous déjà appris que le son avait une vitesse défini
 - [Utilisation du HC-SR04 avec Arduino](#utilisation-du-hc-sr04-avec-arduino)
 - [Utilisation de la library HCSR04 de Gamegine](#utilisation-de-la-library-hcsr04-de-gamegine)
 - [Conclusion](#conclusion)
+- [Annexe](#annexe)
 
 ---
 
@@ -132,12 +133,31 @@ void loop() {
 [Hcsr04 Example-1.webm](https://user-images.githubusercontent.com/2332679/220739389-57b4cfe0-2dd2-4353-b683-6010c929af1f.webm)
 
 
-Le code commence par inclure la bibliothèque "hcsr04" et définir les broches de la carte Arduino à utiliser pour la communication avec le capteur HC-SR04. La fonction HCSR04 est ensuite initialisée avec les broches de déclenchement et d'écho.
+Le code commence par inclure la bibliothèque `HCSR04` et définir les broches de la carte Arduino à utiliser pour la communication avec le capteur HC-SR04. On crée ensuite un **objet** nommé `hc` de la **classe** `HCSR04` avec les broches de déclenchement et d'écho.
 
-Dans la fonction "loop", la distance est mesurée en appelant la fonction "distance()" de la classe HCSR04. La distance mesurée est ensuite affichée sur le moniteur série.
+Dans la fonction "loop", la distance est mesurée en appelant la fonction "distance()" de la classe `HCSR04`. La distance mesurée est ensuite affichée sur le moniteur série.
 
 En utilisant la librairie "hcsr04", il est possible de mesurer la distance avec le capteur HC-SR04 en utilisant moins de code et avec une plus grande facilité.
 
 # Conclusion
 
 Le capteur HC-SR04 est un composant électronique utile pour mesurer la distance dans les projets Arduino. Il est facile à utiliser et permet de mesurer des distances avec une grande précision. En utilisant ce capteur avec un écran LCD, il est possible de créer des projets pratiques tels que le contrôle de la distance de sécurité entre une voiture et un obstacle.
+
+# Annexe
+
+> ***Food for thought*!! -- Les classes et les objets**
+> 
+> ![Alt text](assets/gif/brain_food.gif)
+> 
+> Deux nouveaux termes utilisés dans ce chapitre soit **objet** et **classe**.
+> 
+> Commençons tout d'abord par le terme **classe**. Une classe est un modèle qui décrit les caractéristiques et les comportements d'un objet. Par exemple, une classe `Voiture` décrit les caractéristiques et les comportements d'une voiture. Une voiture peut avoir des caractéristiques telles que la couleur, la marque, le nombre de portes, etc. Une voiture peut avoir des comportements tels que démarrer, accélérer, freiner, etc.
+>
+> L'**objet** est une **instance** de la classe. Par exemple, une voiture rouge de marque Toyota avec 4 portes est un objet de la classe `voiture`. Une autre voiture bleue de marque Honda avec 2 portes est un autre objet de la classe `Voiture`.
+>
+>  
+> **Une classe est un type complexe de données qui peut contenir des variables et des fonctions.**
+>
+> **Un objet est l'équivalent d'une variable, mais pour une classe**.
+> 
+> Vous entendrez éventuellement le verbe **instancier**. Cela veut simplement dire "*créer un objet à partir d'une classe*".
