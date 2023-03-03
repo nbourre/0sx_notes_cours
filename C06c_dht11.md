@@ -11,9 +11,11 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
   - [Branchement du capteur DHT11](#branchement-du-capteur-dht11)
   - [Mesure de température et d'humidité](#mesure-de-température-et-dhumidité)
   - [Exemple de contrôle d'un ventilateur](#exemple-de-contrôle-dun-ventilateur)
+  - [Schéma pour brancher un ventilateur](#schéma-pour-brancher-un-ventilateur)
 - [Fouiller dans une librairie](#fouiller-dans-une-librairie)
   - [Utilisation de la documentation](#utilisation-de-la-documentation)
   - [Lire le fichier .h](#lire-le-fichier-h)
+- [Références](#références)
 
 ---
 
@@ -197,6 +199,35 @@ On met un délai de 2000 ms, car la lecture de la température est plutôt l;len
 
 En utilisant le capteur DHT11, nous pouvons facilement mesurer la température et l'humidité de l'environnement et réaliser des projets de contrôle de l'environnement tels que la surveillance de la température et de l'humidité dans une serre, une chambre de culture ou un habitat ou tout autre système nécessitant une surveillance de température.
 
+## Schéma pour brancher un ventilateur
+Voici un schéma électrique qui permet de brancher un ventilateur DC sur la carte Arduino avec le matériel dont vous disposez.
+
+![Alt text](assets/schemas/ventilateur.png)
+
+Matériel nécessaire :
+- 1 x résistance 220 ohms
+- 1 x moteur DC
+- 1 x [transistor S8050](https://components101.com/transistors/s8050-transistor-pinout-equivalent-datasheet)
+
+Branchement :
+- Vous branchez la patte du milieu du transistor sur la résistance et celle-ci sur une broche de sortie de l'Arduino.
+- La patte de gauche du transistor est reliée au ground.
+- La patte de droite du transistor est reliée à la broche du moteur DC.
+
+> **Important :** **Ne jamais brancher un moteur directement sur un port d'un microcontrôleur**. Vous risquez d'endommager le microcontrôleur.
+> 
+> ![Alt text](assets/gif/arduino_burning.gif)
+
+> **Bloc science - Le transistor**
+>
+> Un transistor est un composant électronique utilisé pour amplifier ou commuter des signaux électroniques. Il est composé de trois broches : la base, l'émetteur et le collecteur. La base est la broche de commande, l'émetteur est la broche de sortie et le collecteur est la broche d'entrée.
+> 
+> Dans notre cas, sa principale utilisation est en tant qu'interrupteur. En effet, lorsque l'on met une tension sur la base, le transistor devient conducteur et permet le passage du courant du collecteur vers l'émetteur.
+> 
+> C'est un composant qui est très rapide. Aini, il est souvent utilisé pour contrôler la puissance fournie à une charge, telle qu'une LED ou un moteur. 
+> 
+> Dans le cas de l'exemple avec le ventilateur, le transistor est utilisé comme un interrupteur contrôlé par un signal de commande.
+
 # Fouiller dans une librairie
 Dans le premier exemple, vous avez probablement remarqué la fonction `computeHeatIndex()`. Celle-ci est fournit par la librairie `DHT.h`. Mais comment fait-on pour connaître les autres fonctions disponibles dans cette librairie?
 
@@ -218,3 +249,6 @@ Pour ce faire :
 
 3. Par la suite, il suffit de jeter un coup d'oeil au fichier `.h` pour voir toutes les fonctions disponibles. <br/><br/>
  
+
+# Références
+- [Branchement ventilateur](https://electronics.stackexchange.com/questions/320908/s8050-bjt-is-rated-for-700-ma-but-gets-extremely-hot-when-powering-a-12-volt-700)
