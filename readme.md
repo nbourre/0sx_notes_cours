@@ -31,15 +31,19 @@
    2. [Programmer en tâches](C05b_programmer_en_taches.md)
 7. Semaine 07
    1. [Utilisation de librairies](C06a_librairies.md)
-   2. [Capteur ultrasonique](C06b_ultrasonic.md)
-   3. [Capteur d'humidité](C06c_dht11.md)
+   2. [Écran LCD](C06b_lcd_1602.md)
+   3. [Capteur ultrasonique](C06c_dht11.md)
+   4. [Capteur d'humidité](C06d_ultrasonic.md)
 8. Semaine 08
+   1. [Module de puissance](C07a_unite_puissance.md)
+   2. [Servomoteur](C07b_servomoteur.md)
 9.  Semaine 09
 10. Semaine 10
 11. Semaine 11
 12. Semaine 12
 
 # Extra
+- [Exemples que j'ai utilisé pour le cours](https://github.com/nbourre/0sx_projets_cours)
 - [Loi d'Ohm](extras/loi_dohm.md)
 
 # Introduction du cours

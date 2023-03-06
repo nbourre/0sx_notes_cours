@@ -15,6 +15,7 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 - [Fouiller dans une librairie](#fouiller-dans-une-librairie)
   - [Utilisation de la documentation](#utilisation-de-la-documentation)
   - [Lire le fichier .h](#lire-le-fichier-h)
+- [Exercices](#exercices)
 - [Références](#références)
 
 ---
@@ -248,7 +249,16 @@ Pour ce faire :
    ![Alt text](assets/video/trouver_librairie_code.gif)
 
 3. Par la suite, il suffit de jeter un coup d'oeil au fichier `.h` pour voir toutes les fonctions disponibles. <br/><br/>
- 
+
+---
+
+# Exercices
+1. Créez un programme qui affiche la température et l'humidité sur le moniteur série à toutes les 2 secondes.
+   - Soufflez sur le capteur pour observer les effets.
+2. Modifiez le code pour du ventilateur en le remplaçant par une DEL. La DEL doit s'allumer lorsque la température dépasse 30 °C et s'éteindre lorsque la température est inférieure à 30 °C.
+3. Naviguez à travers le fichier `dht.h` et trouvez les différentes fonctions disponibles. Quelles sont les fonctions qui permettent d'obternir la température en incluant le facteur humidex?
+
+---
 
 # Références
 - [Branchement ventilateur](https://electronics.stackexchange.com/questions/320908/s8050-bjt-is-rated-for-700-ma-but-gets-extremely-hot-when-powering-a-12-volt-700)

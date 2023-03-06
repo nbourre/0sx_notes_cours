@@ -11,6 +11,7 @@ Au secondaire, vous avez tous déjà appris que le son avait une vitesse défini
 - [Utilisation du HC-SR04 avec Arduino](#utilisation-du-hc-sr04-avec-arduino)
 - [Utilisation de la library HCSR04 de Gamegine](#utilisation-de-la-library-hcsr04-de-gamegine)
 - [Conclusion](#conclusion)
+- [Exercices](#exercices)
 - [Annexe](#annexe)
 
 ---
@@ -139,9 +140,16 @@ Dans la fonction "loop", la distance est mesurée en appelant la fonction "dista
 
 En utilisant la librairie "hcsr04", il est possible de mesurer la distance avec le capteur HC-SR04 en utilisant moins de code et avec une plus grande facilité.
 
+---
+
 # Conclusion
 
 Le capteur HC-SR04 est un composant électronique utile pour mesurer la distance dans les projets Arduino. Il est facile à utiliser et permet de mesurer des distances avec une grande précision. En utilisant ce capteur avec un écran LCD, il est possible de créer des projets pratiques tels que le contrôle de la distance de sécurité entre une voiture et un obstacle.
+
+---
+
+# Exercices
+1. Réaliser un programme qui mesure la distance à l'aide du capteur HC-SR04 et qui affiche le résultat dans le moniteur série à toutes les 100 ms.
 
 # Annexe
 
