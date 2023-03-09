@@ -37,3 +37,61 @@ void loop() {
   delay(100);
 }
 ```
+
+# Utiliser un tableau de caractères pour écrire sur le LCD
+Voici un exemple de bout de code pour écrire sur le LCD avec un tableau de caractères.
+
+```cpp
+// Tampon pour écrire les strings
+char lcdBuff[2][16] = {"                ", "                "};
+// Tampon pour écrire un float
+char szFloat[6];
+float valeur = 0.0;
+
+void loop() {
+
+  // …
+  // Convertir un float en char[]
+  dtostrf(valeur, 4, 1, szFloat);
+  // Écriture à la ligne 1
+  sprintf(lcdBuff[0], "valeur=%s", szFloat);
+  // Écriture à la ligne 2
+  // now est une variable de type DateTime
+  sprintf(lcdBuff[1], "%02d:%02d:%02d",
+    now.hour(), now.minute(), now.second());
+
+  lcd.setCursor(0, 0);
+  lcd.print(lcdBuff[0]);
+  lcd.setCursor(0, 1);
+  lcd.print(lcdBuff[1]);
+
+  // Attendre 100ms
+  delay(100);
+  // Effacer le texte
+  lcd.clear();
+  // …
+
+}
+```
+
+La fonction `sprintf` permet d'écrire dans un tableau de caractères.
+- Elle prend 3 paramètres:
+  - Le tableau de caractères à remplir
+  - Le format de la string
+  - Les valeurs à écrire
+
+La fonction `dtostrf` permet de convertir un float en char[].
+- Elle prend 4 paramètres:
+  - Le float à convertir
+  - Le nombre de caractères à écrire
+  - Le nombre de décimales
+  - Le tableau de caractères à remplir
+
+Le format de la string est le suivant:
+- `%` indique que l'on va écrire une valeur
+- Les valeurs peuvent être:
+  - `d` pour un entier
+  - `s` pour une string
+- Pour les entiers, on peut ajouter un nombre pour indiquer le nombre de caractères à écrire. Dans l'exemple, on utilise `%02d` pour écrire un entier sur 2 caractères. Si le nombre est plus petit, on ajoute des zéros devant.
+
+**Les `float` ne sont pas supportés** par la fonction `sprintf` avec Arduino. Il faut donc convertir le float en char[] avec la fonction `dtostrf` avant de l'écrire.
