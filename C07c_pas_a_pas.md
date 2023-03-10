@@ -19,12 +19,14 @@
 
 
 # Introduction
-Dans votre kit, vous avez un moteur pas-à-pas (*stepper mtor*) 28BYJ-48 avec un module monté avec un driver ULN2003.
+Votre kit contient un moteur pas-à-pas (*stepper mtor*) 28BYJ-48 avec un module monté avec un driver ULN2003.
 
 ## Utilisation
 On retrouve les moteurs pas-à-pas dans plusieurs applications comme les lecteurs de disques, les disques durs, les imprimantes, les robots, etc.
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z5v90dUOg4E/0.jpg)](https://www.youtube.com/watch?v=z5v90dUOg4E)
+
+> **Zone le fun :** Jetez un coup d'oeil sur le [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
 
 # Fonctionnement d'un moteur pas-à-pas
 Les moteurs pas-à-pas utilisent une roue dentée et des électroaimants pour faire avancer la roue d'un "pas" à la fois.
