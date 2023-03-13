@@ -38,7 +38,7 @@
    1. [Machine à états](C07a_machine_etats.md)
    2. [Lecture du port série](C07b_lecture_serie.md)
    3. [Moteur pas-à-pas](C07c_pas_a_pas.md)
-   4. [Servomoteur](C07d_servomoteur.md)
+   4. [Servomoteur](C07d_servo.md)
    5. [Module de puissance](C07e_unite_puissance.md)
 9.  Semaine 09
 10. Semaine 10
