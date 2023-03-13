@@ -35,8 +35,11 @@
    3. [Capteur ultrasonique](C06c_dht11.md)
    4. [Capteur d'humidité](C06d_ultrasonic.md)
 8. Semaine 08
-   1. [Module de puissance](C07e_unite_puissance.md)
-   2. [Servomoteur](C07d_servomoteur.md)
+   1. [Machine à états](C07a_machine_etats.md)
+   2. [Lecture du port série](C07b_lecture_serie.md)
+   3. [Moteur pas-à-pas](C07c_pas_a_pas.md)
+   4. [Servomoteur](C07d_servomoteur.md)
+   5. [Module de puissance](C07e_unite_puissance.md)
 9.  Semaine 09
 10. Semaine 10
 11. Semaine 11
