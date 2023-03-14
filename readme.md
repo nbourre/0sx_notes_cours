@@ -27,8 +27,8 @@
    3. [Traceur série](C04c_traceur_serie.md)
    4. [Exercices](C04x_exercices.md)
 6. Semaine 06
-   1. [Composants analogues](C05a_composants_analogues.md)
-   2. [Programmer en tâches](C05b_programmer_en_taches.md)
+   1. [Composants analogues](c05/c05a_analog/C05a_composants_analogues.md)
+   2. [Programmer en tâches](c05/c05b_taches/C05b_programmer_en_taches.md)
 7. Semaine 07
    1. [Utilisation de librairies](c06/c06a_lib/C06a_librairies.md)
    2. [Écran LCD](c06/c06b_lcd/C06b_lcd_1602.md)
