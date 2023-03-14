@@ -30,16 +30,16 @@
    1. [Composants analogues](C05a_composants_analogues.md)
    2. [Programmer en tâches](C05b_programmer_en_taches.md)
 7. Semaine 07
-   1. [Utilisation de librairies](C06a_librairies.md)
-   2. [Écran LCD](C06b_lcd_1602.md)
-   3. [Capteur ultrasonique](C06c_dht11.md)
-   4. [Capteur d'humidité](C06d_ultrasonic.md)
+   1. [Utilisation de librairies](c06/c06a_lib/C06a_librairies.md)
+   2. [Écran LCD](c06/c06b_lcd/C06b_lcd_1602.md)
+   3. [Capteur ultrasonique](c06/c06c_dht11/C06c_dht11.md)
+   4. [Capteur d'humidité](c06/c06d_hcsr04/C06d_ultrasonic.md)
 8. Semaine 08
-   1. [Machine à états](C07a_machine_etats.md)
-   2. [Lecture du port série](C07b_lecture_serie.md)
-   3. [Moteur pas-à-pas](C07c_pas_a_pas.md)
-   4. [Servomoteur](C07d_servo.md)
-   5. [Module de puissance](C07e_unite_puissance.md)
+   1. [Machine à états](c07/c07a_fsm/C07a_machine_etats.md)
+   2. [Lecture du port série](c07/c07b_serial_read/C07b_lecture_serie.md)
+   3. [Moteur pas-à-pas](c07/c07c_stepper/C07c_pas_a_pas.md)
+   4. [Servomoteur](c07/c07d_servo/C07d_servo.md)
+   5. [Module de puissance](c07/c07e_psu/C07e_unite_puissance.md)
 9.  Semaine 09
 10. Semaine 10
 11. Semaine 11
