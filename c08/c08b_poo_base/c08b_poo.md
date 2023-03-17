@@ -30,6 +30,13 @@ L'avantage de créer des classes, c'est que cela rend le code plus facile à lir
 # Création d'une classe
 Dans Arduino, nous pouvons créer des classes pour représenter des objets physiques.
 
+Plusieurs langages de programmation modernes n'utilisent qu'un seul fichier pour définir une classe comme le C#. Cependant, Arduino utilise deux fichiers pour définir une classe. Un fichier `.cpp` pour la définition de la classe et un fichier `.h` pour la déclaration de la classe.
+
+Il faut que le fichier `.h` soit inclus dans le fichier `.cpp` pour que la classe soit définie.
+
+## Fichier .h
+Le fichier `.h` contient la déclaration de la classe. C'est-à-dire que c'est ici que nous définissons les propriétés et les méthodes de la classe.
+
 La syntaxe pour créer une classe est la suivante:
 
 ```cpp
@@ -40,14 +47,42 @@ class NomDeLaClasse {
 
 ```
 
+> **Convention de nommage :**
+> En C++, les noms de classes commencent par une lettre majuscule. Par exemple, `Verrou`, `Chien`, `OuvrePorte`, etc.
+> 
+> Si la classe a plusieurs mots, on utilise la convention *upper CamelCase* pour nommer la classe. C'est-à-dire les autres mots commencent par une lettre majuscule. Par exemple, `VerrouMotorise`, `OuvrePorteAutomatique`, etc.	
+
+## Les accesseurs public et private
+Dans une classe, nous pouvons définir des attributs et des méthodes qui sont accessibles depuis l'extérieur de la classe et d'autres qui ne le sont pas. Cela permet de protéger les attributs et les méthodes qui ne doivent pas être modifiés ou appelés depuis l'extérieur de la classe.
+
+Dans le cadre du cours, nous nous intéresserons uniquement aux attributs et méthodes publics ou privés.
+
+Le mot-clé `public` permet de définir les attributs et méthodes qui sont accessibles depuis l'extérieur de la classe.
+
+Le mot-clé `private` permet de définir les attributs et méthodes qui ne sont pas accessibles depuis l'extérieur de la classe.
+
+En C++, on fait des blocs d'attributs et de méthodes publics et privés. 
+
+On démarre un bloc public avec le mot-clé `public` et on termine le bloc avec le mot-clé `private`.
+
+```cpp
+class NomDeLaClasse {
+  public:
+    // Déclaration des attributs et méthodes publics
+  private:
+    // Déclaration des attributs et méthodes privés
+};
+```
+
+## Fichier .cpp
+
+TODO
+
+
 TODO : Continuer l'article
 
 
 # Éléments publics et privés
-
-
-
-
 
 
 
@@ -80,32 +115,32 @@ class VerrouMotoriseServo {
     
   public:
     VerrouMotoriseServo(int pin, int angleOuvert, int angleFerme) {
-      this->servo.attach(pin);
-      this->angleOuvert = angleOuvert;
-      this->angleFerme = angleFerme;
-      this->position = angleFerme;
-      this->etat = FERME;
-      this->servo.write(this->position);
+      servo.attach(pin);
+      angleOuvert = angleOuvert;
+      angleFerme = angleFerme;
+      position = angleFerme;
+      etat = FERME;
+      servo.write(position);
     }
     
     void activer() {
-      if (this->etat == FERME) {
-        this->position = angleOuvert;
-        this->etat = OUVERT;
-        this->servo.write(this->position);
+      if (etat == FERME) {
+        position = angleOuvert;
+        etat = OUVERT;
+        servo.write(position);
       }
     }
     
     void desactiver() {
-      if (this->etat == OUVERT) {
-        this->position = angleFerme;
-        this->etat = FERME;
-        this->servo.write(this->position);
+      if (etat == OUVERT) {
+        position = angleFerme;
+        etat = FERME;
+        servo.write(position);
       }
     }
     
     EtatVerrou getEtat() {
-      return this->etat;
+      return etat;
     }
 };
 
