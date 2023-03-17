@@ -22,10 +22,13 @@ Ce document est une amélioration et un complément du document [ESP8266 WiFi Sh
     `AT+CIOBAUD=9600` (cela ne doit être fait qu'une fois).
     - Cette action change la vitesse de communication du module `ESP8266` en utilisant une commande `AT`. Il faudra en prendre considération lors de configuration future du module.
 11. Déconnectez tout.
-12. Changez le cavalier de sorte que le RX du shield soit relié à la broche n°3 de l'Arduino.
+12. Testez la configuration en envoyant la commande `AT` via le moniteur série.
+    - Assurez-vous d'avoir configuré le moniteur série à la nouvelle vitesse.
+13. Déconnectez tout.
+14. Changez le cavalier de sorte que le RX du shield soit relié à la broche n°3 de l'Arduino.
     - ESP_RX doit être relié à la broche 3 de l'Arduino.
     - Nous allons utiliser `SoftwareSerial` pour communiquer avec le module `ESP8266`
-13. Changez le cavalier de sorte que le TX du shield soit relié à la broche n°2 de l'Arduino.
+15. Changez le cavalier de sorte que le TX du shield soit relié à la broche n°2 de l'Arduino.
     - ESP_TX doit être relié à la broche 2 de l'Arduino. 
     - Nous allons utiliser `SoftwareSerial` pour communiquer avec le module `ESP8266`
 
