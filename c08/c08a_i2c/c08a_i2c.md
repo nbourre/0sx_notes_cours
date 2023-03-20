@@ -140,7 +140,14 @@ void loop() {
 }
 
 ```
-TODO : Continuer ce bloc en montrant la librairie à télécharger et un branchement
+
+Pour réaliser cet exemple, il faut importer la librairie `LiquidCrystal_I2C`.
+
+> **Note :** Les exemples de `LiquidCrystal_I2C` ne s'ouvrent pas car ils ne respectent plus la norme Arduino. Pour les ouvrir, il faut changer l'extension des fichiers pour `.ino`.
+> 
+> Les fichiers des librairies sont dans le dossier `%userprofile%\Documents\Arduino\libraries` sous Windows.
+
+![Alt text](branchement_lcd_i2c_bb.png)
 
 # Exemple : MPU-6050 avec la librairie Adafruit
 Voici un exemple avec la librairie fournie par Adafruit. Cette librairie est très simple à utiliser et permet de lire les données de l'accéléromètre et du gyroscope. Voici le code :
@@ -228,6 +235,15 @@ Voici quelques exemples d'appareils et de capteurs populaires qui fonctionnent a
 
 # Conclusion
 Le protocole I2C est un moyen simple et efficace de communiquer avec divers périphériques dans les projets Arduino. Il permet de simplifier le câblage et d'interagir facilement avec de nombreux capteurs et périphériques. En comprenant les bases d'I2C et en maîtrisant son utilisation, vous pourrez créer des projets plus complexes et plus performants.
+
+---
+
+# Exercices
+1. À l'aide du kit de pièces prêtées, ajoutez à votre montage le module LCD i2c et affichez le texte "Hello World" sur l'écran LCD.
+
+
+
+---
 
 # Références
 - [& - Arduino Reference](https://www.arduino.cc/reference/en/language/structure/pointer-access-operators/reference/)
