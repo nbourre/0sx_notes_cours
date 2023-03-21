@@ -44,6 +44,7 @@
    1. [Communication i2c](c08/c08a_i2c/c08a_i2c.md)
    2. [Programmation orientée objet base](c08/c08b_poo_base/c08b_poo.md)
 10. Semaine 10
+   1. [Machine à états revisitée](c09/c09a_fsm_revisited/c09a_fsm_revisited.md)
 11. Semaine 11
 12. Semaine 12
 
