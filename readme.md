@@ -40,7 +40,9 @@
    3. [Moteur pas-à-pas](c07/c07c_stepper/C07c_pas_a_pas.md)
    4. [Servomoteur](c07/c07d_servo/C07d_servo.md)
    5. [Module de puissance](c07/c07e_psu/C07e_unite_puissance.md)
-9.  Semaine 09
+9. Semaine 09
+   1. [Communication i2c](c08/c08a_i2c/c08a_i2c.md)
+   2. [Programmation orientée objet base](c08/c08b_poo_base/c08b_poo.md)
 10. Semaine 10
 11. Semaine 11
 12. Semaine 12
