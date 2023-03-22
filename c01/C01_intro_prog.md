@@ -189,7 +189,7 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 
 # Cycle de vie d'un programme
 
-![Alt text](assets/program_cycle_vie.png)
+![Alt text](program_cycle_vie.png)
 
 ---
 
@@ -378,7 +378,7 @@ Simuler un projet sur un simulateur avant d'effectuer les branchements physiques
 ## Créer un projet
 Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
 
-<!-- <video src="assets/wokwi_new_project.mp4" width=640></video> -->
+<!-- <video src="wokwi_new_project.mp4" width=640></video> -->
 
 https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8242-067902a302e1.mp4
 

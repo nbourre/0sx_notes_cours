@@ -61,11 +61,11 @@ En effet, on doit s'assurer que les pilotes sont installés.
 
 Pour vérifier si les pilotes sont installés, ouvrez le logiciel Arduino. Vous devriez voir une fenêtre comme celle-ci :
 
-![Alt text](assets/arduino_ide.png)
+![Alt text](arduino_ide.png)
 
 Maintenant, sélectionnez la barre défilante située dans la barre d'outils.
 
-![Alt text](assets/arduino_ide_board.gif)
+![Alt text](arduino_ide_board.gif)
 
 Si les pilotes sont installés, vous devriez voir dans la liste déroulante le nom de votre carte Arduino avec le port qui lui est assigné. Dans mon cas, c'était "Arduino Mega or Mega 2560" sur le `COM26` de mon ordinateur. Le numéro du port peut varier selon votre ordinateur.
 
@@ -107,25 +107,25 @@ Au cours des dix années qui ont suivi la sortie d'Arduino, il y a eu une énorm
 
 Dans ce cours, nous allons nous concentrer sur l'**Arduino Mega** qui est un Arduino plus puissant que l'Arduino UNO. Elle est en fait sa grande soeur. Elle est plus puissante et plus rapide avec une tonne de mémoire et de broches en plus, et une puce différente, l'ATmega2560. C'est une bonne mise à jour lorsqu'un projet ne rentre plus dans un UNO.
 
-![Alt text](assets/arduino_mega.jpg)
+![Alt text](arduino_mega.jpg)
 
 Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles Arduino que vous pourriez vouloir !
 
 <table>
   <tr>
-    <td><img src="assets/arduino_50-07.jpg"/></td>
+    <td><img src="arduino_50-07.jpg"/></td>
     <td>L'Arduino UNO est un classique, elle est de loin la plus populaire et 99% des projets l'utilise. Elle est basique et bien supportée.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_micro.jpg"/></td>
+    <td><img src="arduino_micro.jpg"/></td>
     <td>L'Arduino Micro, par contre... est un peu plus petit! Il a une puce Atmega32u4 différente qui peut faire de l'USB natif et peut donc agir comme un clavier ou une souris. Il est fin et possède des connecteurs à broche descendante pour pouvoir le brancher sur une planche à pain.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_mkr1000.jpg"/></td>
+    <td><img src="arduino_mkr1000.jpg"/></td>
     <td>L'Arduino MKR1000 ressemble un peu à un Arduino Micro mais possède une puce ATSAM ARM 32 bits plus puissante et un WiFi intégré! Une excellente mise à niveau pour les projets liés à l'Internet des objets.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_flora.png"/></td>
+    <td><img src="arduino_flora.png"/></td>
     <td>Il y a aussi les Arduino-compatibles comme le Flora qui est fabriqué par Adafruit. C'est un Arduino rond et portable et plutôt que d'utiliser des fils, vous pouvez le coudre dans les vêtements pour des projets électroniques portables.</td>
   </tr>
 </table>

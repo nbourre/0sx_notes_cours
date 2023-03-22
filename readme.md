@@ -6,10 +6,11 @@
 - [Introduction du cours](#introduction-du-cours)
   - [Les grandes lignes du cours](#les-grandes-lignes-du-cours)
 
+<!-- TODO : Restructurer les fichiers de cours restants -->
 # Les leçons
 1. Semaine 01
-   1. [Configuration de l'environnement de travail](C01_intro_config.md)
-   2. [Introduction à la programmation Arduino](C01_intro_prog.md)
+   1. [Configuration de l'environnement de travail](c01/C01_intro_config.md)
+   2. [Introduction à la programmation Arduino](c01/C01_intro_prog.md)
 2. Semaine 02
    1. [Fonctions de base et affichage Série](C02_fonctions_comm.md)
       - [Exercices](C02_fonctions_comm_exo.md)
