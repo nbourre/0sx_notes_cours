@@ -23,10 +23,10 @@
 4. Semaine 04
    1. Examen et révision
 5. Semaine 05
-   1. [Fonction `analogRead`](C04a_fonction_analogRead.md)
-   2. [Fonction `analogWrite`](C04b_fonction_analogWrite.md)
-   3. [Traceur série](C04c_traceur_serie.md)
-   4. [Exercices](C04x_exercices.md)
+   1. [Fonction `analogRead`](c04/C04a_fonction_analogRead.md)
+   2. [Fonction `analogWrite`](c04/C04b_fonction_analogWrite.md)
+   3. [Traceur série](c04/C04c_traceur_serie.md)
+   4. [Exercices](c04/C04x_exercices.md)
 6. Semaine 06
    1. [Composants analogues](c05/c05a_analog/C05a_composants_analogues.md)
    2. [Programmer en tâches](c05/c05b_taches/C05b_programmer_en_taches.md)
