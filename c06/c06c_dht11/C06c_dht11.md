@@ -217,7 +217,7 @@ Branchement :
 
 > **Important :** **Ne jamais brancher un moteur directement sur un port d'un microcontrôleur**. Vous risquez d'endommager le microcontrôleur.
 > 
-> ![Alt text](../../assets/gif/arduino_burning.gif)
+> ![Alt text](arduino_burning.gif)
 
 > **Bloc science - Le transistor**
 >

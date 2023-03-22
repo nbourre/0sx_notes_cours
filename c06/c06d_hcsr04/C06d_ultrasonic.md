@@ -156,7 +156,7 @@ Le capteur HC-SR04 est un composant électronique utile pour mesurer la distance
 
 > ***Food for thought*!! -- Les classes et les objets**
 > 
-> ![Alt text](../../assets/gif/brain_food.gif)
+> ![Alt text](brain_food.gif)
 > 
 > Deux nouveaux termes utilisés dans ce chapitre soit **objet** et **classe**.
 > 
