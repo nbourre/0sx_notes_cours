@@ -72,7 +72,7 @@ void loop() {
 </td>
 <td>
 
-![Alt text](assets/c02_blink.gif)
+![Alt text](c02_blink.gif)
 
 </td>
 
@@ -288,7 +288,7 @@ void loop() {
 </td>
 <td>
 
-![Alt text](assets/ex_serial_print.gif)
+![Alt text](ex_serial_print.gif)
 
 </td>
 
@@ -318,7 +318,7 @@ Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moni
 
 Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
 
-![Alt text](assets/arduino_serial_monitor_start.gif)
+![Alt text](arduino_serial_monitor_start.gif)
 
 ---
 

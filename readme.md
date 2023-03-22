@@ -12,8 +12,8 @@
    1. [Configuration de l'environnement de travail](c01/C01_intro_config.md)
    2. [Introduction à la programmation Arduino](c01/C01_intro_prog.md)
 2. Semaine 02
-   1. [Fonctions de base et affichage Série](C02_fonctions_comm.md)
-      - [Exercices](C02_fonctions_comm_exo.md)
+   1. [Fonctions de base et affichage Série](c02/C02_fonctions_comm.md)
+      - [Exercices](c02/C02_fonctions_comm_exo.md)
 3. Semaine 03
    1. [Branchement de base](C03a_branchement_base.md)
       - [Exercices](C03a_branchement_base_exo.md)
