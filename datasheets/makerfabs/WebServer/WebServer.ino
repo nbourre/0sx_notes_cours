@@ -13,12 +13,6 @@
 
 #include "WiFiEsp.h"
 
-// Emulate Serial1 on pins 6/7 if not present
-#ifndef HAVE_HWSERIAL1
-#include "SoftwareSerial.h"
-SoftwareSerial Serial1(6, 7); // RX, TX
-#endif
-
 char ssid[] = "OpenWrt-IoT";            // your network SSID (name)
 char pass[] = "du185187";        // your network password
 int status = WL_IDLE_STATUS;     // the Wifi radio's status
