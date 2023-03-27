@@ -11,18 +11,25 @@
  For more details see: http://yaab-arduino.blogspot.com/p/wifiesp.html
 */
 
+/****************************************/
+// Créer un fichier "arduino_secrets.h"
+// Ajouter les lignes suivantes
+// #define SSID_NAME "nomReseau"
+// #define PASS "motDePasse"
+#include "arduino_secrets.h"
+/****************************************/
+
 #include "WiFiEsp.h"
 
-char ssid[] = "OpenWrt-IoT";            // your network SSID (name)
-char pass[] = "du185187";        // your network password
-int status = WL_IDLE_STATUS;     // the Wifi radio's status
-int reqCount = 0;                // number of requests received
+char ssid[] = SSID_NAME;      // your network SSID (name)
+char pass[] = PASS;           // your network password
+int status = WL_IDLE_STATUS;  // the Wifi radio's status
+int reqCount = 0;             // number of requests received
 
 WiFiEspServer server(80);
 
 
-void setup()
-{
+void setup() {
   // initialize serial for debugging
   Serial.begin(115200);
   // initialize serial for ESP module
@@ -34,11 +41,12 @@ void setup()
   if (WiFi.status() == WL_NO_SHIELD) {
     Serial.println("WiFi shield not present");
     // don't continue
-    while (true);
+    while (true)
+      ;
   }
 
   // attempt to connect to WiFi network
-  while ( status != WL_CONNECTED) {
+  while (status != WL_CONNECTED) {
     Serial.print("Attempting to connect to WPA SSID: ");
     Serial.println(ssid);
     // Connect to WPA/WPA2 network
@@ -47,14 +55,13 @@ void setup()
 
   Serial.println("You're connected to the network");
   printWifiStatus();
-  
+
   // start the web server on port 80
   server.begin();
 }
 
 
-void loop()
-{
+void loop() {
   // listen for incoming clients
   WiFiEspClient client = server.available();
   if (client) {
@@ -70,7 +77,7 @@ void loop()
         // so you can send a reply
         if (c == '\n' && currentLineIsBlank) {
           Serial.println("Sending response");
-          
+
           // send a standard http response header
           // use \r\n instead of many println statements to speedup data send
           client.print(
@@ -94,8 +101,7 @@ void loop()
         if (c == '\n') {
           // you're starting a new line
           currentLineIsBlank = true;
-        }
-        else if (c != '\r') {
+        } else if (c != '\r') {
           // you've gotten a character on the current line
           currentLineIsBlank = false;
         }
@@ -111,8 +117,7 @@ void loop()
 }
 
 
-void printWifiStatus()
-{
+void printWifiStatus() {
   // print the SSID of the network you're attached to
   Serial.print("SSID: ");
   Serial.println(WiFi.SSID());
@@ -121,7 +126,7 @@ void printWifiStatus()
   IPAddress ip = WiFi.localIP();
   Serial.print("IP Address: ");
   Serial.println(ip);
-  
+
   // print where to go in the browser
   Serial.println();
   Serial.print("To see this page in action, open a browser to http://");
