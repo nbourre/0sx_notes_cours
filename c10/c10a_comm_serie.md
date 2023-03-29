@@ -1,4 +1,4 @@
-# Retour sur le port série <!-- omit in toc -->
+# Retour sur le port série et début Wifi <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
@@ -6,6 +6,8 @@
   - [Les commandes AT](#les-commandes-at)
 - [Le shield ESP8266](#le-shield-esp8266)
   - [Branchement](#branchement)
+  - [Requis - IMPORTANT!!](#requis---important)
+  - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
   - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
   - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
 - [Références](#références)
@@ -40,13 +42,15 @@ En résumé, l'ESP8266 est un microcontrôleur puissant et facile à utiliser qu
 ---
 
 ## Les commandes AT
-Si le module ESP8266 est programmé avec le firmware AT, il peut être contrôlé par des commandes AT. Ainsi, il ne sera pas nécessaire de programmer directement le module ESP8266 pour l'utiliser. Il suffit de lui envoyer des commandes AT via le port série.
+Si le module ESP8266 est programmé avec le **firmware** AT, il peut être contrôlé par des commandes AT. Ainsi, il ne sera pas nécessaire de programmer directement le module ESP8266 pour l'utiliser. Il suffit de lui envoyer des commandes AT via le port série.
 
 Les commandes AT sont des commandes qui permettent de contrôler le module ESP8266. Ces commandes sont envoyées au module ESP8266 via le port série. Le module ESP8266 répondra à ces commandes avec des données ou des informations.
 
 Elles permettent, entre autres, de configurer les informations de connexion.
 
-Dans notre cas, nous utilisons un librairie qui cachera ces commandes AT. Ce qui nous permettra de nous concentrer sur le code de notre application.
+Dans notre cas, nous utilisons une librairie qui cachera ces commandes AT. Ce qui nous permettra de nous concentrer sur le code de notre application.
+
+> **Note :** Le mot **firmware** désigne le programme qui est chargé sur un microcontrôleur. Il est différent du programme qui est chargé sur un ordinateur. Le firmware est écrit en langage assembleur ou en langage C/C++.
 
 ---
 
@@ -61,7 +65,7 @@ Ce Shield WiFi est basé sur ESP-12F, qui est la nouvelle version de l'ESP-12 av
 - Supporte une riche série de commandes AT pour Socket
 
 ## Branchement
-La documentation en ligne montre un branchement du shield sur un Arduino Uno. Pour le branchement sur un Arduino Mega, il faut désactiver les cavaliers commen montré sur l'image ci-dessous.
+La documentation en ligne montre un branchement du shield sur un Arduino Uno. Pour le branchement sur un Arduino Mega, il faut désactiver les cavaliers comme montré sur l'image ci-dessous.
 
 Ensuite, il faut brancher une des broches ESP_RX sur la broche TX1 du Mega et la broche ESP_TX sur la broche RX1 du Mega.
 
@@ -69,151 +73,408 @@ Ensuite, il faut brancher une des broches ESP_RX sur la broche TX1 du Mega et la
 
 Dans le code, il faudra alors utiliser les fonctions `Serial1` pour échanger avec le module.
 
-## Exemple de code - Serveur Web
+## Requis - IMPORTANT!!
+Pour le cours, il faut installer la librairie **WiFiEspAT** pour pouvoir utiliser le shield.
 
-Ce code est un exemple d'utilisation de la bibliothèque `WiFiEsp` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
+## Code pour configurer le wifi
+Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois.
 
 ```cpp
-/*
-Exemple WiFiEsp : Serveur Web
+#include <WiFiEspAT.h>
 
-Un simple serveur web qui affiche la valeur des broches d'entrée analogiques
-via une page web en utilisant un module ESP8266.
-Ce croquis imprimera l'adresse IP de votre module ESP8266 (une fois connecté)
-sur le moniteur série. À partir de là, vous pouvez ouvrir cette adresse dans un navigateur Web
-pour afficher la page Web.
-La page Web sera automatiquement actualisée toutes les 20 secondes.
+#define HAS_SECRETS 0  // Mettre à 1 si le fichier arduino_secrets.h est présent
 
-Pour plus de détails, voir: http://yaab-arduino.blogspot.com/p/wifiesp.html
-*/
-
-/****************************************/
-// Créer un fichier "arduino_secrets.h"
-// Ajouter les lignes suivantes
-// #define SSID_NAME "nomReseau"
-// #define PASS "motDePasse"
+#if HAS_SECRETS
 #include "arduino_secrets.h"
-/****************************************/
+///////please enter your sensitive data in the Secret tab/arduino_secrets.h
+const char ssid[] = SECRET_SSID;  // your network SSID (name)
+const char pass[] = SECRET_PASS;  // your network password (use for WPA, or use as key for WEP)
 
-#include "WiFiEsp.h"
+#else
+const char ssid[] = "ton_wifi";  // your network SSID (name)
+const char pass[] = "ton_mdp";   // your network password (use for WPA, or use as key for WEP)
 
-char ssid[] = SSID_NAME;            // votre nom de réseau SSID
-char pass[] = PASS;        // votre mot de passe de réseau
-int status = WL_IDLE_STATUS;     // statut de la radio Wifi
-int reqCount = 0;                // nombre de requêtes reçues
+#endif
 
-WiFiEspServer server(80);
+#define AT_BAUD_RATE 115200
+
+int blinkRate = 500;
 
 void setup() {
-  // initialise le port série pour le débogage
+  pinMode(LED_BUILTIN, OUTPUT);
+
   Serial.begin(115200);
-  // initialise le port série pour le module ESP
-  Serial1.begin(115200); // Dépend de la configuration du module
-  // initialise le module ESP
+  while (!Serial);
+
+  Serial1.begin(AT_BAUD_RATE);
   WiFi.init(&Serial1);
 
-  // vérifie la présence du module
-  if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println("Shield WiFi non présent");
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println();
+    Serial.println("La communication avec le module WiFi a échoué!");
     // ne pas continuer
-    while (true)
-      ;
+    while (true);
   }
 
-  // tentative de connexion au réseau WiFi
-  while (status != WL_CONNECTED) {
-    Serial.print("Tentative de connexion à WPA SSID : ");
-    Serial.println(ssid);
-    // connexion au réseau WPA/WPA2
-    status = WiFi.begin(ssid, pass);
+  WiFi.disconnect();  // pour effacer le chemin. non persistant
+
+  WiFi.setPersistent();  // définir la connexion WiFi suivante comme persistante
+
+  WiFi.endAP();  // pour désactiver le démarrage automatique persistant AP par défaut au démarrage
+
+  // décommentez ces lignes pour une adresse IP statique persistante. définissez des adresses valides pour votre réseau
+  // Pour l'adresse du cégep, la plage est 172.22.0.0 où les derniers octets sont entre 1 et 254
+  // IPAddress ip(192, 168, 1, 9);
+  // IPAddress gw(192, 168, 1, 1);
+  // IPAddress nm(255, 255, 255, 0);
+  // WiFi.config(ip, gw, gw, nm);
+
+  Serial.println();
+  Serial.print("Tentative de connexion à SSID: ");
+  Serial.println(ssid);
+
+  int status = WiFi.begin(ssid, pass);
+
+  if (status == WL_CONNECTED) {
+    Serial.println();
+    Serial.println("Connecté au réseau WiFi.");
+    printWifiStatus();
+  } else {
+    WiFi.disconnect();  // supprimer la connexion WiFi
+    Serial.println();
+    Serial.println("La connexion au réseau WiFi a échoué.");
+    blinkRate = 100;
   }
-
-  Serial.println("Vous êtes connecté au réseau");
-  printWifiStatus();
-
-  // démarre le serveur web sur le port 80
-  server.begin();
 }
 
 void loop() {
-  // attend les clients entrants
-  WiFiEspClient client = server.available();
-  if (client) {
-    Serial.println("Nouveau client");
-    // une requête http se termine par une ligne vide
-    boolean currentLineIsBlank = true;
-    while (client.connected()) {
-      if (client.available()) {
-        char c = client.read();
-        Serial.write(c);
-        // si vous avez atteint la fin de la ligne (reçu un caractère de nouvelle ligne)
-        // et la ligne est vide, la requête http est terminée,
-        // donc vous pouvez envoyer une réponse
-        if (c == '\n' && currentLineIsBlank) {
-          Serial.println("Envoi de la réponse");
-
-          // envoie un en-tête de réponse http standard
-          // utilisez \r\n au lieu de nombreuses instructions println pour accélérer l'envoi de données
-          client.print(
-            "HTTP/1.1 200 OK\r\n"
-            "Content-Type: text/html\r\n"
-            "Connection: close\r\n"  // la connexion sera fermée après l'achèvement de la réponse
-            "Refresh: 20\r\n"        // actualiser la page automatiquement toutes les 20 secondes
-            "\r\n");
-          client.print("<!DOCTYPE HTML>\r\n");
-          client.print("<html>\r\n");
-          client.print("<h1>Bonjour le monde !</h1>\r\n");
-          client.print("Requêtes reçues : ");
-          client.print(++reqCount);
-          client.print("<br>\r\n");
-          client.print("Entrée analogique A0 : ");
-          client.print(analogRead(0));
-          client.print("<br>\r\n");
-          client.print("</html>\r\n");
-          break;
-        }
-        if (c == '\n') {
-          // vous commencez une nouvelle ligne
-          currentLineIsBlank = true;
-        } else if (c != '\r') {
-          // vous avez reçu un caractère sur la ligne actuelle
-          currentLineIsBlank = false;
-        }
-      }
-      // donne au navigateur Web le temps de recevoir les données
-      delay(10);
-
-      // ferme la connexion :
-      client.stop();
-      Serial.println("Client déconnecté");
-    }
+  static unsigned long lastBlink = 0;
+  if (millis() - lastBlink >= blinkRate) {
+    lastBlink = millis();
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
   }
 }
 
-void printWifiStatus()
-{
-    // affiche le SSID du réseau auquel vous êtes connecté
-    Serial.print("SSID : ");
-    Serial.println(WiFi.SSID());
+void printWifiStatus() {
 
-    // affiche l'adresse IP de votre module WiFi
-    IPAddress ip = WiFi.localIP();
-    Serial.print("Adresse IP : ");
+  // imprime le SSID du réseau auquel vous êtes connecté:
+  char ssid[33];
+  WiFi.SSID(ssid);
+  Serial.print("SSID: ");
+  Serial.println(ssid);
+
+  // imprime le BSSID du réseau auquel vous êtes connecté:
+  uint8_t bssid[6];
+  WiFi.BSSID(bssid);
+  Serial.print("BSSID: ");
+  printMacAddress(bssid);
+
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.print("MAC: ");
+  printMacAddress(mac);
+
+  // imprime l'adresse IP de votre carte:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Adresse IP: ");
+  Serial.println(ip);
+
+  // imprime la force du signal reçu:
+  long rssi = WiFi.RSSI();
+  Serial.print("force du signal (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+
+// Imprime l'adresse MAC
+void printMacAddress(byte mac[]) {
+  for (int i = 5; i >= 0; i--) {
+    if (mac[i] < 16) {
+      Serial.print("0");
+    }
+    Serial.print(mac[i], HEX);
+    if (i > 0) {
+      Serial.print(":");
+    }
+  }
+  Serial.println();
+}
+
+
+```
+
+## Exemple de code - Serveur Web
+
+Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
+
+**Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
+
+```cpp
+/*
+Serveur Web WiFi
+
+Un simple serveur web qui affiche la valeur des broches d'entrée analogique.
+
+Créé le 13 Juillet 2010
+par dlf (Metodo2 srl)
+modifié le 31 mai 2012
+par Tom Igoe
+modifié en juillet 2019 pour la bibliothèque WiFiEspAT
+par Juraj Andrassy https://github.com/jandrassy
+*/
+
+#include <WiFiEspAT.h>
+
+// Emuler Serial1 sur les broches 6/7 si non présent
+#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
+#include <SoftwareSerial.h>
+SoftwareSerial Serial1(6, 7);  // RX, TX
+#define AT_BAUD_RATE 9600
+#else
+#define AT_BAUD_RATE 115200
+#endif
+
+WiFiServer server(80);
+
+void setup() {
+
+  Serial.begin(115200);
+  while (!Serial);
+
+  Serial1.begin(AT_BAUD_RATE);
+  WiFi.init(Serial1);
+
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println("La communication avec le module WiFi a échoué !");
+    // ne pas continuer
+    while (true);
+  }
+
+  // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
+  Serial.println("En attente de connexion au WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print('.');
+  }
+  Serial.println();
+
+  server.begin();
+
+  IPAddress ip = WiFi.localIP();
+  Serial.println();
+  Serial.println("Connecté au réseau WiFi.");
+  Serial.print("Pour accéder au serveur, entrez \"http://");
+  Serial.print(ip);
+  Serial.println("/\" dans un navigateur web.");
+}
+
+void loop() {
+
+  WiFiClient client = server.available();
+  if (client) {
+    IPAddress ip = client.remoteIP();
+    Serial.print("nouveau client ");
     Serial.println(ip);
 
-    // affiche où aller dans le navigateur
-    Serial.println();
-    Serial.print("Pour voir cette page en action, ouvrez un navigateur à l'adresse http://");
-    Serial.println(ip);
-    Serial.println();
+    while (client.connected()) {
+      if (client.available()) {
+        String line = client.readStringUntil('\n');
+        line.trim();
+        Serial.println(line);
+
+        // si vous avez atteint la fin de l'en-tête HTTP (la ligne est vide),
+        // la demande HTTP est terminée, vous pouvez donc envoyer une réponse
+        if (line.length() == 0) {
+          // Ligne de statut HTTP
+          client.println("HTTP/1.1 200 OK");
+
+          // envoyer un en-tête de réponse HTTP
+          client.println("Content-Type: text/html");
+          client.println();
+
+          // Corps du HTML
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          client.println("<head>");
+          // actualisez la page automatiquement toutes les 5 secondes
+          client.println("<meta http-equiv=\"refresh\" content=\"5\" charset=\"UTF-8\">");
+          client.println("</head>");
+
+          // afficher la valeur des broches d'entrée analogique
+          for (int analogChannel = 0; analogChannel < 4; analogChannel++) {
+            int sensorReading = analogRead(analogChannel);
+            client.print("Entree analogique ");
+            client.print(analogChannel);
+            client.print(" est ");
+            client.print(sensorReading);
+            client.println("<br />");
+          }
+          
+          client.println("</html>");
+          client.flush();
+          break;
+        }
+      }
+    }
+
+    // fermer la connexion:
+    client.stop();
+    Serial.println("client déconnecté");
+  }
 }
 
 ```
 
 ## Exemple - Allumer une DEL
 
+Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui a été reçu par le module Wifi.
+
+**Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
+
+```cpp
+#include <WiFiEspAT.h>
+#include "RingBuffer.h"
+
+// Pour Arduino UNO
+// Emuler Serial1 sur les broches 6/7 si non présent
+#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
+#include <SoftwareSerial.h>
+SoftwareSerial Serial1(6, 7);  // RX, TX
+#define AT_BAUD_RATE 9600
+#else
+#define AT_BAUD_RATE 115200
+#endif
+
+WiFiServer server(80);
+
+// Utilise un tampon circulaire pour améliorer
+// la vitesse et réduire l'allocation de mémoire
+RingBuffer buf(8);
+
+int ledStatus = 0;
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  Serial.begin(115200);
+  while (!Serial)
+    ;
+
+  Serial1.begin(AT_BAUD_RATE);
+  WiFi.init(Serial1);
+
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println("La communication avec le module WiFi a échoué !");
+    // ne pas continuer
+    while (true)
+      ;
+  }
+
+  // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
+  Serial.println("En attente de connexion au WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print('.');
+  }
+  Serial.println();
+
+  server.begin();
+
+  IPAddress ip = WiFi.localIP();
+  Serial.println();
+  Serial.println("Connecté au réseau WiFi.");
+  Serial.print("Pour accéder au serveur, entrez \"http://");
+  Serial.print(ip);
+  Serial.println("/\" dans un navigateur web.");
+}
+
+void loop() {
+  wifiTask();
+}
+
+void wifiTask() {
+    WiFiClient client = server.available();
+
+  // Si vous obtenez un client
+  if (client) {
+    IPAddress ip = client.remoteIP();
+    Serial.print("nouveau client ");
+    Serial.println(ip);
+
+    // Initialiser le tampon circulaire
+    buf.init();
+
+    // Boucler tant que le client est connecté
+    while (client.connected()) {
+
+      // Si des octets sont disponibles à partir du client
+      if (client.available()) {
+
+        char c = client.read();  // lire un octet et
+        buf.push(c);             // le pousser dans le tampon circulaire
+
+        // Écrire dans le flux série va ralentir le code
+        //Serial.write(c);
+
+        // Vérifiez si la requête HTTP est terminée en détectant deux caractères
+        // de nouvelle ligne consécutifs "\r\n\r\n", puis envoyez une réponse
+        if (buf.endsWith("\r\n\r\n")) {
+          sendHttpResponse(client);
+          break;
+        }
+
+        // Regarder si le client a demandé était "GET /H" or "GET /L":
+        if (buf.endsWith("GET /H")) {
+          Serial.println("Turn led ON");
+          digitalWrite(LED_BUILTIN, HIGH);
+          ledStatus = 1;
+        } else if (buf.endsWith("GET /L")) {
+          Serial.println("Turn led OFF");
+          digitalWrite(LED_BUILTIN, LOW);
+
+          ledStatus = 0;
+        }
+      }
+    }
+
+    // fermer la connexion:
+    client.stop();
+    Serial.println("client déconnecté");
+  }
+}
+
+void sendHttpResponse(WiFiClient client) {
+  sendHTTPHeader(client);
+
+  // Le contenu de la réponse HTTP suit l'en-tête :
+  // il affiche l'état de la LED et fournit des liens pour allumer ou éteindre la LED.
+  client.print("The LED is ");
+  client.print(ledStatus);
+  client.println("<br>");
+  client.println("<br>");
+
+  client.println("Click <a href=\"/H\">here</a> turn the LED on<br>");
+  client.println("Click <a href=\"/L\">here</a> turn the LED off<br>");
+
+  // The HTTP response ends with another blank line:
+  client.println();
+}
+
+// Envoie l'entête HTTP pour une réponse
+// Appeler celle-ci pour éviter la duplication de code
+void sendHTTPHeader(WiFiClient client) {
+  // Les en-têtes HTTP commencent toujours par un code de réponse (par exemple, HTTP/1.1 200 OK)
+  // et un type de contenu pour que le client sache ce qui arrive, puis une ligne vide.
+  client.println("HTTP/1.1 200 OK");
+  client.println("Content-type:text/html");
+  client.println();
+}
+```
+
 ---
 
 # Références
 - [Site officiel : ESP8266](https://www.espressif.com/en/products/socs/esp8266)
 - [Documentation libraire WiFiEsp](https://github.com/bportaluri/WiFiEsp)
+- [Web Server LED](https://github.com/bportaluri/WiFiEsp/blob/master/examples/WebServerLed/WebServerLed.ino)
+- [Requête HTTP](https://cshaw.jhoffman.ca/sessions/2022A/0SV/documentation/2.1-service-web/#requete-http-menu)

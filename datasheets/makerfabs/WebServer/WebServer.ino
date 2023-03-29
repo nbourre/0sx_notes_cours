@@ -1,135 +1,106 @@
 /*
- WiFiEsp example: WebServer
+Serveur Web WiFi
 
- A simple web server that shows the value of the analog input 
- pins via a web page using an ESP8266 module.
- This sketch will print the IP address of your ESP8266 module (once connected)
- to the Serial monitor. From there, you can open that address in a web browser
- to display the web page.
- The web page will be automatically refreshed each 20 seconds.
+Un simple serveur web qui affiche la valeur des broches d'entrée analogique.
 
- For more details see: http://yaab-arduino.blogspot.com/p/wifiesp.html
+Créé le 13 Juillet 2010
+par dlf (Metodo2 srl)
+modifié le 31 mai 2012
+par Tom Igoe
+modifié en juillet 2019 pour la bibliothèque WiFiEspAT
+par Juraj Andrassy https://github.com/jandrassy
 */
 
-/****************************************/
-// Créer un fichier "arduino_secrets.h"
-// Ajouter les lignes suivantes
-// #define SSID_NAME "nomReseau"
-// #define PASS "motDePasse"
-#include "arduino_secrets.h"
-/****************************************/
+#include <WiFiEspAT.h>
 
-#include "WiFiEsp.h"
+// Emuler Serial1 sur les broches 6/7 si non présent
+#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
+#include <SoftwareSerial.h>
+SoftwareSerial Serial1(6, 7);  // RX, TX
+#define AT_BAUD_RATE 9600
+#else
+#define AT_BAUD_RATE 115200
+#endif
 
-char ssid[] = SSID_NAME;      // your network SSID (name)
-char pass[] = PASS;           // your network password
-int status = WL_IDLE_STATUS;  // the Wifi radio's status
-int reqCount = 0;             // number of requests received
-
-WiFiEspServer server(80);
-
+WiFiServer server(80);
 
 void setup() {
-  // initialize serial for debugging
-  Serial.begin(115200);
-  // initialize serial for ESP module
-  Serial1.begin(9600);
-  // initialize ESP module
-  WiFi.init(&Serial1);
 
-  // check for the presence of the shield
-  if (WiFi.status() == WL_NO_SHIELD) {
-    Serial.println("WiFi shield not present");
-    // don't continue
+  Serial.begin(115200);
+  while (!Serial)
+    ;
+
+  Serial1.begin(AT_BAUD_RATE);
+  WiFi.init(Serial1);
+
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println("La communication avec le module WiFi a échoué !");
+    // ne pas continuer
     while (true)
       ;
   }
 
-  // attempt to connect to WiFi network
-  while (status != WL_CONNECTED) {
-    Serial.print("Attempting to connect to WPA SSID: ");
-    Serial.println(ssid);
-    // Connect to WPA/WPA2 network
-    status = WiFi.begin(ssid, pass);
+  // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
+  Serial.println("En attente de connexion au WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print('.');
   }
+  Serial.println();
 
-  Serial.println("You're connected to the network");
-  printWifiStatus();
-
-  // start the web server on port 80
   server.begin();
+
+  IPAddress ip = WiFi.localIP();
+  Serial.println();
+  Serial.println("Connecté au réseau WiFi.");
+  Serial.print("Pour accéder au serveur, entrez \"http://");
+  Serial.print(ip);
+  Serial.println("/\" dans un navigateur web.");
 }
 
-
 void loop() {
-  // listen for incoming clients
-  WiFiEspClient client = server.available();
+
+  WiFiClient client = server.available();
   if (client) {
-    Serial.println("New client");
-    // an http request ends with a blank line
-    boolean currentLineIsBlank = true;
+    IPAddress ip = client.remoteIP();
+    Serial.print("nouveau client ");
+    Serial.println(ip);
+
     while (client.connected()) {
       if (client.available()) {
-        char c = client.read();
-        Serial.write(c);
-        // if you've gotten to the end of the line (received a newline
-        // character) and the line is blank, the http request has ended,
-        // so you can send a reply
-        if (c == '\n' && currentLineIsBlank) {
-          Serial.println("Sending response");
+        String line = client.readStringUntil('\n');
+        line.trim();
+        Serial.println(line);
 
-          // send a standard http response header
-          // use \r\n instead of many println statements to speedup data send
-          client.print(
-            "HTTP/1.1 200 OK\r\n"
-            "Content-Type: text/html\r\n"
-            "Connection: close\r\n"  // the connection will be closed after completion of the response
-            "Refresh: 20\r\n"        // refresh the page automatically every 20 sec
-            "\r\n");
-          client.print("<!DOCTYPE HTML>\r\n");
-          client.print("<html>\r\n");
-          client.print("<h1>Hello World!</h1>\r\n");
-          client.print("Requests received: ");
-          client.print(++reqCount);
-          client.print("<br>\r\n");
-          client.print("Analog input A0: ");
-          client.print(analogRead(0));
-          client.print("<br>\r\n");
-          client.print("</html>\r\n");
+        // si vous avez atteint la fin de l'en-tête HTTP (la ligne est vide),
+        // la demande HTTP est terminée, vous pouvez donc envoyer une réponse
+        if (line.length() == 0) {
+          // envoyer un en-tête de réponse HTTP standard
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");  // la connexion sera fermée après la fin de la réponse
+          client.println("Refresh: 5");         // actualisez la page automatiquement toutes les 5 secondes
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          // afficher la valeur des broches d'entrée analogique
+          for (int analogChannel = 0; analogChannel < 4; analogChannel++) {
+            int sensorReading = analogRead(analogChannel);
+            client.print("Entrée analogique ");
+            client.print(analogChannel);
+            client.print(" est ");
+            client.print(sensorReading);
+            client.println("<br />");
+          }
+          client.println("</html>");
+          client.flush();
           break;
-        }
-        if (c == '\n') {
-          // you're starting a new line
-          currentLineIsBlank = true;
-        } else if (c != '\r') {
-          // you've gotten a character on the current line
-          currentLineIsBlank = false;
         }
       }
     }
-    // give the web browser time to receive the data
-    delay(10);
 
-    // close the connection:
+    // fermer la connexion:
     client.stop();
-    Serial.println("Client disconnected");
+    Serial.println("client déconnecté");
   }
-}
-
-
-void printWifiStatus() {
-  // print the SSID of the network you're attached to
-  Serial.print("SSID: ");
-  Serial.println(WiFi.SSID());
-
-  // print your WiFi shield's IP address
-  IPAddress ip = WiFi.localIP();
-  Serial.print("IP Address: ");
-  Serial.println(ip);
-
-  // print where to go in the browser
-  Serial.println();
-  Serial.print("To see this page in action, open a browser to http://");
-  Serial.println(ip);
-  Serial.println();
 }
