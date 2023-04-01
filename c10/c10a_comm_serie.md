@@ -1,4 +1,4 @@
-# Retour sur le port série et début Wifi <!-- omit in toc -->
+# Début Wifi <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
@@ -23,7 +23,7 @@ Dans ce cours, nous allons voir comment communiquer avec un Arduino Mega via le 
 # ESP8266
 Avant de débuter avec le shield, nous devons en connaître un peu plus sur l'ESP8266.
 
-L'ESP8266 est un microcontrôleur qui peut être programmé en langage Arduino. Si vous êtes un apprenant qui commence à programmer en C, vous pourriez être intéressé par cette petite puce car elle est facile à utiliser et offre une grande variété de fonctionnalités.
+L'ESP8266 est un microcontrôleur qui peut être programmé en langage Arduino. Si vous êtes un nouveau programmeur qui commence à programmer en C, vous pourriez être intéressé par cette petite puce car elle est facile à utiliser et offre une grande variété de fonctionnalités.
 
 ![Différents models d'ESP](ModelosESP.avif)
 
@@ -32,6 +32,8 @@ Cette image montre la variété de modèles d'ESP disponibles sur le marché. Vo
 L'ESP8266 est un module peu coûteux d'où sa popularité. Il est également très facile à utiliser et à programmer. Il est également puissant et peut être utilisé pour créer des projets complexes.
 
 L'ESP8266 est principalement utilisé pour se connecter à Internet et interagir avec des services en ligne. Vous pouvez créer des projets tels que des capteurs connectés, des systèmes d'automatisation domestique ou même des robots qui communiquent avec un serveur distant. Il peut également être utilisé pour contrôler des appareils électroniques tels que des lumières, des ventilateurs et des moteurs.
+
+D'ailleurs, il est utilisé dans plusieurs produits commerciaux, tels que les caméras de surveillance, les thermostats intelligents, les systèmes de sécurité et les systèmes de contrôle d'accès. L'un des gros acteurs dans l'industrie est Tuya, qui utilise l'ESP8266 pour créer des appareils connectés. D'ailleurs si vous avez des appareils intelligents économiques à la maison, il y a de forte chance que Tuya soit derrière. Pour la note, Tuya est une entreprise chinoise.
 
 L'ESP8266 est équipé d'un processeur 32 bits à faible consommation d'énergie et dispose de 80 à 160 Ko de mémoire flash pour le stockage de programmes. Il prend en charge le Wi-Fi et peut être connecté à un réseau local ou à un point d'accès Wi-Fi pour se connecter à Internet. Il est également compatible avec de nombreuses bibliothèques et outils de développement, ce qui facilite la création de projets complexes.
 
@@ -42,15 +44,15 @@ En résumé, l'ESP8266 est un microcontrôleur puissant et facile à utiliser qu
 ---
 
 ## Les commandes AT
-Si le module ESP8266 est programmé avec le **firmware** AT, il peut être contrôlé par des commandes AT. Ainsi, il ne sera pas nécessaire de programmer directement le module ESP8266 pour l'utiliser. Il suffit de lui envoyer des commandes AT via le port série.
+Si le module ESP8266 est programmé avec le **firmware AT**, il peut être contrôlé par des commandes AT. Ainsi, il ne sera pas nécessaire de programmer directement le module ESP8266 pour l'utiliser. Il suffit de lui envoyer des commandes AT via le port série.
 
-Les commandes AT sont des commandes qui permettent de contrôler le module ESP8266. Ces commandes sont envoyées au module ESP8266 via le port série. Le module ESP8266 répondra à ces commandes avec des données ou des informations.
+Les commandes AT sont des commandes que le module ESP8266, avec le bon firmware, comprend. Ces commandes sont envoyées au module ESP8266 via le port série. Le module ESP8266 répondra à ces commandes avec des données ou des informations.
 
 Elles permettent, entre autres, de configurer les informations de connexion.
 
 Dans notre cas, nous utilisons une librairie qui cachera ces commandes AT. Ce qui nous permettra de nous concentrer sur le code de notre application.
 
-> **Note :** Le mot **firmware** désigne le programme qui est chargé sur un microcontrôleur. Il est différent du programme qui est chargé sur un ordinateur. Le firmware est écrit en langage assembleur ou en langage C/C++.
+> **Note :** Le mot **firmware** désigne le programme qui est chargé sur un microcontrôleur. Il est différent du programme qui est chargé sur un ordinateur. Le firmware est écrit en langage assembleur ou en langage C/C++. En fait, lorsque vous programmez votre Arduino, vous êtes en train de programmer le firmware de votre microcontrôleur.
 
 ---
 
@@ -77,7 +79,7 @@ Dans le code, il faudra alors utiliser les fonctions `Serial1` pour échanger av
 Pour le cours, il faut installer la librairie **WiFiEspAT** pour pouvoir utiliser le shield.
 
 ## Code pour configurer le wifi
-Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois.
+Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois ou à chaque fois que l'on désire de changer de réseau wifi.
 
 ```cpp
 #include <WiFiEspAT.h>
@@ -330,6 +332,8 @@ void loop() {
 Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui a été reçu par le module Wifi.
 
 **Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
+
+**Important 2 :** On doit avoir la classe `RingBuffer`. Dans mon dossier des projets, elle disponible dans le dossier `wifi_webServer_led`.
 
 ```cpp
 #include <WiFiEspAT.h>
