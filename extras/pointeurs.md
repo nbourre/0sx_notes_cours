@@ -6,6 +6,7 @@
 - [Déclaration et initialisation des pointeurs](#déclaration-et-initialisation-des-pointeurs)
 - [Accéder à la valeur pointée](#accéder-à-la-valeur-pointée)
 - [Exemples de programmation](#exemples-de-programmation)
+- [Exercices](#exercices)
 - [Références](#références)
 
 
@@ -107,6 +108,8 @@ int main() {
 
 ---
 
+# Exercices
+- Vous pouvez faire les exercices en lien avec les pointeurs sur cette [page](../exercices/pointeurs.md).
 
 
 ---
