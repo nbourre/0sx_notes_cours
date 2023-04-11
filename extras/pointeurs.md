@@ -32,9 +32,6 @@ Un pointeur est une variable qui stocke l'adresse mémoire d'une autre variable.
 </table>
 
 
-
-
-
 # Déclaration et initialisation des pointeurs
 
 En C++, un pointeur est déclaré en utilisant le symbole `*` après le type de la variable pointée. Par exemple, pour déclarer un pointeur vers un entier, on utiliserait la syntaxe suivante :
