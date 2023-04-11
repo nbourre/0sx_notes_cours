@@ -54,6 +54,7 @@
 
 # Exercices de rappel
 - [switch-case](exercices/switch_case.md)
+- [Les pointeurs](exercices/pointeurs.md)
 
 # Extra
 - [Exemples que j'ai utilisé pour le cours](https://github.com/nbourre/0sx_projets_cours)
