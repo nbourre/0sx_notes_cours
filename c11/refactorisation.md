@@ -1,6 +1,18 @@
 # La refactorisation <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
+- [Introduction](#introduction)
+- [Les principes de la refactorisation](#les-principes-de-la-refactorisation)
+  - [Les principes SOLID](#les-principes-solid)
+    - [Le principe de responsabilité unique (Single Responsibility Principle)](#le-principe-de-responsabilité-unique-single-responsibility-principle)
+    - [Le principe d'ouverture/fermeture (Open/Closed Principle)](#le-principe-douverturefermeture-openclosed-principle)
+- [Étude de cas](#étude-de-cas)
+  - [Analyse du projet](#analyse-du-projet)
+  - [Déterminer les responsabilités de chaque classe](#déterminer-les-responsabilités-de-chaque-classe)
+    - [Classe `Eclairage`](#classe-eclairage)
+    - [Classe `Affichage`](#classe-affichage)
+  - [Code principal](#code-principal)
+
 
 # Introduction
 Voici une mise en situation.
