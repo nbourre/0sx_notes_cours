@@ -7,11 +7,13 @@
     - [Le principe de responsabilité unique (Single Responsibility Principle)](#le-principe-de-responsabilité-unique-single-responsibility-principle)
     - [Le principe d'ouverture/fermeture (Open/Closed Principle)](#le-principe-douverturefermeture-openclosed-principle)
 - [Étude de cas](#étude-de-cas)
+  - [Identification des problèmes](#identification-des-problèmes)
   - [Analyse du projet](#analyse-du-projet)
   - [Déterminer les responsabilités de chaque classe](#déterminer-les-responsabilités-de-chaque-classe)
     - [Classe `Eclairage`](#classe-eclairage)
     - [Classe `Affichage`](#classe-affichage)
   - [Code principal](#code-principal)
+- [Résumé](#résumé)
 
 
 # Introduction
@@ -121,6 +123,32 @@ void loop() {
 }
 ```
 
+
+
+## Identification des problèmes
+Avant de faire la refactorisation, il faut identifier les problématiques du code actuel. 
+
+> **Remarques :** Il y a beaucoup de problèmes dans le code et c'est normal. Vous êtes en apprentissage et cela fait partie du processus. Vous allez apprendre à identifier les problèmes et à les résoudre au fur et à mesure.
+
+- La fonction `ultrason` :
+  - est une fonction qui ne fait qu'appeler une fonction de la librairie `HCSR04`. Il n'y a donc pas de raison de faire une fonction pour ça.
+  - a le paramètre `currentMillis` qui n'est pas utilisé.
+- La fonction `display` :
+  - a le paramètre `distance` qui peut être remplacé par la variable globale du même nom.
+  - a le paramètre `currentMillis` qui peut être remplacé par la variable globale du même nom.
+  - a le paramètre `luminosity` qui peut être remplacé par la variable globale du même nom.
+  - est dépendante d'élément externe.
+- La fonction `autoLum` :
+  - a le paramètre `currentMillis` qui peut être remplacé par la variable globale du même nom.
+  - a le paramètre `distance` qui peut être remplacé par la variable globale du même nom.
+  - a des éléments qui n'ont pas de lien avec la fonction.
+  - est dépendante d'élément externe.
+
+Ce sont tous des problématiques que la refactorisation va permettre de résoudre.
+
+## Analyse du projet
+La première étape sera de déterminer les différents systèmes de ce projet.
+
 Les grandes lignes du projet étaient ceci :
 - Lire les valeurs du capteur de luminosité;
 - Calibrer le déclenchement de la lumière avec la valeur minimum et maximum du capteur de luminosité;
@@ -128,10 +156,6 @@ Les grandes lignes du projet étaient ceci :
 - Lire la valeur de la distance avec le capteur ultrason;
 - Afficher des valeurs dans le port série
 - Afficher des valeurs sur l'écran LCD.
-
-## Analyse du projet
-
-La première étape sera de déterminer les différents systèmes de ce projet.
 
 Dans ce projet, nous avons 3 systèmes :
 - Le système de lecture de la luminosité;
@@ -216,7 +240,7 @@ void Eclairage::update(){
 ```
 
 ### Classe `Affichage`
-Pour la classe `Affichage`, celle-ci va recevoir les données des autres classes et les afficher sur l'écran LCD. Ne sachant pas encore tous les systèmes qui devront affichés de l'information, nous allons développer une classe indépendante de tout autre système.
+Pour la classe `Affichage`, celle-ci va recevoir les données des autres classes et les afficher sur l'écran LCD. Ne sachant pas encore tous les systèmes qui devront afficher de l'information, nous allons développer une classe indépendante de tout autre système.
 
 On veut rafraîchir l'affichage à toutes les temps données. On a donc besoin d'une fonction pour indiquer le temps entre chaque rafraîchissement.
 
@@ -233,10 +257,10 @@ Voici le code qui répond à l'analyse de la classe `Affichage` :
 ```cpp
 #include <LiquidCrystal_I2C.h>
 
-class Affichage{
+class Affichage {
   public:
     // Constructeur
-    Affichage(int lcdAddress, int lcdColumns, int lcdRows);
+    Affichage(uint8_t lcdAddress, uint8_t lcdColumns, uint8_t lcdRows);
 
     void setLine1(String line1);
     void setLine2(String line2);
@@ -246,31 +270,20 @@ class Affichage{
     int getRefreshRate() { return _refreshRate; }
 
   private:
-    int _lcdAddress;
-    int _lcdColumns;
-    int _lcdRows;
     int _refreshRate = 250;
     String _line1;
     String _line2;
     
-    unsigned long currentTime;
-
-    // Drapeau pour indiquer si l'affichage doit être mis à jour
-    bool _needUpdate = false; 
-
-    // Remarquez le "&" devant le nom de l'attribut
-    // En C++, lorsque l'on veut définir un attribut qui est objet dans une classe, 
-    // il faut définir le constructeur de la classe pour initialiser cet attribut.
-    // Cela permet de faire une référence à l'objet
-    LiquidCrystal_I2C &_lcd;  
+    unsigned long _currentTime;
+    bool _needUpdate = false; // Drapeau pour indiquer si l'affichage doit être mis à jour
+    
+    LiquidCrystal_I2C _lcd;
 };
 
 // Peut être déplacé dans le fichier Affichage.cpp
-Affichage::Affichage(int lcdAddress, int lcdColumns, int lcdRows){
-  _lcdAddress = lcdAddress;
-  _lcdColumns = lcdColumns;
-  _lcdRows = lcdRows;
-  _lcd = LiquidCrystal_I2C(_lcdAddress, _lcdColumns, _lcdRows);
+Affichage::Affichage(uint8_t lcdAddress, uint8_t lcdColumns, uint8_t lcdRows):
+  _lcd (lcdAddress, lcdColumns, lcdRows) // Initialisation de l'écran LCD
+{
   _lcd.init();
   _lcd.backlight();
 }
@@ -300,16 +313,19 @@ void Affichage::clear(){
 
 void Affichage::update(){
   static unsigned long lastUpdate = 0;
-  currentTime = millis();
+  _currentTime = millis();
 
   // On sort de la méthode si le temps entre le dernier rafraîchissement est plus petit que le temps de rafraîchissement
-  if (currentTime - lastUpdate < _refreshRate){
+  if (_currentTime - lastUpdate < _refreshRate){
     return;
   }
 
+  // Pourquoi afficher si on n'a pas besoin de mettre à jour l'affichage?
   if (!_needUpdate){
     return;
   }
+  
+  lastUpdate = _currentTime;
 
   _lcd.clear();
   _lcd.setCursor(0,0);
@@ -320,7 +336,6 @@ void Affichage::update(){
   // On redescent le drapeau
   _needUpdate = false;
 }
-
 ```
 
 ## Code principal
@@ -362,5 +377,10 @@ void loop() {
 
 ```
 
+Voilà! Le code principal est maintenant beaucoup plus lisible et facile à comprendre.
 
+# Résumé
+Dans ce tutoriel, nous avons vu comment utiliser les classes pour organiser le code. Nous avons vu comment définir une classe et comment utiliser les attributs et les méthodes d'une classe. Nous avons aussi vu comment utiliser les classes dans le code principal.
+
+Il faut se rappeler que si j'utilise un attribut qui est un objet, il faudra faire une référence à cet objet à l'aide du symbole `&` dans le constructeur de la classe.
 
