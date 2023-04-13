@@ -128,21 +128,25 @@ void loop() {
 ## Identification des problèmes
 Avant de faire la refactorisation, il faut identifier les problématiques du code actuel. 
 
-> **Remarques :** Il y a beaucoup de problèmes dans le code et c'est normal. Vous êtes en apprentissage et cela fait partie du processus. Vous allez apprendre à identifier les problèmes et à les résoudre au fur et à mesure.
+> **Remarques :** Vous allez remarquer que j'identifie plusieurs problèmes dans le code et **c'est normal**. Vous êtes en apprentissage et cela fait partie du processus. Au fur et à mesure de votre formation, vous allez apprendre à identifier les problèmes, à les résoudre et à les éviter.
+
+Les questions que l'on peut se poser seraient "Est-ce que ça sert pour cette fonction?", "Est-ce que j'ai un équivalent ailleur?", "Est-ce qu'elle donne un avantage?", etc.
 
 - La fonction `ultrason` :
-  - est une fonction qui ne fait qu'appeler une fonction de la librairie `HCSR04`. Il n'y a donc pas de raison de faire une fonction pour ça.
-  - a le paramètre `currentMillis` qui n'est pas utilisé.
+  - est une fonction qui ne fait qu'appeler une fonction de la librairie `HCSR04`. Est-ce qu'elle donne un avantage?
+  - a le paramètre `currentMillis` qui n'est pas utilisé. Est-ce que ça sert?
+  
 - La fonction `display` :
-  - a le paramètre `distance` qui peut être remplacé par la variable globale du même nom.
-  - a le paramètre `currentMillis` qui peut être remplacé par la variable globale du même nom.
-  - a le paramètre `luminosity` qui peut être remplacé par la variable globale du même nom.
-  - est dépendante d'élément externe.
+  - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleur?
+  - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleur?
+  - a le paramètre `luminosity`. Est-ce que j'ai un équivalent ailleur?
+  - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
+  
 - La fonction `autoLum` :
-  - a le paramètre `currentMillis` qui peut être remplacé par la variable globale du même nom.
-  - a le paramètre `distance` qui peut être remplacé par la variable globale du même nom.
-  - a des éléments qui n'ont pas de lien avec la fonction.
-  - est dépendante d'élément externe.
+  - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleur?
+  - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleur?
+  - a des éléments qui n'ont pas de lien avec la fonction. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
+  - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
 
 Ce sont tous des problématiques que la refactorisation va permettre de résoudre.
 
