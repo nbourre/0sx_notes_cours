@@ -75,9 +75,9 @@ Recherchez pour "Arduino" et sélectionnez la commande "Arduino: Verify" ou "Ard
 - On peut l'utiliser pour programmer dans plusieurs langages.
 
 # Exercices
-- [ ] Installer Visual Studio Code.
-- [ ] Installer et configurer l'extension Arduino.
-- [ ] Ouvrir un projet Arduino.
-- [ ] Compiler et téléverser un projet Arduino.
+- Installer Visual Studio Code.
+- Installer et configurer l'extension Arduino.
+- Ouvrir un projet Arduino.
+- Compiler et téléverser un projet Arduino.
 
 

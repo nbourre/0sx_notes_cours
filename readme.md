@@ -51,6 +51,7 @@
     1.  [Module WiFi](c10/c10a_comm_serie.md)
     2.  [Visual Studio Code](c10/c10b_vscode.md)
 12. Semaine 12
+    1.  [Refactorisation](c11/refactorisation.md)
 
 # Exercices de rappel
 - [switch-case](exercices/switch_case.md)
