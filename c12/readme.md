@@ -15,7 +15,12 @@
 - [La librarie PubSubClient](#la-librarie-pubsubclient)
   - [Initialisation du client MQTT](#initialisation-du-client-mqtt)
   - [Configuration du client au serveur MQTT](#configuration-du-client-au-serveur-mqtt)
+  - [Connexion au serveur MQTT](#connexion-au-serveur-mqtt)
   - [Configuration de la fonction de rappel](#configuration-de-la-fonction-de-rappel)
+  - [S'abonner à un sujet](#sabonner-à-un-sujet)
+  - [Publier un message](#publier-un-message)
+  - [Le JSON](#le-json)
+- [Exercice](#exercice)
 - [Références](#références)
 
 # Qu'est-ce que le MQTT?
@@ -489,6 +494,25 @@ client.setServer(mqtt_server, 1883);
 
 Pour nos besoins, on configure le client au serveur MQTT dans la fonction `setup()`.
 
+## Connexion au serveur MQTT
+Pour se connecter au serveur MQTT, on utilise la fonction `connect()`. La fonction retourne un booléeen qui indique si la connexion a réussi ou non.
+
+Elle peut prendre plusieurs paramètres, mais il faut au moins le nom du client. **Le nom du client doit être unique pour le serveur MQTT** sinon la connexion échouera.
+
+Si le serveur le requiert, on peut aussi fournir un nom d'utilisateur et un mot de passe. C'est ce qui se passe dans l'exemple.
+
+```cpp
+// Connexion au serveur MQTT
+if(!client.connect(DEVICE_NAME, MQTT_USER, MQTT_PASS)) {
+  Serial.println("Incapable de se connecter sur le serveur MQTT");
+  Serial.print("client.state : ");
+  Serial.println(client.state());
+} else{
+  Serial.println("Connecté sur le serveur MQTT");
+}
+```
+
+
 ## Configuration de la fonction de rappel
 La fonction de rappel est une fonction qui sera appelée par la librairie `PubSubClient` quand un message est reçu. On peut donc utiliser cette fonction pour traiter les messages reçus.
 
@@ -515,8 +539,13 @@ void mqttEvent(char* topic, byte* payload, unsigned int length) {
   }
   Serial.println();
 
+  // On traite les messages reçus
   if (strcmp(topic, "moteur") == 0) {
     toggleMoteur();    
+  }
+
+  if (strcmp(topic, "lancePatate") == 0) {
+    lanceLaPatate(payload);
   }
 }
 ```
@@ -528,20 +557,99 @@ On peut voir que la fonction de rappel prend trois paramètres.
 
 On remarque dans la fonction que l'on compare le nom du topic avec la chaîne de caractère `"moteur"`. Si les deux chaînes sont identiques, on appelle la fonction `toggleMoteur()`.
 
-Pour que recevoir un message, il faut que le client s'abonne au *topic* sur lequel il veut recevoir des messages. On utilise la fonction `subscribe()` pour s'abonner à un topic.
+Pour que recevoir un message, il faut que le client s'abonne au *topic* sur lequel il veut recevoir des messages.
+
+> **Note** : La fonction `strcmp()` permet de comparer deux chaînes de caractères. Elle retourne 0 si les deux chaînes sont identiques. Une valeur positive si le premier caractère différent a une valeur plus grande dans la première chaîne. Une valeur négative si le premier caractère différent a une valeur plus grande dans la deuxième chaîne.
+
+## S'abonner à un sujet
+Pour s'abonner à un sujet, on utilise la fonction `subscribe()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut s'abonner.
 
 ```cpp
 // S'abonner au topic "moteur"
 client.subscribe("moteur");
 
 // S'abonner au topic "grossePatate"
-client.subscribe("grossePatate");
+client.subscribe("lancePatate");
 ```
 
 Lorsque l'on s'abonne à un topic, on reçoit tous les messages qui sont publiés sur ce topic. On peut donc s'abonner à plusieurs topics. Il suffira ensuite de traiter les messages reçus dans la fonction de rappel.
 
+## Publier un message
+Pour public un message, on utilise la fonction `publish()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut publier le message et le message à publier.
 
-> **Note** : La fonction `strcmp()` permet de comparer deux chaînes de caractères. Elle retourne 0 si les deux chaînes sont identiques. Une valeur positive si le premier caractère différent a une valeur plus grande dans la première chaîne. Une valeur négative si le premier caractère différent a une valeur plus grande dans la deuxième chaîne.
+La fonction `publish()` retourne un booléen qui indique si le message a été publié ou non.
+
+```cpp
+void periodicTask() {
+  static unsigned long lastTime = 0;
+  static char message[100] = "";
+  static char szTemp[6];
+  static char szHum[6];
+  const unsigned int rate = 10000;
+
+  static float temp = 0;
+  static float hum = 0;
+
+  if (currentTime - lastTime < rate) return;
+
+  lastTime = currentTime;
+
+  // On lit la température et l'humidité
+  temp = dht.readTemperature();
+  hum = dht.readHumidity();
+
+  // On convertit les valeurs en chaîne de caractères
+  dtostrf(temp, 4, 1, szTemp);
+  dtostrf(hum, 4, 1, szHum);
+
+  // On construit le message
+  sprintf(message, "{\"name\":%s, \"temp\" : %s, \"hum\":%s, \"millis\":%lu }", "\"profHome\"", szTemp, szHum, currentTime / 1000);
+
+  Serial.print("Envoie : ");
+  Serial.println(message);
+
+  // On publie le message
+  if (!client.publish("test", message)) {
+    Serial.println("Incapable d'envoyer le message!");
+  } else {
+    Serial.println("Message envoyé");
+  }
+}
+```
+
+Souvent la forme du message est en format JSON, mais ça peut être n'importe quoi. Un JSON est d'une chaîne de caractères formatée selon un standard. Nous allons voir les bases du JSON dans la section suivante.
+
+Dans le cas de l'exemple, on publie un message périodiquement. On peut aussi publier un message à la demande. Par exemple, on peut publier un message quand on appuie sur un bouton.
+
+## Le JSON
+Dans la section sur la publication de message, on a voit la construction d'un message en format JSON. Nous allons voir les bases du JSON.
+
+```cpp
+sprintf(message, "{\"name\":%s, \"temp\" : %s, \"hum\":%s, \"millis\":%lu }", "\"profHome\"", szTemp, szHum, currentTime / 1000);
+```
+
+Voici le message en format JSON.
+
+```json
+{
+  "name": "profHome",
+  "temp": "23.00",
+  "hum": "45.00",
+  "millis": 162
+}
+```
+
+Le JSON est une chaîne de caractères formatée selon un standard. Il est composé de paires clé-valeur. Les clés sont des chaînes de caractères entre guillemets doubles. Les valeurs peuvent être des chaînes de caractères entre guillemets doubles, des nombres, des booléens, des tableaux ou des objets.
+
+Le service MQTT qui reçoit l'information peut ensuite décoder le message et extraire les informations qui l'intéressent.
+
+---
+
+# Exercice
+1. Adapter l'exemple pour qu'il publie un message sur le sujet `maison/XX` à toutes les minutes.
+   1. Le XX sera le numéro du shield wifi qui est sur le collant.
+   2. Le nom de l'appareil sera votre numéro de matricule.
+   3. Le message doit contenir la température et l'humidité que vous lisez avec le capteur DHT11.
 
 ---
 
