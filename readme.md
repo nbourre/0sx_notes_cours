@@ -52,6 +52,8 @@
     2.  [Visual Studio Code](c10/c10b_vscode.md)
 12. Semaine 12
     1.  [Refactorisation](c11/refactorisation.md)
+13. Semaine 13
+    1.  [Le protocole MQTT](c12/readme.md)
 
 # Exercices de rappel
 - [switch-case](exercices/switch_case.md)

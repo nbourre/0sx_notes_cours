@@ -3,16 +3,548 @@
 # Table des matières <!-- omit in toc -->
 - [Qu'est-ce que le MQTT?](#quest-ce-que-le-mqtt)
 - [Concepts](#concepts)
-- [Étude de cas](#étude-de-cas)
+  - [Le courtier (*broker*)](#le-courtier-broker)
+  - [Les clients](#les-clients)
+  - [Les sujets (*topic*)](#les-sujets-topic)
+    - [Les caractères spéciaux](#les-caractères-spéciaux)
+  - [Les messages (*payload*)](#les-messages-payload)
+  - [La qualité de service (QoS)](#la-qualité-de-service-qos)
+- [Intégration MQTT avec Arduino](#intégration-mqtt-avec-arduino)
+- [Exemple à utiliser](#exemple-à-utiliser)
+- [La librarie WiFiEspAT](#la-librarie-wifiespat)
+- [La librarie PubSubClient](#la-librarie-pubsubclient)
+  - [Initialisation du client MQTT](#initialisation-du-client-mqtt)
+  - [Configuration du client au serveur MQTT](#configuration-du-client-au-serveur-mqtt)
+  - [Configuration de la fonction de rappel](#configuration-de-la-fonction-de-rappel)
+- [Références](#références)
 
 # Qu'est-ce que le MQTT?
-Le MQTT est un protocole de communication simple et léger. Il permet l'échange de données entre différentes instances. Les instances peuvent être des services ou encore des appareils connectés.
+Le MQTT est un protocole (Message Queuing Telemetry Transport) de messagerie simple, léger et relativement simple à implémenter. Il est conçu pour les communications entre machines dans des environnements où la bande passante et la latence sont des contraintes importantes. Nous allons l'utiliser pour communiquer entre notre Arduino et un serveur MQTT.
 
-Il permet par exemple d'envoyer des données d'un capteur à un serveur. Le serveur pourra ensuite les traiter et les envoyer à un autre appareil ou service.
+---
 
 # Concepts
+MQTT repose sur un modèle de communication basé sur l'abonnement/souscription (publish/subscribe). Dans ce modèle, il y a deux types d'acteurs : les **clients** et le courtier (**broker**). Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Le courtier est un serveur central qui gère les communications entre les clients.
 
+![Alt text](MQTT_Diagram_gOmDdU4.format-webp.webp)
 
-# Étude de cas
+---
+
+## Le courtier (*broker*)
+Le courtier est un serveur central qui gère les communications entre les clients. Il est responsable de la distribution des messages aux clients abonnés aux sujets correspondants. Il est également responsable de la gestion des connexions et de la persistance des messages. Il est possible d'utiliser un courtier tiers, comme [CloudMQTT](https://www.cloudmqtt.com/), ou d'utiliser un courtier local, comme [Mosquitto](https://mosquitto.org/).
+
+Dans le cas de mon serveur, j'utilise mosquitto. Vous pouvez l'installer sur votre machine en utilisant la commande `sudo apt install mosquitto`. Vous pouvez ensuite lancer le serveur en utilisant la commande `mosquitto`. Vous pouvez ensuite vous connecter à votre serveur en utilisant la commande `mosquitto_sub -h localhost -t "test"`. Vous pouvez ensuite publier un message en utilisant la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!"`.
+
+La configuration persistente de celle-ci sort du cadre de ce cours. Vous pouvez trouver plus d'informations sur le site officiel de [Mosquitto](https://mosquitto.org/).
+
+> **Note :** En plus de l'adresse IP du serveur, il faut connaitre le port sur lequel le serveur écoute. Par défaut, le port utilisé par le serveur MQTT est le **port 1883**. Vous pouvez le changer dans le fichier de configuration du serveur.
+
+Le courtier peut aussi être protégé par un nom d'utilisateur et un mot de passe. Dans ce cas, vous devez utiliser la commande `mosquitto_sub -h localhost -t "test" -u "username" -P "password"`. Vous pouvez aussi utiliser la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!" -u "username" -P "password"`.
+
+Il est fortement recommandé, au minimum, d'**utiliser un nom d'utilisateur et un mot de passe** pour protéger votre serveur MQTT.
+
+Dans un monde idéal, le courtier devrait être protégé par un **certificat SSL**. Cependant, cela sort du cadre de ce cours.
+
+---
+
+## Les clients
+Les clients sont des appareils qui peuvent se connecter au courtier pour envoyer et recevoir des messages. Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants, et publier des messages sur des sujets spécifiques.
+
+![Alt text](mqtt_diagram.webp)
+
+---
+
+## Les sujets (*topic*)
+Le MQTT utilise des "**sujets**" pour organiser les messages échangés entre les clients et le courtier. Les sujets sont des chaînes de caractères hiérarchiques, semblables à des chemins de fichiers. Par exemple, un sujet peut être "maison/salon/temperature". Les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants, et publier des messages sur des sujets spécifiques.
+
+Par exemple, un thermostat peut publier la température actuelle sur le sujet "maison/salon/temperature". Un autre client peut s'abonner à ce sujet pour recevoir les mises à jour de température. Un autre client peut publier la température désirée sur le sujet "maison/salon/temperature/desiree". Un autre client peut s'abonner à ce sujet pour recevoir les mises à jour de température désirée.
+
+### Les caractères spéciaux
+Les sujets peuvent contenir des caractères alphanumériques, les tirets et les tirets bas. De plus, il y a des caractères spéciaux. Les caractères spéciaux sont les caractères suivants : `+` et `#`. Ils ne peuvent pas être utilisés dans les sujets.
+
+Le caractère `+` est un caractère de remplacement. Il peut être utilisé pour remplacer un seul niveau de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/+` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, etc.
+
+On peut aussi utiliser le `+` pour s'inscrire à un sujet qui contient plusieurs niveaux de hiérarchie. Par exemple, le sujet `maison/salon/+/temperature` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/chambre/temperature`, `maison/salon/cuisine/temperature`, etc.
+
+Le caractère `#` est un caractère de remplacement. Il peut être utilisé pour remplacer un ou plusieurs niveaux de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/#` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, `maison/salon/chambre/temperature`, `maison/salon/cuisine/temperature`, etc.
+
+---
+## Les messages (*payload*)
+Les messages sont les données échangées entre les clients et le courtier. Les messages sont des chaînes de caractères ou données binaires. Les clients peuvent publier des messages sur des sujets spécifiques, et les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants.
+
+---
+
+## La qualité de service (QoS)
+MQTT offre trois niveaux de qualité de service (QoS) pour les messages échangés entre les clients et le courtier :
+- QoS 0 (Au plus une fois) : Le message est envoyé sans confirmation, ce qui signifie qu'il peut être perdu. On entendra parfois que ce le mécanisme "*Fire and Forget*".
+- QoS 1 (Au moins une fois) : Le message est envoyé avec confirmation, garantissant qu'il sera reçu au moins une fois.
+- QoS 2 (Exactement une fois) : Le message est envoyé avec un mécanisme de contrôle qui garantit qu'il sera reçu une seule fois.
+
+Dans notre cas, nous allons utilisé le QoS 0. Le QoS 1 et 2 sont plus compliqués à implémenter et ne sont pas nécessaire pour notre application.
+
+![Alt text](qos_meme.webp)
+
+> **Note :** L'abréviation *QoS* a différentes significations dans le monde de l'informatique dépendant du contexte. Dans le cas du MQTT, il s'agit de la qualité de service au niveau applicatif. Dans le cas de la réseautique, il s'agit de la qualité de service au niveau du réseau.
+
+---
+
+# Intégration MQTT avec Arduino
 Dans notre situation, nous allons utiliser le MQTT pour un simple échange de données entre votre Arduino et un serveur MQTT. J'aurai préalablement configuré le serveur MQTT, car cela sort du cadre de ce cours. Vous n'aurez qu'à vous connecter à ce serveur. Vous pourrez alors envoyer des données à votre Arduino et recevoir des données de votre Arduino.
 
+Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF).
+
+De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
+
+
+
+> **Note** : **Pour faire fonctionner l'exemple, il faudra avoir préconfiguré le shield** pour qu'il se connecte au réseau WiFi. Allez voir le cours sur la connexion WiFi pour plus d'informations.
+
+---
+
+# Exemple à utiliser
+Nous allons utiliser l'exemple `mqtt_test` qui se retrouve dans le dossier des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
+
+Voici le code entier de l'exemple :
+<details><summary>Cliquez pour le voir</summary>
+
+```cpp
+/*
+*  IMPORTANT! S'assurer que le Wifi est configuré avant de téléverser ce code.
+*  Projet : Examples --> WifiEspAT --> Tools --> SetupWifiPersistentConnection
+*/
+
+#define HOME 1
+
+#include <WiFiEspAT.h>
+#include <PubSubClient.h>
+#include <DHT.h>
+
+// Emuler Serial1 sur les broches 6/7 si non présent
+#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
+#include <SoftwareSerial.h>
+SoftwareSerial Serial1(6, 7);  // RX, TX
+#define AT_BAUD_RATE 9600
+#else
+#define AT_BAUD_RATE 115200
+#endif
+
+#if HOME
+#define DEVICE_NAME "NickHome"
+#else
+#define DEVICE_NAME "NickProf"
+#endif
+
+#define MQTT_PORT 1883
+#define MQTT_USER "etdshawi"
+#define MQTT_PASS "shawi123"
+
+// Serveur MQTT du prof
+const char* mqttServer = "216.128.180.194";
+
+WiFiClient wifiClient;
+PubSubClient client(wifiClient);
+
+unsigned long currentTime = 0;
+
+#define DHT_PIN 10
+#define DHT_TYPE DHT11
+
+#define MOTOR_PIN 31
+
+DHT dht(DHT_PIN, DHT_TYPE);
+
+
+void wifiInit() {
+  // Initialisation du module WiFi.
+  Serial1.begin(AT_BAUD_RATE);
+  WiFi.init(Serial1);
+
+  
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println();
+    Serial.println("La communication avec le module WiFi a échoué!");
+    // Ne pas continuer
+    while (true) {
+      // Clignoter rapidement pour annoncer l'erreur
+      digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+      delay(50);
+    }
+  }
+  
+  // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
+  Serial.println("En attente de connexion au WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print('.');
+  }
+  Serial.println();
+
+  IPAddress ip = WiFi.localIP();
+  Serial.println();
+  Serial.println("Connecté au réseau WiFi.");
+  Serial.print("Adresse : ");
+  Serial.println(ip);
+
+  printWifiStatus();
+}
+
+// Procédure Afficher le status de la connection
+// WiFi sur le port série
+void printWifiStatus() {
+
+  // imprimez le SSID du réseau auquel vous êtes connecté:
+  char ssid[33];
+  WiFi.SSID(ssid);
+  Serial.print("SSID: ");
+  Serial.println(ssid);
+
+  // imprimez le BSSID du réseau auquel vous êtes connecté:
+  uint8_t bssid[6];
+  WiFi.BSSID(bssid);
+  Serial.print("BSSID: ");
+  printMacAddress(bssid);
+
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.print("MAC: ");
+  printMacAddress(mac);
+
+  // imprimez l'adresse IP de votre carte:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Adresse IP: ");
+  Serial.println(ip);
+
+  // imprimez la force du signal reçu:
+  long rssi = WiFi.RSSI();
+  Serial.print("force du signal (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+
+void printMacAddress(byte mac[]) {
+  for (int i = 5; i >= 0; i--) {
+    if (mac[i] < 16) {
+      Serial.print("0");
+    }
+    Serial.print(mac[i], HEX);
+    if (i > 0) {
+      Serial.print(":");
+    }
+  }
+  Serial.println();
+}
+
+void toggleMoteur() {
+  digitalWrite(MOTOR_PIN, !digitalRead(MOTOR_PIN));
+}
+
+// Gestion des messages reçues de la part du serveur MQTT
+void mqttEvent(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message recu [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i=0;i<length;i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  if (strcmp(topic, "moteur") == 0) {
+    toggleMoteur();    
+  }
+}
+
+void periodicTask() {
+  static unsigned long lastTime = 0;
+  static char message[100] = "";
+  static char szTemp[6];
+  static char szHum[6];
+  const unsigned int rate = 10000;
+
+  static float temp = 0;
+  static float hum = 0;
+
+  if (currentTime - lastTime < rate) return;
+
+  lastTime = currentTime;
+
+  temp = dht.readTemperature();
+  hum = dht.readHumidity();
+
+  dtostrf(temp, 4, 1, szTemp);
+  dtostrf(hum, 4, 1, szHum);
+
+#if HOME
+  sprintf(message, "{\"name\":%s, \"temp\" : %s, \"hum\":%s, \"millis\":%lu }", "\"profHome\"", szTemp, szHum, currentTime / 1000);
+#else
+  sprintf(message, "{\"name\":%s, \"temp\" : %s, \"hum\":%s, \"millis\":%lu }", "\"Le prof\"", szTemp, szHum, currentTime / 1000);
+#endif
+
+  Serial.print("Envoie : ");
+  Serial.println(message);
+
+  if (!client.publish("test", message)) {
+    Serial.println("Incapable d'envoyer le message!");
+    reconnect();
+  } else {
+    Serial.println("Message envoyé");
+  }
+}
+
+bool reconnect() {
+  bool result = client.connect(DEVICE_NAME, MQTT_USER, MQTT_PASS);
+  if(!result) {
+    Serial.println("Incapable de se connecter sur le serveur MQTT");
+  }
+  return result;
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode (LED_BUILTIN, OUTPUT);
+  pinMode (MOTOR_PIN, OUTPUT);
+  
+  wifiInit();
+  
+  client.setServer(mqttServer, MQTT_PORT);
+  client.setCallback(mqttEvent);
+  
+  if(!client.connect(DEVICE_NAME, MQTT_USER, MQTT_PASS)) {
+    Serial.println("Incapable de se connecter sur le serveur MQTT");
+    Serial.print("client.state : ");
+    Serial.println(client.state());
+  } else{
+    Serial.println("Connecté sur le serveur MQTT");
+  }
+
+  client.subscribe("moteur", 0);
+
+  dht.begin();
+  
+  // Configuration terminée
+  Serial.println("Setup complété");
+  delay(1000);
+}
+
+void loop() {
+  currentTime = millis();
+  // Mettre le code à exécuter continuellement
+
+  periodicTask();
+
+  // Appeler périodiquement pour maintenir 
+  // la connexion au serveur MQTT
+  client.loop();
+}
+
+```
+
+</details>
+
+Je vais expliquer les points importants dans les prochaines sections.
+
+---
+
+# La librarie WiFiEspAT
+
+Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c10/c10a_comm_serie.md).
+
+Dans l'exemple, il y a la fonction `wifiInit()` qui initialise le shield et le connecte au réseau WiFi.
+
+On appelera celle-ci une seule fois dans la fonction `setup()`.
+
+Elle dépend de la fonction `printWifiStatus()` qui affiche les informations de connexion au réseau WiFi.
+
+`printWifiStatus()` dépend de la fonction `printMacAddress()` qui affiche l'adresse MAC du shield.
+
+<details><summary>Afficher le code</summary>
+
+
+```cpp
+void wifiInit() {
+  
+  // Initialisation du Serial1 à 115200 sur un Mega
+  // 9600 sur un Uno.
+  Serial1.begin(AT_BAUD_RATE);
+
+  // Initialisation du module WiFi.
+  WiFi.init(Serial1);
+  
+  if (WiFi.status() == WL_NO_MODULE) {
+    Serial.println();
+    Serial.println("La communication avec le module WiFi a échoué!");
+    // Ne pas continuer. 
+    while (true) {
+      // Il s'agit d'une boucle infinie.
+
+      // Clignoter rapidement pour annoncer l'erreur
+      digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+      delay(50);
+    }
+  }
+  
+  // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
+  Serial.println("En attente de connexion au WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    // On affiche un point toutes les secondes
+    delay(1000);
+    Serial.print('.');
+  }
+  Serial.println();
+
+  IPAddress ip = WiFi.localIP();
+  Serial.println();
+  Serial.println("Connecté au réseau WiFi.");
+  Serial.print("Adresse : ");
+  Serial.println(ip);
+
+  printWifiStatus();
+}
+
+// Procédure Afficher le status de la connection
+// WiFi sur le port série
+void printWifiStatus() {
+
+  // imprimez le SSID du réseau auquel vous êtes connecté:
+  char ssid[33];
+  WiFi.SSID(ssid);
+  Serial.print("SSID: ");
+  Serial.println(ssid);
+
+  // imprimez le BSSID du réseau auquel vous êtes connecté:
+  uint8_t bssid[6];
+  WiFi.BSSID(bssid);
+  Serial.print("BSSID: ");
+  printMacAddress(bssid);
+
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.print("MAC: ");
+  printMacAddress(mac);
+
+  // imprimez l'adresse IP de votre carte:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Adresse IP: ");
+  Serial.println(ip);
+
+  // imprimez la force du signal reçu:
+  long rssi = WiFi.RSSI();
+  Serial.print("force du signal (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+
+// Imprimer l'adresse MAC
+void printMacAddress(byte mac[]) {
+  for (int i = 5; i >= 0; i--) {
+    if (mac[i] < 16) {
+      Serial.print("0");
+    }
+    Serial.print(mac[i], HEX);
+    if (i > 0) {
+      Serial.print(":");
+    }
+  }
+  Serial.println();
+}
+```
+
+</details>
+
+Sauf si vous avez un Arduino Uno, vous pouvez utiliser le code tel quel. Sinon, vous devez utiliser la librairie [SoftwareSerial](https://www.arduino.cc/en/Reference/SoftwareSerial) pour simuler un port série 1 sur un Arduino Uno.
+
+Jetez un coup d'oeil au début du code complet de l'exemple pour voir comment faire.
+
+---
+
+# La librarie PubSubClient
+
+La librairie `PubSubClient` permet de se connecter à un serveur MQTT et d'envoyer et recevoir des messages. Dans la manière que l'on l'utilise, elle est très simple.
+
+Évidemment, il faut avoir la librairie `PubSubClient` installée sur votre ordinateur. Pour cela, allez dans le menu `Outils > Gérer les librairies...` et cherchez `PubSubClient` dans la liste des librairies installées.
+
+Ensuite, il faudra avoir un serveur MQTT sur lequel se connecter. Pour cela, on va utiliser mon serveur MQTT à l'adresse indiquée dans le code. Au moment d'écrire ces lignes, l'adresse ip est `216.128.180.194`.
+
+## Initialisation du client MQTT
+La première étape sera d'initialiser le client. Le constructeur peut prendre différent type de client que l'on retrouve réguilièrement dans les librairies Arduino. Dans notre cas, on va utiliser le client `WiFiClient`.
+
+```cpp
+
+// Initialisation du client MQTT
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+```
+
+On pourra ensuite utiliser les fonctions de l'objet `client` pour se connecter au serveur MQTT et envoyer/recevoir des messages.
+
+## Configuration du client au serveur MQTT
+Pour configurer le client au serveur MQTT, on utilise la fonction `setServer()`.
+
+```cpp
+// Configuration du client au serveur MQTT
+client.setServer(mqtt_server, 1883);
+```
+
+- Le premier paramètre est l'adresse ip du serveur MQTT. Le deuxième paramètre est le port sur lequel le serveur écoute. Dans notre cas, c'est le port 1883.
+
+Pour nos besoins, on configure le client au serveur MQTT dans la fonction `setup()`.
+
+## Configuration de la fonction de rappel
+La fonction de rappel est une fonction qui sera appelée par la librairie `PubSubClient` quand un message est reçu. On peut donc utiliser cette fonction pour traiter les messages reçus.
+
+On utilise la fonction `setCallback()` pour configurer la fonction de rappel.
+
+```cpp
+// Configuration de la fonction de rappel
+client.setCallback(mqttEvent);
+```
+- `mqttEvent` est le nom de la fonction de rappel.
+
+Pour nos besoins, on configure la fonction de rappel dans la fonction `setup()`.
+
+Dans l'exemple la fonction de rappel est `mqttEvent()`.
+
+```cpp
+// Gestion des messages reçues de la part du serveur MQTT
+void mqttEvent(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message recu [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i=0;i<length;i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  if (strcmp(topic, "moteur") == 0) {
+    toggleMoteur();    
+  }
+}
+```
+
+On peut voir que la fonction de rappel prend trois paramètres.
+- `topic` est le nom du topic sur lequel le message a été reçu.
+- `payload` est le contenu du message. Il s'agit d'un tableau de `byte`.
+- `length` est la longueur du message.
+
+On remarque dans la fonction que l'on compare le nom du topic avec la chaîne de caractère `"moteur"`. Si les deux chaînes sont identiques, on appelle la fonction `toggleMoteur()`.
+
+Pour que recevoir un message, il faut que le client s'abonne au *topic* sur lequel il veut recevoir des messages. On utilise la fonction `subscribe()` pour s'abonner à un topic.
+
+```cpp
+// S'abonner au topic "moteur"
+client.subscribe("moteur");
+
+// S'abonner au topic "grossePatate"
+client.subscribe("grossePatate");
+```
+
+Lorsque l'on s'abonne à un topic, on reçoit tous les messages qui sont publiés sur ce topic. On peut donc s'abonner à plusieurs topics. Il suffira ensuite de traiter les messages reçus dans la fonction de rappel.
+
+
+> **Note** : La fonction `strcmp()` permet de comparer deux chaînes de caractères. Elle retourne 0 si les deux chaînes sont identiques. Une valeur positive si le premier caractère différent a une valeur plus grande dans la première chaîne. Une valeur négative si le premier caractère différent a une valeur plus grande dans la deuxième chaîne.
+
+---
+
+# Références
+- [Qu'est-ce que le MQTT?](https://aws.amazon.com/fr/what-is/mqtt/)
+- [MQTT - Wildcards - IBM](https://www.ibm.com/docs/en/wip-mg/5.0.0?topic=publishsubscribe-wildcards)
