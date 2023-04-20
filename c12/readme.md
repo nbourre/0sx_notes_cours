@@ -8,6 +8,7 @@
   - [Les sujets (*topic*)](#les-sujets-topic)
     - [Les caractères spéciaux](#les-caractères-spéciaux)
   - [Les messages (*payload*)](#les-messages-payload)
+    - [JSON crash course](#json-crash-course)
   - [La qualité de service (QoS)](#la-qualité-de-service-qos)
 - [Intégration MQTT avec Arduino](#intégration-mqtt-avec-arduino)
 - [Exemple à utiliser](#exemple-à-utiliser)
@@ -73,9 +74,83 @@ On peut aussi utiliser le `+` pour s'inscrire à un sujet qui contient plusieurs
 
 Le caractère `#` est un caractère de remplacement. Il peut être utilisé pour remplacer un ou plusieurs niveaux de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/#` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, `maison/salon/chambre/temperature`, `maison/salon/cuisine/temperature`, etc.
 
+Voici des exemples de sujets valides avec des caractères spéciaux :
+| Sujet                       | Description                                                           |
+|-----------------------------|-----------------------------------------------------------------------|
+| maison/salon/temperature    | Un sujet standard pour la température du salon                       |
+| maison/+/luminosite         | Un sujet avec un caractère joker '+' pour la luminosité de toutes les pièces de la maison |
+| maison/#                    | Un sujet avec un caractère joker '#' pour tous les sujets sous "maison" |
+| capteurs/salle_01/temp      | Un sujet pour la température de la salle 01                          |
+| voiture/position/latitude   | Un sujet pour la latitude de la position d'une voiture                |
+| voiture/position/longitude  | Un sujet pour la longitude de la position d'une voiture              |
+| capteur_special/01-temperature | Un sujet pour un capteur spécial avec des caractères alphanumériques et des tirets |
+| printer3d/bed/temperature   | Un sujet pour la température du lit d'une imprimante 3D              |
+| printer3d/nozzle/temperature | Un sujet pour la température de la buse d'une imprimante 3D          |
+| printer3d/+/temperature     | Un sujet avec un caractère joker '+' pour la température de tous les capteurs d'une imprimante 3D |
+
 ---
 ## Les messages (*payload*)
 Les messages sont les données échangées entre les clients et le courtier. Les messages sont des chaînes de caractères ou données binaires. Les clients peuvent publier des messages sur des sujets spécifiques, et les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants.
+
+Les messages peuvent prendre plusieurs formats, mais un format que l'on retrouve régulièrement est le JSON.
+
+### JSON crash course
+
+Le JSON est une chaîne de caractères formatée selon un standard. Il est composé de paires clé-valeur. Les clés sont des chaînes de caractères entre guillemets doubles. Les valeurs peuvent être des chaînes de caractères entre guillemets doubles, des nombres, des booléens, des tableaux ou des objets.
+
+Un fichier JSON est contenu entre accolades. Chaque paire clé-valeur est séparée par une virgule. Les clés et les valeurs sont séparées par deux points.
+
+Voici quelques exemples de contenu JSON typique que l'on peut échanger en MQTT :
+```json
+{
+  "temperature": 25.5,
+  "humidite": 60,
+  "capteur": "DHT11",
+  "date": "2019-01-01T12:00:00Z"
+}
+```
+
+Données qui être renvoyées par un interrupteur intelligent :
+```json
+{
+  "state": "on",
+  "power": 10.0,
+  "energy": 100.0
+}
+```
+
+Exemple pour l'état d'une ampoule intelligente :
+```json
+{
+  "state": "on",
+  "brightness": 100,
+  "color": {
+    "r": 255,
+    "g": 255,
+    "b": 255
+  }
+}
+```
+
+Un autre exemple pour l'état d'une imprimante 3d :
+```json
+{
+  "bed": {
+    "temperature": 60.0,
+    "target": 60.0
+  },
+  "nozzle": {
+    "temperature": 200.0,
+    "target": 200.0
+  },
+  "state": "printing",
+  "progress": 0.5
+}
+```
+
+On remarque que c'est un format de données relativement simple à comprendre. C'est un format qui est utilisé dans de nombreux domaines, et qui est facile à lire et à écrire.
+
+C'est la raison principale pour laquelle nous allons utiliserons le JSON pour nos messages MQTT.
 
 ---
 
@@ -628,7 +703,7 @@ Dans la section sur la publication de message, on a voit la construction d'un me
 sprintf(message, "{\"name\":%s, \"temp\" : %s, \"hum\":%s, \"millis\":%lu }", "\"profHome\"", szTemp, szHum, currentTime / 1000);
 ```
 
-Voici le message en format JSON.
+Voici le message en format JSON produit.
 
 ```json
 {
@@ -639,7 +714,7 @@ Voici le message en format JSON.
 }
 ```
 
-Le JSON est une chaîne de caractères formatée selon un standard. Il est composé de paires clé-valeur. Les clés sont des chaînes de caractères entre guillemets doubles. Les valeurs peuvent être des chaînes de caractères entre guillemets doubles, des nombres, des booléens, des tableaux ou des objets.
+> **Rappel :** sprintf permet d'écrire dans un tableau de caractères. Il prend en paramètre le tableau de caractères, la chaîne de caractères formatée et les valeurs à insérer dans la chaîne de caractères. Voir [les notes sur l'écriture sur un LCD](../extras/algorithmes.md#utiliser-un-tableau-de-caractères-pour-écrire-sur-le-lcd)
 
 Le service MQTT qui reçoit l'information peut ensuite décoder le message et extraire les informations qui l'intéressent.
 
