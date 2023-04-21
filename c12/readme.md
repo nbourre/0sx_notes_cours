@@ -721,10 +721,10 @@ Le service MQTT qui reçoit l'information peut ensuite décoder le message et ex
 ---
 
 # Exercice
-1. Adapter l'exemple pour qu'il publie un message sur le sujet `maison/XX` à toutes les minutes.
+1. Adapter l'exemple pour qu'il publie un message sur le sujet `etd/XX` à toutes les minutes.
    1. Le XX sera le numéro du shield wifi qui est sur le collant.
-   2. Le nom de l'appareil sera votre numéro de matricule.
-   3. Le message doit contenir la température et l'humidité que vous lisez avec le capteur DHT11.
+   2. Le nom de l'appareil (`DEVICE_NAME`) sera votre numéro de matricule.
+   3. Le message doit contenir la température, l'humidité et le temps du système divisé par 1000 que vous lisez avec le capteur DHT11.
 
 ---
 
