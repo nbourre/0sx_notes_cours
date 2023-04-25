@@ -362,7 +362,8 @@ void periodicTask() {
   Serial.print("Envoie : ");
   Serial.println(message);
 
-  if (!client.publish("test", message)) {
+  // Changer le topic pour celui qui vous concerne.
+  if (!client.publish("etd/32", message)) {
     Serial.println("Incapable d'envoyer le message!");
     reconnect();
   } else {
