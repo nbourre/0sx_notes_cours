@@ -4,6 +4,7 @@
 - [Les leçons](#les-leçons)
 - [Exercices de rappel](#exercices-de-rappel)
 - [Extra](#extra)
+- [Révision](#révision)
 - [Introduction du cours](#introduction-du-cours)
   - [Les grandes lignes du cours](#les-grandes-lignes-du-cours)
 
@@ -64,6 +65,9 @@
 - [Loi d'Ohm](extras/loi_dohm.md)
 - [Document d'algorithmes utiles](extras/algorithmes.md)
 - [Les pointeurs](extras/pointeurs.md)
+
+# Révision
+- [Révision pour l'examen](révision/readme.md)
 
 # Introduction du cours
 Bienvenue dans le cours de développement de systèmes embarqués (420-0SX-SW). Ce cours est donné dans le cadre du programme de diplôme d'étude collégial des techniques de l'informatique du Cégep de Shawinigan. Ce cours est donné en français, mais plusieurs exemples de code seront en anglais.
