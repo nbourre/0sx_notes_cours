@@ -439,7 +439,7 @@ Le code du LCD est assez pêle-mêle. Refactorisez le code pour qu'il soit plus 
 ### Requis
 Il n'est pas nécessaire de créer une classe pour cet exercice. Il suffit de créer des éléments qui permettront de rendre le code plus lisible.
 
-Ajoutez un énumération nommée `LCDState` pour l'état de l'affichage. Les états serviront à indiquer quels messages à afficher. Ils seront les suivants :
+Ajoutez une énumération nommée `LCDState` pour l'état de l'affichage. Les états serviront à indiquer quels messages à afficher. Ils seront les suivants :
 - `ECLAIRAGE` : Affiche la luminosité
 - `ALARME` : Affiche la distance
 - `GARAGE` : Affiche l'état de la porte de garage
