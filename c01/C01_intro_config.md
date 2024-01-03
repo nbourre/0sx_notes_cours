@@ -33,7 +33,7 @@
 Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir un compte Moodle et être inscrit à mon cours.
 
 - **Lien vers le cours** : [Moodle](https://moodle.cshawi.ca/mod/page/view.php?id=9499&forceview=1)
-- **Code pour le cours** : `ohGeez!`
+- **Code pour le cours** : `cowabunga!`
 
 ## Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
@@ -43,9 +43,9 @@ Pour avoir accès à certaines de mes notes Office, vous devez être dans le Tea
 ## Compte GitHub
 Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
 
-GitHub est un site permettant aux développeurs de partager leur code. Il est utilisé par de nombreux développeurs et est un outil très utile pour les projets de programmation. D'ailleurs, plusieurs enseignants utilisent GitHub pour partager leur code avec leurs étudiants.
+GitHub est un site permettant aux développeurs de partager leur code. Il est utilisé par de nombreux développeurs et est un outil très utile pour les projets de programmation. D'ailleurs, plusieurs enseignants utilisent GitHub pour partager leurs codes avec leurs étudiants.
 
-Tout au long de votre parcours, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
+Tout au long de votre parcours académique, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
 
 ## Logiciel
 Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
@@ -61,11 +61,11 @@ En effet, on doit s'assurer que les pilotes sont installés.
 
 Pour vérifier si les pilotes sont installés, ouvrez le logiciel Arduino. Vous devriez voir une fenêtre comme celle-ci :
 
-![Alt text](arduino_ide.png)
+![Alt text](assets/arduino_ide.png)
 
 Maintenant, sélectionnez la barre défilante située dans la barre d'outils.
 
-![Alt text](arduino_ide_board.gif)
+![Alt text](assets/arduino_ide_board.gif)
 
 Si les pilotes sont installés, vous devriez voir dans la liste déroulante le nom de votre carte Arduino avec le port qui lui est assigné. Dans mon cas, c'était "Arduino Mega or Mega 2560" sur le `COM26` de mon ordinateur. Le numéro du port peut varier selon votre ordinateur.
 
@@ -107,7 +107,7 @@ Au cours des dix années qui ont suivi la sortie d'Arduino, il y a eu une énorm
 
 Dans ce cours, nous allons nous concentrer sur l'**Arduino Mega** qui est un Arduino plus puissant que l'Arduino UNO. Elle est en fait sa grande soeur. Elle est plus puissante et plus rapide avec une tonne de mémoire et de broches en plus, et une puce différente, l'ATmega2560. C'est une bonne mise à jour lorsqu'un projet ne rentre plus dans un UNO.
 
-![Alt text](arduino_mega.jpg)
+![Alt text](assets/arduino_mega.jpg)
 
 Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles Arduino que vous pourriez vouloir !
 
