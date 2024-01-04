@@ -8,9 +8,9 @@ Est-ce que j'ai :
 - [ ] redémarré l'IDE Arduino?
 - [ ] redémarré l'ordinateur?
 
-Sinon, je peux tester en :
-- retirer l'alimentation des composants branchés sur l'Arduino
-- envoyer le code `blink` de base
+Si ça ne fonctionne toujours pas, essayer :
+- [ ] retirer l'alimentation des composants branchés sur l'Arduino
+- [ ] envoyer le code `blink` de base
 
-TODO : ajouter des liens vers des tutoriels
+
 

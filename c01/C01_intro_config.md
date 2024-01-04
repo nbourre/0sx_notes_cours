@@ -8,6 +8,7 @@
   - [Configuration du matériel](#configuration-du-matériel)
   - [Installation des pilotes - Si nécessaire](#installation-des-pilotes---si-nécessaire)
 - [À propos de cette leçon](#à-propos-de-cette-leçon)
+- [Les communautés Arduino](#les-communautés-arduino)
 - [Qu'est-ce qu'un Arduino?](#quest-ce-quun-arduino)
 - [Quel Arduino?](#quel-arduino)
   - [Raspberry Pi](#raspberry-pi)
@@ -85,7 +86,25 @@ Considérez ce tutoriel comme la "base" de votre voyage. Si les choses se compli
 
 L'une des compétences les plus importantes que vous devrez apprendre est que, lorsque les choses tournent mal (et il y en aura beaucoup), vous devez revenir aux hypothèses les plus fondamentales. C'est un peu l'équivalent du "tu es sûr que c'est allumé" en électronique. Il est surprenant de voir combien d'ingénieurs qualifiés passent des heures à déboguer un circuit pour se rendre compte que... ce n'était pas branché!
 
+J'ai fait un petite procédure de dépannage pour l'Arduino. Vous pouvez la consulter [ici](../extras/depannage.md). Celle-ci sera nourrie au fur et à mesure que nous avancerons dans le cours.
+
 ---
+
+# Les communautés Arduino
+Avant de débuter, je vous invite à vous joindre une des différentes communautés Arduino. Ce sont pour la plupart des communautés très actives et il y a beaucoup de ressources disponibles.
+
+Voici une liste de différentes communautés Arduino. Vous pouvez les consulter pour trouver des projets intéressants à faire ou encore trouver de l'aide pour vos projets.
+
+- [Serveurs Discord - Français](https://disboard.org/servers/tag/arduino?fl=fr)
+  - [Anglais](https://disboard.org/servers/tag/arduino?fl=en)
+- [Reddit - Arduino](https://www.reddit.com/r/arduino/)
+- [Youtube - Ingéniérie et Projets](https://www.youtube.com/@Ingenierie-Projets)
+  - L'ordre de la playlist n'est pas fameuse
+- [Zeste de Savoir - Arduino](https://zestedesavoir.com/tutoriels/686/arduino-premiers-pas-en-informatique-embarquee/)
+  - [Playlist Youtube](https://www.youtube.com/playlist?list=PLNBsspAtBwlL7lw9HI50YE3WJKY5us-cn)
+
+---
+
 
 # Qu'est-ce qu'un Arduino?
 
@@ -113,19 +132,19 @@ Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles
 
 <table>
   <tr>
-    <td><img src="arduino_50-07.jpg"/></td>
-    <td>L'Arduino UNO est un classique, elle est de loin la plus populaire et 99% des projets l'utilise. Elle est basique et bien supportée.</td>
+    <td><img src="assets/arduino_50-07.jpg"/></td>
+    <td>L'Arduino UNO est un classique, elle est de loin la plus populaire. Elle est basique et bien supportée.</td>
   </tr>
   <tr>
-    <td><img src="arduino_micro.jpg"/></td>
+    <td><img src="assets/arduino_micro.jpg"/></td>
     <td>L'Arduino Micro, par contre... est un peu plus petit! Il a une puce Atmega32u4 différente qui peut faire de l'USB natif et peut donc agir comme un clavier ou une souris. Il est fin et possède des connecteurs à broche descendante pour pouvoir le brancher sur une planche à pain.</td>
   </tr>
   <tr>
-    <td><img src="arduino_mkr1000.jpg"/></td>
+    <td><img src="assets/arduino_mkr1000.jpg"/></td>
     <td>L'Arduino MKR1000 ressemble un peu à un Arduino Micro mais possède une puce ATSAM ARM 32 bits plus puissante et un WiFi intégré! Une excellente mise à niveau pour les projets liés à l'Internet des objets.</td>
   </tr>
   <tr>
-    <td><img src="arduino_flora.png"/></td>
+    <td><img src="assets/arduino_flora.png"/></td>
     <td>Il y a aussi les Arduino-compatibles comme le Flora qui est fabriqué par Adafruit. C'est un Arduino rond et portable et plutôt que d'utiliser des fils, vous pouvez le coudre dans les vêtements pour des projets électroniques portables.</td>
   </tr>
 </table>
@@ -138,18 +157,13 @@ Le Raspberry Pi (rpi) est une carte de développement qui est très populaire po
 En plus des différentes versions, il y a plusieurs éditions de rpi.
 
 - Raspberry Pi : Ordinateur sur carte (SBC : Single Board Computer) avec différents modèles de RAM et de stockage.
-- Raspberry Pi Zero : Comme le Raspberry Pi, mais plus petit et moins cher.
+- Raspberry Pi Zero : Comme le Raspberry Pi, mais plus petit, moins cher et moins puissant.
 - Raspberry Pi Zero W : Comme le Zero, mais avec un module WiFi et Bluetooth intégré.
 - Raspberry Pi 400 : Comme le Raspberry Pi, mais avec un clavier intégré.
-- Raspberry Pi Pico : Similaire au Arduino Nano, mais plus puissant.
+- Raspberry Pi Pico : Il s'agit d'une carte de développement avec un microcontrôleur similaire au Arduino Nano, mais plus puissant.
 - Raspberry Pi Pico W : Comme le Pico, mais avec un module WiFi et Bluetooth intégré.
 
-Nous sommes rendu à la 4e version du rpi.
-
-
-> **Anecdote!**
-> 
-> La demande actuelle pour les raspberry pi est tellement élevé que les coûts sont artificiellement gonflés. En effet, le prix de détail suggéré est d'environ 65$ pour un rpi4 avec 2 GO alors qu'il se vend plus de [160$ sur Amazon](https://amzn.to/3WIGPf8)! C'est un peu fou, mais c'est la réalité.
+Nous sommes rendu à la 5e version du rpi.
 
 ---
 
@@ -157,41 +171,65 @@ Nous sommes rendu à la 4e version du rpi.
 Nous associons souvent les termes microprocesseur et microcontrôleur, et les utilisons même parfois de manière interchangeable. Cependant, ceux qui comprennent vraiment ces deux puces savent qu'il existe des distinctions claires, malgré certaines caractéristiques communes.
 
 ## Générale
-**Un microcontrôleur est comme un ordinateur miniaturisé sur une seule puce**. Tous les éléments d'un ordinateur, tels que l'unité centrale, la mémoire, les temporisateurs et les registres, sont étroitement intégrés les uns aux autres.
+Les microprocesseurs et les microcontrôleurs sont les composants internes des appareils électroniques. Un microprocesseur est une minuscule unité de traitement à l'intérieur d'un processeur. Il s'agit d'un circuit intégré unique sur une puce informatique qui exécute diverses fonctions arithmétiques et logiques sur des signaux numériques. Plusieurs dizaines de microprocesseurs fonctionnent ensemble au sein de serveurs très performants pour le traitement des données et l'analytique.
 
-**Un microprocesseur, quant à lui, n'est que l'élément de calcul (l'unité centrale) d'un ordinateur.** Tout le reste du matériel nécessaire au fonctionnement de l'appareil est fixé à l'extérieur. On peut donc dire qu'un microcontrôleur est un microprocesseur très sophistiqué, mais un microprocesseur ne peut pas être appelé microcontrôleur.
+En revanche, un microcontrôleur est l'unité informatique de base des appareils électroniques intelligents tels que les machines à laver et les thermostats. Il s'agit d'un tout petit ordinateur doté de sa propre RAM, de sa propre ROM et de ses propres systèmes d'E/S, le tout intégré sur une seule puce. Il peut traiter des signaux numériques et répondre aux entrées de l'utilisateur, mais sa capacité de calcul est limitée.
+
+**Résumé**
+- Les microprocesseurs sont des puces informatiques qui exécutent diverses fonctions arithmétiques et logiques sur des signaux numériques et conçues pour être multi-tâches.
+- Les microcontrôleurs sont des puces informatiques qui sont conçues pour être intégrées dans des appareils ou des systèmes de contrôle.
+
 
 ## Puissance de calcul
 Les microprocesseurs sont les grands gagnants en termes de puissance de calcul brute. De nos jours, les vitesses d'horloge peuvent aller de 1 à près de 4 GHz. Cela permet aux microprocesseurs de calculer très rapidement et d'exécuter des opérations efficacement. **Associés aux périphériques et aux dispositifs externes appropriés, les microprocesseurs conviennent à toutes les applications; rien n'est prédéfini.**
 
 **Les microcontrôleurs**, en revanche, sont limités en termes de performances et de vitesse, principalement en raison de leur taille. En effet, ils **sont destinés à exécuter les mêmes tâches de base.** Ils sont donc plus rentables pour leur application et sont généralement cadencés à des vitesses beaucoup plus faibles que les microprocesseurs.
 
+**Résumé**
+- Les microprocesseurs sont plus puissants que les microcontrôleurs.
+- Les microcontrôleurs sont spécialisés pour une tâche spécifique.
+
 ## Mémoire
 **La mémoire d'un microprocesseur est connectée à l'extérieur**. Cela permet de concevoir des systèmes personnalisés et de les mettre à niveau facilement. Comme la mémoire est externe, c'est à l'utilisateur de choisir la taille et la vitesse de la RAM et de la ROM pour le système (La ROM est intégrée sur la carte-mère).
 
 **Cela diffère des microcontrôleurs, où la mémoire est intégrée avec l'unité centrale dans la puce elle-même.** Cela limite la taille de la mémoire; la mémoire flash d'un microcontrôleur est souvent limitée à 2 Mo seulement. Cependant, comme la mémoire et l'unité centrale sont étroitement intégrées, les vitesses de fonctionnement de la mémoire peuvent être légèrement plus rapides dans un microcontrôleur.
+
+**Résumé**
+- Les microprocesseurs doivent être connectés à la mémoire externe.
+- Les microcontrôleurs ont la mémoire intégrée.
 
 ## Système d'exploitation
 Comme ils ne sont pas destinés à une tâche spécifique, **les microprocesseurs sont souvent associés à des systèmes d'exploitation** complexes pour une fonctionnalité générique. Les systèmes d'exploitation comme Windows, Linux, MacOS et Android sont comparativement gourmands en ressources et ne peuvent donc fonctionner que sur un microprocesseur. Si cela signifie que l'utilisation d'un microprocesseur vous permet d'accomplir diverses tâches, cela signifie également que vous avez besoin d'un logiciel complexe pour vos opérations.
 
 **Les microcontrôleurs, en revanche, n'ont généralement pas besoin d'un système d'exploitation complet pour fonctionner, leurs applications s'exécutant directement sur un micrologiciel.** Cela signifie généralement qu'un microcontrôleur est facile à programmer, notamment pour les petites applications répétitives. Il est également possible d'utiliser des systèmes d'exploitation en temps réel (RTOS) avec certains microcontrôleurs de niveau supérieur pour les applications qui nécessitent un système de contrôle plus complexe. Cependant sur le Arduino, l'utilisation d'un système d'exploitation est très limité.
 
+**Résumé**
+- Les microprocesseurs ont besoin d'un système d'exploitation générique.
+- Les microcontrôleurs n'ont pas besoin d'un système d'exploitation, mais d'un micrologiciel ou d'un système d'exploitation en temps réel.
+
 ## Consommation d'énergie
 **Les microprocesseurs consomment plus d'énergie** par rapport à l'efficacité de la puce unique d'un microcontrôleur. Cela ne devrait pas surprendre, car les microprocesseurs fonctionnent à des vitesses beaucoup plus élevées et sont interfacés avec des composants externes. Vous trouverez rarement des microprocesseurs dans des applications où une faible consommation d'énergie est requise.
 
 **Les microcontrôleurs consomment très peu d'énergie** car ils sont conçus pour une tâche spécifique et peuvent donc être configurés avec les seuls composants nécessaires. Cela permet d'économiser beaucoup d'énergie, c'est pourquoi vous trouverez souvent des microcontrôleurs au cœur des appareils alimentés par batterie.
+
+**Résumé**
+- Les microprocesseurs consomment plus d'énergie que les microcontrôleurs.
+- Les microcontrôleurs consomment très peu d'énergie.
 
 ## Coût
 Les microprocesseurs sont le summum de la puissance de traitement, et sont donc plus chers que les microcontrôleurs. En outre, les microprocesseurs ne peuvent pas fonctionner seuls. Ils ont besoin de dispositifs externes pour fonctionner avec eux, ce qui augmente le coût.
 
 Comme les microcontrôleurs comprennent généralement du matériel à plus faible vitesse et des fonctionnalités limitées (bien que ciblées), leur coût est très faible. Tous les éléments nécessaires à l'exécution d'une tâche sont intégrés dans un microcontrôleur. L'une des principales raisons pour lesquelles les microcontrôleurs sont devenus si populaires est l'incroyable puissance de calcul qu'ils fournissent pour une fraction du coût. Ils sont donc parfaits pour les projets éducatifs et les projets personnels de bricolage.
 
-En grande quantité, les microcontrôleurs peuvent ne coûter que quelques sous (Ex : ATTiny9 ~0.50\$). Alors que les microprocesseurs peuvent coûter des centaines de dollars (Ex : Intel i9-13900k ~800\$).
+En grande quantité, les microcontrôleurs peuvent ne coûter que quelques sous (Ex : ATTiny9 ~0.50\$). Alors que les microprocesseurs peuvent coûter des centaines de dollars (Ex : Intel i9-13900k ~800\$ (Hiver 2023)).
+
+**Résumé**
+- Les microprocesseurs sont plus chers que les microcontrôleurs.
+- Les microcontrôleurs sont très peu coûteux voire quelques sous.
 
 ## Utilisations
-**Les microcontrôleurs sont utilisés pour des tâches spécifiques**. Par exemple, un thermostat intelligent ou encore les freins ABS d'un véhicule ou les appareils domotiques.
-
-**Les microprocesseurs sont utilisés pour plusieurs tâches en simultanées**. Ils ont tous un système d'exploitation pour gérer l'exécution des différentes tâches.
+- **Les microcontrôleurs sont utilisés pour des tâches spécifiques**. Par exemple, un thermostat intelligent ou encore les freins ABS d'un véhicule ou les appareils domotiques.
+- **Les microprocesseurs sont utilisés pour plusieurs tâches en simultanées**. Ils ont tous un système d'exploitation pour gérer l'exécution des différentes tâches.
 
 ## Résumé
 Un microcontrôleur est un type de microprocesseur qui est conçu pour être intégré dans des appareils ou des systèmes de contrôle. Il est généralement plus petit et moins puissant qu'un microprocesseur de l'ordinateur personnel, mais il est conçu pour être suffisamment rapide et puissant pour gérer des tâches de contrôle en temps réel. Un microcontrôleur est généralement accompagné de mémoire et de périphériques intégrés, ce qui le rend idéal pour les applications où l'espace est limité et où il est nécessaire de réaliser des tâches de contrôle en temps réel.
