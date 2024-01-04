@@ -5,7 +5,7 @@
 - [Comment programmer un Arduino](#comment-programmer-un-arduino)
 - [La fonction `setup`](#la-fonction-setup)
 - [La fonction `loop`](#la-fonction-loop)
-- [Cycle de vie d'un programme](#cycle-de-vie-dun-programme)
+- [Cycle de vie d'un programme Arduino](#cycle-de-vie-dun-programme-arduino)
 - [Les principaux types de données](#les-principaux-types-de-données)
   - [Précision du type `float`](#précision-du-type-float)
 - [Les variables](#les-variables)
@@ -21,6 +21,7 @@
   - [Programmation](#programmation)
     - [Défi](#défi)
 
+---
 
 # Le langage de programmation
 Arduino utilise un langage de programmation spécifique appelé "Arduino Language" ou "Arduino C++".
@@ -38,7 +39,7 @@ Voici quelques exemples de structures de base du langage Arduino :
 - Déclaration de variables :
 
 ```cpp
-int compteur = 0;          // Variable entière
+int compteur = 0;           // Variable entière
 float temperature = 25.5;   // Variable flottante
 char caractere = 'A';       // Variable de caractère
 bool etat = true;           // Variable booléenne (vrai/faux)
@@ -47,9 +48,12 @@ bool etat = true;           // Variable booléenne (vrai/faux)
 - Structures de contrôle de flux :
 
 ```cpp
-if (condition) {
-  // Code à exécuter si la condition est vraie
-} else {
+if (conditionA) {
+  // Code à exécuter si la conditionA est vraie
+} else if (conditionB) {
+  // Code à exécuter si la conditionB est vraie
+}
+else {
   // Code à exécuter si la condition est fausse
 }
 
@@ -163,13 +167,13 @@ void loop() {
 ```
 
 # La fonction `loop`
-La fonction loop est exécutée en boucle, c'est-à-dire qu'elle est répétée indéfiniment. C'est là que se trouve le code principal du programme.
+La fonction `loop` est exécutée en boucle, c'est-à-dire qu'elle est répétée indéfiniment. C'est là que se trouve le code principal du programme.
 
 Cette boucle est très pratique dans les programmes Arduino car elle permet de mettre en place des actions qui sont répétées de manière périodique, comme la lecture de données sensorielles, l'affichage de données sur un écran ou encore la commande de dispositifs tels que des moteurs ou des LED.
 
 > **Perle de culture**
 >  
-> Les microcontrôleurs doivent tous avoir une fonction similaire à `loop` pour fonctionner. Si vous ne mettez pas de fonction `loop` dans votre programme, le microcontrôleur ne fera rien.>
+> Les microcontrôleurs doivent tous avoir une fonction similaire à `loop` pour fonctionner. Si vous ne mettez pas de fonction `loop` dans votre programme, le microcontrôleur ne fera rien.
 > 
 > Ainsi, on pourrait retrouver quelques choses comme ça dans le code d'un microcontrôleur :
 > ```cpp
@@ -187,23 +191,26 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 > }
 > ```
 
-# Cycle de vie d'un programme
+# Cycle de vie d'un programme Arduino
 
-![Alt text](program_cycle_vie.png)
+![Alt text](assets/program_cycle_vie.png)
 
 ---
 
 # Les principaux types de données
 Voici les principaux types de données utilisables dans le langage Arduino :
 
-- `int` : type entier, peut stocker des valeurs allant de -32768 à 32767.
-- `unsigned int` : type entier non signé, peut stocker des valeurs allant de 0 à 65535.
-- `long` : type entier long, peut stocker des valeurs allant de -2147483648 à 2147483647.
-- `unsigned long` : type entier long non signé, peut stocker des valeurs allant de 0 à 4294967295.
-- `float` : type flottant, peut stocker des valeurs à virgule flottante avec une précision de 7 chiffres après la virgule.
-- `double` : type flottant double, peut stocker des valeurs à virgule flottante avec une précision de 15 chiffres après la virgule.
-- `char` : type de caractère, peut stocker un seul caractère (lettre, chiffre, symbole, etc.).
-- `bool` : type booléen, peut stocker deux valeurs : true (vrai) ou false (faux).
+| Type            | Description                              | Limite Inférieure              | Limite Supérieure   |
+|-----------------|------------------------------------------|--------------------------------|---------------------|
+| `int`           | type entier                              | -32768                         | 32767               |
+| `unsigned int`  | type entier non signé                    | 0                              | 65535               |
+| `long`          | type entier long                         | -2147483648                    | 2147483647          |
+| `unsigned long` | type entier long non signé               | 0                              | 4294967295          |
+| `float`         | type flottant                            | (7 chiffres après la virgule)  | -                   |
+| `double`        | type flottant double                     | (15 chiffres après la virgule) | -                   |
+| `char`          | type de caractère                        | (un seul caractère)            | -                   |
+| `bool`          | type booléen                             | true (vrai)                    | false (faux)        |
+
 
 Il existe également d'autres types de données moins courants tels que `byte`, `word` et `string`, qui peuvent être utilisés selon les besoins de votre programme.
 
@@ -233,7 +240,7 @@ Voici un tableau résumant les principaux types de données du langage Arduino a
 | `char`     | 1                 | Stockage de caractères (lettres, chiffres, symboles, etc.).                         |
 | `bool`     | 1                 | Stockage de valeurs booléennes (vrai/faux).                                            |
 
-Il est important de choisir le type de données le plus adapté pour stocker vos données, afin de maximiser l'efficacité et la précision de votre programme. Par exemple, il n'est pas recommandé d'utiliser un type `float` pour stocker des nombres entiers, car cela peut entraîner une perte de précision. De même, il est préférable d'utiliser un type `long` ou `unsigned long` pour stocker des nombres très grands, plutôt que de dépasser la limite supérieure du type `int`.
+Étant programmé pour un appareil très limité en ressource, il est important de choisir le type de données le plus adapté pour stocker vos données, afin de maximiser l'efficacité et la précision de votre programme. Par exemple, il n'est pas recommandé d'utiliser un type `float` pour stocker des nombres entiers, car cela peut entraîner une perte de précision. De même, il est préférable d'utiliser un type `long` ou `unsigned long` pour stocker des nombres très grands, plutôt que de dépasser la limite supérieure du type `int`.
 
 ## Précision du type `float`
 Le type `float` est un type de données à virgule flottante qui permet de stocker des nombres à virgule avec une précision de 7 chiffres après la virgule. Cependant, il peut y avoir une perte de précision lors de l'utilisation de ce type de données pour plusieurs raisons :
@@ -274,6 +281,7 @@ Voici un exemple illustrant la portée de différentes variables :
 int variableGlobale = 0;  // Variable globale
 
 void setup() {
+  Serial.begin(9600);
   int variableLocale = 0;  // Variable locale
   static int variableStatique = 0;  // Variable statique
 
@@ -287,6 +295,20 @@ void setup() {
   Serial.println(variableStatique);
 }
 
+void fonctionAvecStatique(){
+  static int compteur = 0;  // Variable statique
+  int compteurB = 0;  // Variable locale
+
+  compteur++;  // Incrémentation de la variable statique
+  compteurB++;  // Incrémentation de la variable locale
+
+  Serial.print("-- func --\t");
+  Serial.print("compteur : ");
+  Serial.print(compteur);
+  Serial.print("\tcompteurB : ");
+  Serial.println(compteurB);
+}
+
 void loop() {
   int variableLocale = 0;  // Variable locale
   static int variableStatique = 0;  // Variable statique
@@ -296,9 +318,17 @@ void loop() {
   variableLocale++;  // Incrémentation de la variable locale
   variableStatique++;  // Incrémentation de la variable statique
 
-  Serial.println(variableGlobale); 
-  Serial.println(variableLocale);
+  Serial.print("-- loop --\t");
+  Serial.print("variableGlobale : ");
+  Serial.print(variableGlobale);
+  Serial.print("\tvariableLocale : ");
+  Serial.print(variableLocale);
+  Serial.print("\tvariableStatique : ");
   Serial.println(variableStatique);
+
+  fonctionAvecStatique();
+
+  delay(1000);
 }
 ```
 
@@ -332,7 +362,7 @@ Les variables globales sont utiles lorsque vous avez besoin de partager des donn
 Il est important de faire attention à l'utilisation des variables globales, car elles peuvent être modifiées par n'importe quelle fonction de votre programme, ce qui peut entraîner des erreurs de logique ou de synchronisation.
 
 ## Les variables statiques
-Les variables statiques sont des variables qui sont déclarées à l'intérieur d'une fonction, mais dont la valeur est conservée entre les exécutions de la fonction. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
+Les variables statiques sont des variables qui sont déclarées à l'intérieur d'une fonction, mais dont **la valeur est conservée entre les exécutions de la fonction**. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
 
 Voici un exemple de code qui utilise une variable statique pour compter le nombre de fois qu'un bouton a été appuyé
     
@@ -358,7 +388,7 @@ void boutonClic() {
 
 ```
 
-Dans cet exemple, la variable statique compteur est déclarée à l'intérieur de la fonction `boutonClic()`, mais sa valeur est conservée entre les exécutions de cette fonction. Ainsi, à chaque exécution de la fonction `boutonClic()`, la valeur de `compteur` est incrémentée de 1 et affichée sur la liaison série.
+Dans cet exemple, la variable statique `compteur` est déclarée à l'intérieur de la fonction `boutonClic()`, mais sa valeur est conservée entre les exécutions de cette fonction. Ainsi, à chaque exécution de la fonction `boutonClic()`, la valeur de `compteur` est incrémentée de 1 et affichée sur la liaison série.
 
 Les variables statiques sont utiles lorsque vous avez besoin de conserver la valeur d'une variable entre les exécutions d'une fonction, tout en limitant la visibilité de cette variable à l'intérieur de la fonction.
 
