@@ -166,6 +166,10 @@ void loop() {
 
 ```
 
+**Question** : Quelle façon, on pourrait améliorer ce programme pour qu'il soit plus facile à maintenir?
+
+---
+
 # La fonction `loop`
 La fonction `loop` est exécutée en boucle, c'est-à-dire qu'elle est répétée indéfiniment. C'est là que se trouve le code principal du programme.
 
