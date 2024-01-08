@@ -72,7 +72,7 @@ void loop() {
 </td>
 <td>
 
-![Alt text](c02_blink.gif)
+![Alt text](assets/c02_blink.gif)
 
 </td>
 
@@ -288,7 +288,7 @@ void loop() {
 </td>
 <td>
 
-![Alt text](ex_serial_print.gif)
+![Alt text](assets/ex_serial_print.gif)
 
 </td>
 

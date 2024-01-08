@@ -166,7 +166,10 @@ void loop() {
 
 ```
 
-**Question** : Quelle façon, on pourrait améliorer ce programme pour qu'il soit plus facile à maintenir?
+> **Question** : De quelle façon, nous pourrions améliorer ce programme pour qu'il soit plus facile à maintenir?
+> <details><summary>Indice</summary>
+> Si l'on doit modifier la broche de la LED ou de la durée de l'attente que devrons-nous faire? 
+> </details>
 
 ---
 
