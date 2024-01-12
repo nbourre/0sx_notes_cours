@@ -13,6 +13,8 @@
 # Introduction
 La fonction `delay()` qui est populaire auprès des débutants a un gros problème. En effet, elle bloque le programme pendant un certain temps. Pendant ce temps, le programme ne fait rien. C'est comme si le programme était en pause. C'est un problème car si le programme est en pause, il ne peut pas réagir aux événements qui se produisent. Par exemple, si le programme est en pause pendant 1 seconde, il ne peut pas réagir à un appui sur un bouton pendant cette seconde.
 
+![Alt text](gif/rango_beans_freeze.gif)
+
 `millis()` est une fonction qui permet de mesurer le temps écoulé depuis le démarrage du programme. Elle retourne un nombre entier qui représente le temps écoulé en millisecondes. Par exemple, si le programme a été démarré il y a 1 seconde, la fonction `millis()` retournera 1000.
 
 À première vue, vous pouvez douter de l'utilité de cette fonction. Cependant, elle est extrêmement utile pour plusieurs scénarios, souvent remplaçant `delay()` complètement. C'est ce que nous allons voir dans cette leçon.

@@ -143,7 +143,7 @@ La fonction `delay` est souvent utilisée pour créer des temporisations ou des 
 
 > **Important!!**
 > 
-> Il est important de noter que la fonction `delay` bloque l'exécution du programme pendant la durée de la pause, ce qui est problématique dans certains cas. Si vous avez besoin de mettre en pause le programme sans bloquer l'exécution des autres parties du code, vous pouvez utiliser des variables de gestion de temps. Voir l'exemple `BlinkWithoutDelay` pour plus de détails.
+> Il est important de noter que la fonction `delay` bloque l'exécution du processeur pendant la durée de la pause, **ce qui est problématique dans la plupart des cas**. Si vous avez besoin de mettre en pause le programme sans bloquer l'exécution des autres parties du code, vous pouvez utiliser des variables de gestion de temps. Voir l'exemple `BlinkWithoutDelay` pour plus de détails.
 
 ---
 
