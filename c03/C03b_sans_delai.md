@@ -13,7 +13,7 @@
 # Introduction
 La fonction `delay()` qui est populaire auprès des débutants a un gros problème. En effet, elle bloque le programme pendant un certain temps. Pendant ce temps, le programme ne fait rien. C'est comme si le programme était en pause. C'est un problème car si le programme est en pause, il ne peut pas réagir aux événements qui se produisent. Par exemple, si le programme est en pause pendant 1 seconde, il ne peut pas réagir à un appui sur un bouton pendant cette seconde.
 
-![Alt text](gif/rango_beans_freeze.gif)
+![Alt text](assets/gif/rango_beans_freeze.gif)
 
 `millis()` est une fonction qui permet de mesurer le temps écoulé depuis le démarrage du programme. Elle retourne un nombre entier qui représente le temps écoulé en millisecondes. Par exemple, si le programme a été démarré il y a 1 seconde, la fonction `millis()` retournera 1000.
 
@@ -21,6 +21,8 @@ La fonction `delay()` qui est populaire auprès des débutants a un gros problè
 
 # Utiliser `millis()` comme `delay()`
 Voici un exemple qui remplace `delay()` par `millis()`.
+
+**NE PAS FAIRE CECI DANS VOTRE CODE, C'EST UNE DÉMONSTRATION. LISEZ L'ARTICLE AU COMPLET**
 
 ```cpp
 int wait = 1000; // 1000 millisecondes = 1 seconde
@@ -59,23 +61,24 @@ L'autre avantage de `millis()` est qu'il ne nous empêchera pas d'exécuter du c
 Disons que nous voulons imprimer "Hello" en série une fois par seconde tout en faisant d'autres choses pendant ce temps. Ceci n'est pas possible avec delay() puisqu'il met en pause tout le code. Voici une façon de le faire :
 
 ```cpp
-int interval = 1000;
 unsigned long currentTime = 0;
  
 void setup() {
-    Serial.begin(115200);
+  Serial.begin(115200);
 }
  
 void loop() {
-    currentTime = millis();
+  const int interval = 1000;
 
-    if(currentTime - previousTime >= interval){
-        previousTime = currentTime;
+  currentTime = millis();
 
-        Serial.println("Bonjour!");
-    }
-   
-    //Exécuter d'autres choses
+  if(currentTime - previousTime >= interval){
+      previousTime = currentTime;
+
+      Serial.println("Bonjour!");
+  }
+  
+  //Exécuter d'autres choses
 }
 ```
 
@@ -95,21 +98,21 @@ Ce bout de code est assez similaire au premier morceau, sauf qu'il ne bloque pas
 <td>
 
 ```cpp
-int intervalBonjour = 5000;
-int intervalSalut = 7000;
-int intervalHello = 11000;
-
 unsigned long currentTime = 0;
-
-unsigned long previousBonjour = 0;
-unsigned long previousSalut = 0;
-unsigned long previousHello = 0;
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
+  const int intervalBonjour = 5000;
+  const int intervalSalut = 7000;
+  const int intervalHello = 11000;
+
+  static unsigned long previousBonjour = 0;
+  static unsigned long previousSalut = 0;
+  static unsigned long previousHello = 0;
+
   currentTime = millis();
 
   if (currentTime - previousBonjour >= intervalBonjour) {
@@ -140,7 +143,7 @@ void print_time(unsigned long time_millis){
 </td>
 <td>
 
-![Alt text](c03_millis_demo.png)
+![Alt text](assets/c03_millis_demo.png)
 
 </td>
 </tr>
@@ -156,7 +159,7 @@ Si le besoin de précision est plus grand, il y a la fonction `micros()`. Cette 
 Il faudra faire attention au débordement. Il se produit après 70 minutes au lieu de 50 jours.
 
 # Explication de la limite de `millis()`
-La valeur maximum d'un `unsigned long` est de 4 294 967 295 car un `unsigned long` est de 4 octer donc 2^32-1.
+La valeur maximum d'un `unsigned long` est de 4 294 967 295 car un `unsigned long` est de 4 octets donc 2^32-1.
 
 Si nous divisons cette valeur par 1000, nous obtenons 4 294 967 secondes. On divise par 60, on obtient 71 582 minutes. On divise par 60, on obtient 1 193 heures. On divise par 24, on obtient 49.7 jours.
 

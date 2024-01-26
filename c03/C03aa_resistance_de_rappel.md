@@ -11,12 +11,12 @@
 
 
 # Introduction
-Une broche peut avoir trois états soit 0, 1 ou flottant. Si la broche eset connectée à la mise à la terre (*ground*), elle aura une valeur de 0, si elle est connectée à la tension d'alimentation, elle aura une valeur de 1 et si elle n'est connectée à rien, elle aura une valeur **flottante**.
+Une broche peut avoir trois états soit 0, 1 ou flottant. Si la broche est connectée à la mise à la terre (*ground*), elle aura une valeur de 0, si elle est connectée à la tension d'alimentation, elle aura une valeur de 1 et si elle n'est connectée à rien, elle aura une valeur **flottante**.
 
 Une valeur flottante est une valeur dont on ne pourra pas garantir sa vraie valeur. Sa valeur dépendra de l'environnement, de la température, de la tension d'alimentation, etc. Il s'agit de bruit.
 
 Voici la lecture sur un oscilloscope d'une broche flottante.
-![Alt text](floating_value.png)
+![Alt text](assets/floating_value.png)
 
 On ne sait pas vraiment si la broche est à 0 ou à 1 à quel moment.
 
@@ -30,13 +30,13 @@ La résistance de tirage sert à mettre la broche à 1 en branchant en parallèl
 
 Voici les deux schémas de résistance de tirage et de rappel.
 
-![Alt text](schemas/Pull-up-and-Pull-down-Resistor.png)
+![Alt text](assets/schemas/Pull-up-and-Pull-down-Resistor.png)
 
 # Exemple de résistance de rappel
-![Alt text](schemas/resistance_rappel_bb.png)
+![Alt text](assets/schemas/resistance_rappel_bb.png)
 
 # Exemple de résistance de tirage
-![Alt text](schemas/resistance_tirage_bb.png)
+![Alt text](assets/schemas/resistance_tirage_bb.png)
 
 # Code Arduino
 Il est possible d'activé une résistance de tirage sur l'Arduino.

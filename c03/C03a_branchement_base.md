@@ -4,7 +4,7 @@
   - [Le voltage](#le-voltage)
   - [L'ampérage](#lampérage)
     - [Exemples](#exemples)
-  - [Important *Life skill*](#important-life-skill)
+  - [*Important Life skill*](#important-life-skill)
   - [L'électricité de l'Arduino](#lélectricité-de-larduino)
     - [Entrée](#entrée)
     - [Sortie](#sortie)
@@ -25,7 +25,7 @@ L'objectif de cette section n'est pas de vous donner une formation scientifique 
 L'objectif est plutôt de savoir comment et où vous pouvez mesurer ces valeurs pour vous assurer que votre circuit fonctionne correctement.
 
 ## Le voltage
-Le voltage est la différence de potentiel entre deux points. C'est la force qui pousse les électrons à circuler dans un circuit. Le voltage est mesuré en volt (V).
+Le voltage est la différence de potentiel entre deux points. C'est la force qui pousse les électrons à circuler dans un circuit. Le voltage est mesuré en volt (V). On utilise souvent le terme **tension**.
 
 Lorsque l'on branche un circuit électronique il est super important de respecter le voltage de l'appareil, car **si vous branchez un appareil à un adaptateur qui donne trop de voltage, vous risquez de brûler votre appareil.**
 
@@ -33,20 +33,24 @@ Il y a aussi la **polarité** qui est importante. La polarité est la direction 
 
 ![Alt text](assets/gif/electroboom-electric-shock.gif)
 
+> **Note** : En circuit logique, nous utilisons de façon général le courant continu. Il y a aussi le courant alternatif, mais il est utilisé plus souvent pour des applications de haute-tension ou des applications spécifiques.
+
 ## L'ampérage
 L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage est mesuré en ampère (A).
 
 Un appareil ou composant consomme de l'ampérage. Vous pouvez brancher un adaptateur qui peut fournir plus d'ampérage qu'un appareil a besoin. Car l'appareil ne consommera pas plus d'ampérage que ce qu'il a besoin.
+
+Avez-vous déjà touché un adaptateur qui était très chaud? La raison est que votre appareil consomme beaucoup d'ampérage pour sa capacité de dissipation de chaleur.
 
  Il est important de respecter la valeur d'ampérage de l'appareil, car **si vous branchez un appareil qui consomme trop d'ampérage sur un adaptateur qui ne peut pas fournir assez d'ampérage, vous risquez de brûler votre appareil.**
 
 ![Alt text](assets/gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
 
  ### Exemples
- - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur.
+ - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur lors des périodes de haute consommation (Ex : *Gaming*).
  - Si vous branchez un adaptateur de 5V en courant continu qui fournit 1A sur un Raspberry Pi 3, votre appareil ne démarrera pas. Le Raspberry Pi 3 nécessite un minimum de 2.5A pour démarrer.
 
-## Important *Life skill*
+## *Important Life skill*
 Habituellement sur les appareils, on peut trouver une étiquette ou gravure près du port de branchement qui indique le voltage de l'appareil. Par exemple, un appareil qui fonctionne à 5V aura une étiquette qui indique 5V.
 
 Les symboles suivants sont souvent utilisés sur les fiches signalétiques des appareils :
@@ -61,10 +65,10 @@ Voici quelques exemples de fiches signalétiques :
 
 | Photo | Description |
 | --- | --- |
-| ![Alt text](assets/appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une nécessitant à polarité positive |
+| ![Alt text](assets/appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une polarité positive |
 | ![Alt text](assets/appareil_02.jpg) | Appareil acceptant un voltage de 5 volt en courant continu  et nécessitant 1 ampère avec une fiche à polarité positive |
 | ![Alt text](assets/adaptateur_01.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 0.5A avec une fiche à polarité positive |
-| ![Alt text](assets/adaptateur_02.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 150mA avec **une fiche à polarité inconnue...** |
+| ![Alt text](assets/adaptateur_02.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 150mA avec **une fiche à polarité inconnue...**  Lorsque la polarité n'est pas indiqué, c'est qu'il s'agit d'un connecteur qui n'est pas de type *barrel*. Il peut s'agir d'un connecteur USB.|
 | ![Alt text](assets/adaptateur_03.jpg) | Adaptateur avec sortie de 5V en courant continu pouvant fournir 1A avec une fiche USB |
 | ![Alt text](assets/adaptateur_04.jpg) | Adaptateur avec plusieurs valeurs de sortie. Il s'agit d'un adapteur de type USB-C |
 
@@ -130,7 +134,7 @@ Voir le tutoriel [suivant](https://docs.arduino.cc/tutorials/generic/digital-inp
 
 Voici un circuit de branchement du bouton **qui doit être programmé en mode `INPUT_PULLUP`**.
 
-![Alt text](assets/schemas/branchement_bouton_input_pullup.png)
+![Alt text](assets/branchement_bouton_input_pullup.png)
 
 ### Code pour lire le bouton
 Pour lire la valeur du bouton, il faut en premier lieu configurer la broche en mode `INPUT_PULLUP` et ensuite utiliser la fonction `digitalRead()`.
