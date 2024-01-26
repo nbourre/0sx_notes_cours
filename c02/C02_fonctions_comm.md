@@ -318,7 +318,7 @@ Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moni
 
 Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
 
-![Alt text](arduino_serial_monitor_start.gif)
+![Alt text](assets/arduino_serial_monitor_start.gif)
 
 ---
 

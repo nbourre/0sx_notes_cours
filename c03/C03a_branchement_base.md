@@ -31,7 +31,7 @@ Lorsque l'on branche un circuit électronique il est super important de respecte
 
 Il y a aussi la **polarité** qui est importante. La polarité est la direction du courant. Il y a deux types de polarité : positive et négative. La polarité est indiquée sur les fiches signalétiques des appareils. **Si vous branchez un appareil avec une polarité négative sur un adaptateur avec une polarité positive, vous risquez de brûler votre appareil.**
 
-![Alt text](gif/electroboom-electric-shock.gif)
+![Alt text](assets/gif/electroboom-electric-shock.gif)
 
 ## L'ampérage
 L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage est mesuré en ampère (A).
@@ -40,7 +40,7 @@ Un appareil ou composant consomme de l'ampérage. Vous pouvez brancher un adapta
 
  Il est important de respecter la valeur d'ampérage de l'appareil, car **si vous branchez un appareil qui consomme trop d'ampérage sur un adaptateur qui ne peut pas fournir assez d'ampérage, vous risquez de brûler votre appareil.**
 
-![Alt text](gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
+![Alt text](assets/gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
 
  ### Exemples
  - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur.
@@ -53,20 +53,20 @@ Les symboles suivants sont souvent utilisés sur les fiches signalétiques des a
 
 | Symbole | Description |
 | --- | --- |
-| ![Alt text](dc_jack_polarity.jpg) | Type de polarité |
-| ![Alt text](symbol_ac_dc.png) | Type de courant |
+| ![Alt text](assets/dc_jack_polarity.jpg) | Type de polarité |
+| ![Alt text](assets/symbol_ac_dc.png) | Type de courant |
 
 
 Voici quelques exemples de fiches signalétiques :
 
 | Photo | Description |
 | --- | --- |
-| ![Alt text](appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une nécessitant à polarité positive |
-| ![Alt text](appareil_02.jpg) | Appareil acceptant un voltage de 5 volt en courant continu  et nécessitant 1 ampère avec une fiche à polarité positive |
-| ![Alt text](adaptateur_01.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 0.5A avec une fiche à polarité positive |
-| ![Alt text](adaptateur_02.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 150mA avec **une fiche à polarité inconnue...** |
-| ![Alt text](adaptateur_03.jpg) | Adaptateur avec sortie de 5V en courant continu pouvant fournir 1A avec une fiche USB |
-| ![Alt text](adaptateur_04.jpg) | Adaptateur avec plusieurs valeurs de sortie. Il s'agit d'un adapteur de type USB-C |
+| ![Alt text](assets/appareil_01.jpg) | Appareil acceptant un voltage de 12 volt en courant continu et nécessitant 0.5 ampère avec une nécessitant à polarité positive |
+| ![Alt text](assets/appareil_02.jpg) | Appareil acceptant un voltage de 5 volt en courant continu  et nécessitant 1 ampère avec une fiche à polarité positive |
+| ![Alt text](assets/adaptateur_01.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 0.5A avec une fiche à polarité positive |
+| ![Alt text](assets/adaptateur_02.jpg) | Adaptateur avec sortie de 12V en courant continu pouvant fournir 150mA avec **une fiche à polarité inconnue...** |
+| ![Alt text](assets/adaptateur_03.jpg) | Adaptateur avec sortie de 5V en courant continu pouvant fournir 1A avec une fiche USB |
+| ![Alt text](assets/adaptateur_04.jpg) | Adaptateur avec plusieurs valeurs de sortie. Il s'agit d'un adapteur de type USB-C |
 
 ## L'électricité de l'Arduino
 ### Entrée
@@ -101,7 +101,7 @@ La **convention** veut que les fils rouges soient branchés sur les fils positif
 ## Branchement de base
 Dans votre kit, je vous suggère le branchement de base permanent suivant :
 
-![Alt text](schemas/branchement_base_bb.png)
+![Alt text](assets/schemas/branchement_base_bb.png)
 
 Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les fils de courant à chaque fois.
 
@@ -113,7 +113,7 @@ Comme indiquer dans le document d'introduction à l'arduino, pour brancher une D
 
 Voici un schéma de branchement d'une DEL avec une résistance en série :
 
-![Alt text](schemas/branchement_led_bb.png)
+![Alt text](assets/schemas/branchement_led_bb.png)
 - La DEL est branchée sur la broche 9 de l'Arduino.
 - Pour la contrôler, il faudra faire un programme.
 
@@ -124,13 +124,13 @@ La première chose à savoir c'est le branchement interne du bouton. Dans votre 
 
 Le schéma interne du bouton est le suivant :
 
-![Alt text](push_button.jpg)
+![Alt text](assets/push_button.jpg)
 
 Voir le tutoriel [suivant](https://docs.arduino.cc/tutorials/generic/digital-input-pullup).
 
 Voici un circuit de branchement du bouton **qui doit être programmé en mode `INPUT_PULLUP`**.
 
-![Alt text](schemas/branchement_bouton_input_pullup.png)
+![Alt text](assets/schemas/branchement_bouton_input_pullup.png)
 
 ### Code pour lire le bouton
 Pour lire la valeur du bouton, il faut en premier lieu configurer la broche en mode `INPUT_PULLUP` et ensuite utiliser la fonction `digitalRead()`.
