@@ -28,7 +28,7 @@ Un microcontrôleur ne peut pas lire une valeur analogique directement. Il faut 
 
 **Les microcontroleur possède généralement un ou plusieurs ADC intégré**. Par exemple, l'ATMega2560 possède 16 ADC intégrés. Ces ADC sont connectés à des broches spécifiques. Par exemple, les ADC intégrés à l'ATMega2560 sont connectés aux broches **A0 à A15**.
 
-![Alt text](Pinout-Mega2560rev3_latest.png)
+![Alt text](assets/Pinout-Mega2560rev3_latest.png)
 
 > **Pratique** : Prenez votre Arduino et repérez les broches A0 à A15.
 
@@ -40,7 +40,7 @@ Exemple :
 
 
 Voici un exemple de graphique représentant le concept de conversion d'une valeur analogique en une valeur numérique avec la perte de précision.
-![Alt text](c04_adc_graph.png)
+![Alt text](assets/c04_adc_graph.png)
 
 On remarque que les valeurs numérique ne peuvent pas représenter toutes les valeurs analogiques à tous les temps. Les valeurs sont découpées au rythme de l'échantillonnage du programme.
 
@@ -55,15 +55,15 @@ On retrouve des composants analogiques partout, par exemple, les **potentiomètr
 # Le potentiomètre
 Un potentiomètre est un composant électrique qui agit comme une résistance variable. Il a trois bornes : les deux extrémités et un contact coulissant ou rotatif qui se déplace le long d'un élément résistif. En ajustant la position du contact le long de l'élément résistif, le potentiomètre peut faire varier la résistance entre ses deux extrémités, créant ainsi un circuit diviseur de tension variable. Cela permet de l'utiliser comme un contrôle de volume dans du matériel audio, un capteur de position en robotique ou un outil de calibration dans du matériel de laboratoire. Les potentiomètres sont souvent appelés "pots" pour faire court.
 
-![Alt text](Different-types-of-Potentiometers.png)
+![Alt text](assets/Different-types-of-Potentiometers.png)
 
 ## Fonctionnement interne
 
-![Alt text](How-Potentiometer-Works-768x231.png)
+![Alt text](assets/How-Potentiometer-Works-768x231.png)
 
-![Alt text](pot_a.gif)
+![Alt text](assets/pot_a.gif)
 
-![Alt text](pot_b.gif)
+![Alt text](assets/pot_b.gif)
 
 
 
@@ -76,7 +76,7 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
 
 <table>
   <tr>
-    <td><img src="pot_exemple_bas.gif" /></td>
+    <td><img src="assets/pot_exemple_bas.gif" /></td>
     <td>
 
   ```cpp
@@ -102,7 +102,7 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
 
 <table>
   <tr>
-    <td><img src="pot_exemple_DEL.gif" /></td>
+    <td><img src="assets/pot_exemple_DEL.gif" /></td>
     <td>
 
   ```cpp

@@ -54,7 +54,7 @@ void loop() {
 ```
 
 Branchement de la photorésistance sur l'Arduino Mega
-![Alt text](assets/schemas/photoresistance.png)
+![Alt text](assets/photoresistance.png)
 
 ---
 

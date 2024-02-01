@@ -107,7 +107,11 @@ Dans votre kit, je vous suggère le branchement de base permanent suivant :
 
 ![Alt text](assets/schemas/branchement_base_bb.png)
 
-Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les fils de courant à chaque fois.
+ou encore celui-ci avec l'unité d'alimentation de base (PSU):
+
+![Alt text](assets/schemas/branchement_base_psu.png)
+
+Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les conducteurs à chaque fois.
 
 ## Documentation - Introduction à l'Arduino
 Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](intro_arduino_jp/readme.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
