@@ -1,5 +1,13 @@
 # Programmer en tâches <!-- omit in toc -->
 
+- [Introduction](#introduction)
+- [Exemple disfonctionnel](#exemple-disfonctionnel)
+- [Améliorer l'exemple en utilisant millis()](#améliorer-lexemple-en-utilisant-millis)
+- [Améliorer l'exemple en utilisant des fonctions](#améliorer-lexemple-en-utilisant-des-fonctions)
+- [Encore une amélioration](#encore-une-amélioration)
+  - [Lecture d'entrées](#lecture-dentrées)
+  - [Exercices](#exercices)
+
 
 # Introduction
 La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
