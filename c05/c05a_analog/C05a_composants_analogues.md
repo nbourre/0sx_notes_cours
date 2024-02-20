@@ -90,7 +90,7 @@ Comme la photorésistance, la thermistance peut être utilisé dans un montage d
 > 
 > Pour calculer la température, il faut utiliser une formule mathématique qui dépend du type de thermistance utilisé. Il existe de nombreuses formules différentes, mais l'équation de Steinhart-Hart est l'une des plus couramment utilisées. Cette équation peut être utilisée pour calculer la température à partir de la valeur de résistance mesurée par la thermistance.
 > 
-> $1/T = A + B*ln(R) + C*(ln(R))^3$
+>   $1/T = A + B*ln(R) + C*(ln(R))^3$
 > 
 > où T est la température en kelvins, R est la résistance de la thermistance en ohms, et A, B et C sont des coefficients spécifiques à chaque thermistance. Ces coefficients sont généralement fournis par le fabricant de la thermistance.
 
