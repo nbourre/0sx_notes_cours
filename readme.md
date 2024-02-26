@@ -33,10 +33,10 @@
    1. [Composants analogues](c05/c05a_analog/C05a_composants_analogues.md)
    2. [Programmer en tâches](c05/c05b_taches/C05b_programmer_en_taches.md)
 7. Semaine 07
-   1. [Utilisation de librairies](c06/c06a_lib/C06a_librairies.md)
-   2. [Écran LCD](c06/c06b_lcd/C06b_lcd_1602.md)
-   3. [Capteur ultrasonique](c06/c06c_dht11/C06c_dht11.md)
-   4. [Capteur d'humidité](c06/c06d_hcsr04/C06d_ultrasonic.md)
+   1. [Utilisation de librairies](c06/c06a_lib/readme.md)
+   2. [Écran LCD](c06/c06b_lcd/readme.md)
+   3. [Capteur ultrasonique](c06/c06c_dht11/C06b_lcd_1602.md)
+   4. [Capteur d'humidité](c06/c06d_hcsr04/C06b_lcd_1602.md)
 8. Semaine 08
    1. [Machine à états](c07/c07a_fsm/C07a_machine_etats.md)
    2. [Lecture du port série](c07/c07b_serial_read/C07b_lecture_serie.md)
