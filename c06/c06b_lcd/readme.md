@@ -16,7 +16,6 @@
   - [`lcd.setCursor()`](#lcdsetcursor)
   - [`lcd.clear()`](#lcdclear)
   - [`lcd.scrollDisplayLeft()` et `lcd.scrollDisplayRight()`](#lcdscrolldisplayleft-et-lcdscrolldisplayright)
-- [Bonnes pratiques](#bonnes-pratiques)
 - [Exercices](#exercices)
 - [Références](#références)
 
@@ -56,8 +55,7 @@ Voici un branchement pour utiliser 4 bits:
 Le branchement est le suivant:
 - GND, R/W et K sont reliés au ground
 - Vcc et l'anode (A) sont reliés à 5V
-- V0 est à la broche 38 que l'on contrôlera avec un PWM
-  - Celui-ci peut être relié à un potentiomètre pour ajuster le contraste
+- V0 est branché à un potentiomètre pour ajuster le contraste
 - RS est relié à la broche 36
 - E (en) est relié à la broche 34
 - D4 est relié à la broche 32
@@ -78,14 +76,7 @@ Ouvrez l'exemple `LiquidCrystal > Hello World` et modifiez les broches pour corr
 const int rs = 36, en = 34, d4 = 32, d5 = 30, d6 = 28, d7 = 26;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-const int contrastPin = 38;
-
 void setup() {
-  pinMode(contrastPin, OUTPUT);
-
-  // Ajuster le contraste au besoin
-  analogWrite(contrastPin, 100);
-
   // Initialiser l'affichage
   // Configurer le nombre de caractères et de lignes
   lcd.begin(16, 2); 
@@ -117,13 +108,7 @@ La librairie offre aussi la possibilité de faire défiler le texte. Pour ce fai
 const int rs = 36, en = 34, d4 = 32, d5 = 30, d6 = 28, d7 = 26;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-const int contrastPin = 38;
-
 void setup() {
-  pinMode(contrastPin, OUTPUT);
-
-  // Ajuster le contraste au besoin
-  analogWrite(contrastPin, 100);
 
   lcd.begin(16, 2);
   lcd.print("Hello!");
@@ -186,11 +171,6 @@ Lorsque l'on désire effacer l'écran, on peut appeler cette fonction. Parfois i
 
 ## `lcd.scrollDisplayLeft()` et `lcd.scrollDisplayRight()`
 Ces fonctions permettent de faire défiler le texte. Elles ne prennent pas de paramètres.
-
----
-
-# Bonnes pratiques
-
 
 ---
 # Exercices
