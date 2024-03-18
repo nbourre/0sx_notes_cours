@@ -1,5 +1,12 @@
 # La programmation orientée objet avec Arduino <!-- omit in toc -->
 
+
+![The image features a man in business casual attire - a white shirt with rolled-up sleeves with a fan and a thermometer](<assets/DALL·E 2024-03-18 14.59.55.webp>)
+
+![A realistic image of an Arduino board on a wooden table with a small electric fan connected to it. The fan is running, and you can see the motion blur](<assets/DALL·E 2024-03-18 15.05.20.webp>)
+
+![alt text](assets/think-smart.gif)
+
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Concepts de base](#concepts-de-base)
@@ -42,6 +49,10 @@ On pourrait dire que "Idéfix" est un chien blanc, de taille petite, avec un pel
 Dans un projet électronique, nous avons des objets physiques. Par exemple, un bouton, un capteur, un moteur, etc. Nous pouvons définir des concepts plus haut-niveau par exemple un verrou, un ouvre-porte, etc. et créer des classes pour représenter ces objets.
 
 L'avantage de créer des classes, c'est que cela rend le code plus facile à lire et à comprendre. De plus, cela permet de réutiliser le code pour d'autres projets.
+
+Voici un diagramme simple pour représenter les classes typiques que l'on pourrait retrouver dans un projet de maison intelligente.
+
+![alt text](<assets/Exemple diagramme POO.png>)
 
 # Création d'une classe
 Dans Arduino, nous pouvons créer des classes pour représenter des objets physiques.

@@ -1,0 +1,49 @@
+<mxfile host="Electron" modified="2024-03-18T18:47:44.450Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="jbJJJAOsWD0PDqQ_-GwV" version="23.1.5" type="device">
+  <diagram name="Page-1" id="tzCSZiHVRtSw4yeuPrMs">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-2" value="Servo" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-3" value="Verrou" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-7" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;endSize=6;sourcePerimeterSpacing=0;startSize=16;" edge="1" parent="1" source="fFH_x_rVt4UgBZWIn4kD-5" target="fFH_x_rVt4UgBZWIn4kD-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-5" value="Climatiseur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-6" value="Ventilateur" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-8" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;endSize=6;sourcePerimeterSpacing=0;startSize=16;" edge="1" parent="1" source="fFH_x_rVt4UgBZWIn4kD-3" target="fFH_x_rVt4UgBZWIn4kD-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="487" y="350" as="sourcePoint" />
+            <mxPoint x="433" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-9" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;endSize=6;sourcePerimeterSpacing=0;startSize=16;" edge="1" parent="1" source="fFH_x_rVt4UgBZWIn4kD-5" target="fFH_x_rVt4UgBZWIn4kD-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="517" y="420" as="sourcePoint" />
+            <mxPoint x="463" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-10" value="Thermomètre" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-11" value="Application" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fFH_x_rVt4UgBZWIn4kD-12" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=diamondThin;startFill=0;endSize=6;sourcePerimeterSpacing=0;startSize=16;" edge="1" parent="1" source="fFH_x_rVt4UgBZWIn4kD-11" target="fFH_x_rVt4UgBZWIn4kD-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="517" y="420" as="sourcePoint" />
+            <mxPoint x="463" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
