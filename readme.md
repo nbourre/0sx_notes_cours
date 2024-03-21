@@ -49,7 +49,7 @@
 10. Semaine 10
       1. [Machine à états revisitée](c09/c09a_fsm_revisited/c09a_fsm_revisited.md)
 11. Semaine 11
-    1.  [Module WiFi](c10/c10a_comm_serie.md)
+    1.  [Module WiFi](./c10/c10a_wifi.md)
     2.  [Visual Studio Code](c10/c10b_vscode.md)
 12. Semaine 12
     1.  [Refactorisation](c11/refactorisation.md)
