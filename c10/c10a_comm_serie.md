@@ -1,5 +1,7 @@
 # Début Wifi <!-- omit in toc -->
 
+![alt text](<assets/DALL·E 2024-03-21 08.57.44.webp>)
+
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [ESP8266](#esp8266)
@@ -14,18 +16,18 @@
 
 
 # Introduction
-Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../c07/c07b_serial_read/C07b_lecture_serie.md).
+Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../c08/c08a_serial_read/readme.md).
 
 Dans ce cours, nous allons voir comment communiquer avec un Arduino Mega via le port série en utilisant un shield qui possède un microontrôleur ESP8266.
 
-![Alt text](esp8266-wifi-shield-desc2.jpg)
+![Alt text](assets/esp8266-wifi-shield-desc2.jpg)
 
 # ESP8266
 Avant de débuter avec le shield, nous devons en connaître un peu plus sur l'ESP8266.
 
 L'ESP8266 est un microcontrôleur qui peut être programmé en langage Arduino. Si vous êtes un nouveau programmeur qui commence à programmer en C, vous pourriez être intéressé par cette petite puce car elle est facile à utiliser et offre une grande variété de fonctionnalités.
 
-![Différents models d'ESP](ModelosESP.avif)
+![Différents models d'ESP](assets/ModelosESP.avif)
 
 Cette image montre la variété de modèles d'ESP disponibles sur le marché. Vous pouvez trouver des modèles avec des caractéristiques différentes, mais tous sont basés sur le même microcontrôleur ESP8266.
 
@@ -57,7 +59,7 @@ Dans notre cas, nous utilisons une librairie qui cachera ces commandes AT. Ce qu
 ---
 
 # Le shield ESP8266
-Le module ESP8266 WiFi Shield est un module UART-WiFi ultra-basse consommation. Il a des dimensions excellentes et une technologie ULP par rapport à d'autres modules similaires. Le module est spécialement conçu pour les appareils mobiles et l'Internet des objets (IoT).
+Le module ESP8266 WiFi Shield est un module UART-WiFi. Le module est spécialement conçu pour les appareils mobiles et l'Internet des objets (IoT).
 
 Ce Shield WiFi est basé sur ESP-12F, qui est la nouvelle version de l'ESP-12 avec la puce Wifi ESP8266. Avec ce Shield, vous pouvez facilement connecter votre Arduino au réseau et contrôler votre appareil de n'importe où. La communication se fait via une interface UART et le contrôle se fait par commande AT.
 
@@ -84,13 +86,16 @@ Le code suivant permet de configurer le module wifi pour se connecter à un rés
 ```cpp
 #include <WiFiEspAT.h>
 
-#define HAS_SECRETS 0  // Mettre à 1 si le fichier arduino_secrets.h est présent
+// Mettre à 1 si le fichier arduino_secrets.h est présent
+#define HAS_SECRETS 0  
 
 #if HAS_SECRETS
 #include "arduino_secrets.h"
-///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-const char ssid[] = SECRET_SSID;  // your network SSID (name)
-const char pass[] = SECRET_PASS;  // your network password (use for WPA, or use as key for WEP)
+/////// SVP par soucis de sécurité, mettez vos informations dans le fichier arduino_secrets.h
+
+// Nom et mot de passe du réseau wifi
+const char ssid[] = SECRET_SSID;
+const char pass[] = SECRET_PASS;
 
 #else
 const char ssid[] = "ton_wifi";  // your network SSID (name)
@@ -111,11 +116,13 @@ void setup() {
   Serial1.begin(AT_BAUD_RATE);
   WiFi.init(&Serial1);
 
+  // Cela peut prendre un certain temps pour que le module wifi soit prêt
+  // Voir 1 minute dans la documentation
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println();
     Serial.println("La communication avec le module WiFi a échoué!");
     // ne pas continuer
-    while (true);
+    errorState(2, 1);
   }
 
   WiFi.disconnect();  // pour effacer le chemin. non persistant
@@ -202,6 +209,42 @@ void printMacAddress(byte mac[]) {
   Serial.println();
 }
 
+// Fonction affichant un état d'erreur avec 2 paramètres pour code d'erreur
+// Cela permet de clignoter la DEL avec un code pour faciliter le débogage pour
+// l'utilisateur. On ne sort jamais de cette fonction.
+// Le programmeur doit définir la signification des codes d'erreur.
+//
+// Exemple de code d'erreur:
+//   errorState (2, 3) <-- (clignote 2 fois, pause, clignote 3 fois)
+void errorState(int codeA, int codeB) {
+  const int rate = 100;
+  const int pauseBetween = 500;
+  const int pauseAfter = 1000;
+
+  // On ne sort jamais de cette fonction
+  while (true) {
+    for (int i = 0; i < codeA; i++) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(rate);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(rate);
+    }
+    delay(pauseBetween);
+    for (int i = 0; i < codeB; i++) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(rate);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(rate);
+    }
+    delay(pauseAfter);
+
+    Serial.print("Erreur : ");
+    Serial.print(codeA);
+    Serial.print(".");
+    Serial.println(codeB);
+  }
+}
+
 
 ```
 
@@ -249,7 +292,7 @@ void setup() {
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("La communication avec le module WiFi a échoué !");
     // ne pas continuer
-    while (true);
+    errorState();
   }
 
   // En attendant la connexion au réseau Wifi configuré avec le sketch SetupWiFiConnection
@@ -322,6 +365,15 @@ void loop() {
     // fermer la connexion:
     client.stop();
     Serial.println("client déconnecté");
+  }
+}
+
+void errorState() {
+  while (true) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(100);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
   }
 }
 

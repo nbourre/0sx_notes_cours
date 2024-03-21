@@ -32,7 +32,7 @@ Le MQTT est un protocole (Message Queuing Telemetry Transport) de messagerie sim
 # Concepts
 MQTT repose sur un modèle de communication basé sur l'abonnement/souscription (publish/subscribe). Dans ce modèle, il y a deux types d'acteurs : les **clients** et le courtier (**broker**). Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Le courtier est un serveur central qui gère les communications entre les clients.
 
-![Alt text](MQTT_Diagram_gOmDdU4.format-webp.webp)
+![Alt text](assets/MQTT_Diagram_gOmDdU4.format-webp.webp)
 
 ---
 
@@ -56,7 +56,7 @@ Dans un monde idéal, le courtier devrait être protégé par un **certificat SS
 ## Les clients
 Les clients sont des appareils qui peuvent se connecter au courtier pour envoyer et recevoir des messages. Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants, et publier des messages sur des sujets spécifiques.
 
-![Alt text](mqtt_diagram.webp)
+![Alt text](assets/mqtt_diagram.webp)
 
 ---
 
@@ -162,7 +162,7 @@ MQTT offre trois niveaux de qualité de service (QoS) pour les messages échang�
 
 Dans notre cas, nous allons utilisé le QoS 0. Le QoS 1 et 2 sont plus compliqués à implémenter et ne sont pas nécessaire pour notre application.
 
-![Alt text](qos_meme.webp)
+![Alt text](assets/qos_meme.webp)
 
 > **Note :** L'abréviation *QoS* a différentes significations dans le monde de l'informatique dépendant du contexte. Dans le cas du MQTT, il s'agit de la qualité de service au niveau applicatif. Dans le cas de la réseautique, il s'agit de la qualité de service au niveau du réseau.
 
