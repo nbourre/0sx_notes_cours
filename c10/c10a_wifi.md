@@ -405,7 +405,7 @@ Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui 
 
 **Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
 
-**Important 2 :** On doit avoir la classe `RingBuffer`. Dans mon dossier des projets, elle disponible dans le dossier `wifi_webServer_led`.
+**Important 2 :** On doit avoir la classe `RingBuffer`. Dans mon [dossier des projets](https://github.com/nbourre/0sx_projets_cours), elle disponible dans le dossier `wifi_webServer_led`.
 
 ```cpp
 #include <WiFiEspAT.h>
