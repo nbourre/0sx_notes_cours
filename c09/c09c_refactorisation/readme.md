@@ -1,5 +1,7 @@
 # La refactorisation <!-- omit in toc -->
 
+![alt text](<DALL·E 2024-03-22 14.15.48.webp>)
+
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Les principes de la refactorisation](#les-principes-de-la-refactorisation)
