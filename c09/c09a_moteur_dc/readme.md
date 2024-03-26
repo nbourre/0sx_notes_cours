@@ -8,6 +8,7 @@
   - [Le contrôleur de moteur L293D](#le-contrôleur-de-moteur-l293d-1)
   - [Tableau logique de contrôle du moteur DC avec le L293D](#tableau-logique-de-contrôle-du-moteur-dc-avec-le-l293d)
   - [Exemple de code](#exemple-de-code)
+  - [Important](#important)
 - [Exercices](#exercices)
 - [Références](#références)
 
@@ -155,6 +156,12 @@ void loop() {
   }
 }
 ```
+
+Dans l'exemple ci-dessus avec le analogueWrite, on utilise la fonction `analogWrite` pour contrôler la vitesse du moteur. La fonction `analogWrite` permet de contrôler la vitesse du moteur en modulant la largeur d'impulsion (PWM). La valeur de `i` varie de 0 à 255. Plus la valeur est grande, plus le moteur tourne vite.
+
+## Important
+Les moteurs ne fonctionnent pas comme des LED. Les moteurs ont une inertie. C'est-à-dire qu'ils ne démarrent pas ou ne s'arrêtent pas instantanément. Si on met une valeur trop faible pour le PWM, le moteur ne tournera pas et chauffera. Ainsi, il est important de connaitre la valeur minimale pour que le moteur démarre et utiliser celle-ci pour le seuil de démarrage. 
+
 ---
 
 # Exercices
