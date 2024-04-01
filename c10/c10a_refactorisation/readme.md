@@ -286,8 +286,8 @@ class Affichage {
     // Constructeur
     Affichage(uint8_t lcdAddress, uint8_t lcdColumns, uint8_t lcdRows);
 
-    void setLine1(String line1);
-    void setLine2(String line2);
+    void setLine1(const String &line1);
+    void setLine2(const String &line2);
     void update();
     void clear();
     void setRefreshRate(int refreshRate) { _refreshRate = refreshRate; }
@@ -312,7 +312,7 @@ Affichage::Affichage(uint8_t lcdAddress, uint8_t lcdColumns, uint8_t lcdRows):
   _lcd.backlight();
 }
 
-void Affichage::setLine1(String line1){
+void Affichage::setLine1(const String &line1){
   // On sort de la méthode si la ligne est la même que la précédente 
   if (line1.equals(_line1)){
     return;
@@ -322,7 +322,7 @@ void Affichage::setLine1(String line1){
   _needUpdate = true;
 }
 
-void Affichage::setLine2(String line2){
+void Affichage::setLine2(const String &line2){
   // On sort de la méthode si la ligne est la même que la précédente
   if (line2.equals(_line2)){
     return;
