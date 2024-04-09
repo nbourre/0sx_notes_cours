@@ -137,7 +137,6 @@ Voici ce qui sort du moniteur série lorsque vous appuyez sur différents bouton
 
 ![alt text](assets/ir_exemple.gif)
 
-```
 
 ## Explication du code
 Dans l'exemple du code, vous avez les principales fonctions nécessaires pour réaliser une application complète de réception de signaux IR.
