@@ -11,6 +11,8 @@
 - [Les manettes IR](#les-manettes-ir)
 - [Le matériel du kit](#le-matériel-du-kit)
 - [La library `IRremote`](#la-library-irremote)
+  - [Explication du code](#explication-du-code)
+- [Exercices](#exercices)
 - [Références](#références)
 
 
@@ -75,6 +77,79 @@ La sortie `OUT` est connectée à une broche digitale de l'Arduino. Lorsque le r
 
 # La library `IRremote`
 La librairie `IRremote` est une librairie très populaire pour Arduino qui permet de décoder les signaux IR. Elle supporte de nombreux protocoles différents. Vous pouvez l'installer via le gestionnaire de librairies de l'IDE Arduino.
+
+Pour utiliser la librairie, vous devez inclure le fichier d'en-tête **`IRremote.hpp`** et créer un objet de type `IRrecv` qui représente le récepteur IR.
+
+> Remarquez, j'ai mis .hpp à la place de .h. 
+
+```cpp
+#include <IRremote.hpp>
+
+const int RECV_PIN = 26;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Initialiser le récepteur IR avec le pin spécifié et activer la LED intégrée pour donner un retour visuel lors de la réception de signaux.
+  IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK);
+
+  // Activer en plus la LED de retour qui indique quand un signal IR est reçu.
+  setFeedbackLED(true);
+}
+
+void loop() {
+  // Vérifier si le récepteur IR a décodé un signal.
+  if (IrReceiver.decode()) {
+
+    Serial.println("--------");
+
+    // Imprimer le protocole du signal IR reçu.
+    Serial.print("Protocole : ");
+    Serial.println(IrReceiver.getProtocolString());
+
+    // Imprimer la partie commande du signal IR décodé.
+    Serial.print("Commande : ");
+    Serial.println(IrReceiver.decodedIRData.command);
+
+    // Imprimer les données brutes du signal IR décodé au format hexadécimal.
+    Serial.print("Brute : ");
+    Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
+
+    // Imprimer les flags associés au signal décodé.
+    Serial.print("Flags : ");
+    Serial.print(IrReceiver.decodedIRData.flags);
+    
+    // Si les flags indiquent un signal de répétition, ajouter " (Répétition)" à l'impression.
+    if (IrReceiver.decodedIRData.flags) {
+      Serial.println(" (Répétition)");      
+    } else {
+      Serial.println("");
+    }
+    
+    // Préparer le récepteur pour le prochain signal.
+    IrReceiver.resume();
+  }
+}
+
+```
+
+## Explication du code
+Dans l'exemple du code, vous avez les principales fonctions nécessaires pour réaliser une application complète de réception de signaux IR.
+
+`IrReceiver.decodedIRData` est une structure qui contient toutes les informations sur le signal IR reçu. Vous pouvez accéder à ces informations en utilisant les membres de la structure.
+
+Voici un tableau des principaux membres de la structure `IrReceiver.decodedIRData`:
+
+| Membre | Description |
+| --- | --- |
+| `protocol` | Le protocole du signal IR reçu. (Ex : Sony, NEC, LG, ...) |
+| `command` | La commande envoyée par la manette IR |
+| `flags` | Les flags associés au signal IR. Il y en a plusieurs, il faut regarder avec le code source. Si le dernier bit est 1, c'est une répétition (IRDATA_FLAGS_IS_REPEAT). Par exemple, lorsque l'on augmente le volume. |
+| `decodedRawData` | Les données brutes du signal IR décodé au format hexadécimal |
+
+# Exercices
+1. Connectez le récepteur IR à l'Arduino comme indiqué dans le schéma ci-dessus.
+2. Téléversez le code ci-dessus sur l'Arduino.
 
 ---
 ---
