@@ -46,13 +46,14 @@
    1. [Lecture du port série](./c08/c08a_serial_read/readme.md)
    2. [Programmation orientée objet base](./c08/c08b_poo_base/readme.md)
    3. [Module de puissance](./c08/c08c_psu/readme.md)
-10. Semaine 10
-      1. [Machine à états revisitée](c09/c09a_fsm_revisited/c09a_fsm_revisited.md)
-11. Semaine 11
-    1.  [Module WiFi](./c10/c10a_wifi.md)
-    2.  [Visual Studio Code](c10/c10b_vscode.md)
-12. Semaine 12
-    1.  [Refactorisation](c11/refactorisation.md)
+10. [Semaine 10](./c09/readme.md)
+    1.  [Moteur DC et contrôleur L293D](./c09/c09a_moteur_dc/readme.md)
+    2.  [Machine à états revisitée](./c09/c09b_fsm_revisited/readme.md)
+11. [Semaine 11](./c10/readme.md)
+    1. [Refactorisation](./c10/c10a_refactorisation/readme.md)
+    2. [Module WiFi](./c10/c10b_wifi/readme.md)
+12. [Semaine 12](./c11/readme.md)
+    1. [Manette IR](./c11/manette_ir/readme.md)
 13. Semaine 13
     1.  [Le protocole MQTT](c12/readme.md)
 
