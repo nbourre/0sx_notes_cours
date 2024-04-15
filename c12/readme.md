@@ -39,17 +39,22 @@ MQTT repose sur un modèle de communication basé sur l'abonnement/souscription 
 ## Le courtier (*broker*)
 Le courtier est un serveur central qui gère les communications entre les clients. Il est responsable de la distribution des messages aux clients abonnés aux sujets correspondants. Il est également responsable de la gestion des connexions et de la persistance des messages. Il est possible d'utiliser un courtier tiers, comme [CloudMQTT](https://www.cloudmqtt.com/), ou d'utiliser un courtier local, comme [Mosquitto](https://mosquitto.org/).
 
-Dans le cas de mon serveur, j'utilise mosquitto. Vous pouvez l'installer sur votre machine en utilisant la commande `sudo apt install mosquitto`. Vous pouvez ensuite lancer le serveur en utilisant la commande `mosquitto`. Vous pouvez ensuite vous connecter à votre serveur en utilisant la commande `mosquitto_sub -h localhost -t "test"`. Vous pouvez ensuite publier un message en utilisant la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!"`.
+Dans le cas de mon serveur, j'utilise mosquitto. Vous pouvez l'installer sur votre machine en utilisant la commande `sudo apt install mosquitto`.
 
-La configuration persistente de celle-ci sort du cadre de ce cours. Vous pouvez trouver plus d'informations sur le site officiel de [Mosquitto](https://mosquitto.org/).
+Voici les étapes pour tester votre serveur MQTT :
+- Lancez le serveur en utilisant la commande `mosquitto`.
+- Connectez-vous à votre serveur en utilisant la commande `mosquitto_sub -h localhost -t "test"`.
+- Dans une autre instance de ligne de commandes, publiez un message en utilisant la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!"`.
+
+La configuration persistente du serveur sort du cadre de ce cours. Vous pouvez trouver plus d'informations sur le site officiel de [Mosquitto](https://mosquitto.org/).
 
 > **Note :** En plus de l'adresse IP du serveur, il faut connaitre le port sur lequel le serveur écoute. Par défaut, le port utilisé par le serveur MQTT est le **port 1883**. Vous pouvez le changer dans le fichier de configuration du serveur.
 
-Le courtier peut aussi être protégé par un nom d'utilisateur et un mot de passe. Dans ce cas, vous devez utiliser la commande `mosquitto_sub -h localhost -t "test" -u "username" -P "password"`. Vous pouvez aussi utiliser la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!" -u "username" -P "password"`.
+Le courtier peut être protégé par un nom d'utilisateur et un mot de passe. Dans ce cas, vous devez utiliser la commande `mosquitto_sub -h localhost -t "test" -u "username" -P "password"`. Vous pouvez aussi utiliser la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!" -u "username" -P "password"`.
 
 Il est fortement recommandé, au minimum, d'**utiliser un nom d'utilisateur et un mot de passe** pour protéger votre serveur MQTT.
 
-Dans un monde idéal, le courtier devrait être protégé par un **certificat SSL**. Cependant, cela sort du cadre de ce cours.
+Dans un monde idéal, le courtier devrait être protégé par un **certificat SSL**. Cependant, cette notion sort du cadre de ce cours.
 
 ---
 
@@ -92,7 +97,7 @@ Voici des exemples de sujets valides avec des caractères spéciaux :
 ## Les messages (*payload*)
 Les messages sont les données échangées entre les clients et le courtier. Les messages sont des chaînes de caractères ou données binaires. Les clients peuvent publier des messages sur des sujets spécifiques, et les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants.
 
-Les messages peuvent prendre plusieurs formats, mais un format que l'on retrouve régulièrement est le JSON.
+Les messages peuvent être aussi simple que `0` ou `1` pour par exemple allumer ou éteindre une lumière, ou plus complexe comme des données de capteurs. Les messages peuvent prendre plusieurs formats, mais un format que l'on retrouve régulièrement est le JSON.
 
 ### JSON crash course
 
@@ -171,11 +176,9 @@ Dans notre cas, nous allons utilisé le QoS 0. Le QoS 1 et 2 sont plus compliqu�
 # Intégration MQTT avec Arduino
 Dans notre situation, nous allons utiliser le MQTT pour un simple échange de données entre votre Arduino et un serveur MQTT. J'aurai préalablement configuré le serveur MQTT, car cela sort du cadre de ce cours. Vous n'aurez qu'à vous connecter à ce serveur. Vous pourrez alors envoyer des données à votre Arduino et recevoir des données de votre Arduino.
 
-Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF).
+Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF) ou un ESP01 avec un adaptateur série.
 
 De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
-
-
 
 > **Note** : **Pour faire fonctionner l'exemple, il faudra avoir préconfiguré le shield** pour qu'il se connecte au réseau WiFi. Allez voir le cours sur la connexion WiFi pour plus d'informations.
 
@@ -199,14 +202,7 @@ Voici le code entier de l'exemple :
 #include <PubSubClient.h>
 #include <DHT.h>
 
-// Emuler Serial1 sur les broches 6/7 si non présent
-#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
-#include <SoftwareSerial.h>
-SoftwareSerial Serial1(6, 7);  // RX, TX
-#define AT_BAUD_RATE 9600
-#else
 #define AT_BAUD_RATE 115200
-#endif
 
 #if HOME
 #define DEVICE_NAME "NickHome"
@@ -236,9 +232,8 @@ DHT dht(DHT_PIN, DHT_TYPE);
 
 void wifiInit() {
   // Initialisation du module WiFi.
-  Serial1.begin(AT_BAUD_RATE);
-  WiFi.init(Serial1);
-
+  Serial3.begin(AT_BAUD_RATE);
+  WiFi.init(Serial3);
   
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println();
@@ -314,8 +309,11 @@ void printMacAddress(byte mac[]) {
   Serial.println();
 }
 
+// Vous pouvez remplacez cette fonction par la votre
+// par exemple pour allumer une lumière
 void toggleMoteur() {
-  digitalWrite(MOTOR_PIN, !digitalRead(MOTOR_PIN));
+  value = digitalRead(MOTOR_PIN);
+  digitalWrite(MOTOR_PIN, !value);
 }
 
 // Gestion des messages reçues de la part du serveur MQTT
@@ -335,11 +333,11 @@ void mqttEvent(char* topic, byte* payload, unsigned int length) {
 
 void periodicTask() {
   static unsigned long lastTime = 0;
+  const unsigned int rate = 10000;
+
   static char message[100] = "";
   static char szTemp[6];
   static char szHum[6];
-  const unsigned int rate = 10000;
-
   static float temp = 0;
   static float hum = 0;
 
@@ -350,6 +348,7 @@ void periodicTask() {
   temp = dht.readTemperature();
   hum = dht.readHumidity();
 
+  // On convertit les valeurs en chaîne de caractères
   dtostrf(temp, 4, 1, szTemp);
   dtostrf(hum, 4, 1, szHum);
 
@@ -362,10 +361,11 @@ void periodicTask() {
   Serial.print("Envoie : ");
   Serial.println(message);
 
+  
   // Changer le topic pour celui qui vous concerne.
   if (!client.publish("etd/32", message)) {
-    Serial.println("Incapable d'envoyer le message!");
     reconnect();
+    Serial.println("Incapable d'envoyer le message!");
   } else {
     Serial.println("Message envoyé");
   }
@@ -397,6 +397,7 @@ void setup() {
     Serial.println("Connecté sur le serveur MQTT");
   }
 
+  // S'abonner au topic "moteur" avec un QoS 0
   client.subscribe("moteur", 0);
 
   dht.begin();
@@ -427,7 +428,7 @@ Je vais expliquer les points importants dans les prochaines sections.
 
 # La librarie WiFiEspAT
 
-Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c10/c10a_comm_serie.md).
+Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c10/c10b_wifi/readme.md).
 
 Dans l'exemple, il y a la fonction `wifiInit()` qui initialise le shield et le connecte au réseau WiFi.
 
@@ -644,7 +645,7 @@ Pour s'abonner à un sujet, on utilise la fonction `subscribe()`. Cette fonction
 // S'abonner au topic "moteur"
 client.subscribe("moteur");
 
-// S'abonner au topic "grossePatate"
+// S'abonner au topic "lancePatate"
 client.subscribe("lancePatate");
 ```
 
