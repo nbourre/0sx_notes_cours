@@ -8,6 +8,7 @@
   - [Portée des variables](#portée-des-variables)
 - [Fonctions](#fonctions)
 - [États et tâches](#états-et-tâches)
+- [Classe](#classe)
 - [Autres astuces](#autres-astuces)
   - [Utilisez des modèles de fonctions](#utilisez-des-modèles-de-fonctions)
     - [Modèle d'une fonction d'état](#modèle-dune-fonction-détat)
@@ -53,6 +54,10 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
   - Oui, il s'agit d'une tâche. Créez une fonction pour cette tâche
 - Créez une fonction pour chaque tâche
   - Nommez la fonction de manière explicite par exemple avec le suffixe `Task`
+
+# Classe
+- Utilisez des classes pour la création de systèmes complexes
+- Par exemple, un système de ventilation peut être modélisé par une classe `Ventilation` qui possède un moteur, un capteur de température, etc.
 
 # Autres astuces
 ## Utilisez des modèles de fonctions
