@@ -63,9 +63,11 @@
 
 # Extra
 - [Exemples que j'ai utilisé pour le cours](https://github.com/nbourre/0sx_projets_cours)
+- [Améliorer son code](extras/ameliorer_son_code.md)
+- [Algorithmes utilse](extras/algorithmes.md)
+- [Dépannage](extras/depannage.md)
 - [Loi d'Ohm](extras/loi_dohm.md)
-- [Document d'algorithmes utiles](extras/algorithmes.md)
-- [Les pointeurs](extras/pointeurs.md)
+- [Pointeurs](extras/pointeurs.md)
 
 # Révision
 - [Révision pour l'examen](révision/readme.md)
