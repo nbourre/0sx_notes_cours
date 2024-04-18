@@ -57,7 +57,8 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 
 # Classe
 - Utilisez des classes pour la création de systèmes complexes
-- Par exemple, un système de ventilation peut être modélisé par une classe `Ventilation` qui possède un moteur, un capteur de température, etc.
+  - Par exemple, un système de ventilation peut être modélisé par une classe `Ventilation` qui possède un moteur, un capteur de température, etc.
+- Une classe ne doit pas faire plus d'une chose. Elle ne gère qu'un seul aspect du système
 
 # Autres astuces
 ## Utilisez des modèles de fonctions
