@@ -22,6 +22,8 @@
   - [Publier un message](#publier-un-message)
   - [Le JSON](#le-json)
 - [Exercice](#exercice)
+- [Annexes](#annexes)
+  - [Exemples supplémentaires pour la gestion des topics](#exemples-supplémentaires-pour-la-gestion-des-topics)
 - [Références](#références)
 
 # Qu'est-ce que le MQTT?
@@ -729,7 +731,86 @@ Le service MQTT qui reçoit l'information peut ensuite décoder le message et ex
    3. Le message doit contenir la température, l'humidité et le temps du système divisé par 1000 que vous lisez avec le capteur DHT11.
 
 ---
+# Annexes
+## Exemples supplémentaires pour la gestion des topics
 
+```cpp
+// Fonction pour définir la couleur de la DEL RGB
+// La couleur est définie par une chaîne hexadécimale de 6 caractères (ex: FF5733)
+void SetLedColour(const char* hexColor) {
+  // Assurez-vous que la chaîne hexColor commence par '#' et a une longueur de 7 caractères (ex: #FF5733)
+  if (strlen(hexColor) == 6) {
+    // Extraction des valeurs hexadécimales pour rouge, vert et bleu
+    long number = strtol(hexColor, NULL, 16);  // Convertit hex à long
+
+    int red = number >> 16;            // Décale de 16 bits pour obtenir le rouge
+    int green = (number >> 8) & 0xFF;  // Décale de 8 bits et masque pour obtenir le vert
+    int blue = number & 0xFF;          // Masque pour obtenir le bleu
+
+    // Définissez les couleurs sur les broches de la DEL
+    analogWrite(RED_PIN, red);
+    analogWrite(GREEN_PIN, green);
+    analogWrite(BLUE_PIN, blue);
+
+    Serial.print("Couleur : ");
+    Serial.print(red);
+    Serial.print(", ");
+    Serial.print(green);
+    Serial.print(", ");
+    Serial.println(blue);
+  } else {
+    // Gestion d'erreur si le format n'est pas correct
+    Serial.println("Erreur: Format de couleur non valide.");
+  }
+}
+
+// Gestions des topics après le préfixe "prof/"
+void topicManagement(char* topic, byte* payload, unsigned int length) {
+  // Assumer que le topic est déjà trimmé à "prof/"
+  if (strcmp(topic, "colour") == 0) {
+    char colorStr[7];
+    if (length == 6) {  // Vérifie que le payload est de la longueur attendue
+      memcpy(colorStr, payload, length);
+      colorStr[length] = '\0';  // Assure que la chaîne est terminée correctement
+      SetLedColour(colorStr);
+    }
+    return;
+  }
+  
+  if (strcmp(topic, "motor") == 0) {
+    toggleMoteur();
+    return;
+  }
+  
+  // Ajoutez d'autres gestionnaires de topic ici
+}
+
+// Gestion des messages reçues de la part du serveur MQTT
+void mqttEvent(char* topic, byte* payload, unsigned int length) {
+  const char* pretopic = "prof/";  // Configurer pour vos besoins
+  const int pretopicLen = 5;       // Configurer pour vos besoins
+
+  Serial.print("Message recu [");
+  Serial.print(topic);
+  Serial.print("] ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+
+  if (strncmp(topic, pretopic, pretopicLen) != 0) {
+    Serial.print("Sujet non reconnu!");
+    return;
+  }
+
+  // Décale le pointeur pour ignorer "prof/"
+  char* specificTopic = topic + pretopicLen;
+
+  topicManagement(specificTopic, payload, length);
+}
+```
+
+---
 # Références
 - [Qu'est-ce que le MQTT?](https://aws.amazon.com/fr/what-is/mqtt/)
 - [MQTT - Wildcards - IBM](https://www.ibm.com/docs/en/wip-mg/5.0.0?topic=publishsubscribe-wildcards)
