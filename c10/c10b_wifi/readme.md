@@ -9,12 +9,16 @@
 - [Le ESP8266 et le shield ESP8266](#le-esp8266-et-le-shield-esp8266)
   - [Le ESP-01](#le-esp-01)
     - [Branchement](#branchement)
+    - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
+    - [Initialisation du module](#initialisation-du-module)
+      - [Fonctions d'aide](#fonctions-daide)
+    - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
   - [Le shield ESP8266](#le-shield-esp8266)
     - [Branchement](#branchement-1)
-  - [Requis - IMPORTANT!!](#requis---important)
-  - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
-  - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
-  - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
+    - [Requis - IMPORTANT!!](#requis---important)
+    - [Code pour configurer le wifi](#code-pour-configurer-le-wifi-1)
+      - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web-1)
+      - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
 - [Références](#références)
 
 
@@ -78,6 +82,176 @@ Le branchement est simple. Il suffit de brancher la broche RX du module ESP-01 s
 
 ![alt text](assets/branchement_rxtx.jpg)
 
+### Code pour configurer le wifi
+Pour utiliser le ESP-01, il faudra utiliser la librairie "WifiEsp.h" qui permet de communiquer avec le module.
+
+### Initialisation du module
+```cpp
+
+#include <WiFiEsp.h>
+
+// Mettre à 1 si le fichier arduino_secrets.h est présent
+#define HAS_SECRETS 0
+
+#if HAS_SECRETS
+#include "arduino_secrets.h"
+/////// SVP par soucis de sécurité, mettez vos informations dans le fichier arduino_secrets.h
+
+// Nom et mot de passe du réseau wifi
+const char ssid[] = SECRET_SSID;
+const char pass[] = SECRET_PASS;
+
+#else
+const char ssid[] = "TechniquesInformatique-Etudiant";  // your network SSID (name)
+const char pass[] = "shawi123";                         // your network password (use for WPA, or use as key for WEP)
+#endif
+
+#define AT_BAUD_RATE 115200
+
+int blinkRate = 500;
+
+int status = WL_IDLE_STATUS;     // Status du module wifi
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  Serial.begin(AT_BAUD_RATE);
+  while (!Serial)
+    ;
+
+  // Adapter selon votre branchement
+  Serial3.begin(AT_BAUD_RATE);
+  WiFi.init(&Serial3);
+
+  // Cela peut prendre un certain temps pour que le module wifi soit prêt
+  // Voir 1 minute dans la documentation
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println();
+    Serial.println("La communication avec le module WiFi a échoué!");
+    // ne pas continuer
+    errorState(2, 1);
+  }
+
+  Serial.print("Attempting to connect to WPA SSID: ");
+  Serial.println(ssid);
+  // Tentative de connexion au Wifi
+  while (status != WL_CONNECTED) {
+    Serial.print(".");
+    // Connecter au ssid
+    status = WiFi.begin(ssid, pass);
+  }
+
+  Serial.println("Vous êtes connecté au réseau");
+  printWifiStatus();
+  Serial.println();
+
+
+}
+
+void loop() {
+  static unsigned long lastBlink = 0;
+  if (millis() - lastBlink >= blinkRate) {
+    lastBlink = millis();
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+  }
+}
+```
+
+#### Fonctions d'aide
+Code pour les fonctions supplémentaires `printWifiStatus` et `errorState`.
+
+<details><summary>Ouvrir pour voir le code</summary>
+
+```cpp
+void printWifiStatus() {
+
+  // imprime le SSID du réseau auquel vous êtes connecté:
+  char ssid[33];
+  WiFi.SSID(ssid);
+  Serial.print("SSID: ");
+  Serial.println(ssid);
+
+  // imprime le BSSID du réseau auquel vous êtes connecté:
+  uint8_t bssid[6];
+  WiFi.BSSID(bssid);
+  Serial.print("BSSID: ");
+  printMacAddress(bssid);
+
+  uint8_t mac[6];
+  WiFi.macAddress(mac);
+  Serial.print("MAC: ");
+  printMacAddress(mac);
+
+  // imprime l'adresse IP de votre carte:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Adresse IP: ");
+  Serial.println(ip);
+
+  // imprime la force du signal reçu:
+  long rssi = WiFi.RSSI();
+  Serial.print("force du signal (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+
+// Imprime l'adresse MAC
+void printMacAddress(byte mac[]) {
+  for (int i = 5; i >= 0; i--) {
+    if (mac[i] < 16) {
+      Serial.print("0");
+    }
+    Serial.print(mac[i], HEX);
+    if (i > 0) {
+      Serial.print(":");
+    }
+  }
+  Serial.println();
+}
+
+// Fonction affichant un état d'erreur avec 2 paramètres pour code d'erreur
+// Cela permet de clignoter la DEL avec un code pour faciliter le débogage pour
+// l'utilisateur. On ne sort jamais de cette fonction.
+// Le programmeur doit définir la signification des codes d'erreur.
+//
+// Exemple de code d'erreur:
+//   errorState (2, 3) <-- (clignote 2 fois, pause, clignote 3 fois)
+void errorState(int codeA, int codeB) {
+  const int rate = 100;
+  const int pauseBetween = 500;
+  const int pauseAfter = 1000;
+
+  // On ne sort jamais de cette fonction
+  while (true) {
+    for (int i = 0; i < codeA; i++) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(rate);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(rate);
+    }
+    delay(pauseBetween);
+    for (int i = 0; i < codeB; i++) {
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(rate);
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(rate);
+    }
+    delay(pauseAfter);
+
+    Serial.print("Erreur : ");
+    Serial.print(codeA);
+    Serial.print(".");
+    Serial.println(codeB);
+  }
+}
+```
+</details>
+
+---
+
+### Exemple de code - Serveur Web
+
+
+---
 ## Le shield ESP8266
 Le module ESP8266 WiFi Shield est un module UART-WiFi. Le module est spécialement conçu pour les appareils mobiles et l'Internet des objets (IoT).
 
@@ -97,10 +271,10 @@ Ensuite, il faut brancher une des broches ESP_RX sur la broche TX1 du Mega et la
 
 Dans le code, il faudra alors utiliser les fonctions `Serial1` pour échanger avec le module.
 
-## Requis - IMPORTANT!!
+### Requis - IMPORTANT!!
 Pour le cours, il faut installer la librairie **WiFiEspAT** pour pouvoir utiliser le shield.
 
-## Code pour configurer le wifi
+### Code pour configurer le wifi
 Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois ou à chaque fois que l'on désire de changer de réseau wifi.
 
 ```cpp
@@ -268,7 +442,7 @@ void errorState(int codeA, int codeB) {
 
 ```
 
-## Exemple de code - Serveur Web
+#### Exemple de code - Serveur Web
 
 Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
 
@@ -399,7 +573,7 @@ void errorState() {
 
 ```
 
-## Exemple - Allumer une DEL
+#### Exemple - Allumer une DEL
 
 Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui a été reçu par le module Wifi.
 
