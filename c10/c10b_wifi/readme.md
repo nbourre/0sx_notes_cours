@@ -71,9 +71,13 @@ Dans le cours, il y a deux modèles pour le module ESP8266. Le premier est le mo
 👉 **ATTENTION!! Lisez la documentation qui s'applique à votre module.** 👈
 
 ## Le ESP-01
-Le module ESP-01 est un module Wi-Fi basé sur le SoC ESP8266. Il est équipé d'une antenne PCB intégrée et d'un connecteur de 2x4 broches. Il est conçu pour être utilisé dans des applications IoT (Internet des objets).
+Documentation pour ce modèle
 
 ![alt text](assets/esp01_shield.jpg)
+
+Le module ESP-01 est un module Wi-Fi basé sur le SoC ESP8266. Il est équipé d'une antenne PCB intégrée et d'un connecteur de 2x4 broches. Il est conçu pour être utilisé dans des applications IoT (Internet des objets).
+
+
 
 Celui utilisé en classe vient aussi avec un shield qui expose les broches RX et TX pour la communication série. Ainsi, il est possible de le brancher directement sur un Arduino.
 
@@ -253,6 +257,11 @@ void errorState(int codeA, int codeB) {
 
 ---
 ## Le shield ESP8266
+
+Documentation pour ce modèle
+
+![alt text](assets/esp8266-wifi-shield-desc2.jpg)
+
 Le module ESP8266 WiFi Shield est un module UART-WiFi. Le module est spécialement conçu pour les appareils mobiles et l'Internet des objets (IoT).
 
 Ce Shield WiFi est basé sur ESP-12F, qui est la nouvelle version de l'ESP-12 avec la puce Wifi ESP8266. Avec ce Shield, vous pouvez facilement connecter votre Arduino au réseau et contrôler votre appareil de n'importe où. La communication se fait via une interface UART et le contrôle se fait par commande AT.
