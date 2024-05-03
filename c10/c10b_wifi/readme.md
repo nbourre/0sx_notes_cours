@@ -68,7 +68,7 @@ Dans notre cas, nous utilisons une librairie qui cachera ces commandes AT. Ce qu
 # Le ESP8266 et le shield ESP8266
 Dans le cours, il y a deux modèles pour le module ESP8266. Le premier est le module ESP-01 et le deuxième est le shield ESP8266. Pour le cours, le code est identique pour les deux modules.
 
-Lisez la documentation qui s'applique à votre module.
+👉 **ATTENTION!! Lisez la documentation qui s'applique à votre module.** 👈
 
 ## Le ESP-01
 Le module ESP-01 est un module Wi-Fi basé sur le SoC ESP8266. Il est équipé d'une antenne PCB intégrée et d'un connecteur de 2x4 broches. Il est conçu pour être utilisé dans des applications IoT (Internet des objets).
