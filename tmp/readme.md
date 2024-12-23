@@ -1,2 +1,3 @@
-# Résumé
-Le dossier `tmp` sert d'emplacement pour mettre des fichiers qui ne sont pas utilisé directement dans le cadre du cours. Par exemple, lors de la conversion de PPTX vers markdown avec l'outil `pptx2md`.
+# README
+
+This is the README for the folder: tmp

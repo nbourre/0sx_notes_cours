@@ -11,17 +11,9 @@
 <!-- TODO : Restructurer les fichiers de cours restants -->
 # Les leçons
 1. [Semaine 01 - Introduction](c01/readme.md)
-2. Semaine 02
-   1. [Fonctions de base et affichage Série](c02/C02_fonctions_comm.md)
-      - [Exercices](c02/C02_fonctions_comm_exo.md)
-3. Semaine 03
-   1. [Branchement de base](c03/C03a_branchement_base.md)
-      - [Exercices](c03/C03a_branchement_base_exo.md)
-   2. [Résistance de rappel et de tirage](c03/C03aa_resistance_de_rappel.md)
-   3. [millis() au lieu de delay()](c03/C03b_sans_delai.md)
-   4. [Logique anti-rebond](c03/C03c_logique_antirebond.md)
-4. Semaine 04
-   1. Examen et révision
+2. [Semaine 02 - Fonctions essentielles](c02/readme.md)
+3. [Semaine 03 - Branchement et életronique de base](c03/readme.md)
+4. Semaine 04 -Examen et révision
 5. Semaine 05
    1. [Fonction `analogRead`](c04/C04a_fonction_analogRead.md)
    2. [Fonction `analogWrite`](c04/C04b_fonction_analogWrite.md)
