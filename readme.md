@@ -10,9 +10,7 @@
 
 <!-- TODO : Restructurer les fichiers de cours restants -->
 # Les leçons
-1. Semaine 01
-   1. [Configuration de l'environnement de travail](c01/C01_intro_config.md)
-   2. [Introduction à la programmation Arduino](c01/C01_intro_prog.md)
+1. [Semaine 01 - Introduction](c01/readme.md)
 2. Semaine 02
    1. [Fonctions de base et affichage Série](c02/C02_fonctions_comm.md)
       - [Exercices](c02/C02_fonctions_comm_exo.md)
