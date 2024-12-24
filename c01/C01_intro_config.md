@@ -44,6 +44,8 @@ Pour avoir accès à certaines de mes notes Office, vous devez être dans le Tea
 ## Installation de Git
 Vous devrez installer l'application Git sur votre ordinateur. Git est un logiciel de gestion de versions. Il est utilisé pour suivre les modifications apportées à un projet. Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
+https://github.com/user-attachments/assets/80e18aa8-df44-4598-b647-29d3efd276d4
+
 ## Compte GitHub
 Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
 
