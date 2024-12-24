@@ -10,15 +10,11 @@
 
 <!-- TODO : Restructurer les fichiers de cours restants -->
 # Les leçons
-1. [Semaine 01 - Introduction](c01/readme.md)
-2. [Semaine 02 - Fonctions essentielles](c02/readme.md)
-3. [Semaine 03 - Branchement et életronique de base](c03/readme.md)
+1. [Cours 01 - Introduction](c01/readme.md)
+2. [Cours 02 - Fonctions essentielles](c02/readme.md)
+3. [Cours 03 - Branchement et életronique de base](c03/readme.md)
 4. Semaine 04 -Examen et révision
-5. Semaine 05
-   1. [Fonction `analogRead`](c04/C04a_fonction_analogRead.md)
-   2. [Fonction `analogWrite`](c04/C04b_fonction_analogWrite.md)
-   3. [Traceur série](c04/C04c_traceur_serie.md)
-   4. [Exercices](c04/C04x_exercices.md)
+5. [Cours 04 - Fonctions analogiques et traceur série](c04/readme.md)
 6. Semaine 06
    1. [Composants analogues](c05/c05a_analog/C05a_composants_analogues.md)
    2. [Programmer en tâches](c05/c05b_taches/C05b_programmer_en_taches.md)
