@@ -44,6 +44,8 @@ Pour avoir accès à certaines de mes notes Office, vous devez être dans le Tea
 ## Installation de Git
 Vous devrez installer l'application Git sur votre ordinateur. Git est un logiciel de gestion de versions. Il est utilisé pour suivre les modifications apportées à un projet. Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
+Il s'agit d'un outil primordial pour les développeurs. Vous devrez l'utiliser très fréquemment tout au long de votre parcours. Vous aurez un cours sur Git plus tard dans votre parcours.
+
 https://github.com/user-attachments/assets/80e18aa8-df44-4598-b647-29d3efd276d4
 
 ## Compte GitHub
@@ -248,9 +250,9 @@ Un microprocesseur, d'autre part, est un composant central de l'ordinateur qui e
 ## Achat
 Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage et d'un ordinateur. Voici les liens pour acheter les items requis sur Amazon:
 - [Arduino Mega](https://a.co/d/5wpBN96).
-- [Plaque de support pour Arduino](https://a.co/d/dbJ7mdc).
-  - [Modèle alternatif A](https://a.co/d/jaizZYl)
-  - [Modèle alternatif B](https://a.co/d/dwlkbsL) : Ce modèle vient avec du matériel pour le Raspberry Pi.
+- [Plaque de support pour Arduino](https://a.co/d/fz2aTpk).
+  - [Modèle alternatif A](https://a.co/d/cIoFSkc)
+  - [Modèle alternatif B](https://a.co/d/6WJCW0G) : Ce modèle vient avec du matériel pour le Raspberry Pi.
 
 ---
 
