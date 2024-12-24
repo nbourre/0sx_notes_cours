@@ -2,7 +2,7 @@
 
 - [Les premiers pas](#les-premiers-pas)
   - [Moodle](#moodle)
-  - [Teams](#teams)
+  - [Installation de Git](#installation-de-git)
   - [Compte GitHub](#compte-github)
   - [Logiciel](#logiciel)
   - [Configuration du matériel](#configuration-du-matériel)
@@ -36,10 +36,13 @@ Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir u
 - **Lien vers le cours** : [Moodle](https://moodle.cshawi.ca/mod/page/view.php?id=9499&forceview=1)
 - **Code pour le cours** : `cowabunga!`
 
-## Teams
+<!-- ## Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
 
-- **Lien vers [Teams](https://teams.microsoft.com/l/team/19%3aMAZuLdF2Thx9FkXHF9_mGFCZCWK-L2k1FJXH2zkjL7k1%40thread.tacv2/conversations?groupId=d000a4c4-3d3d-4b05-af28-3d69589e53d3&tenantId=b03caa02-c798-45ad-a2bd-41c7e4851423)**
+- **Lien vers [Teams](https://teams.microsoft.com/l/team/19%3aMAZuLdF2Thx9FkXHF9_mGFCZCWK-L2k1FJXH2zkjL7k1%40thread.tacv2/conversations?groupId=d000a4c4-3d3d-4b05-af28-3d69589e53d3&tenantId=b03caa02-c798-45ad-a2bd-41c7e4851423)** -->
+
+## Installation de Git
+Vous devrez installer l'application Git sur votre ordinateur. Git est un logiciel de gestion de versions. Il est utilisé pour suivre les modifications apportées à un projet. Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
 ## Compte GitHub
 Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
