@@ -50,11 +50,14 @@ Il s'agit d'un outil **primordial pour les développeurs**. Vous devrez l'utilis
 
 ### Tester si Git est déjà installé
 1. Ouvrir un terminal
-   1. Sur Windows, appuyez sur `Win + R`, tapez `cmd` et appuyez sur `Enter`.
+   1. Sur Windows, appuyez sur <kbd>Win</kbd> + <kbd>R</kbd>, tapez `cmd` et appuyez sur `Enter`.
 2. Tapez la commande suivante et appuyez sur `Enter` :
    ```bash
    git --version
    ```
+   
+  ![alt text](assets/git_version.gif)
+
 3. Si Git est installé, vous devriez voir la version de Git s'afficher. Sinon, vous verrez un message d'erreur et vous devrez installer Git.
 
 
