@@ -3,6 +3,8 @@
 - [Les premiers pas](#les-premiers-pas)
   - [Moodle](#moodle)
   - [Installation de Git](#installation-de-git)
+    - [Tester si Git est déjà installé](#tester-si-git-est-déjà-installé)
+    - [Installation de Git (Si nécessaire)](#installation-de-git-si-nécessaire)
   - [Compte GitHub](#compte-github)
   - [Logiciel](#logiciel)
   - [Configuration du matériel](#configuration-du-matériel)
@@ -42,9 +44,23 @@ Pour avoir accès à certaines de mes notes Office, vous devez être dans le Tea
 - **Lien vers [Teams](https://teams.microsoft.com/l/team/19%3aMAZuLdF2Thx9FkXHF9_mGFCZCWK-L2k1FJXH2zkjL7k1%40thread.tacv2/conversations?groupId=d000a4c4-3d3d-4b05-af28-3d69589e53d3&tenantId=b03caa02-c798-45ad-a2bd-41c7e4851423)** -->
 
 ## Installation de Git
-Vous devrez installer l'application Git sur votre ordinateur. Git est un logiciel de gestion de versions. Il est utilisé pour suivre les modifications apportées à un projet. Vous pouvez le télécharger [**ici**](https://git-scm.com/).
+Vous devrez installer l'application Git sur votre ordinateur. Git est un logiciel de gestion de versions. Il est utilisé pour suivre les modifications apportées à un projet.
 
-Il s'agit d'un outil primordial pour les développeurs. Vous devrez l'utiliser très fréquemment tout au long de votre parcours. Vous aurez un cours sur Git plus tard dans votre parcours.
+Il s'agit d'un outil **primordial pour les développeurs**. Vous devrez l'utiliser très fréquemment tout au long de votre parcours. Vous aurez un cours sur Git plus tard dans votre parcours.
+
+### Tester si Git est déjà installé
+1. Ouvrir un terminal
+   1. Sur Windows, appuyez sur `Win + R`, tapez `cmd` et appuyez sur `Enter`.
+2. Tapez la commande suivante et appuyez sur `Enter` :
+   ```bash
+   git --version
+   ```
+3. Si Git est installé, vous devriez voir la version de Git s'afficher. Sinon, vous verrez un message d'erreur et vous devrez installer Git.
+
+
+### Installation de Git (Si nécessaire)
+
+Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
 https://github.com/user-attachments/assets/80e18aa8-df44-4598-b647-29d3efd276d4
 
