@@ -14,6 +14,7 @@
 - [Qu'est-ce qu'un Arduino?](#quest-ce-quun-arduino)
 - [Quel Arduino?](#quel-arduino)
   - [Raspberry Pi](#raspberry-pi)
+  - [Autres microcontrôleurs](#autres-microcontrôleurs)
 - [La différence entre les microcontrôleurs vs les microprocesseurs](#la-différence-entre-les-microcontrôleurs-vs-les-microprocesseurs)
   - [Générale](#générale)
   - [Puissance de calcul](#puissance-de-calcul)
@@ -27,6 +28,7 @@
   - [Achat](#achat)
 - [Exercices](#exercices)
 - [Exemple de questions pour une évaluation](#exemple-de-questions-pour-une-évaluation)
+- [Pour les curieux](#pour-les-curieux)
 - [Références](#références)
 
 ---
@@ -35,8 +37,8 @@
 ## Moodle
 Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir un compte Moodle et être inscrit à mon cours.
 
-- **Lien vers le cours** : [Moodle](https://moodle.cshawi.ca/mod/page/view.php?id=9499&forceview=1)
-- **Code pour le cours** : `cowabunga!`
+- **Lien vers le cours** : [Moodle](https://ena.cshawi.ca/course/view.php?id=19)
+- **Code pour le cours** : `h25`
 
 <!-- ## Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
@@ -191,6 +193,15 @@ En plus des différentes versions, il y a plusieurs éditions de rpi.
 
 Nous sommes rendu à la 5e version du rpi.
 
+## Autres microcontrôleurs
+Il existe des milliers de microcontrôleurs différents sur le marché. Chacun a ses propres avantages et inconvénients. Certains sont plus puissants, d'autres sont plus petits, d'autres sont plus économes en énergie, etc.
+
+Pour les débutants et hobbyistes, on retrouve souvent les microcontrôleurs suivants :
+- **ESP32** : Il s'agit d'un microcontrôleur plus puissant que l'ESP8266. Il possède un module WiFi et Bluetooth intégré. On le retrouve souvent dans les appareils connectés.
+- **RP2040** : Il s'agit du microcontrôleur du Raspberry Pi Pico. Il est très puissant et peu coûteux.
+
+![alt text](assets/introduction-to-microcontrollers-3.png.webp)
+
 ---
 
 # La différence entre les microcontrôleurs vs les microprocesseurs
@@ -247,7 +258,7 @@ Les microprocesseurs sont le summum de la puissance de traitement, et sont donc 
 
 Comme les microcontrôleurs comprennent généralement du matériel à plus faible vitesse et des fonctionnalités limitées (bien que ciblées), leur coût est très faible. Tous les éléments nécessaires à l'exécution d'une tâche sont intégrés dans un microcontrôleur. L'une des principales raisons pour lesquelles les microcontrôleurs sont devenus si populaires est l'incroyable puissance de calcul qu'ils fournissent pour une fraction du coût. Ils sont donc parfaits pour les projets éducatifs et les projets personnels de bricolage.
 
-En grande quantité, les microcontrôleurs peuvent ne coûter que quelques sous (Ex : ATTiny9 ~0.50\$). Alors que les microprocesseurs peuvent coûter des centaines de dollars (Ex : Intel i9-13900k ~800\$ (Hiver 2023)).
+En grande quantité, les microcontrôleurs peuvent ne coûter que quelques sous (Ex : Puya PY32 ~0.15\$). Alors que les microprocesseurs peuvent coûter des centaines de dollars (Ex : AMD Ryzen 7 9800X3D ~700\$ (Hiver 2024)).
 
 **Résumé**
 - Les microprocesseurs sont plus chers que les microcontrôleurs.
@@ -302,6 +313,13 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 5. Arduino IDE, Visual Studio Code avec l'extension PlatformIO. 
 
 </details>
+
+---
+# Pour les curieux
+
+[![Thumbnail](https://img.youtube.com/vi/Tak8Pz4GSn8/0.jpg)](https://www.youtube.com/watch?v=Tak8Pz4GSn8)
+
+Je vous suggère la chaîne Youtube de [Deus Ex Silicium](https://www.youtube.com/@dexsilicium). Il fait des vidéos sur l'électronique des appareils de la vie de tous les jours en analysant les composants électroniques en profondeur. C'est très intéressant!
 
 ---
 
