@@ -15,20 +15,20 @@
 - [Quel Arduino?](#quel-arduino)
   - [Raspberry Pi](#raspberry-pi)
   - [Autres microcontrôleurs](#autres-microcontrôleurs)
-- [**Différence entre un microcontrôleur et un microprocesseur**](#différence-entre-un-microcontrôleur-et-un-microprocesseur)
-  - [**Définition générale**](#définition-générale)
-    - [**Microprocesseur (CPU)**](#microprocesseur-cpu)
-    - [**Microcontrôleur (MCU)**](#microcontrôleur-mcu)
-    - [**Résumé des différences**](#résumé-des-différences)
-  - [**Comparaison détaillée**](#comparaison-détaillée)
-    - [**1. Puissance de calcul**](#1-puissance-de-calcul)
-    - [**2. Gestion de la mémoire**](#2-gestion-de-la-mémoire)
-    - [**3. Système d’exploitation**](#3-système-dexploitation)
-    - [**4. Consommation d’énergie**](#4-consommation-dénergie)
-    - [**5. Coût**](#5-coût)
-    - [**6. Applications types**](#6-applications-types)
-  - [**Exemples concrets**](#exemples-concrets)
-  - [**Conclusion**](#conclusion)
+- [Différence entre un microcontrôleur et un microprocesseur](#différence-entre-un-microcontrôleur-et-un-microprocesseur)
+  - [Définition générale](#définition-générale)
+    - [Microprocesseur (CPU)](#microprocesseur-cpu)
+    - [Microcontrôleur (MCU)](#microcontrôleur-mcu)
+    - [Résumé des différences](#résumé-des-différences)
+  - [Comparaison détaillée](#comparaison-détaillée)
+    - [1. Puissance de calcul](#1-puissance-de-calcul)
+    - [2. Gestion de la mémoire](#2-gestion-de-la-mémoire)
+    - [3. Système d’exploitation](#3-système-dexploitation)
+    - [4. Consommation d’énergie](#4-consommation-dénergie)
+    - [5. Coût](#5-coût)
+    - [6. Applications types](#6-applications-types)
+  - [Exemples concrets](#exemples-concrets)
+  - [Conclusion](#conclusion)
 - [Le matériel du cours](#le-matériel-du-cours)
   - [Achat](#achat)
 - [Exercices](#exercices)
@@ -209,11 +209,11 @@ Pour les débutants et hobbyistes, on retrouve souvent les microcontrôleurs sui
 
 ---
 
-# **Différence entre un microcontrôleur et un microprocesseur**
+# Différence entre un microcontrôleur et un microprocesseur
 Les termes **microprocesseur** et **microcontrôleur** sont souvent utilisés de manière interchangeable. Toutefois, bien qu'ils partagent des similitudes, ils possèdent des différences fondamentales qui influencent leur usage dans divers domaines.
 
-## **Définition générale**
-### **Microprocesseur (CPU)**
+## Définition générale
+### Microprocesseur (CPU)
 Un **microprocesseur** est un circuit intégré servant d’unité centrale de traitement (**CPU**) pour un ordinateur ou un système embarqué. Il exécute des instructions en effectuant des opérations arithmétiques et logiques sur des données numériques.
 
 - **Caractéristiques** :
@@ -221,7 +221,7 @@ Un **microprocesseur** est un circuit intégré servant d’unité centrale de t
   - Hautes performances, capable d’exécuter plusieurs tâches simultanément.
   - Présent dans les **ordinateurs**, **serveurs**, **tablettes**, et **smartphones**.
 
-### **Microcontrôleur (MCU)**
+### Microcontrôleur (MCU)
 Un **microcontrôleur** est un système intégré sur une seule puce qui regroupe :
 - Un processeur.
 - De la mémoire (RAM et ROM).
@@ -232,7 +232,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Intégration optimisée pour des applications autonomes.
   - Utilisé dans les **appareils embarqués** comme les **machines à laver**, **robots**, **systèmes de contrôle industriel**.
 
-### **Résumé des différences**
+### Résumé des différences
 | Critère             | Microprocesseur | Microcontrôleur |
 |---------------------|----------------|----------------|
 | **Unité de calcul** | CPU seul       | CPU + RAM/ROM + E/S intégrés |
@@ -243,12 +243,12 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 ---
 
-## **Comparaison détaillée**
-### **1. Puissance de calcul**
+## Comparaison détaillée
+### 1. Puissance de calcul
 - **Microprocesseur** : Très performant avec des fréquences d’horloge allant de 1 à 4 GHz. Optimisé pour **le multitâche et les traitements lourds**.
 - **Microcontrôleur** : Fréquences bien plus faibles (généralement quelques MHz à centaines de MHz). Suffisant pour des **opérations en temps réel**.
 
-### **2. Gestion de la mémoire**
+### 2. Gestion de la mémoire
 - **Microprocesseur** :
   - Dépend d’une mémoire **externe** (RAM, ROM, SSD, etc.).
   - Permet une **grande flexibilité** dans la gestion des ressources.
@@ -256,7 +256,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Mémoire **intégrée**, souvent limitée à quelques **Ko à Mo**.
   - L’accès mémoire est plus rapide grâce à son **intégration sur la puce**.
 
-### **3. Système d’exploitation**
+### 3. Système d’exploitation
 - **Microprocesseur** :
   - Nécessite un **système d’exploitation** (Windows, Linux, Android).
   - Conçu pour gérer **plusieurs processus simultanément**.
@@ -264,7 +264,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Fonctionne généralement **sans OS**, avec un **micrologiciel** dédié.
   - Peut utiliser un **RTOS (Real-Time Operating System)** pour des applications plus complexes.
 
-### **4. Consommation d’énergie**
+### 4. Consommation d’énergie
 - **Microprocesseur** :
   - Consommation **élevée** (plusieurs watts à dizaines de watts).
   - Nécessite un **système de refroidissement**.
@@ -272,11 +272,11 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - **Très économe** en énergie (quelques mW à W).
   - Idéal pour les **appareils alimentés par batterie**.
 
-### **5. Coût**
+### 5. Coût
 - **Microprocesseur** : Cher (de **50$ à plusieurs centaines** selon la performance).
 - **Microcontrôleur** : Peu coûteux (**moins de 1$ à quelques dizaines de dollars**).
 
-### **6. Applications types**
+### 6. Applications types
 | Type de Système | Microprocesseur | Microcontrôleur |
 |----------------|----------------|----------------|
 | **PC et Serveurs** | ✅ | ❌ |
@@ -287,7 +287,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 ---
 
-## **Exemples concrets**
+## Exemples concrets
 | Composant | Type | Caractéristiques | Prix Approx. |
 |-----------|------|-----------------|-------------|
 | **AMD Ryzen 7 9800X3D** | Microprocesseur | 8 cœurs, 5 GHz, multi-threading | ~700$ |
@@ -296,7 +296,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 ---
 
-## **Conclusion**
+## Conclusion
 Les **microprocesseurs** sont parfaits pour des systèmes nécessitant **beaucoup de puissance et de flexibilité**, tandis que les **microcontrôleurs** sont optimisés pour **les systèmes autonomes** nécessitant **une faible consommation d’énergie** et une exécution **en temps réel**.
 
 Ainsi, dans le cadre de vos cours en robotique et systèmes embarqués, l’apprentissage et l’usage des **microcontrôleurs** comme ceux présents sur **Arduino** sont essentiels, car ils répondent aux exigences de **temps réel**, **faible consommation** et **coût réduit** nécessaires aux systèmes autonomes.
