@@ -241,6 +241,8 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 | **Consommation**    | Élevée         | Faible |
 | **Coût**           | Plus cher      | Peu coûteux |
 
+
+
 ---
 
 ## Comparaison détaillée
