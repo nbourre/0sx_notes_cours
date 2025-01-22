@@ -1,5 +1,7 @@
 # Introduction <!-- omit in toc -->
+> "Un éléphant, ça se mange une bouchée à la fois." - Proverbe africain
 
+# Table des matières <!-- omit in toc -->
 - [Les premiers pas](#les-premiers-pas)
   - [Moodle](#moodle)
   - [Installation de Git](#installation-de-git)

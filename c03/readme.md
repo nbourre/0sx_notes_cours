@@ -1,4 +1,6 @@
 # Cours 03
+> "Celui qui déplace une montagne commence par déplacer de petites pierres." – Proverbe chinois
+
 1. [Branchement de base](./C03a_branchement_base.md)
     - [Exercices](./C03a_branchement_base_exo.md)
 2. [Résistance de rappel et de tirage](./C03aa_resistance_de_rappel.md)

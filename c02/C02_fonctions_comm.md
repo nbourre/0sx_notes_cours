@@ -1,4 +1,5 @@
 # Les fonctions de base et la communication <!-- omit in toc -->
+> "Tout est difficile avant d’être facile." – Thomas Fuller
 
 ---
 # Table des matières <!-- omit in toc -->
