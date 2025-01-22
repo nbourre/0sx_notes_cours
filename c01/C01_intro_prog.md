@@ -8,12 +8,20 @@
 - [La fonction `setup`](#la-fonction-setup)
 - [La fonction `loop`](#la-fonction-loop)
 - [Cycle de vie d'un programme Arduino](#cycle-de-vie-dun-programme-arduino)
+  - [📌 Explications du diagramme :](#-explications-du-diagramme-)
 - [Les principaux types de données](#les-principaux-types-de-données)
-  - [Précision du type `float`](#précision-du-type-float)
-- [Les variables](#les-variables)
-  - [La portée des variables](#la-portée-des-variables)
-  - [Les variables globales](#les-variables-globales)
-  - [Les variables statiques](#les-variables-statiques)
+  - [🛠 Déclaration et utilisation](#-déclaration-et-utilisation)
+  - [🏗 Comparaison des types et exemples d'utilisation](#-comparaison-des-types-et-exemples-dutilisation)
+  - [⚠ Précision et limitations du type `float`](#-précision-et-limitations-du-type-float)
+  - [🔥 Problèmes de conversion `float → int`](#-problèmes-de-conversion-float--int)
+- [📌 Les variables en Arduino](#-les-variables-en-arduino)
+  - [📍 La portée des variables](#-la-portée-des-variables)
+    - [1️⃣ Variables globales](#1️⃣-variables-globales)
+    - [2️⃣ Variables locales](#2️⃣-variables-locales)
+    - [3️⃣ Variables statiques](#3️⃣-variables-statiques)
+  - [🔄 Illustration de la portée des variables](#-illustration-de-la-portée-des-variables)
+  - [🔘 Application pratique des variables statiques](#-application-pratique-des-variables-statiques)
+  - [✅ Bonnes pratiques](#-bonnes-pratiques)
 - [Wokwi - Simulateur Arduino](#wokwi---simulateur-arduino)
   - [Créer un projet](#créer-un-projet)
   - [Exercice - Premier projet](#exercice---premier-projet)
@@ -202,28 +210,42 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 
 # Cycle de vie d'un programme Arduino
 
-![Alt text](assets/program_cycle_vie.png)
+![alt text](assets/lifecycle.drawio.svg)
+
+## 📌 Explications du diagramme :
+1. **Démarrage** :
+   - L'Arduino est alimenté et initialise son matériel.
+   - Il charge ensuite le programme stocké en mémoire.
+
+2. **setup()** (exécuté une seule fois) :
+   - Configuration des broches (`pinMode()`, `Serial.begin()`, etc.).
+   - Initialisation des variables, capteurs, moteurs, etc.
+
+3. **loop()** (exécuté en continu) :
+   - Contient le **programme principal** qui tourne en boucle infinie tant que l'Arduino est sous tension.
+   - Permet de **réagir aux événements**, de **lire des capteurs**, de **contrôler des actionneurs**, etc.
 
 ---
 
 # Les principaux types de données
-Voici les principaux types de données utilisables dans le langage Arduino :
+Le langage Arduino, basé sur le C++, offre plusieurs types de données adaptés aux contraintes des microcontrôleurs. Voici un tableau des principaux types disponibles :
 
-| Type            | Description                              | Limite Inférieure              | Limite Supérieure   |
-|-----------------|------------------------------------------|--------------------------------|---------------------|
-| `int`           | type entier                              | -32768                         | 32767               |
-| `unsigned int`  | type entier non signé                    | 0                              | 65535               |
-| `long`          | type entier long                         | -2147483648                    | 2147483647          |
-| `unsigned long` | type entier long non signé               | 0                              | 4294967295          |
-| `float`         | type flottant                            | (7 chiffres après la virgule)  | -                   |
-| `double`        | type flottant double                     | (15 chiffres après la virgule) | -                   |
-| `char`          | type de caractère                        | (un seul caractère)            | -                   |
-| `bool`          | type booléen                             | true (vrai)                    | false (faux)        |
+| Type             | Description                               | Limite Inférieure       | Limite Supérieure         |
+|-----------------|------------------------------------------|------------------------|--------------------------|
+| `int`           | Entier signé 16 bits (sur Arduino Uno)   | -32,768               | 32,767                   |
+| `unsigned int`  | Entier non signé 16 bits                | 0                      | 65,535                   |
+| `long`          | Entier signé 32 bits                     | -2,147,483,648         | 2,147,483,647            |
+| `unsigned long` | Entier non signé 32 bits                 | 0                      | 4,294,967,295            |
+| `float`         | Nombre à virgule flottante (32 bits)     | ≈ -3.4 × 10³⁸         | ≈ 3.4 × 10³⁸             |
+| `double`        | Identique à `float` sur Arduino AVR      | (32 bits)              | (Idem `float`)           |
+| `char`          | Caractère unique (8 bits)                | -128                   | 127                      |
+| `bool`          | Valeur booléenne (`true` ou `false`)     | `false` (0)            | `true` (1)               |
 
+> ⚠ **Attention** : Sur les cartes basées sur des microcontrôleurs AVR (comme l’**Arduino Mega**), `double` est identique à `float` (32 bits). Sur d’autres plateformes (ESP32, ARM), `double` peut être en **64 bits**.
 
-Il existe également d'autres types de données moins courants tels que `byte`, `word` et `string`, qui peuvent être utilisés selon les besoins de votre programme.
+## 🛠 Déclaration et utilisation
 
-Voici un exemple de déclaration de variables de différents types :
+Voici un exemple de déclaration de variables utilisant ces types :
 
 ```cpp
 int entier = 10;
@@ -236,104 +258,146 @@ char caractere = 'A';
 bool etat = true;
 ```
 
-Voici un tableau résumant les principaux types de données du langage Arduino avec leur dimension en octet et quelques exemples d'utilisation :
 
-| Type       | Dimension en octet | Exemples d'utilisation                                                                  |
-|------------|-------------------|----------------------------------------------------------------------------------------|
-| `int`      | 2                 | Stockage de nombres entiers (par exemple : compteur, nombre de tours de moteur).       |
-| `unsigned int` | 2                 | Stockage de nombres entiers non signés (par exemple : compteur de cycles de travail). |
-| `long`     | 4                 | Stockage de nombres entiers longs (par exemple : compteur de secondes écoulées).       |
-| `unsigned long` | 4                 | Stockage de nombres entiers longs non signés (par exemple : compteur de millisecondes écoulées). |
-| `float`    | 4                 | Stockage de nombres à virgule flottante (par exemple : mesure de température).        |
-| `double`   | 8                 | Stockage de nombres à virgule flottante avec une précision accrue (par exemple : mesure de position GPS). |
-| `char`     | 1                 | Stockage de caractères (lettres, chiffres, symboles, etc.).                         |
-| `bool`     | 1                 | Stockage de valeurs booléennes (vrai/faux).                                            |
+## 🏗 Comparaison des types et exemples d'utilisation
+
+| Type            | Taille (octets) | Exemples d'utilisation                                      |
+|----------------|---------------|--------------------------------------------------------------|
+| `int`          | 2              | Compteur, indicateur d'état numérique                        |
+| `unsigned int` | 2              | Index, compteur sans valeur négative                        |
+| `long`         | 4              | Stocker des temps longs (`millis()`, `micros()`)            |
+| `unsigned long`| 4              | Horodatage, gestion de délais (`millis()`, `micros()`)      |
+| `float`        | 4              | Stockage de mesures précises (température, tension, etc.)   |
+| `double`       | 4 (ou 8)        | Calculs scientifiques sur certaines cartes                  |
+| `char`         | 1              | Stockage de caractères (`'A'`, `'Z'`, `'\n'`)               |
+| `bool`         | 1              | Gestion d’états (`true` ou `false`)                         |
 
 Étant programmé pour un appareil très limité en ressource, il est important de choisir le type de données le plus adapté pour stocker vos données, afin de maximiser l'efficacité et la précision de votre programme. Par exemple, il n'est pas recommandé d'utiliser un type `float` pour stocker des nombres entiers, car cela peut entraîner une perte de précision. De même, il est préférable d'utiliser un type `long` ou `unsigned long` pour stocker des nombres très grands, plutôt que de dépasser la limite supérieure du type `int`.
 
-## Précision du type `float`
-Le type `float` est un type de données à virgule flottante qui permet de stocker des nombres à virgule avec une précision de 7 chiffres après la virgule. Cependant, il peut y avoir une perte de précision lors de l'utilisation de ce type de données pour plusieurs raisons :
-- Les nombres à virgule flottants sont stockés en mémoire sous forme binaire, et non en décimal comme les nombres entiers. Cela signifie que certains nombres décimaux ne peuvent pas être représentés de manière exacte sous forme binaire, ce qui peut entraîner une perte de précision.
-- Le type `float` a une précision limitée à 7 chiffres après la virgule. Si vous avez besoin d'une précision supérieure, il est recommandé d'utiliser le type `double`, qui permet de stocker des nombres à virgule flottante avec une précision de 15 chiffres après la virgule.
-  
-Voici quelques exemples d'utilisation du type float et de la perte de précision qui peut en résulter :
+## ⚠ Précision et limitations du type `float`
+
+Le type `float` est utile pour les calculs à virgule flottante, mais il a **une précision limitée** (7 chiffres significatifs). Il utilise une **représentation binaire**, ce qui peut entraîner des erreurs d'arrondi.
+
+## 🔥 Problèmes de conversion `float → int`
 
 ```cpp
-float a = 0.1;
-float b = 0.2;
-float c = a + b; // c vaut 0.30000000000000004 (perte de précision)
-
 float d = 123456.789;
-int e = (int) d; // e vaut 123456 (perte de précision)
-
+int e = (int) d;  // e = 123456 (tronqué, pas arrondi)
 ```
 
 Il est donc important de prendre en compte ces limitations lors de l'utilisation du type `float` dans vos programmes Arduino. Si vous avez besoin d'une précision supérieure ou d'une plage de valeurs plus grande, il est recommandé d'utiliser le type `double`.
 
 ---
 
-# Les variables
-Une variable est un emplacement mémoire dans un ordinateur qui permet de stocker une valeur ou une donnée. En programmation, on utilise des variables pour stocker et manipuler des données dans un programme.
+# 📌 Les variables en Arduino
+Une **variable** est un espace mémoire utilisé pour stocker une valeur. En programmation Arduino, les variables permettent de **manipuler des données dynamiquement** et sont essentielles à l'exécution des programmes.
 
-## La portée des variables
-La portée d'une variable désigne la plage de code dans laquelle la variable est accessible et peut être utilisée.
+---
 
-Il existe plusieurs types de portée de variables dans le langage Arduino :
+## 📍 La portée des variables
+La **portée** d’une variable définit où elle est accessible dans le programme. On distingue trois types principaux :
 
-- Les **variables globales** sont déclarées en dehors de toutes les fonctions, et sont donc accessibles à toutes les fonctions de votre programme.
-- Les **variables locales** sont déclarées à l'intérieur d'une fonction, et sont donc uniquement accessibles et utilisables dans cette fonction.
-- Les **variables statiques** sont déclarées à l'intérieur d'une fonction, mais leur valeur est conservée entre les exécutions de la fonction. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
+### 1️⃣ Variables globales
+✅ **Définition** :  
+- Déclarées **en dehors de toutes les fonctions**.
+- Accessibles **partout** dans le programme.
+- Conservent leur valeur pendant toute l’exécution du programme.
 
-Voici un exemple illustrant la portée de différentes variables :
+📌 **Exemple :**
+```cpp
+int compteur = 0;  // Variable globale
 
+void setup() {
+  Serial.begin(9600);
+  compteur++;  // Incrémente la variable globale
+}
+
+void loop() {
+  compteur++;  // Continue d'incrémenter à chaque cycle de loop()
+  Serial.println(compteur);  
+  delay(1000);
+}
+```
+🔹 **Usage typique** : Partager des données entre plusieurs fonctions.  
+⚠ **Attention** : Un usage excessif peut rendre le programme **difficile à déboguer**.
+
+---
+
+### 2️⃣ Variables locales
+✅ **Définition** :  
+- Déclarées **à l’intérieur d’une fonction**.
+- **Inaccessibles en dehors** de cette fonction.
+- **Réinitialisées à chaque appel** de la fonction.
+
+📌 **Exemple :**
+```cpp
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int variableLocale = 0;  // Déclarée ici → sera recréée à chaque exécution de loop()
+  variableLocale++;
+  Serial.println(variableLocale);  // Affiche toujours "1"
+  delay(1000);
+}
+```
+🔹 **Usage typique** : Stocker des valeurs temporaires propres à une fonction.
+
+---
+
+### 3️⃣ Variables statiques
+✅ **Définition** :  
+- Déclarées **dans une fonction avec `static`**.
+- **Conservent leur valeur** entre les appels de la fonction.
+- **Accessibles uniquement dans la fonction où elles sont déclarées**.
+
+📌 **Exemple :**
+```cpp
+void compteurStatique() {
+  static int compteur = 0;  // La valeur est conservée entre chaque appel
+  compteur++;
+  Serial.println(compteur);
+}
+
+void loop() {
+  compteurStatique();
+  delay(1000);
+}
+```
+🔹 **Usage typique** : Mémoriser un état sans utiliser une variable globale.
+
+---
+
+## 🔄 Illustration de la portée des variables
+Le programme ci-dessous met en évidence **l’évolution des variables locales, globales et statiques**.
+
+📌 **Exemple détaillé :**
 ```cpp
 int variableGlobale = 0;  // Variable globale
 
 void setup() {
   Serial.begin(9600);
-  int variableLocale = 0;  // Variable locale
-  static int variableStatique = 0;  // Variable statique
-
-  // Code de la fonction setup
-  variableGlobale++;  // Incrémentation de la variable globale
-  variableLocale++;  // Incrémentation de la variable locale
-  variableStatique++;  // Incrémentation de la variable statique
-
-  Serial.println(variableGlobale); 
-  Serial.println(variableLocale);
-  Serial.println(variableStatique);
 }
 
-void fonctionAvecStatique(){
-  static int compteur = 0;  // Variable statique
-  int compteurB = 0;  // Variable locale
+void fonctionAvecStatique() {
+  static int compteurStatique = 0;
+  int compteurLocal = 0;
 
-  compteur++;  // Incrémentation de la variable statique
-  compteurB++;  // Incrémentation de la variable locale
+  compteurStatique++;  // Conserve la valeur entre les appels
+  compteurLocal++;  // Se réinitialise à chaque appel
 
-  Serial.print("-- func --\t");
-  Serial.print("compteur : ");
-  Serial.print(compteur);
-  Serial.print("\tcompteurB : ");
-  Serial.println(compteurB);
+  Serial.print("Statique : ");
+  Serial.print(compteurStatique);
+  Serial.print("\tLocal : ");
+  Serial.println(compteurLocal);
 }
 
 void loop() {
-  int variableLocale = 0;  // Variable locale
-  static int variableStatique = 0;  // Variable statique
+  variableGlobale++;  // Incrémente à chaque cycle
 
-  // Code de la fonction loop
-  variableGlobale++;  // Incrémentation de la variable globale
-  variableLocale++;  // Incrémentation de la variable locale
-  variableStatique++;  // Incrémentation de la variable statique
-
-  Serial.print("-- loop --\t");
-  Serial.print("variableGlobale : ");
-  Serial.print(variableGlobale);
-  Serial.print("\tvariableLocale : ");
-  Serial.print(variableLocale);
-  Serial.print("\tvariableStatique : ");
-  Serial.println(variableStatique);
+  Serial.print("Globale : ");
+  Serial.println(variableGlobale);
 
   fonctionAvecStatique();
 
@@ -341,65 +405,48 @@ void loop() {
 }
 ```
 
-**Questions**
-- Quelles seront les valeurs affichées dans le moniteur série pour la fonction `setup()`?
-- Quelles seront les valeurs affichées dans le moniteur série dans le premier tour de la fonction `loop()`?
+📝 **Explication des résultats attendus :**
+| Type de variable  | Évolution |
+|-------------------|-----------|
+| `variableGlobale`  | Incrémente à chaque cycle de `loop()` |
+| `compteurStatique` | Incrémente à chaque appel de `fonctionAvecStatique()` |
+| `compteurLocal`    | Reste à `1` à chaque appel (réinitialisé) |
 
-## Les variables globales
-Les variables globales sont des variables qui sont déclarées en dehors de toutes les fonctions dans votre programme Arduino, et qui sont donc accessibles à toutes les fonctions de votre programme.
+---
 
-Voici un exemple de déclaration et d'utilisation de variables globales :
+## 🔘 Application pratique des variables statiques
+Un exemple concret : **compter le nombre de pressions sur un bouton sans utiliser de variable globale**.
 
+📌 **Exemple avec bouton :**
 ```cpp
-int compteur = 0;  // Variable globale
+const int boutonPin = 2;  // Broche du bouton
 
 void setup() {
-  // Code de la fonction setup
-  compteur++;  // Incrémentation de la variable globale
+  pinMode(boutonPin, INPUT_PULLUP);
+  Serial.begin(9600);
 }
 
 void loop() {
-  // Code de la fonction loop
-  compteur++;  // Incrémentation de la variable globale
-  Serial.println(compteur);  // Affichage de la valeur de la variable globale
-}
-
-```
-
-Les variables globales sont utiles lorsque vous avez besoin de partager des données entre plusieurs fonctions de votre programme, ou lorsque vous avez besoin de conserver la valeur d'une variable entre plusieurs exécutions de la fonction `loop()`.
-
-Il est important de faire attention à l'utilisation des variables globales, car elles peuvent être modifiées par n'importe quelle fonction de votre programme, ce qui peut entraîner des erreurs de logique ou de synchronisation.
-
-## Les variables statiques
-Les variables statiques sont des variables qui sont déclarées à l'intérieur d'une fonction, mais dont **la valeur est conservée entre les exécutions de la fonction**. Elles sont donc accessibles et utilisables dans toutes les exécutions de la fonction, mais sont uniquement visibles à l'intérieur de cette fonction.
-
-Voici un exemple de code qui utilise une variable statique pour compter le nombre de fois qu'un bouton a été appuyé
-    
-```cpp
-const int boutonPin = 2;  // Pin du bouton
-
-void setup() {
-  pinMode(boutonPin, INPUT_PULLUP);  // Configuration du pin en entrée avec pull-up
-  Serial.begin(9600);  // Configuration de la liaison série
-}
-
-void loop() {
-  if (digitalRead(boutonPin) == LOW) {  // Si le bouton est appuyé
-    boutonClic();  // Appel de la fonction boutonClic()
+  if (digitalRead(boutonPin) == LOW) {  // Si le bouton est pressé
+    boutonClic();  
+    delay(200);  // Anti-rebond simple
   }
 }
 
 void boutonClic() {
-  static int compteur = 0;  // Déclaration de la variable statique
-  compteur++;  // Incrémentation de la variable statique
-  Serial.println(compteur);  // Affichage du nombre de clics sur la liaison série
+  static int compteur = 0;  // Garde la valeur entre les appels
+  compteur++;
+  Serial.print("Nombre de clics : ");
+  Serial.println(compteur);
 }
-
 ```
 
-Dans cet exemple, la variable statique `compteur` est déclarée à l'intérieur de la fonction `boutonClic()`, mais sa valeur est conservée entre les exécutions de cette fonction. Ainsi, à chaque exécution de la fonction `boutonClic()`, la valeur de `compteur` est incrémentée de 1 et affichée sur la liaison série.
+---
 
-Les variables statiques sont utiles lorsque vous avez besoin de conserver la valeur d'une variable entre les exécutions d'une fonction, tout en limitant la visibilité de cette variable à l'intérieur de la fonction.
+## ✅ Bonnes pratiques
+✔ **Privilégier les variables locales** pour éviter les conflits et améliorer la clarté du code.  
+✔ **Utiliser `static`** quand une valeur doit être conservée entre appels sans être globale.  
+✔ **Limiter les variables globales** aux cas où elles sont vraiment nécessaires (ex. : timers, état général).  
 
 ---
 
@@ -409,10 +456,6 @@ Il existe plusieurs sites qui permettent de simuler une partie des fonctionnalit
 Plusieurs de mes captures d'écran proviendront de [Wokwi](https://wokwi.com/).
 
 Simuler un projet sur un simulateur avant d'effectuer les branchements physiques permet de s'assurer que notre code fonctionne.
-
-> **Note**
-> 
-> À ma dernière vérification, Wokwi ne supportait pas très bien FireFox. Je vous conseille d'utiliser Chrome ou Edge.
 
 ## Créer un projet
 Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
@@ -439,7 +482,7 @@ https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8
 Dans le but de vous habituer à faire des recherches sur Google, j'ai expressément mis des questions où l'information n'est pas directement dans ce document.
 
 1. Dans certains exemples de code, on retrouve des noms de variable tout en majuscule. Pour quelle raison?
-2. Généralement, quelles sont les valeurs des variables `HIGH`, `LOW` et `LED_BUILTIN`?
+2. Dans nos cas d'utilisation, quelles sont les valeurs des variables `HIGH`, `LOW` et `LED_BUILTIN`?
 3. Que fait la fonction `delay()`?
 4. Que fait la fonction `pinMode()`?
 5. Combien de mémoire RAM possède le Arduino Mega?
@@ -473,7 +516,7 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 ## Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
 2. Modifiez le programme "Fade" pour faire réagir la LED qui est intégrée sur le Arduino.
-3. Modifiez le programme "Fade" pour faire gradueryou la LED plus rapidement.
+3. Modifiez le programme "Fade" pour faire graduer la LED plus rapidement.
 
 ### Défi
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
