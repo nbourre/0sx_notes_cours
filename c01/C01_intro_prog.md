@@ -285,7 +285,7 @@ float d = 123456.789;
 int e = (int) d;  // e = 123456 (tronqué, pas arrondi)
 ```
 
-Il est donc important de prendre en compte ces limitations lors de l'utilisation du type `float` dans vos programmes Arduino. Si vous avez besoin d'une précision supérieure ou d'une plage de valeurs plus grande, il est recommandé d'utiliser le type `double`.
+Il est donc important de prendre en compte ces limitations lors de l'utilisation du type `float` dans vos programmes Arduino.
 
 ---
 
