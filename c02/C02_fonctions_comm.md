@@ -26,6 +26,7 @@
 - [Algorithme simple pour gérer les états](#algorithme-simple-pour-gérer-les-états)
   - [État d'un périphérique](#état-dun-périphérique)
   - [État de l'application](#état-de-lapplication)
+  - [État de l'application avec fonctions](#état-de-lapplication-avec-fonctions)
 - [Exercices](#exercices)
 - [Questions](#questions-1)
 
@@ -441,9 +442,74 @@ void loop() {
 
 ---
 
+## État de l'application avec fonctions
+Voici le même code que précédemment, mais avec des fonctions pour gérer les états :
+
+```cpp
+//définir la broche de la DEL
+const int ledPin = 13;
+
+//définir l'état de l'application
+int appState = 0; // 0 = 1 fois par seconde, 1 = 4 fois par seconde
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (appState == 0) {
+    blinkSlow();
+  } else if (appState == 1) {
+    blinkFast();
+  }
+}
+
+void blinkSlow() {
+  // Variables statiques pour conserver
+  // l'état de la DEL à chaque appel
+  static bool ledState = LOW;
+
+  // Compteur d'appels
+  static int counter = 0;
+
+  //inverser l'état de la DEL
+  ledState = !ledState;
+  digitalWrite(ledPin, ledState);
+  delay(500);
+  counter++;
+  if (counter == 2) {
+    counter = 0;
+    appState = 1;
+  }
+}
+
+void blinkFast() {
+  // Variables statiques pour conserver
+  // l'état de la DEL à chaque appel
+  static bool ledState = LOW;
+
+  // Compteur d'appels
+  static int counter = 0;
+  
+  //inverser l'état de la DEL
+  ledState = !ledState;
+  digitalWrite(ledPin, ledState);
+  delay(125);
+  counter++;
+  if (counter == 8) {
+    counter = 0;
+    appState = 0;
+  }
+}
+```
+
+
+---
+
 Il y a plusieurs raisons pour lesquelles il est important d'utiliser des états dans un programme de microcontrôleur:
 
 - Clarté du code: en utilisant des états pour stocker l'état actuel d'un périphérique ou d'une variable, vous pouvez rendre votre code plus clair et plus facile à comprendre. Cela permet également de rendre le code plus facile à déboguer et à maintenir.
+  - En ne lisant que la boucle `loop`, on peut comprendre le comportement du programme.
 - Meilleure utilisation des ressources: en utilisant des états pour contrôler les actions et les comportements d'un programme, vous pouvez éviter de répéter des actions inutiles ou de consommer inutilement les ressources du microcontrôleur.
 - Interaction en temps réel: en utilisant des états pour réagir aux entrées en temps réel, vous pouvez créer des programmes qui réagissent rapidement aux changements d'état et qui peuvent prendre des décisions en temps réel.
 - Plus grande flexibilité: en utilisant des états pour contrôler les actions d'un programme, vous pouvez facilement ajouter de nouvelles fonctionnalités ou changer le comportement d'un programme sans avoir à réécrire entièrement le code.
