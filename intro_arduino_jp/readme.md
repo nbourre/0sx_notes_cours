@@ -22,6 +22,7 @@
 - [Composantes de base](#composantes-de-base)
   - [Câble USB type USB-B](#câble-usb-type-usb-b)
   - [Platine d'expérimentation sans soudure (*Breadboard*)](#platine-dexpérimentation-sans-soudure-breadboard)
+    - [Schéma de branchement](#schéma-de-branchement)
   - [Fil de raccordement M/M (*Jumper wires*)](#fil-de-raccordement-mm-jumper-wires)
   - [Fil de raccordement M/F (*Jumper wires)*](#fil-de-raccordement-mf-jumper-wires)
   - [Attache batterie 9V (*9V battery snap*)](#attache-batterie-9v-9v-battery-snap)
@@ -175,6 +176,14 @@ La platine d’expérimentation permet de réaliser un montage avec des composan
   <img src="media/image13.png" />
 
 Figure : Branchement interne d'une platine d’expérimentation
+
+### Schéma de branchement
+
+Voici un schéma de branchement pour vous aider à comprendre l'intérieur de la platine d'expérimentation.
+
+![alt text](media/breadboard_explication.png)
+
+---
 
 ## Fil de raccordement M/M (*Jumper wires*)
 

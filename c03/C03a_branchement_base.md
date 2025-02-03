@@ -14,8 +14,8 @@
   - [Résumé](#résumé)
 - [Faire un montage électrique](#faire-un-montage-électrique)
   - [Avant de commencer, très important](#avant-de-commencer-très-important)
-  - [Branchement de base](#branchement-de-base)
   - [Documentation - Introduction à l'Arduino](#documentation---introduction-à-larduino)
+  - [Branchement de base](#branchement-de-base)
   - [Brancher une DEL](#brancher-une-del)
   - [Brancher un bouton](#brancher-un-bouton)
     - [Code pour lire le bouton](#code-pour-lire-le-bouton)
@@ -123,6 +123,9 @@ Sur votre Arduino, on utilise généralement le port USB pour alimenter la carte
 > **Perle de culture**
 > 
 > L'appareil permet d'avoir un voltage variable en entrée, car il y a un **régulateur de voltage** qui permet de convertir le voltage d'entrée en un voltage de 5V.
+> 
+>![alt text](assets/arduino_mega_voltage_regulator.jpg)
+> 
 
 ### Sortie
 Le voltage de sortie des broches de l'arduino est de 5V. C'est le voltage de sortie de la carte. C'est le voltage que vous devez utiliser pour brancher vos composants. 
@@ -142,9 +145,14 @@ Ces notions vont vous permettre éventuellement de faire attention lorsque vous 
 # Faire un montage électrique
 
 ## Avant de commencer, très important
-La **convention** veut que les fils rouges soient branchés sur les fils positifs (+) et les fils noirs sur les fils négatifs (-). C'est une convention, mais c'est une convention qui est respectée par la plupart des gens et l'industrie. **C'est donc une convention que vous devez respecter**.
+La **convention** veut que les **fils rouges soient branchés sur les fils positifs (+)** et les **fils noirs sur les fils négatifs (-)**. C'est une convention, mais c'est une convention qui est respectée par la plupart des gens et l'industrie. ⭐**C'est donc une convention que vous devez respecter**⭐.
  
 **Je retrancherai des points si vous ne respectez pas cette convention!**
+
+## Documentation - Introduction à l'Arduino
+👉👉👉👉 **Head's up pour le prof!!** 👈👈👈👈
+
+Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](../intro_arduino_jp/readme.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
 
 ## Branchement de base
 Dans votre kit, je vous suggère le branchement de base permanent suivant :
@@ -157,8 +165,7 @@ ou encore celui-ci avec l'unité d'alimentation de base (PSU):
 
 Ce branchement permet d'accélérer le démarrage de vos projets. Il vous permettra de tester vos programmes sans avoir à brancher et débrancher les conducteurs à chaque fois.
 
-## Documentation - Introduction à l'Arduino
-Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](intro_arduino_jp/readme.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
+---
 
 ## Brancher une DEL
 Comme indiquer dans le document d'introduction à l'arduino, pour brancher une DEL **il faut une résistance en série**. La résistance est nécessaire pour limiter le courant qui passe dans la DEL. La DEL est un composant très sensible au courant qui passe à travers elle. Si le courant est trop fort, la DEL peut être endommagée.
@@ -168,6 +175,8 @@ Voici un schéma de branchement d'une DEL avec une résistance en série :
 ![Alt text](assets/schemas/branchement_led_bb.png)
 - La DEL est branchée sur la broche 9 de l'Arduino.
 - Pour la contrôler, il faudra faire un programme.
+
+---
 
 ## Brancher un bouton
 Dans ce document, je vous présente une méthode pour brancher un bouton. Cependant, il existe plusieurs façons de brancher un bouton. Vous pouvez brancher un bouton avec une résistance en série ou en parallèle. Vous pouvez aussi brancher un bouton avec un condensateur.
