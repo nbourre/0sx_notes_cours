@@ -6,7 +6,6 @@
   - [`millis()` est plus précis](#millis-est-plus-précis)
   - [`millis()` n'est pas bloquant](#millis-nest-pas-bloquant)
 - [Exemple : un planificateur de tâches simple](#exemple--un-planificateur-de-tâches-simple)
-- [micros() et le débordement](#micros-et-le-débordement)
 - [Explication de la limite de `millis()`](#explication-de-la-limite-de-millis)
 - [Références](#références)
 
@@ -38,7 +37,7 @@ void loop() {
   Serial.println("Salut!");
 
   while (millis() < currentTime + wait) {
-    // Attendre
+    // NE PAS FAIRE CECI DANS VOTRE CODE
   }
 }
 
@@ -69,6 +68,7 @@ void setup() {
  
 void loop() {
   const int interval = 1000;
+  static unsigned long previousTime = 0;
 
   currentTime = millis();
 
@@ -152,11 +152,6 @@ void print_time(unsigned long time_millis){
 On constate la simplicité de l'implémentation de ce planificateur. Il suffit de vérifier si le temps écoulé depuis la dernière exécution de la tâche est supérieur à l'intervalle souhaité. Si c'est le cas, nous exécutons la tâche et nous mettons à jour le temps de la dernière exécution.
 
 Ainsi l'utilisation de `millis()` nous permet de créer du code relativement simple et facile à maintenir.
-
-# micros() et le débordement
-Si le besoin de précision est plus grand, il y a la fonction `micros()`. Cette fonction fait la même chose que `millis()`, mais elle renvoie le temps en microsecondes.
-
-Il faudra faire attention au débordement. Il se produit après 70 minutes au lieu de 50 jours.
 
 # Explication de la limite de `millis()`
 La valeur maximum d'un `unsigned long` est de 4 294 967 295 car un `unsigned long` est de 4 octets donc 2^32-1.

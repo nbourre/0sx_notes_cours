@@ -13,7 +13,7 @@
 # Introduction
 Une broche peut avoir trois états soit 0, 1 ou flottant. Si la broche est connectée à la mise à la terre (*ground*), elle aura une valeur de 0, si elle est connectée à la tension d'alimentation, elle aura une valeur de 1 et si elle n'est connectée à rien, elle aura une valeur **flottante**.
 
-Une valeur flottante est une valeur dont on ne pourra pas garantir sa vraie valeur. Sa valeur dépendra de l'environnement, de la température, de la tension d'alimentation, etc. Il s'agit de bruit.
+**Une valeur flottante est une valeur dont on ne pourra pas garantir sa vraie valeur**. Sa valeur dépendra de l'environnement, de la température, de la tension d'alimentation, etc. Il s'agit de bruit.
 
 Voici la lecture sur un oscilloscope d'une broche flottante.
 ![Alt text](assets/floating_value.png)
