@@ -1,7 +1,10 @@
 # Électricité de base <!-- omit in toc -->
 
 - [L'électricité sur les appareils](#lélectricité-sur-les-appareils)
-  - [Le voltage](#le-voltage)
+  - [⚡ Le Voltage (Tension Électrique)](#-le-voltage-tension-électrique)
+    - [⚠️ Importance de respecter la tension](#️-importance-de-respecter-la-tension)
+    - [🔄 La polarité : un facteur essentiel](#-la-polarité--un-facteur-essentiel)
+    - [🔍 Courant continu (DC) vs courant alternatif (AC)](#-courant-continu-dc-vs-courant-alternatif-ac)
   - [L'ampérage](#lampérage)
     - [Exemples](#exemples)
   - [*Important Life skill*](#important-life-skill)
@@ -24,16 +27,57 @@ L'objectif de cette section n'est pas de vous donner une formation scientifique 
 
 L'objectif est plutôt de savoir comment et où vous pouvez mesurer ces valeurs pour vous assurer que votre circuit fonctionne correctement.
 
-## Le voltage
-Le voltage est la différence de potentiel entre deux points. C'est la force qui pousse les électrons à circuler dans un circuit. Le voltage est mesuré en volt (V). On utilise souvent le terme **tension**.
+---
 
-Lorsque l'on branche un circuit électronique il est super important de respecter le voltage de l'appareil, car **si vous branchez un appareil à un adaptateur qui donne trop de voltage, vous risquez de brûler votre appareil.**
+## ⚡ Le Voltage (Tension Électrique)
 
-Il y a aussi la **polarité** qui est importante. La polarité est la direction du courant. Il y a deux types de polarité : positive et négative. La polarité est indiquée sur les fiches signalétiques des appareils. **Si vous branchez un appareil avec une polarité négative sur un adaptateur avec une polarité positive, vous risquez de brûler votre appareil.**
+Le **voltage**, aussi appelé **tension électrique**, est la **différence de potentiel électrique** entre deux points d’un circuit. C’est la **force qui pousse les électrons à circuler** dans un conducteur. Il est mesuré en **volts (V)**.
+
+On peut comparer le voltage à la **pression de l'eau** dans un tuyau : plus la pression est élevée, plus l'eau (les électrons, dans notre analogie) circule rapidement.  
+
+---
+
+### ⚠️ Importance de respecter la tension
 
 ![Alt text](assets/gif/electroboom-electric-shock.gif)
 
-> **Note** : En circuit logique, nous utilisons de façon général le courant continu. Il y a aussi le courant alternatif, mais il est utilisé plus souvent pour des applications de haute-tension ou des applications spécifiques.
+Lorsque vous branchez un circuit électronique, il est **crucial de respecter la tension requise** par l'appareil, car :  
+- **Si la tension est trop élevée**, vous risquez de **griller les composants** (surchauffe, court-circuit).  
+- **Si la tension est trop faible**, l’appareil **ne fonctionnera pas correctement** ou pas du tout.
+
+> **Exemple :** Alimenter un Arduino conçu pour 5V avec une source de 12V **sans régulateur** peut détruire la carte.
+
+---
+
+### 🔄 La polarité : un facteur essentiel
+
+La **polarité** détermine la **direction du courant électrique**. Il existe deux polarités :  
+- **Positive (+)** : généralement le **fil rouge**.  
+- **Négative (-)** : généralement le **fil noir** (ou la masse/GND).  
+
+Elle est indiquée par des symboles sur les appareils :  
+- **Courant continu (DC)** : `+` et `-` ou symboles ⎓  
+- **Courant alternatif (AC)** : symboles ∿ ou ~  
+
+**⚡ Danger :**  
+- **Brancher un appareil en inversant la polarité** peut provoquer des **dommages irréversibles**.  
+- Certains appareils incluent des **protections contre l’inversion de polarité**, mais ce n’est pas toujours le cas.
+
+---
+
+### 🔍 Courant continu (DC) vs courant alternatif (AC)
+
+> **Note :** En électronique embarquée (comme Arduino), nous utilisons principalement le **courant continu (DC)**.  
+Le **courant alternatif (AC)** est plus courant dans les applications de **haute tension**, comme l’alimentation des maisons ou des moteurs industriels.  
+
+| **Courant Continu (DC)** | **Courant Alternatif (AC)** |
+|--------------------------|-----------------------------|
+| Utilisé pour l’électronique (Arduino, LEDs, etc.) | Utilisé pour le réseau électrique domestique |
+| Tension constante (ex: 5V, 12V) | Tension qui varie de manière sinusoïdale |
+| Polarité fixe (+ et -) | Pas de polarité fixe (oscille entre + et -) |
+
+---
+
 
 ## L'ampérage
 L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage est mesuré en ampère (A).
