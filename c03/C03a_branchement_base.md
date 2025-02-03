@@ -189,7 +189,7 @@ Le schéma interne du bouton est le suivant :
 
 Voir le tutoriel [suivant](https://docs.arduino.cc/tutorials/generic/digital-input-pullup).
 
-Voici un circuit de branchement du bouton **qui doit être programmé en mode `INPUT_PULLUP`**.
+Voici un circuit de branchement du bouton **qui doit être programmé en mode `INPUT_PULLUP`**. ⭐⭐ Je répète, **c'est très important de le brancher en mode `INPUT_PULLUP`, sinon vous créez un court-circuit!!!** ⭐⭐.
 
 ![Alt text](assets/branchement_bouton_input_pullup.png)
 
