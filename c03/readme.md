@@ -9,3 +9,4 @@
 2. [Résistance de rappel et de tirage](./C03b_resistance_de_rappel.md)
 3. [millis() au lieu de delay()](./C03c_sans_delai.md)
 4. [Logique anti-rebond](./C03d_logique_antirebond.md)
+5. [Exercices de résumé](./C03e_exercices.md)
