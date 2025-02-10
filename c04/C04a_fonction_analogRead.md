@@ -149,6 +149,8 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
   </tr>
 </table>
 
+> Question : Comment pourrait-on améliorer cet exemple sans utiliser de conditionnelles?
+
 Cet exemple est disponible [ici](https://wokwi.com/projects/356395304066120705).
 
 ---
