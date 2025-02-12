@@ -1,6 +1,7 @@
 # Composants analogues <!-- omit in toc -->
 
 - [Diviseur de tension](#diviseur-de-tension)
+  - [Utilité](#utilité)
   - [Potentiomètre](#potentiomètre)
   - [Calculatrice en ligne](#calculatrice-en-ligne)
 - [Photorésistance](#photorésistance)
@@ -28,8 +29,11 @@ où $V_{in}$ est la tension d'entrée, $R_1$ est la valeur de la première rési
 
 Les diviseurs de tension sont couramment utilisés dans de nombreux circuits électroniques. Ils peuvent être utilisés pour mesurer la tension d'une source d'alimentation électrique ou pour réguler la vitesse d'un moteur. En somme, le diviseur de tension est un outil précieux pour les ingénieurs et les techniciens qui travaillent avec des circuits électriques.
 
+## Utilité
+Les diviseurs de tension sont utilisés dans de nombreux circuits électroniques pour réduire la tension d'une source d'alimentation électrique à une valeur plus faible. Ils sont couramment utilisés dans les circuits de mesure de tension, les circuits de régulation de vitesse des moteurs, les circuits de contrôle de la luminosité des LED, et les circuits de contrôle de la température.
+
 ## Potentiomètre
-Sans que vous le sachiez, vous avez utilisé un diviseur de tension dans quelques montages électroniques. Entre effet, le potentiomètre est un diviseur de tension!
+Sans que vous le sachiez, vous avez utilisé un diviseur de tension dans quelques montages électroniques. En effet, le potentiomètre est un diviseur de tension!
 
 ![Alt text](assets/potentiometre_diviseur_tension.gif)
 
@@ -62,8 +66,6 @@ En utilisant une formule simple, on peut calibrer la sortie de la photorésistan
 
 `luminosite = map(analogRead(A0), 0, 1023, 0, 100);`
 
-En utilisant la valeur de luminosité lue à partir de la photorésistance, les étudiants peuvent ensuite programmer leur Arduino pour effectuer des actions en fonction du niveau de luminosité détecté. Par exemple, ils pourraient programmer leur Arduino pour allumer une lumière lorsqu'il fait sombre, ou pour activer un capteur de mouvement lorsqu'il fait jour. Les possibilités sont nombreuses et dépendent de l'imagination et de la créativité des étudiants.
-
 Voici le schéma de branchement d'une photorésistance à l'Arduino.
 
 ![Alt text](assets/light_cdsanasch.gif)
@@ -80,6 +82,8 @@ On peut modifier la valeur de résistance selon la nécessité. Une valeur de r�
 
 # Thermistance
 Une thermistance est un type de capteur de température qui varie sa résistance électrique en fonction de la température ambiante. Plus précisément, une thermistance est un type de résistance dont la valeur de résistance diminue lorsque la température augmente, et inversement, la valeur de résistance augmente lorsque la température diminue.
+
+![alt text](assets/Arduino-Thermistor-Temperature-Sensor-Voltage-Divider-Circuit.jpg)
 
 Comme la photorésistance, la thermistance peut être utilisé dans un montage de diviseur de tension.
 

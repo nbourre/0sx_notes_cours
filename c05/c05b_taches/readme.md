@@ -12,7 +12,7 @@
 # Introduction
 La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
 
-La programmation multitâches est utilisée dans les systèmes embarqués pour exécuter plusieurs tâches en même temps. Par exemple, un système embarqué peut exécuter une tâche pour lire les données d'un capteur, une autre tâche pour traiter les données, et une autre tâche pour afficher les données sur un écran.
+La programmation multitâches est utilisée dans les systèmes embarqués pour exécuter plusieurs tâches en "même temps". Par exemple, un système embarqué peut exécuter une tâche pour lire les données d'un capteur, une autre tâche pour traiter les données, et une autre tâche pour afficher les données sur un écran.
 
 # Exemple disfonctionnel
 Disons que je désire faire clignoter 2 DEL à des fréquences différentes. Disons que la DEL 1 doit clignoter à 1 Hz et que la DEL 2 doit clignoter à 2 Hz. Voici un exemple de code qui pourrait faire ça:
@@ -144,7 +144,7 @@ void loop() {
 
 void blinkLed1() {
   // Pour sauvegarder la dernière exécution de la fonction
-  static unsigned long previousMillis = 0;
+  static unsigned long lastTime = 0;
 
   // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
@@ -152,15 +152,15 @@ void blinkLed1() {
   // Valeur constante
   const int rate = 500;
 
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
+  if (currentMillis - lastTime >= rate) {
+    lastTime = currentMillis;
     digitalWrite(led1, !digitalRead(led1));
   }
 }
 
 void blinkLed2() {
   // Pour sauvegarder la dernière exécution de la fonction
-  static unsigned long previousMillis = 0;
+  static unsigned long lastTime = 0;
 
   // Pour obtenir le temps actuel
   unsigned long currentMillis = millis();
@@ -168,8 +168,8 @@ void blinkLed2() {
   // Valeur constante
   const int rate = 250;
 
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
+  if (currentMillis - lastTime >= rate) {
+    lastTime = currentMillis;
     digitalWrite(led2, !digitalRead(led2));
   }
 }
@@ -331,22 +331,22 @@ void loop() {
   blinkLed2(currentMillis);
 }
 
-void blinkLed1(int rate, long currentMillis) {
-  static unsigned long previousMillis = 0;
+void blinkLed1(unsigned long ct) {
+  static unsigned long lastTime = 0;
   const int rate = 500;
 
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
+  if (ct - lastTime >= rate) {
+    lastTime = ct;
     digitalWrite(led1, !digitalRead(led));
   }
 }
 
-void blinkLed2(int rate, long currentMillis) {
-  static unsigned long previousMillis = 0;
+void blinkLed2(unsigned long ct) {
+  static unsigned long lastTime = 0;
   const int rate = 250;
 
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
+  if (ct - lastTime >= rate) {
+    lastTime = ct;
     digitalWrite(led2, !digitalRead(led));
   }
 }
@@ -385,8 +385,10 @@ void loop() {
 }
 
 // Fonction qui indique si on a basculé le bouton
+// Attention, je ne regarde pas le rebondissement du bouton
 int buttonToggleTask() {
   static int previousState = 1;
+
   int currentState = digitalRead(button);
   int toggle = 0;
   
