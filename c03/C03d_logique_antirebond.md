@@ -7,6 +7,7 @@
 - [Principe de fonctionnement](#principe-de-fonctionnement)
 - [Schéma](#schéma)
 - [Code](#code)
+  - [Moment du clic](#moment-du-clic)
 - [Résumé](#résumé)
 - [Exercice](#exercice)
 
@@ -38,29 +39,58 @@ void setup() {
 }
 
 void loop() {
-  static int etatPrecedent = 0; // Etat précédent du capteur
-  static int etatPresent = 0; // Etat présent du capteur
-  static int etat = 0; // Etat du capteur
+  static int etatPrecedent = HIGH; // État initial cohérent avec INPUT_PULLUP
+  static int etat = HIGH; // État stable du bouton
   const int delai = 50; // Délai anti-rebond en ms
+  static unsigned long dernierChangement = 0; // Dernier changement d'état
 
-  static unsigned long dernierChangement = 0; // Dernier changement d'état du capteur
+  int etatPresent = digitalRead(pinBouton); // Lecture de l'état du capteur
 
-  etatPresent = digitalRead(pinBouton); // Lecture de l'état du capteur
-
-  if (etatPresent != etatPrecedent) { // Si l'état a changé
-    dernierChangement = millis(); // On enregistre le temps actuel
+  if (etatPresent != etatPrecedent) { // Si l'état change
+    dernierChangement = millis(); // Mise à jour du temps
   }
 
-  if ((millis() - dernierChangement) > delai) { // Si le délai est dépassé
-    if (etatPresent != etat) { // Si l'état a changé
-        etat = etatPresent; // On enregistre l'état actuel
-      Serial.println(etat); // On affiche l'état du capteur
+  if ((millis() - dernierChangement) > delai && etatPresent != etat) { 
+    etat = etatPresent; // Mise à jour de l’état stable
+    Serial.println(etat); // Affichage
+  }
+
+  etatPrecedent = etatPresent; // Mise à jour pour la prochaine itération
+}
+```
+
+## Moment du clic
+Voici un code pour capter le moment où le bouton est appuyé. Vous pouvez voir que le capteur est plus stable et ne capte pas les microvibrations.
+
+```cpp
+
+int estClic(unsigned long ct) {
+  static unsigned long lastTime = 0;
+  static int lastState = HIGH;
+  const int rate = 50;
+  int clic = 0;
+
+  if (ct - lastTime < rate) {
+    return clic; // Trop rapide
+  }
+
+  lastTime = ct;
+
+  int state = digitalRead(PIN_BUTTON);
+
+  if (state == LOW) {
+    if (lastState == HIGH) {
+      clic = 1;
     }
   }
 
-  etatPrecedent = etatPresent; // On enregistre l'état actuel pour la prochaine itération
+  lastState = state;
+
+  return clic;
 }
+
 ```
+
 
 # Résumé
 Si vous variez le délai anti-rebond (`delai`), vous verrez que le capteur est plus ou moins sensible. En prenant un temps suffisamment long, vous verrez que le capteur ne sera plus sensible aux microvibrations.
