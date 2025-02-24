@@ -1,6 +1,7 @@
 # Capteur de température et d'humidité DHT11 <!-- omit in toc -->
 
-![Alt text](DHT11_Sensor_Pinout_600x600.webp)
+![Alt text](assets/DHT11_Sensor_Pinout_600x600.webp)
+
 DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
 # Table des matières <!-- omit in toc -->
@@ -43,7 +44,7 @@ Le DHT11 peut être utilisé dans de nombreux projets différents, notamment :
 ## Branchement du capteur DHT11
 
 Voici le branchement typique du module DHT11
-![Alt text](dht11_bb.png)
+![Alt text](assets/dht11_bb.png)
 
 
 ## Mesure de température et d'humidité
@@ -153,7 +154,7 @@ Voici un exemple simple où l'on contrôle un ventilateur.
 #define DHTPIN 2
 #define DHTTYPE DHT11   // DHT 11
 #define FAN_PIN 8
-#define TEMPERATURE_THRESHOLD 30
+#define TEMPERATURE_THRESHOLD 30 // THRESHOLD = seuil en français
 
 unsigned long currentTime;
 
@@ -203,7 +204,7 @@ En utilisant le capteur DHT11, nous pouvons facilement mesurer la température e
 ## Schéma pour brancher un ventilateur
 Voici un schéma électrique qui permet de brancher un ventilateur DC sur la carte Arduino avec le matériel dont vous disposez.
 
-![Alt text](ventilateur.png)
+![Alt text](assets/ventilateur.png)
 
 Matériel nécessaire :
 - 1 x résistance 220 ohms
@@ -217,7 +218,7 @@ Branchement :
 
 > **Important :** **Ne jamais brancher un moteur directement sur un port d'un microcontrôleur**. Vous risquez d'endommager le microcontrôleur.
 > 
-> ![Alt text](arduino_burning.gif)
+> ![Alt text](assets/arduino_burning.gif)
 
 > **Bloc science - Le transistor**
 >
@@ -243,10 +244,10 @@ Parfois, il arrive que la documentation ne soit pas disponible. Dans ce cas, il 
 Pour ce faire :
 1. On recherche l'endroit où se retrouve les librairies installées. La plupart du temps sur Windows, on retrouve ce dossier dans
 `%userprofile%\Documents\Arduino\libraries`. Dans ce dossier, on retrouve le dossier `DHT_sensor_library` qui contient le fichier `DHT.h`.<br/><br/>
-![Alt text](trouver_librairie.gif)
+![Alt text](assets/trouver_librairie.gif)
 
 2. Ensuite, on ouvre le fichier `.h` qui nous intéresse. Dans notre cas, on ouvre le fichier `DHT.h`. Cependant, je suggère d'utiliser un éditeur de texte avancé comme **Visual Studio Code**. Cet éditeur permet d'**ouvrir le dossier complet** et de naviguer dans les fichiers plus facilement. <br/><br/>
-   ![Alt text](trouver_librairie_code.gif)
+   ![Alt text](assets/trouver_librairie_code.gif)
 
 3. Par la suite, il suffit de jeter un coup d'oeil au fichier `.h` pour voir toutes les fonctions disponibles. <br/><br/>
 

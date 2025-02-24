@@ -28,14 +28,14 @@ La logique de la gestion du bouton peut être complexe. Il faut gérer les état
 
 Les librairies Arduino sont des ensembles de codes et de fonctions qui permettent d'ajouter de nouvelles fonctionnalités à votre projet. Elles ont été créées pour simplifier la tâche de programmation en offrant des fonctions déjà écrites pour l'utilisateur à utiliser dans son propre programme. Les librairies Arduino sont généralement créées par les utilisateurs d'Arduino ou par la communauté Arduino elle-même.
 
-Avez un peu plus d'expérience, vous pourriez éventuellement écrire vous-même les librairies pour vos projet.
+Avec un peu plus d'expérience, vous pourriez éventuellement écrire vous-même les librairies pour vos projet.
 
 # Exemples de librairies Arduino
 Voici quelques exemples de librairies Arduino courantes :
 
+- `OneButton` : Cette librairie ajoute des fonctionnalités pour contrôler des boutons. Elle fournit des fonctions pour détecter les appuis sur le bouton et les relâchements.
 - `HCSR04` : Cette librairie permet de contrôler le capteur de distance à ultrasons HC-SR04 à partir de votre Arduino. Elle fournit des fonctions pour mesurer la distance entre le capteur et un objet.
 - `Servo` : Cette librairie permet de contrôler les servomoteurs à partir de votre Arduino. Elle fournit des fonctions pour contrôler la position et la vitesse du servomoteur.
-- `OneButton` : Cette librairie ajoute des fonctionnalités pour contrôler des boutons. Elle fournit des fonctions pour détecter les appuis sur le bouton et les relâchements.
 - `LiquidCrystal` : Cette librairie permet de contrôler les écrans LCD à partir de votre Arduino. Elle fournit des fonctions pour afficher du texte et des images sur l'écran LCD.
 - `Wire` : Cette librairie permet de communiquer avec des appareils externes en utilisant le protocole I2C. Elle fournit des fonctions pour envoyer et recevoir des données sur un bus I2C.
 
@@ -121,7 +121,7 @@ unsigned long currentTime = 0;
 OneButton button(PIN_INPUT, true, true);
 
  // Aucune tâches au démarrage
-Tasks nextTask = TASK_OFF;
+Tasks currentTask = TASK_OFF;
 
 void setup() {
   pinMode(PIN_LED, OUTPUT);
@@ -144,12 +144,14 @@ void setup() {
 void loop() {
   currentTime = millis();
 
+  // ******************
   // Cette fonction est OBLIGATOIRE pour
   // surveiller le bouton. C'est comme un tâche de
   // surveillance
+  // ******************
   button.tick();
   
-  switch (nextTask) {
+  switch (currentTask) {
     case TASK_OFF:
       turnOffTask();
       break;
@@ -208,27 +210,27 @@ void fadeTask(unsigned long now) {
 
 // Cette fonction sera appelée lorsqu'il n'y aura qu'un seul clic du bouton
 void myClickFunction() {
-  if (nextTask == TASK_OFF)
-    nextTask = TASK_ON;
+  if (currentTask == TASK_OFF)
+    currentTask = TASK_ON;
   else
-    nextTask = TASK_OFF;
+    currentTask = TASK_OFF;
   
-  Serial.println(nextTask);
+  Serial.println(currentTask);
 }
 
 
 // Cette fonction sera appelée lorsqu'il y aura un double-clic
 void myDoubleClickFunction() {
-  if (nextTask == TASK_ON) {
-    nextTask = TASK_SLOW;
+  if (currentTask == TASK_ON) {
+    currentTask = TASK_SLOW;
 
-  } else if (nextTask == TASK_SLOW) {
-    nextTask = TASK_FAST;
+  } else if (currentTask == TASK_SLOW) {
+    currentTask = TASK_FAST;
 
-  } else if (nextTask == TASK_FAST) {
-    nextTask = TASK_ON;
+  } else if (currentTask == TASK_FAST) {
+    currentTask = TASK_ON;
   }
-  Serial.println(nextTask);
+  Serial.println(currentTask);
 }
 
 void serialPrintTask(unsigned long now) {
@@ -240,7 +242,7 @@ void serialPrintTask(unsigned long now) {
     
     Serial.print(now);
     Serial.print(" - Tache : ");
-    Serial.println(nextTask);
+    Serial.println(currentTask);
   }   
 }
 

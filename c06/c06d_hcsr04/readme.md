@@ -19,7 +19,7 @@ Au secondaire, vous avez tous déjà appris que le son avait une vitesse défini
 
 # Introduction
 
-![Alt text](hcsr04.jpg)
+![Alt text](assets/hcsr04.jpg)
 
 Le HC-SR04 est un capteur de distance ultrasonique largement utilisé dans les projets électroniques. Il permet de mesurer des distances allant jusqu'à 4 mètres avec une grande précision et une faible consommation d'énergie. Dans cet article, nous allons examiner comment utiliser le capteur HC-SR04 avec un exemple pratique dans le cadre d'un projet Arduino.
 
@@ -39,7 +39,7 @@ Le HC-SR04 est composé de deux éléments principaux : l'émetteur ultrasonique
 > 
 > Dans une autre veine, les humains ne sommes pas capables d'entendre les ondes sonores ultrasoniques. En effet, les ondes sonores ultrasoniques ont une fréquence supérieure à 20 kHz, ce qui est au-dessus de la fréquence maximale que l'oreille humaine peut entendre (20 kHz). Cependant, plusieurs animaux sont capables d'entendre les ondes sonores ultrasoniques. Dont les chats et les chiens.
 > 
-> ![Alt text](dog_and_cat2.jpg)
+> ![Image avec deux chiens et un chat couchés sur un coussin](assets/dog_and_cat2.jpg)
 
 # Utilisation du HC-SR04 avec Arduino
 
@@ -157,7 +157,7 @@ Le capteur HC-SR04 est un composant électronique utile pour mesurer la distance
 
 > ***Food for thought*!! -- Les classes et les objets**
 > 
-> ![Alt text](brain_food.gif)
+> ![Alt text](assets/brain_food.gif)
 > 
 > Deux nouveaux termes utilisés dans ce chapitre soit **objet** et **classe**.
 > 

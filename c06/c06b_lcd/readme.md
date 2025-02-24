@@ -1,143 +1,128 @@
 # L'écran LCD 1602 - Partie 01 <!-- omit in toc -->
 
-![Alt text](lcd_1602.jpg)
+![LCD 1602](assets/lcd_1602.jpg)
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [LCD 1602](#lcd-1602)
-- [Fonctionnalités](#fonctionnalités)
-- [Spécifications](#spécifications)
-- [Branchement](#branchement)
-- [Exemple de base](#exemple-de-base)
-- [Exemple avec défilement](#exemple-avec-défilement)
-- [Fonctions utiles](#fonctions-utiles)
-  - [`lcd.begin()`](#lcdbegin)
-  - [`lcd.print()`](#lcdprint)
-  - [`lcd.setCursor()`](#lcdsetcursor)
-  - [`lcd.clear()`](#lcdclear)
-  - [`lcd.scrollDisplayLeft()` et `lcd.scrollDisplayRight()`](#lcdscrolldisplayleft-et-lcdscrolldisplayright)
+- [LCD 1602 (mode 4 bits)](#lcd-1602-mode-4-bits)
+  - [Fonctionnalités principales](#fonctionnalités-principales)
+  - [Spécifications rapides](#spécifications-rapides)
+  - [Exemple de branchement en mode 4 bits](#exemple-de-branchement-en-mode-4-bits)
+- [Utilisation avec la bibliothèque `LiquidCrystal`](#utilisation-avec-la-bibliothèque-liquidcrystal)
+  - [Exemple de base](#exemple-de-base)
+  - [Exemple avec défilement (scrolling)](#exemple-avec-défilement-scrolling)
+  - [Fonctions utiles](#fonctions-utiles)
+- [Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)](#alternative-i2c-avec-la-bibliothèque-lcd_i2c-de-blackhat)
 - [Exercices](#exercices)
 - [Références](#références)
+
 
 ---
 
 # Introduction
-Les LCD sont des écrans à cristaux liquides. Ils sont composés de cristaux liquides qui sont placés entre deux plaques de verre. Lorsqu'un courant électrique est appliqué aux cristaux liquides, ils changent de couleur et permettent d'afficher des caractères et des chiffres.
 
-On les retrouve dans plusieurs appareils communs tels que les montres, les cadrans dans les automobiles, les cafétières, etc.
+- Les écrans LCD (Liquid Crystal Display) sont très répandus (montres, cadrans de voiture, cafetières, etc.).
+- Un LCD 1602 offre 2 lignes de 16 caractères, donc un total de 32 caractères.
+- Son utilisation nécessite quelques connexions, mais il est également possible de réduire la quantité de broches requises via un module I2C (détails ci-dessous).
+- Nous verrons les spécificités techniques du protocole I2C au **prochain cours**.
 
-Celui qui est inclus dans votre kit est le LCD 1602. Il est composé de deux lignes de 16 caractères chacune d'où le 1602.
+---
 
-# LCD 1602
-Ayant deux lignes de 16 caractères, le LCD 1602 peut afficher 32 caractères sur deux lignes. Il est possible d'afficher des caractères spéciaux tels que des lettres accentuées, des symboles, etc.
+# LCD 1602 (mode 4 bits)
 
-# Fonctionnalités
-Les principales fonctionnalités sont:
+## Fonctionnalités principales
 
-- Afficher des caractères
-- Ajuster la luminosité
-- Ajuster le contraste
-- Fonctionner en utilisant 4 ou 8 bits
+- **Affichage de caractères** (dont certains caractères spéciaux ou accentués).
+- **Réglage de la luminosité** et du contraste.
+- **Fonctionnement en mode 4 bits** ou 8 bits (4 bits est plus courant pour économiser des broches).
 
-# Spécifications
-Il possède 16 broches. Les broches 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 et 16 sont respectivement reliées aux broches VSS, VDD, V0, RS, R/W, E, D0, D1, D2, D3, D4, D5, D6, D7, A et K.
+## Spécifications rapides
 
-![Alt text](LCD-Display-Tutorial.webp)
+- Le module LCD 1602 possède 16 broches.
+- On l’alimente en 5V.
+- On peut ajuster le contraste (V0) via un potentiomètre.
+- Le branchement « 4 bits » nécessite moins de broches Arduino que le mode 8 bits.
 
-Comme vous le remarquez, il y a un grand nombre de broches. Cependant, on peut utiliser économiser le nombre de broches en utilisant 4 bits au lieu de 8 bits. Dans la majorité des projets, c'est ce que l'on fait.
+## Exemple de branchement en mode 4 bits
 
-# Branchement
+- **Broches LCD**  
+  - GND, R/W et K → Ground  
+  - Vcc et A → 5V  
+  - V0 → Potentiomètre (pour le contraste)  
+  - RS → Broche 36 Arduino  
+  - E (Enable) → Broche 34 Arduino  
+  - D4 → Broche 32 Arduino  
+  - D5 → Broche 30 Arduino  
+  - D6 → Broche 28 Arduino  
+  - D7 → Broche 26 Arduino
 
-Voici un branchement pour utiliser 4 bits:
+![image illustrant le branchement (Fritzing ou autre) avec description des connexions](assets/branchement_lcd_bb.png)
 
-![Alt text](branchement_lcd_bb.png)
+---
 
-Le branchement est le suivant:
-- GND, R/W et K sont reliés au ground
-- Vcc et l'anode (A) sont reliés à 5V
-- V0 est branché à un potentiomètre pour ajuster le contraste
-- RS est relié à la broche 36
-- E (en) est relié à la broche 34
-- D4 est relié à la broche 32
-- D5 est relié à la broche 30
-- D6 est relié à la broche 28
-- D7 est relié à la broche 26
+# Utilisation avec la bibliothèque `LiquidCrystal`
 
-# Exemple de base
-Pour utiliser le LCD, on utilisera la bibliothèque `LiquidCrystal` d'Arduino. Pour l'installer, on va dans le menu "Outils > Gérer les bibliothèques". On recherche LiquidCrystal et on l'installe.
+## Exemple de base
 
-Ouvrez l'exemple `LiquidCrystal > Hello World` et modifiez les broches pour correspondre à votre branchement.
+Points clés :  
+- Inclure la bibliothèque `LiquidCrystal` standard  
+- Déclarer les broches utilisées (RS, E, D4, D5, D6, D7)  
+- Initialiser et afficher un message  
 
+**Code** :
 ```cpp
-// Inclure la librairie
 #include <LiquidCrystal.h>
 
-// Initialiser l'objet lcd
+// Ajuster les broches selon le branchement
 const int rs = 36, en = 34, d4 = 32, d5 = 30, d6 = 28, d7 = 26;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 void setup() {
-  // Initialiser l'affichage
-  // Configurer le nombre de caractères et de lignes
-  lcd.begin(16, 2); 
-
-  // Afficher le message
+  lcd.begin(16, 2);
   lcd.print(F("Allo toi!"));
 }
 
 void loop() {
-  // Régler le curseur à la colonne 0 et ligne 1
-  // (note: line 1 est la 2e ligne, car on débute à 0):
   lcd.setCursor(0, 1);
-
-  // Afficher le nombre de millisecondes depuis le début
   lcd.print(millis() / 1000);
   delay(100);
 }
-
 ```
 
-# Exemple avec défilement
-La librairie offre aussi la possibilité de faire défiler le texte. Pour ce faire, on peut utiliser la fonction `scrollDisplayLeft()`.
+## Exemple avec défilement (scrolling)
 
+- Utilise `scrollDisplayLeft()` ou `scrollDisplayRight()`
+- Permet de faire défiler le texte sur l’écran  
+- Nécessite des **delays** pour la démonstration, mais attention à éviter les `delay()` en pratique (elles bloquent le programme)
+
+**Code** :
 ```cpp
-// Inclure la librairie
 #include <LiquidCrystal.h>
 
-// Initialiser l'objet lcd
 const int rs = 36, en = 34, d4 = 32, d5 = 30, d6 = 28, d7 = 26;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 void setup() {
-
   lcd.begin(16, 2);
   lcd.print("Hello!");
   delay(1000);
 }
 
 void loop() {
-  // Défiler le texte de 6 positions vers la gauche
-  for (int positionCounter = 0; positionCounter < 6; positionCounter++) {
-    // Défiler d'une position vers la gauche
+  // Défiler le texte vers la gauche
+  for (int i = 0; i < 6; i++) {
     lcd.scrollDisplayLeft();
-    // Attendre un peu
     delay(150);
   }
 
-
-  // Défiler 22 positions vers la droite
-  // (longueur du message + largeur du LCD)
-  // to move it offscreen right:
-  for (int positionCounter = 0; positionCounter < 22; positionCounter++) {
-    // Défiler d'une position vers la droite
+  // Défiler le texte vers la droite
+  for (int i = 0; i < 22; i++) {
     lcd.scrollDisplayRight();
     delay(150);
   }
 
-  // Défiler 16 positions vers la gauche pour
-  // le ramener à la position initiale
-  for (int positionCounter = 0; positionCounter < 16; positionCounter++) {
-    // Défiler d'une position vers la gauche
+  // Ramener le texte à sa position initiale
+  for (int i = 0; i < 16; i++) {
     lcd.scrollDisplayLeft();
     delay(150);
   }
@@ -146,42 +131,69 @@ void loop() {
 }
 ```
 
-Dans cet exemple, on fait défiler le texte de droite à gauche. On utilise les `delay()` pour que le texte ne défile pas trop vite, mais dans un cas réel, il faut éviter d'utiliser les `delay()`.
+## Fonctions utiles
+
+- **`lcd.begin(16, 2)`** : initialise l’affichage (16 colonnes, 2 lignes).
+- **`lcd.print("message")`** : affiche un texte à la position courante.
+- **`lcd.setCursor(col, row)`** : positionne le curseur (colonnes et lignes débutent à 0).
+- **`lcd.clear()`** : efface l’écran et replace le curseur en position (0,0).
+- **`lcd.scrollDisplayLeft()` / `lcd.scrollDisplayRight()`** : fait défiler le contenu de l’écran.
 
 ---
-# Fonctions utiles
 
-## `lcd.begin()`
-Cette fonction permet d'initialiser l'affichage. Elle prend deux paramètres :
-- Le nombre de caractères
-- Le nombre de lignes
+# Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)
 
-## `lcd.print()`
-Cette fonction permet d'afficher un message. Elle prend un paramètre :
-- Le message à afficher
+Dans certains kits, on trouve un module LCD 1602 avec une interface I2C. Cela permet de réduire le nombre de broches utilisées sur l’Arduino.
 
-## `lcd.setCursor()`
-Cette fonction permet de déplacer le curseur. Elle prend deux paramètres :
-- La colonne
-- La ligne
+Pour ceux qui possèdent un module LCD 1602 **avec** une interface I2C :
 
-## `lcd.clear()`
-Cette fonction permet d'effacer l'écran. Elle ne prend pas de paramètres.
-Lorsque l'on désire effacer l'écran, on peut appeler cette fonction. Parfois il y a des bugs d'affichage, par exemple, si on affiche un message plus court que le précédent, il peut rester des caractères de l'ancien affichage. Dans ce cas, on peut appeler cette fonction pour effacer l'écran et recommencer.
+- Il existe la bibliothèque `LCD_I2C` (de blackhat) qui facilite l’utilisation :
+  ```cpp
+  #include <LCD_I2C.h>  // Bibliothèque LCD I2C de blackhat
+  
+  LCD_I2C lcd(0x27, 16, 2); 
+  // 0x27 étant l'adresse I2C de l'écran
+  // Pour trouver l'autre adresse, utilisez l'exemple Arduino "wire/i2c_scanner"
+  // 16 x 2 sa taille en colonnes/lignes
+  
+  void setup() {
+    lcd.begin();
+    lcd.print("Bonjour I2C!");
+  }
+  
+  void loop() {
+    // Code similaire pour setCursor, etc.
+  }
+  ```
 
-## `lcd.scrollDisplayLeft()` et `lcd.scrollDisplayRight()`
-Ces fonctions permettent de faire défiler le texte. Elles ne prennent pas de paramètres.
+
+- **Branchement pour la version I2C** :  
+
+![image avec la carte Arduino et l’écran I2C, annotée pour clarifier les connexions](assets/branchement_lcd_i2c_bb.svg)
+
+  - On connecte seulement 4 fils : GND, VCC, SDA, SCL
+  - Cette méthode économise des broches sur l’Arduino en n’utilisant que les lignes I2C (SDA/SCL). Cependant, il faut avoir le module I2C compatible.
+  - Les détails complets du protocole I2C (adresses, vitesses de communication, etc.) seront expliqués dans le **prochain cours**.
 
 ---
+
 # Exercices
-1. Réalisez le branchement du LCD sur la carte Arduino.
-   - Trouvez une place stratégique pour le placer pour que vous puissiez brancher d'autres composants.
-2. Fouillez dans la bibliothèque `LiquidCrystal` pour trouver une fonction qui permet d'afficher un caractère spécial. Par exemple, un carré.
-3. Fouillez dans cette article "[Liquid crystal displays](https://docs.arduino.cc/learn/electronics/lcd-displays)" et trouvez la façon pour créer un symbole personnalisé.
-4. Utilisez le fichier "[createur_caractere.xlsx](createur_caractere.xlsx)" pour faire votre création.
+
+1. **Branchement**  
+   - Réalisez le branchement du LCD adapté à votre situation (mode 4 bits ou I2C).
+2. **Caractères spéciaux**  
+   - À l'aide de la bibliothèque adéquate, recherchez la fonction permettant d’afficher un caractère spécial.  
+   - Essayez d’afficher un carré ou une lettre accentuée.
+3. **Symboles personnalisés**  
+   - Découvrez comment créer et afficher un symbole personnalisé avec l'exemple `CustomCharacter` dans la bibliothèque respective.
+   - Utilisez le fichier [`createur_caractere.xlsx`](assets/createur_caractere.xlsx) (fourni) pour générer votre propre caractère.
+
 ---
 
 # Références
+
 - [Arduino LCD Tutorial](https://howtomechatronics.com/tutorials/arduino/lcd-tutorial/)
 - [7 Arduino LCD tricks](https://www.baldengineer.com/arduino-lcd-display-tips.html)
 - [Liquid crystal displays](https://docs.arduino.cc/learn/electronics/lcd-displays)
+- [Bibliothèque `LCD_I2C` (blackhat)](https://github.com/blackhack/LCD_I2C) <!-- Exemple de lien, ajustez si nécessaire -->
+```
