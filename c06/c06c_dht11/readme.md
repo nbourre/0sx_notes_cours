@@ -5,6 +5,7 @@
 DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
 # Table des matières <!-- omit in toc -->
+- [ATTENTION - Risque de bris de matériel](#attention---risque-de-bris-de-matériel)
 - [Introduction](#introduction)
 - [Utilité](#utilité)
 - [Cas d'utilisation](#cas-dutilisation)
@@ -20,6 +21,12 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 - [Références](#références)
 
 ---
+
+# ATTENTION - Risque de bris de matériel
+Prenez le temps d'observer l'ordre des broches de votre DHT-11. Si vous ne le branchez pas comme il faut, vous risquez de briser votre capteur.
+
+---
+
 
 # Introduction
 
