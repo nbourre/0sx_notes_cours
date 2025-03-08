@@ -25,6 +25,8 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 # ATTENTION - Risque de bris de matériel
 Prenez le temps d'observer l'ordre des broches de votre DHT-11. Si vous ne le branchez pas comme il faut, vous risquez de briser votre capteur.
 
+Le "S" indique la broche du signal. Il se peut que le GND et Vcc ne soient pas indiqués. Dans ce cas, il faudra tester avec un multimètre pour trouver les bonnes broches.
+
 ---
 
 
