@@ -11,7 +11,6 @@
 	- [Rapport de réduction de l'engrenage](#rapport-de-réduction-de-lengrenage)
 - [Le module de contrôle ULN2003](#le-module-de-contrôle-uln2003)
 - [Branchement](#branchement)
-- [Exemple de code avec la librairie `Stepper`](#exemple-de-code-avec-la-librairie-stepper)
 - [Exemple de code avec la librairie `AccelStepper`](#exemple-de-code-avec-la-librairie-accelstepper)
 	- [Explication du code](#explication-du-code)
 - [Exercices](#exercices)
@@ -118,7 +117,112 @@ Connectez les entrées `IN1`, `IN2`, `IN3` et `IN4` de la carte de commande aux 
 
 Enfin, assurez-vous que votre circuit et votre Arduino ont une masse commune.
 
-Le diagramme suivant vous montre comment tout connecter.
+Le diagramme suivant montre le branchement typique d'un montage.
+
+![alt text](assets/wiring.png)
+
+# Exemple de code avec la librairie `AccelStepper`
+
+La librairie `AccelStepper` est une librairie permettant de contrôler les moteurs pas-à-pas. Elle est plus rapide et plus flexible que la librairie `Stepper` qui vient par défaut. Surtout, elle n'est pas bloquante, ce qui signifie que vous pouvez exécuter d'autres tâches pendant le mouvement du moteur.
+
+La première étape sera d'installer la librairie `AccelStepper` depuis le gestionnaire de bibliothèques Arduino.
+
+- Recherchez 'AccelStepper' dans le gestionnaire de bibliothèques Arduino. Assurez-vous que ce soit la version réalisée par Mike McCauley.
+  
+  ![Alt text](assets/install_library.png)
+
+Voici un code de base pour faire tourner le moteur dans une direction, puis dans l'autre.
+
+```cpp
+#include <AccelStepper.h>
+
+// Définir la constante de pas
+#define MotorInterfaceType 4
+
+// Crée une instance
+// Attention : L’ordre des broches (IN1, IN3, IN2, IN4) est spécifique au 28BYJ-48.
+AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
+
+void setup() {
+// Définir la vitesse maximale, le facteur d'accélération,
+// la vitesse initiale et la position cible
+    myStepper.setMaxSpeed(1000);  // Vitesse max en pas/seconde
+    myStepper.setAcceleration(500); // Accélération en pas/seconde²
+	myStepper.setSpeed(200); // Vitesse constante en pas/seconde
+	myStepper.moveTo(2038); // Position cible
+}
+
+void loop() {
+	// Changer de direction une fois que le moteur atteint la position cible
+	if (myStepper.distanceToGo() == 0) 
+		myStepper.moveTo(-myStepper.currentPosition());
+
+	// Faire tourner le moteur d'un pas
+  // Il faut appeler cette fonction dans le loop sinon le moteur ne tourne pas
+	myStepper.run();
+}
+```
+
+## Explication du code
+
+`MotorInterfaceType` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
+
+```
+#define MotorInterfaceType 4
+```
+
+Ensuite, on crée une instance de la classe `AccelStepper` en indiquant le type de moteur, les broches **IN1-IN3-IN2-IN4**.
+
+```cpp
+AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
+```
+
+Dans la fonction `setup`, la vitesse maximale autorisée du moteur est réglée sur 1000 (le moteur accélérera jusqu'à cette vitesse lors de l'exécution). Le taux d'accélération/freinage est ensuite défini pour ajouter de l'accélération et du freinage aux mouvements du moteur pas-à-pas.
+
+La vitesse constante est réglée sur 200. Et, comme le 28BYJ-48 effectue 2038 pas par tour, la position cible est également réglée sur 2038.
+
+```cpp
+    myStepper.setMaxSpeed(1000);  // Vitesse max en pas/seconde
+    myStepper.setAcceleration(500); // Accélération en pas/seconde²
+	myStepper.setSpeed(200); // Vitesse constante en pas/seconde
+	myStepper.moveTo(2038); // Position cible
+```
+
+Dans la fonction loop, une instruction `if` est utilisée pour déterminer la distance que le moteur doit parcourir (en lisant la propriété distanceToGo) avant d'atteindre la position cible (définie par moveTo). Lorsque la distanceToGo atteint zéro, le moteur est tourné dans la direction opposée en définissant la position moveTo comme étant le négatif de sa position actuelle.
+
+En bas de la boucle, vous remarquerez que la fonction `run()` est appelée. C'est la fonction la plus importante, car le moteur pas-à-pas ne se déplacera pas s'il n'est pas exécuté.
+
+```cpp
+void loop() {
+	// Changer de direction une fois que le moteur atteint la position cible
+	if (myStepper.distanceToGo() == 0) 
+		myStepper.moveTo(-myStepper.currentPosition());
+
+	// Faire tourner le moteur d'un pas
+  // Il faut appeler cette fonction dans le loop sinon le moteur ne tourne pas
+	myStepper.run();
+}
+```
+
+---
+
+# Exercices
+1. Tester différents paramètres de vitesse et accélération
+   - Modifiez `setMaxSpeed()` et `setAcceleration()` pour observer les effets sur le mouvement.
+2. Faire tourner le moteur à l’infini dans un seul sens
+   - Remplacez `moveTo()` par `myStepper.setSpeed()` et utilisez `runSpeed()`.
+3. Contrôler la direction avec un bouton
+   - Ajoutez un bouton sur la broche 2 pour changer la direction du moteur.
+4. Utiliser un potentiomètre pour ajuster la vitesse
+   - Branchez un potentiomètre sur A0 et utilisez `analogRead(A0)` pour modifier `setMaxSpeed()`.
+---
+
+# Références
+- [Control 28BYJ-48 Stepper Motor with ULN2003 Driver](https://lastminuteengineers.com/28byj48-stepper-motor-arduino-tutorial/)
+- [AccelStepper The missing manual](https://hackaday.io/project/183279-accelstepper-the-missing-manual)
+
+<!--
+ARCHIVE
 
 # Exemple de code avec la librairie `Stepper`
 
@@ -159,96 +263,4 @@ void loop() {
 
 Remarquez que le moteur continue de tourner dans la même direction jusqu'à ce que la fonction `step()` soit appelée à nouveau. Donc il s'agit d'une configuration persistante.
 
-# Exemple de code avec la librairie `AccelStepper`
-
-La librairie `AccelStepper` est une nette amélioration par rapport à la librairie `Stepper` Arduino. Elle est plus rapide et plus flexible. Surtout, elle n'est pas bloquante, ce qui signifie que vous pouvez exécuter d'autres tâches pendant le mouvement du moteur.
-
-La première étape sera d'installer la librairie `AccelStepper` depuis le gestionnaire de bibliothèques Arduino.
-
-- Recherchez 'AccelStepper' dans le gestionnaire de bibliothèques Arduino. Assurez-vous que ce soit la version réalisée par Mike McCauley.
-  
-  ![Alt text](assets/install_library.png)
-
-Voici un code de base pour faire tourner le moteur dans une direction, puis dans l'autre.
-
-```cpp
-#include <AccelStepper.h>
-
-// Définir la constante de pas
-#define MotorInterfaceType 4
-
-// Crée une instance
-// Broches saisies dans la séquence IN1-IN3-IN2-IN4 pour une séquence de pas appropriée
-AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
-
-void setup() {
-// Définir la vitesse maximale, le facteur d'accélération,
-// la vitesse initiale et la position cible
-	myStepper.setMaxSpeed(1000.0);
-	myStepper.setAcceleration(50.0);
-	myStepper.setSpeed(200);
-	myStepper.moveTo(2038);
-}
-
-void loop() {
-	// Changer de direction une fois que le moteur atteint la position cible
-	if (myStepper.distanceToGo() == 0) 
-		myStepper.moveTo(-myStepper.currentPosition());
-
-	// Faire tourner le moteur d'un pas
-  // Il faut appeler cette fonction dans le loop sinon le moteur ne tourne pas
-	myStepper.run();
-}
-```
-
-## Explication du code
-
-`MotorInterfaceType` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
-
-```
-#define MotorInterfaceType 4
-```
-
-Ensuite, on crée une instance de la classe `AccelStepper` en indiquant le type de moteur, les broches IN1-IN3-IN2-IN4.
-
-```cpp
-AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
-```
-
-Dans la fonction `setup`, la vitesse maximale autorisée du moteur est réglée sur 1000 (le moteur accélérera jusqu'à cette vitesse lors de l'exécution). Le taux d'accélération/freinage est ensuite défini pour ajouter de l'accélération et du freinage aux mouvements du moteur pas-à-pas.
-
-La vitesse constante est réglée sur 200. Et, comme le 28BYJ-48 effectue 2038 pas par tour, la position cible est également réglée sur 2038.
-
-```cpp
-	myStepper.setMaxSpeed(1000.0);
-	myStepper.setAcceleration(50.0);
-	myStepper.setSpeed(200);
-	myStepper.moveTo(2038);
-```
-
-Dans la fonction loop, une instruction `if` est utilisée pour déterminer la distance que le moteur doit parcourir (en lisant la propriété distanceToGo) avant d'atteindre la position cible (définie par moveTo). Lorsque la distanceToGo atteint zéro, le moteur est tourné dans la direction opposée en définissant la position moveTo comme étant le négatif de sa position actuelle.
-
-En bas de la boucle, vous remarquerez que la fonction `run()` est appelée. C'est la fonction la plus importante, car le moteur pas-à-pas ne se déplacera pas s'il n'est pas exécuté.
-
-```cpp
-void loop() {
-	// Changer de direction une fois que le moteur atteint la position cible
-	if (myStepper.distanceToGo() == 0) 
-		myStepper.moveTo(-myStepper.currentPosition());
-
-	// Faire tourner le moteur d'un pas
-  // Il faut appeler cette fonction dans le loop sinon le moteur ne tourne pas
-	myStepper.run();
-}
-```
-
-
-
----
-
-# Exercices
-- Explorez les exemples de code fournis avec la librairie `AccelStepper` pour voir comment vous pouvez contrôler le moteur pas-à-pas.
----
-
-# Références
-- [Control 28BYJ-48 Stepper Motor with ULN2003 Driver](https://lastminuteengineers.com/28byj48-stepper-motor-arduino-tutorial/)
+ -->
