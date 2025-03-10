@@ -1,5 +1,7 @@
 # Cours 07
 
+"Tout est difficile avant d'être simple" - Thomas Fuller
+
 ![alt text](<assets/DALL·E 2024-03-04 09.47.28.webp>)
 
 ## Contenu

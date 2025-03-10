@@ -1,6 +1,6 @@
 # La machine à états finis <!-- omit in toc -->
 
-> **Note :** Cet article est une retranscription de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
+> **Note :** Cet article est une réinterprétation de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
 > 
 
 ![Alt text](fsm/fsm_base.drawio.svg)
@@ -26,13 +26,15 @@
 
 # Introduction
 
-Les machines à états finis sont un outil puissant pour contrôler le comportement des programmes sur un Arduino. Elles permettent de décrire l'état du système et comment il évolue en réponse aux entrées et sorties. Les machines à états finis sont utiles pour définir des comportements complexes en utilisant des algorithmes simples, et elles peuvent être implémentées efficacement sur un microcontrôleur comme l'Arduino. En utilisant des machines à états finis, les programmeurs peuvent décrire clairement et de manière organisée les différents états possibles du système, les transitions entre ces états et les actions à effectuer à chaque étape. Cela peut être particulièrement utile pour des projets impliquant des systèmes autonomes, tels que des robots ou des dispositifs IoT, où le comportement doit être précis et cohérent.
+Les **machines à états finis** sont un outil puissant pour contrôler le comportement des programmes sur un Arduino. Elles permettent de décrire l'état du système et comment il évolue en réponse aux entrées et sorties. Les machines à états finis sont utiles pour définir des comportements complexes en utilisant des algorithmes simples, et elles peuvent être implémentées efficacement sur un microcontrôleur comme l'Arduino. En utilisant des machines à états finis, les programmeurs peuvent décrire clairement et de manière organisée les différents états possibles du système, les transitions entre ces états et les actions à effectuer à chaque étape. Cela peut être particulièrement utile pour des projets impliquant des systèmes autonomes, tels que des robots ou des dispositifs IoT, où le comportement doit être précis et cohérent.
 
 ---
 
 # Pourquoi utiliser une machine à états finis?
 
 En utilisant des machines à états finis, les programmeurs peuvent concevoir des systèmes qui ont des comportements complexes, tout en conservant un code facile à lire, à maintenir et à déboguer.
+
+Il s'agit d'une méthode de développement complémentaire à la programmation par tâche. Il ne sont pas exclusifs l'un de l'autre, mais peuvent être utilisés ensemble pour créer des systèmes plus robustes et plus flexibles.
 
 ---
 
@@ -41,7 +43,7 @@ En utilisant des machines à états finis, les programmeurs peuvent concevoir de
 - Une machine peut avoir un ou plusieurs états.
 - Pour passer d’un état à l’autre, il y a une transition.
 - L’idée générale est d’écrire un programme pilotant un système qui doit réagir en déclenchant des actions modifiant le système par exemple en fonction d’événements qui se produisent et la réaction peut dépendre de l’état actuel du système.
-- Souvent, on utilise le sigle FSM dans la documentation
+- Souvent, on utilise le sigle **FSM** dans la documentation
   - *Finite State Machine*
 
 ---
@@ -155,10 +157,9 @@ Construisons un cas un peu similaire à celui de la minuterie, mais un peu plus 
 
 Il vous faudra
 
-- 4 LEDs de couleur (rouge, orange, jaune, verte)
-- 4 résistances de 200Ω à 300Ω (en fonction de vos LEDs)    
-- 1 bouton momentané    
-- 1 Arduino UNO ou similaire
+- 4 LEDs de couleur : Dans la démonstration, je vais utiliser rouge, orange, jaune, vert.
+- 4 résistances de 200Ω à 400Ω (en fonction de vos LEDs)
+- 1 bouton momentané
 - Des fils pour connecter tout cela
 
 Voici le montage:
@@ -172,10 +173,10 @@ On relie les GND de l'Arduino avec le rail GND de la platine d'essai ( j'ai reli
 On connecte
 
 - Pin 4 --> bouton --> GND (en câblant 'croisé' on est sûr d'avoir les bonnes pins)
-- Pin 8 --> Led rouge --> 200 Ω --> GND
-- Pin 9 --> Led orange --> 200 Ω --> GND
-- Pin 10 --> Led jaune --> 200 Ω --> GND
-- Pin 11 --> Led verte --> 200 Ω --> GND
+- Pin 8 --> Led rouge --> 220 Ω --> GND
+- Pin 9 --> Led orange --> 220 Ω --> GND
+- Pin 10 --> Led jaune --> 220 Ω --> GND
+- Pin 11 --> Led verte --> 220 Ω --> GND
 
 Voilà à partir de là on va effectuer 3 exercices pour comprendre comment fonctionne une FSM.
 
@@ -249,7 +250,7 @@ void loop() {
 }
 ```
 
-Voilà. L'utilisation d'un bouton est relativement simple demploi et ça permet de nous concentrer sur notre machine à état (si vous êtes curieux allez voir le [source de la librairie](https://github.com/mathertel/OneButton) et vous verrez que c'est aussi une machine à état).
+Voilà. L'utilisation d'un bouton est relativement simple d'emploi et ça permet de nous concentrer sur notre machine à état (si vous êtes curieux allez voir le [source de la librairie](https://github.com/mathertel/OneButton) et vous verrez que c'est aussi une machine à état).
 
 ---
 **Revenons au code**

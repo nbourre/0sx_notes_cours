@@ -1,11 +1,23 @@
 # Découverte du protocole I2C avec Arduino <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
-- [Introduction](assets/#introduction)
+- [Introduction](#introduction)
+- [Qu'est-ce que le protocole I2C ?](#quest-ce-que-le-protocole-i2c-)
+- [Fonctionnement de base d'I2C](#fonctionnement-de-base-di2c)
+- [Utilité d'I2C dans le contexte Arduino](#utilité-di2c-dans-le-contexte-arduino)
+- [Fonctionnement en programmation](#fonctionnement-en-programmation)
+- [Exemple : Lecture d'un accéléromètre MPU-6050](#exemple--lecture-dun-accéléromètre-mpu-6050)
+- [Exemple : Contrôle d'écran LCD 1602 I2C](#exemple--contrôle-décran-lcd-1602-i2c)
+- [Exemple : MPU-6050 avec la librairie Adafruit](#exemple--mpu-6050-avec-la-librairie-adafruit)
+- [Exemples d'appareils communs utilisant I2C](#exemples-dappareils-communs-utilisant-i2c)
+- [Conclusion](#conclusion)
+- [Exercices](#exercices)
+- [Références](#références)
+
 
 
 # Introduction
-Lorsqu'on travaille avec des projets Arduino, il est fréquent de rencontrer des capteurs et des périphériques qui communiquent via le protocole I2C. Cette méthode de communication est particulièrement intéressante pour les étudiants du cégep en informatique, car elle permet de simplifier les connexions entre les dispositifs et de gagner en flexibilité. Dans cet article, nous allons explorer les bases du protocole I2C, son utilité et un exemple d'application.
+Lorsqu'on travaille avec des projets Arduino, il est fréquent de rencontrer des capteurs et des périphériques qui communiquent via le protocole I2C. Cette méthode de communication est particulièrement intéressante pour les étudiants, car elle permet de simplifier les connexions entre les dispositifs et de gagner en flexibilité. Dans cet article, nous allons explorer les bases du protocole I2C, son utilité et un exemple d'application.
 
 # Qu'est-ce que le protocole I2C ?
 I2C, abréviation de "Inter-Integrated Circuit", est un protocole de communication inventé par Philips (aujourd'hui NXP) en 1982. Il est conçu pour établir une communication bidirectionnelle entre plusieurs périphériques électroniques sur un même circuit imprimé. Il fonctionne en mode maître-esclave, c'est-à-dire qu'un seul maître (généralement un microcontrôleur comme l'Arduino) contrôle plusieurs esclaves (comme des capteurs, des écrans LCD, etc.).
@@ -13,13 +25,13 @@ I2C, abréviation de "Inter-Integrated Circuit", est un protocole de communicati
 # Fonctionnement de base d'I2C
 Le protocole I2C fonctionne en mode **maître-esclave**. Le maître est le dispositif qui contrôle les autres périphériques. Il peut envoyer des données à un esclave, mais aussi recevoir des données de l'esclave. Les esclaves sont les périphériques qui reçoivent des données du maître et qui peuvent envoyer des données au maître. Dans le cas d'un Arduino, le maître est l'Arduino lui-même et les esclaves sont les capteurs et les périphériques qui communiquent avec l'Arduino.
 
-Le protocole I2C utilise deux lignes de communication: **SDA** (Serial Data) et **SCL** (Serial Clock). SDA est responsable de la transmission des données, tandis que SCL synchronise les dispositifs en fournissant une horloge partagée. Tous les dispositifs esclaves sont connectés en parallèle à ces deux lignes, ce qui permet de réduire considérablement le nombre de câbles nécessaire.
+Le protocole I2C utilise deux lignes de communication: **SDA** (*Serial Data*) et **SCL** (*Serial Clock*). SDA est responsable de la transmission des données, tandis que SCL synchronise les dispositifs en fournissant une horloge partagée. Tous les dispositifs esclaves sont connectés en parallèle à ces deux lignes, ce qui permet de réduire considérablement le nombre de câbles nécessaire.
 
 ![Alt text](assets/I2C-Communication-How-It-Works.webp)
 
 Chaque esclave possède une **adresse unique** (généralement de 7 bits) qui permet au maître de communiquer avec un périphérique spécifique. Lorsqu'un maître souhaite envoyer ou recevoir des données, il commence par diffuser l'adresse de l'esclave concerné sur le bus I2C. Une fois que l'esclave reconnaît son adresse, il établit une connexion et échange des données avec le maître.
 
-Comme indiqué, chaque appareil possède une adresse. Celle-ci est généralement fournie par le fabricant du périphérique. Par exemple, le module LCD I2C possède l'adresse 0x27. Pour trouver l'adresse d'un périphérique, il suffit de lire la documentation fournie par le fabricant.
+Comme indiqué, chaque appareil possède une adresse. Celle-ci est généralement fournie par le fabricant du périphérique. Par exemple, le module LCD I2C possède l'adresse 0x27. Pour trouver l'adresse d'un périphérique, il suffit de lire la documentation fournie par le fabricant (RTFM! 😉).
 
 Certains appareils permettent de modifier l'adresse à l'aide de configuration. Par exemple, en plus de l'adresse 0x27 le module LCD I2C peut être configuré pour avoir une adresse entre 0x20 à 0x23. Pour modifier l'adresse, il suffit de faire des ponts de soudure sur les broches A0, A1 et A2 du module LCD I2C.
 
@@ -100,7 +112,7 @@ void loop() {
   Serial.print(", Gyro_Y:");  Serial.print(gy);
   Serial.print(", Gyro_Z:");  Serial.println(gz);
 
-  delay(25); // Attend une seconde avant la prochaine lecture
+  delay(25); // Attend quelques instants avant la prochaine lecture
 }
 
 ```
@@ -116,10 +128,10 @@ Voici un exemple de code pour contrôler un écran LCD 1602 I2C avec l'Arduino M
 
 ```cpp
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+#include <LCD_I2C.h>
 
-// Créez un objet LiquidCrystal_I2C avec l'adresse du module I2C et la taille de l'écran (16x2)
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+// Créez un objet LCD_I2C avec l'adresse du module I2C et la taille de l'écran (16x2)
+LCD_I2C lcd(0x27, 16, 2);
 
 void setup() {
   // Initialise l'écran LCD
@@ -141,11 +153,8 @@ void loop() {
 
 ```
 
-Pour réaliser cet exemple, il faut importer la librairie `LiquidCrystal_I2C`.
+Pour réaliser cet exemple, il faut importer la librairie `LCD_I2C`.
 
-> **Note :** Les exemples de `LiquidCrystal_I2C` ne s'ouvrent pas car ils ne respectent plus la norme Arduino. Pour les ouvrir, il faut changer l'extension des fichiers pour `.ino`.
-> 
-> Les fichiers des librairies sont dans le dossier `%userprofile%\Documents\Arduino\libraries` sous Windows.
 
 ![Alt text](assets/branchement_lcd_i2c_bb.png)
 
@@ -225,6 +234,7 @@ Voici quelques exemples d'appareils et de capteurs populaires qui fonctionnent a
 ![Alt text](assets/ds1307.jpg)
 
 1. **PCF8574 :** Un contrôleur de port I/O à 8 broches qui permet de contrôler des périphériques externes à l'aide d'un bus I2C. Il est utilisé dans les projets nécessitant un contrôle de périphériques à distance, comme les claviers matriciels ou les afficheurs LCD.
+   - Dans votre cas, il est présoudé sur le module LCD.
 ![Alt text](assets/pcf8574.webp)
 
 1. **SSD1306 :** Un contrôleur pour écrans OLED monochromes couramment utilisé avec des écrans de petite taille (par exemple, 128x64 ou 128x32 pixels). Ces écrans sont souvent employés pour afficher des informations sur l'état, des graphiques ou des textes dans divers projets.
@@ -239,9 +249,8 @@ Le protocole I2C est un moyen simple et efficace de communiquer avec divers pér
 ---
 
 # Exercices
-1. À l'aide du kit de pièces prêtées, ajoutez à votre montage le module LCD i2c et affichez le texte "Hello World" sur l'écran LCD.
-
-
+1. À l'aide de votre kit, ajoutez à votre montage le module LCD i2c et affichez le texte "Hello World" sur l'écran LCD.
+2. Ajoutez l'ensemble des appareils i2c qui sont présent dans votre kit et affichez les valeurs que vous lisez sur l'écran LCD.
 
 ---
 
