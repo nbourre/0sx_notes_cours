@@ -1,8 +1,9 @@
-# Le servormoteur <!-- omit in toc -->
+# Le servomoteur <!-- omit in toc -->
 
-![Alt text](c07_servo/servo-samples.jpg)
+![Alt text](assets/servo-samples.jpg)
 
 # Table des matières <!-- omit in toc -->
+- [Mise en garde - Risque de bris](#mise-en-garde---risque-de-bris)
 - [Introduction](#introduction)
 - [Utilisation](#utilisation)
 - [Votre kit](#votre-kit)
@@ -11,6 +12,16 @@
 - [Exemple de code](#exemple-de-code)
 - [Exercices](#exercices)
 - [Références](#références)
+
+---
+
+# Mise en garde - Risque de bris
+
+Le servo moteur que vous avez en main est un composant fragile. Il est important de ne pas forcer le moteur à tourner plus que sa limite. Si vous le forcez, il chauffera et peut s'endommager.
+
+De plus, ne faites pas tourner le moteur manuellement. Cela peut endommager les engrenages à l'intérieur du moteur.
+
+![alt text](assets/m2-res_854p.webp)
 
 ---
 
@@ -24,9 +35,13 @@ Il contient son propre circuit de commande qui permet de contrôler la vitesse e
 Il y a principalement deux types de servomoteurs. Les servomoteurs à rotation continue et les servomoteurs à rotation limitée. Les servomoteurs à rotation continue peuvent tourner dans un angle de 0 à 360° continuellement. Les servomoteurs à rotation limitée peuvent pivoter entre deux limites prédéfinies.
 
 # Utilisation
-On retrouve des servomoteurs dans de nombreux produits. On peut les retrouver dans les télécommandes, les drones, les robots, les voitures, etc.
+On retrouve des servomoteurs dans de nombreux produits. On peut les retrouver dans les avions, les drones, les robots, les voitures, etc.
 
 Par exemple, les conduits de systèmes de chauffage et de climatisation dans les voiture sont contrôlés par des servomoteurs. En effet, ils ouvrent et ferment les conduits en fonction des zones définies par les occupants ou encore par le système automatique.
+
+![alt text](assets/120mm_fan_to_100mm_pipe_extended.gif)
+
+![alt text](assets/EDF-thrust-vectoring-optimized.gif)
 
 # Votre kit
 Votre kit contient un servomoteur SG90. Il s'agit d'un servomoteur à rotation limitée. Il peut, en théorie, pivoter entre 0 et 180°.
