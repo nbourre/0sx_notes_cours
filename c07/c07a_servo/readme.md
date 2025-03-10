@@ -39,7 +39,7 @@ On retrouve des servomoteurs dans de nombreux produits. On peut les retrouver da
 
 Par exemple, les conduits de systèmes de chauffage et de climatisation dans les voiture sont contrôlés par des servomoteurs. En effet, ils ouvrent et ferment les conduits en fonction des zones définies par les occupants ou encore par le système automatique.
 
-![alt text](assets/120mm_fan_to_100mm_pipe_extended.gif)
+![alt text](assets/120mm_fan_to_100mm_pipe_extended.webp)
 
 ![alt text](assets/EDF-thrust-vectoring-optimized.gif)
 
@@ -64,7 +64,7 @@ Le servomoteur a 3 fils. Le fil rouge est le fil de puissance. Il doit être bra
 ## Branchement
 Voici le branchement typique pour un servomoteur. Remarquez la présence du module de puissance. Il est préférable d'utiliser ce module pour fournir une alimentation de 5V au servomoteur.
 
-![Alt text](assets/branchement_servo_bb.svg)
+![alt text](assets/branchement_servo_bb.png)
 
 # Exemple de code
 Voici un exemple de code qui permet de contrôler un servomoteur. Le code permet de faire tourner le servomoteur dans un angle de 0 à 170° et de revenir à 0°.
@@ -90,7 +90,7 @@ void loop() {
 }
 ```
 
-Prenez note qu'une fois la position atteinte et qu'il n'y a pas de force qui lui est appliquée, il est préférable d'arrêter d'envoyer des pulsations. Cela permet d'éviter que le servomoteur ne chauffe et ne s'endommage.
+Prenez note qu'une fois la position atteinte et qu'il n'y a pas de force qui lui est appliquée, il est préférable d'arrêter d'envoyer des pulsations. Cela permet de réduire la consommation d'énergie et de prolonger la durée de vie du servomoteur.
 
 Pour se faire on peut utiliser la fonction `servo.detach()`.
 
