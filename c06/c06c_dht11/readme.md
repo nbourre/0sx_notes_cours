@@ -27,6 +27,28 @@ Prenez le temps d'observer l'ordre des broches de votre DHT-11. Si vous ne le br
 
 Le "S" indique la broche du signal. Il se peut que le GND et Vcc ne soient pas indiqués. Dans ce cas, il faudra tester avec un multimètre pour trouver les bonnes broches.
 
+Il y a deux modèles fréquent de DHT-11. Les deux possèdent 3 broches, mais l'ordre des broches n'est pas le même. Il est important de bien identifier les broches avant de les brancher.
+
+<a id="dht11" />
+
+<table>
+  <tr>
+    <th>DHT-11</th>
+    <th>DHT-11</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="assets/DHT11_Sensor_Pinout_600x600.webp" alt="DHT-11 S">
+      Version avec trou de montage au dessus des broches
+    </td>
+    <td>
+      <img src="assets/dht-11 variant.jpg" alt="DHT-11">
+      Version sans trou de montage
+    </td>
+  </tr>
+</table>
+
+
 ---
 
 
@@ -54,6 +76,8 @@ Le DHT11 peut être utilisé dans de nombreux projets différents, notamment :
 
 Voici le branchement typique du module DHT11
 ![Alt text](assets/dht11_bb.png)
+
+> **Attention!!** : Le branchement du DHT11 peut varier en fonction du modèle. Assurez-vous de bien identifier les broches avant de les brancher. Référez-vous au tableau [ci-dessus](#dht11) pour plus d'informations.
 
 
 ## Mesure de température et d'humidité
