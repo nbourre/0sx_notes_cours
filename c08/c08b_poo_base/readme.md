@@ -125,7 +125,7 @@ Dans cette partie, nous allons explorer la programmation orientée objet en simu
 
 Pour ce projet, nous utiliserons une carte Arduino, un servo-moteur, une *breadboard* et des fils de raccordement.
 
-Le servo-moteur est un moteur qui peut être contrôlé avec précision pour se déplacer dans une plage de mouvement spécifiée. Nous allons utiliser un servo-moteur pour simuler un verrou motorisé, qui peut être activé ou désactivé en tournant le servo-moteur dans une direction ou l'autre. Pour plus de détail sur le servo-moteur, consultez [cet article](../../c07/c07d_servo/C07d_servo.md).
+Le servo-moteur est un moteur qui peut être contrôlé avec précision pour se déplacer dans une plage de mouvement spécifiée. Nous allons utiliser un servo-moteur pour simuler un verrou motorisé, qui peut être activé ou désactivé en tournant le servo-moteur dans une direction ou l'autre. Pour plus de détail sur le servo-moteur, consultez [cet article](../../c07/c07a_servo/readme.md).
 
 Nous allons utiliser la programmation orientée objet pour créer une classe `Verrou` qui représente notre verrou motorisé. Cette classe aura des méthodes pour activer ou désactiver le verrou, ainsi qu'un attribut d'état pour suivre l'état actuel du verrou. Nous utiliserons également une machine à états pour gérer les transitions entre les différents états du verrou.
 
@@ -133,7 +133,7 @@ Maintenant que nous avons une vue d'ensemble de notre projet, passons à la cré
 
 ```cpp
 // Fichier : Verrou.h
-#pragma once // Cette ligne permet d'éviter les problèmes de compilation
+#pragma once // Toujours inclure cette ligne dans  un .h pour éviter les problèmes de compilation
 #include <Servo.h>
 
 // Déclaration de l'énumération pour les états du verrou

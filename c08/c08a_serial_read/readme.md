@@ -3,7 +3,6 @@
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Arduino Mega : Spécificités](#arduino-mega--spécificités)
-- [SoftwareSerial](#softwareserial)
 - [Fonctions importantes de base](#fonctions-importantes-de-base)
 - [Utilisation](#utilisation)
 - [Exemple de contrôle via le PC](#exemple-de-contrôle-via-le-pc)
@@ -36,23 +35,18 @@ Voici un tableau avec les broches utilisées pour chaque port série :
 
 > **Note** : On ne branche généralement rien sur les broches TX et RX du port série 0 car elles sont utilisées pour la communication avec l'ordinateur. Si vous branchez quelque chose sur ces broches, vous ne pourrez probablement plus téléverser de programme sur l'Arduino Mega.
 
-# SoftwareSerial
-Si vous avez un Arduino qui n'a plus de port série natif disponible, vous pouvez utiliser la bibliothèque `SoftwareSerial` pour utiliser les broches digitales de l'Arduino comme port série. Cela permet d'utiliser plusieurs ports série sur un Arduino. Cependant, il faut noter que `SoftwareSerial` n'est pas aussi rapide que les ports série natifs de l'Arduino.
-
-Cette bibliothèque est souvent utilisée avec les cartes Arduino Uno, Nano, etc. qui n'ont qu'un seul port série natif.
-
 # Fonctions importantes de base
 Les fonctions importantes pour la lecture de données à partir du port série sont :
 
 - `Serial.begin()` : Initialise le port série.
-- `Serial.available()` : Retourne le nombre de caractères disponibles dans le buffer de réception.
-- `Serial.read()` : Lit un caractère du buffer de réception.
+- `Serial.available()` : Retourne le nombre de caractères (octets) disponibles dans le tampon de réception.
+- `Serial.read()` : Lit un caractère du tampon de réception.
 
 # Utilisation
 
-Pour savoir si des données sont disponibles dans le tampon (*buffer*) de réception, on utilise la fonction `Serial.available()`. Cette fonction retourne le nombre d'octet disponibles à la lecture dans le buffer de réception. Si le nombre d'octet est supérieur à 0, alors on peut lire le caractère avec la fonction `Serial.read()`.
+Pour savoir si des données sont disponibles dans le tampon (*buffer*) de réception, on utilise la fonction `Serial.available()`. Cette fonction retourne le nombre d'octet disponibles à la lecture dans le buffer de réception. Si le nombre d'octet est supérieur à 0, alors on peut lire chaque octet avec la fonction `Serial.read()`.
 
-Il faut toujours regarder si des données sont disponibles dans le buffer de réception avant de lire le caractère. Si vous lisez un caractère alors qu'aucune donnée n'est disponible, vous risquez de lire un caractère aléatoire.
+Il faut toujours regarder si des données sont disponibles dans le buffer de réception avant de lire le caractère. Si vous lisez un octet alors qu'aucune donnée n'est disponible, vous risquez de lire un octet aléatoire.
 
 # Exemple de contrôle via le PC
 
@@ -178,7 +172,7 @@ Notez qu'il y a aussi la fonction `Serial.parseFloat()` qui permet de lire un no
 
 # Fonction `serialEvent()`
 
-Vous remarquez dans les exemples que nous avons utilisé la fonction `Serial.available()` pour vérifier si des données sont disponibles dans le buffer de réception. Cependant, il existe une autre fonction qui permet de faire la même chose : `serialEvent()`. Cette **fonction événementielle** est appelée automatiquement lorsque des données sont disponibles dans le buffer de réception. Cela permet d'éviter d'avoir à vérifier si des données sont disponibles dans le buffer de réception à chaque fois que l'on veut lire des données.
+Vous remarquez dans les exemples que nous avons utilisé la fonction `Serial.available()` pour vérifier si des données sont disponibles dans le tampon de réception. Cependant, il existe une autre fonction qui permet de faire la même chose : `serialEvent()`. Cette **fonction événementielle** est appelée automatiquement lorsque des données sont disponibles dans le buffer de réception. Cela permet d'éviter d'avoir à vérifier si des données sont disponibles dans le buffer de réception à chaque fois que l'on veut lire des données.
 
 Pour le Mega, les fonctions `serialEvent` disponibles sont `serialEvent1`, `serialEvent2` et `serialEvent3`. Chacune étant associée à son port série.
 
@@ -439,7 +433,7 @@ int analogPinToDigitalPin(int analogPin) {
 Dans ce code qui peut sembler relativement complexe est plus simple qu'on peut y penser. En effet, j'ai subdivisé le code en plusieurs fonctions pour le rendre plus lisible et plus facile à comprendre. Cela permet de mieux organiser le code et de le rendre plus modulaire. Cela permet aussi de réutiliser certaines parties du code dans d'autres projets.
 
 
-> **Note** : Il y a aussi la fonction `Serial.readString()` qui lit une chaîne jusqu'à ce qu'un caractère de nouvelle ligne soit rencontré. Cependànt, cette commande ralentie la fonction attend un certain temps pour lire la chaîne. `Serial.readStringUntil()` est plus rapide car elle lit la chaîne jusqu'à ce qu'un caractère spécifié soit rencontré.
+> **Note** : Il y existe aussi la fonction `Serial.readString()` qui lit une chaîne jusqu'à ce qu'un caractère de nouvelle ligne soit rencontré. Cependànt, cette commande ralentie la fonction attend un certain temps pour lire la chaîne. `Serial.readStringUntil()` est plus rapide car elle lit la chaîne jusqu'à ce qu'un caractère spécifié soit rencontré.
 
 
 ---
