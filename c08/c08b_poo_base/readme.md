@@ -182,7 +182,7 @@ Verrou::Verrou(int pin, int angleOuvert, int angleFerme) {
   servo.write(position);
 }
 
-Verrou::activer() {
+void Verrou::activer() {
   if (etat == FERME) {
     position = angleOuvert;
     etat = OUVERT;
@@ -190,7 +190,7 @@ Verrou::activer() {
   }
 }
 
-Verrou::desactiver() {
+void Verrou::desactiver() {
   if (etat == OUVERT) {
     position = angleFerme;
     etat = FERME;
