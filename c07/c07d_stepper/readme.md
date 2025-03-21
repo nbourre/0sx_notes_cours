@@ -136,18 +136,23 @@ Voici un code de base pour faire tourner le moteur dans une direction, puis dans
 ```cpp
 #include <AccelStepper.h>
 
-// Définir la constante de pas
-#define MotorInterfaceType 4
+// Définir le type de moteur, les broches IN1-IN3-IN2-IN4
+#define MOTOR_INTERFACE_TYPE 4
+
+#define IN_1 31
+#define IN_2 33
+#define IN_3 35
+#define IN_4 37
 
 // Crée une instance
 // Attention : L’ordre des broches (IN1, IN3, IN2, IN4) est spécifique au 28BYJ-48.
-AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
+AccelStepper myStepper(MOTOR_INTERFACE_TYPE, IN_1, IN_3, IN_2, IN_4);
 
 void setup() {
 // Définir la vitesse maximale, le facteur d'accélération,
 // la vitesse initiale et la position cible
-    myStepper.setMaxSpeed(1000);  // Vitesse max en pas/seconde
-    myStepper.setAcceleration(500); // Accélération en pas/seconde²
+    myStepper.setMaxSpeed(500);  // Vitesse max en pas/seconde
+    myStepper.setAcceleration(100); // Accélération en pas/seconde²
 	myStepper.setSpeed(200); // Vitesse constante en pas/seconde
 	myStepper.moveTo(2038); // Position cible
 }
@@ -165,7 +170,7 @@ void loop() {
 
 ## Explication du code
 
-`MotorInterfaceType` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
+`MOTOR_INTERFACE_TYPE` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
 
 ```
 #define MotorInterfaceType 4
@@ -174,7 +179,7 @@ void loop() {
 Ensuite, on crée une instance de la classe `AccelStepper` en indiquant le type de moteur, les broches **IN1-IN3-IN2-IN4**.
 
 ```cpp
-AccelStepper myStepper(MotorInterfaceType, 8, 10, 9, 11);
+AccelStepper myStepper(MOTOR_INTERFACE_TYPE, IN_1, IN_3, IN_2, IN_4);
 ```
 
 Dans la fonction `setup`, la vitesse maximale autorisée du moteur est réglée sur 1000 (le moteur accélérera jusqu'à cette vitesse lors de l'exécution). Le taux d'accélération/freinage est ensuite défini pour ajouter de l'accélération et du freinage aux mouvements du moteur pas-à-pas.
