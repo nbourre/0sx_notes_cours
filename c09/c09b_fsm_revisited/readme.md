@@ -292,17 +292,16 @@ Un astuce qui permet de simplifier la structure de l'application est de se faire
 
 Voici un exemple de schéma de machine à états finis.
 
-```puml
+<!--
 @startuml
 scale 600 width
 
 [*] -> Arrêt
-Arrêt --> Fonctionne : Bouton\nactivé
-Fonctionne --> Arrêt : Bouton\ndésactivé
+Arrêt -> Fonctionne : Bouton\nactivé
+Fonctionne -> Arrêt : Bouton\ndésactivé
 
 @enduml
-
-```
+-->
 
 On identifie deux états:
 - Arrêt
