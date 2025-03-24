@@ -367,11 +367,9 @@ private:
   OneButton _button;
 
   static Motor *instance;
-  static void buttonClick(Motor *self);
-  static void buttonLongPress(Motor *self);
+  static void buttonClick(void *context);
+  static void buttonLongPress(void *context);
 
-  bool timeElapsed(unsigned long duration);
-  
   void offState();
   void warnState();
   void onState();
@@ -389,26 +387,26 @@ Motor *Motor::instance = nullptr;
 
 // Constructeur
 Motor::Motor(int motorPin, int ledPin, int buttonPin)
-  : _motorPin(motorPin), _ledPin(ledPin) {
+  : _motorPin(motorPin), _ledPin(ledPin), _button(buttonPin, true, true) {
   pinMode(_motorPin, OUTPUT);
   pinMode(_ledPin, OUTPUT);
 
-  instance = this;
+  _button.setDebounceMs(50);
+  _button.setClickMs(10);
+  _button.setPressMs(1000);
 
-  _button.setDebounceTicks(50);
-  _button.setClickTicks(10);
-  _button.setPressTicks(1000);
-
-  _button.attachClick(buttonClick, instance);
-  _button.attachLongPressStop(buttonLongPress, instance);
+  _button.attachClick(buttonClick, this);
+  _button.attachLongPressStop(buttonLongPress, this);
 }
 
-static void Motor::buttonClick(Motor *self) {
+void Motor::buttonClick(void* context) {
+  Motor *self = static_cast<Motor*>(context);
   self->_buttonPressed = true;
   self->_previousTime = millis();
 }
 
-static void Motor::buttonLongPress(Motor *self) {
+void Motor::buttonLongPress(void* context) {
+  Motor *self = static_cast<Motor*>(context);
   self->_buttonLongPressed = true;
   self->_previousTime = millis();
 }
@@ -503,3 +501,36 @@ void Motor::update() {
   }
 }
 ```
+
+Dans votre fichier .ino, vous pouvez maintenant utiliser la classe `Motor`.
+
+```cpp
+#include "Motor.h"
+
+Motor motor(3, 13, 2); // Exemple: broche moteur=3, DEL=13, bouton=2
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  motor.update();
+}
+```
+
+**Note sur les `static_cast`**
+
+Dans la bibliothèque `OneButton`, les fonctions de rappel (callbacks) doivent avoir cette signature :
+
+```cpp
+void attachClick(parameterizedCallbackFunction newFunction, void *parameter);
+```
+
+Lorsque vous appelez `attachClick(callback, this)`, la fonction reçoit un `void*` que nous devons convertir en pointeur vers la classe adéquate `(Motor*)`. C’est le rôle de `static_cast<Motor*>(context)` :
+
+```cpp
+// On retransforme le void* context en Motor* pour accéder à l'instance
+Motor* self = static_cast<Motor*>(context);
+```
+
+Le `static_cast<Motor*>(context)` nous permet de convertir le paramètre générique `void*` reçu par la fonction de rappel en un pointeur de type `Motor*`. Ainsi, on peut accéder aux variables et méthodes de l'instance `Motor` liée au bouton correspondant. Cette conversion est nécessaire, car la bibliothèque `OneButton` ne connaît pas le type réel de l'objet passé en paramètre.
