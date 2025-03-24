@@ -292,16 +292,15 @@ Un astuce qui permet de simplifier la structure de l'application est de se faire
 
 Voici un exemple de schéma de machine à états finis.
 
-<!--
-@startuml
-scale 600 width
-
-[*] -> Arrêt
-Arrêt -> Fonctionne : Bouton\nactivé
-Fonctionne -> Arrêt : Bouton\ndésactivé
-
-@enduml
--->
+```mermaid
+---
+title: Machine à états finis
+---
+stateDiagram-v2
+    [*] --> Arrêt : Initialisation
+    Arrêt --> Fonctionne : Bouton désactivé
+    Fonctionne --> Arrêt : Bouton activé
+```
 
 On identifie deux états:
 - Arrêt
@@ -315,9 +314,22 @@ On identifie deux transitions:
 
 # Utiliser la programmation orientée objet
 Reprenons l'exemple précédent, mais convertissons-le en utilisant la programmation orientée objet. Nous allons aussi modifier le projet.
-- Avant que le moteur entre en action, on doit faire clignoter une DEL pendant 3 secondes.
+- Avant que le moteur entre en action, pour avertir l'utilisateur on doit faire clignoter une DEL pendant 3 secondes.
 - Pendant que le moteur tourne, la DEL doit être allumée.
 - Pendant que le moteur arrête de tourner, la DEL doit être éteinte graduellement.
+
+```mermaid
+---
+title: Machine à états finis
+---
+stateDiagram-v2
+    [*] --> Arrêt : Initialisation
+    Arrêt --> Avertissement : Long appui
+    Avertissement --> Fonctionne : t > 3s
+    Fonctionne --> Arrêt : Bouton activé
+
+```
+
 
 ## Définir la classe
 La classe doit avoir un constructeur qui prend en paramètre la broche du bouton, la broche de la DEL ainsi que celle du moteur. Elle doit aussi avoir une fonction `update()` qui devra être appelée dans la fonction `loop()`.
@@ -331,9 +343,9 @@ Voici le code pour l'entête de la classe.
 class Motor {
 public:
   enum State { OFF,
-               RUN_ENTER,
                ON,
-               RUN_EXIT };
+               WARN,
+              };
 
   Motor(int motorPin, int ledPin, int buttonPin);
 
@@ -348,6 +360,8 @@ private:
   const int _blinkRate = 50;
   
   bool _buttonPressed = false;
+  bool _buttonLongPressed = false;
+
   State _state = OFF;
 
   OneButton _button;
@@ -358,10 +372,9 @@ private:
 
   bool timeElapsed(unsigned long duration);
   
-  void offExecute();
-  void runEnter();
-  void runExit();
-  void runExecute();
+  void offState();
+  void warnState();
+  void onState();
 };
 ```
 
@@ -393,81 +406,100 @@ Motor::Motor(int motorPin, int ledPin, int buttonPin)
 static void Motor::buttonClick(Motor *self) {
   self->_buttonPressed = true;
   self->_previousTime = millis();
-  self->_state = RUN_ENTER;
 }
 
 static void Motor::buttonLongPress(Motor *self) {
-  self->_buttonPressed = true;
-  self->_state = RUN_EXIT;
+  self->_buttonLongPressed = true;
   self->_previousTime = millis();
 }
 
-void Motor::offExecute() {
-  digitalWrite(_motorPin, LOW);
-  digitalWrite(_ledPin, LOW);
-}
-
-void Motor::runEnter() {
+void Motor::offState() {
   static unsigned long lastTime = 0;
-  
-  if (timeElapsed(500)) {
-    _state = ON;
-    digitalWrite(_ledPin, HIGH);
-  }
-  
-  if (_currentTime - lastTime >= _blinkRate) {
-    lastTime = _currentTime;
-    digitalWrite(_ledPin, !digitalRead(_ledPin));
-  }
-}
+  static bool firstTime = true;
 
-void Motor::runExecute() {
-  digitalWrite(_motorPin, HIGH);
-  digitalWrite(_ledPin, HIGH);
-}
-
-void Motor::runExit() {
-  static unsigned long lastTime = 0;
-  static int brightness = 255;
-  
-  if (timeElapsed(1000)) {
-    _state = OFF;
+  if (firstTime) {
+    firstTime = false;
+    digitalWrite(_motorPin, LOW);
     digitalWrite(_ledPin, LOW);
+
+    Serial.println("Off state");
+    return;
   }
-  
-  if (_currentTime - lastTime >= 4) {
-    lastTime = _currentTime;
-    
-    brightness = brightness > 0 ? brightness - 1 : 0;
+ 
+
+
+  bool transition = _buttonLongPressed;
+
+  if (transition) {
+    _buttonLongPressed = false;
+    _state = WARN;
   }
-  analogWrite(_ledPin, brightness);
 }
+
+void Motor::warnState() {
+  static unsigned long lastTime = 0;
+  static unsigned long exitTime = 0;
+  static bool firstTime = true;
+  static bool ledState = LOW;
+
+
+  if (firstTime) {
+    firstTime = false;
+    exitTime = _currentTime + 3000;
+    Serial.println("Warn state");
+    return;
+  }
+
+  if (_currentTime - lastTime < _blinkRate) return;
+
+  lastTime = _currentTime;
+
+  ledState = !ledState;
+  digitalWrite(_ledPin, ledState);
+
+  bool transition = _currentTime > exitTime;
+
+  if (transition) {
+    firstTime = true;
+    _state = ON;
+  }
+}
+
+void Motor::onState() {
+  static unsigned long lastTime = 0;
+  static bool firstTime = true;
+
+  if (firstTime) {
+    firstTime = false;
+    digitalWrite(_motorPin, HIGH);
+    digitalWrite(_ledPin, HIGH);
+
+    Serial.println("On state");
+    return;
+  }
+
+  bool transition = _buttonPressed;
+
+  if (transition) {
+    _buttonPressed = false;
+    _state = OFF;
+  }
+}
+
 
 void Motor::update() {
   _currentTime = millis();
   
   switch (_state) {
     case OFF:
-      offExecute();
+      offState();
       break;
-    case RUN_ENTER:
-      runEnter();
+    case WARN:
+      warnState();
       break;
     case ON:
-      runExecute();
+      onState();
       break;
-    case RUN_EXIT:
-      runExit();
-      break;
-  }
-}
-
-bool Motor::timeElapsed(unsigned long duration) {
-  if (millis() - _previousTime >= duration) {
-    _previousTime = millis();
-    return true;
-  } else {
-    return false;
   }
 }
 ```
