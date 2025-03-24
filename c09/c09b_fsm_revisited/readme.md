@@ -120,7 +120,8 @@ faire tourner le moteur.
 
   // ...
 ```
-
+    _buttonLongPressed = false;
+    _state = WARN;
 ## La sortie
 La sortie est exécutée lorsqu'une transition est validée. Elle est utilisée pour terminer l'état.
 
@@ -431,6 +432,7 @@ void Motor::offState() {
   if (transition) {
     _buttonLongPressed = false;
     _state = WARN;
+    firstTime = true;
   }
 }
 
@@ -481,6 +483,7 @@ void Motor::onState() {
   if (transition) {
     _buttonPressed = false;
     _state = OFF;
+    firstTime = true;
   }
 }
 
