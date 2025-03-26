@@ -65,28 +65,26 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 ### Modèle d'une fonction d'état
 
 ```cpp
-void modeleState()
+// ct <-- current time
+void modeleState(unsigned long ct)
 {
-    static unsigned long previousTime = currentTime;
+    static unsigned long previousTime = ct;
     static unsigned long rate = 1000; // 1 seconde
     static bool firstTime = true;
-
-    unsigned long currentTime = millis();
 
     if (firstTime)
     {
         firstTime = false;
         // Code à exécuter une seule fois au début
         // Initialisation des variables
-
     }
 
-    if (currentTime - previousTime < rate)
+    if (ct - previousTime < rate)
     {
         return;
     }
 
-    previousTime = currentTime;
+    previousTime = ct;
 
     // Code à exécuter à chaque appel de la fonction
     // Mise à jour des variables
