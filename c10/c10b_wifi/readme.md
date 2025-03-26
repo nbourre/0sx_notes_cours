@@ -23,7 +23,7 @@
 
 
 # Introduction
-Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../c08/c08a_serial_read/readme.md).
+Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../../c08/c08a_serial_read/readme.md).
 
 Dans ce cours, nous allons voir comment communiquer avec un Arduino Mega via le port série en utilisant un shield qui possède un microontrôleur ESP8266.
 
@@ -264,7 +264,7 @@ Documentation pour ce modèle
 
 Le module ESP8266 WiFi Shield est un module UART-WiFi. Le module est spécialement conçu pour les appareils mobiles et l'Internet des objets (IoT).
 
-Ce Shield WiFi est basé sur ESP-12F, qui est la nouvelle version de l'ESP-12 avec la puce Wifi ESP8266. Avec ce Shield, vous pouvez facilement connecter votre Arduino au réseau et contrôler votre appareil de n'importe où. La communication se fait via une interface UART et le contrôle se fait par commande AT.
+Ce Shield WiFi est basé sur ESP-12F. Avec ce Shield, vous pouvez facilement connecter votre Arduino au réseau et contrôler votre appareil de n'importe où. La communication se fait via une interface UART et le contrôle se fait par commande AT.
 
 - Supporte la norme sans fil 802.11 b/g/n
 - Supporte les trois modes de travail STA/AP/STA + AP
@@ -301,8 +301,8 @@ const char ssid[] = SECRET_SSID;
 const char pass[] = SECRET_PASS;
 
 #else
-const char ssid[] = "ton_wifi";  // your network SSID (name)
-const char pass[] = "ton_mdp";   // your network password (use for WPA, or use as key for WEP)
+const char ssid[] = "TechniquesInformatique-Etudiant";  // your network SSID (name)
+const char pass[] = "shawi123";                         // your network password (use for WPA, or use as key for WEP)
 
 #endif
 

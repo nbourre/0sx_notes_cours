@@ -22,7 +22,7 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 ## Favoriser la lisibilité du code
 - Si vous revenez sur votre code dans quelques mois, vous serez content de l'avoir écrit de manière lisible
 - Vous ne savez pas si votre code est lisible? Demandez à un collègue de le lire
-- Vous pouvez utiliser des commentaires pour expliquer le code
+- Vous pouvez utiliser des commentaires pour expliquer des segments de code
 
 # Variables
 ## Noms de variables
@@ -108,19 +108,18 @@ void modeleState()
 ### Modèle d'une fonction de tâche
 
 ```cpp
-void modeleTask()
+// ct <-- current time
+void modeleTask(unsigned long ct)
 {
-    static unsigned long previousTime = 0;
-    static unsigned long rate = 1000; // 1 seconde
+    static unsigned long lastTime = 0;
+    static unsigned long rate = 1000;
 
-    unsigned long currentTime = millis();
-
-    if (currentTime - previousTime < rate)
+    if (ct - lastTime < rate)
     {
         return;
     }
 
-    previousTime = currentTime;
+    lastTime = ct;
 
     // Code à exécuter à chaque appel de la fonction
     // Mise à jour des variables
