@@ -43,22 +43,28 @@ Voici un exemple de bout de code pour écrire sur le LCD avec un tableau de cara
 
 ```cpp
 // Tampon pour écrire les strings
-char lcdBuff[2][16] = {"                ", "                "};
+char lcdBuff[2][16] = {
+  "                ",
+  "                "
+};
+
 // Tampon pour écrire un float
 char szFloat[6];
 float valeur = 0.0;
 
 void loop() {
-
-  // …
+  // …  
   // Convertir un float en char[]
   dtostrf(valeur, 4, 1, szFloat);
+
   // Écriture à la ligne 1
-  sprintf(lcdBuff[0], "valeur=%s", szFloat);
+  // Utilisation de snprintf pour éviter un dépassement de buffer
+  snprintf(lcdBuff[0], sizeof(lcdBuff[0]), "valeur=%s", szFloat);
+
   // Écriture à la ligne 2
   // now est une variable de type DateTime
-  sprintf(lcdBuff[1], "%02d:%02d:%02d",
-    now.hour(), now.minute(), now.second());
+  snprintf(lcdBuff[1], sizeof(lcdBuff[1]), "%02d:%02d:%02d",
+           now.hour(), now.minute(), now.second());
 
   lcd.setCursor(0, 0);
   lcd.print(lcdBuff[0]);
@@ -70,15 +76,15 @@ void loop() {
   // Effacer le texte
   lcd.clear();
   // …
-
 }
 ```
 
-La fonction `sprintf` permet d'écrire dans un tableau de caractères.
-- Elle prend 3 paramètres:
+La fonction `snprintf` permet d'écrire dans un tableau de caractères.
+- Elle prend 4 paramètres:
   - Le tableau de caractères à remplir
+  - La taille du tableau
   - Le format de la string
-  - Les valeurs à écrire
+  - Les valeurs à écrire. Optionnelles si le format ne contient pas de `%`.
 
 La fonction `dtostrf` permet de convertir un float en char[].
 - Elle prend 4 paramètres:

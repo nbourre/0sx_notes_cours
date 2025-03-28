@@ -12,6 +12,7 @@
 - [Définir les états requis](#définir-les-états-requis)
 - [Utiliser la programmation orientée objet](#utiliser-la-programmation-orientée-objet)
   - [Définir la classe](#définir-la-classe)
+- [Conclusion](#conclusion)
 
 # Introduction
 Nous avons vu les bases de la programmation orientée objet en C++ dans le cours précédent. Nous allons maintenant voir comment utiliser la programmation orientée objet pour créer une machine à états finis.
@@ -120,8 +121,7 @@ faire tourner le moteur.
 
   // ...
 ```
-    _buttonLongPressed = false;
-    _state = WARN;
+
 ## La sortie
 La sortie est exécutée lorsqu'une transition est validée. Elle est utilisée pour terminer l'état.
 
@@ -425,8 +425,6 @@ void Motor::offState() {
     return;
   }
  
-
-
   bool transition = _buttonLongPressed;
 
   if (transition) {
@@ -523,7 +521,7 @@ void loop() {
 
 **Note sur les `static_cast`**
 
-Dans la bibliothèque `OneButton`, les fonctions de rappel (callbacks) doivent avoir cette signature :
+Dans la bibliothèque `OneButton`, les fonctions de rappel (callbacks) doivent avoir cette signature :
 
 ```cpp
 void attachClick(parameterizedCallbackFunction newFunction, void *parameter);
@@ -537,3 +535,8 @@ Motor* self = static_cast<Motor*>(context);
 ```
 
 Le `static_cast<Motor*>(context)` nous permet de convertir le paramètre générique `void*` reçu par la fonction de rappel en un pointeur de type `Motor*`. Ainsi, on peut accéder aux variables et méthodes de l'instance `Motor` liée au bouton correspondant. Cette conversion est nécessaire, car la bibliothèque `OneButton` ne connaît pas le type réel de l'objet passé en paramètre.
+
+---
+
+# Conclusion
+Nous avons vu comment réaliser une machine à états finis dans une classe qui définit un système. Lorsque nous sommes en mesure de déterminer les éléments d'un système, nous pouvons les encapsuler dans une classe. Cela nous permet de mieux structurer notre code et de le rendre plus lisible.
