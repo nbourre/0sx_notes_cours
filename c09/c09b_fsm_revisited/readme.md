@@ -500,6 +500,7 @@ void Motor::update() {
       onState();
       break;
   }
+  _button.tick();
 }
 ```
 
