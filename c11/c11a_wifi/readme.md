@@ -12,6 +12,7 @@
     - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
     - [Initialisation du module](#initialisation-du-module)
       - [Fonctions d'aide](#fonctions-daide)
+    - [Exemple de code pour le ESP-01](#exemple-de-code-pour-le-esp-01)
   - [Le shield ESP8266](#le-shield-esp8266)
     - [Branchement](#branchement-1)
     - [Requis - IMPORTANT!!](#requis---important)
@@ -257,8 +258,131 @@ void errorState(int codeA, int codeB) {
 ```
 </details>
 
+---
+
+### Exemple de code pour le ESP-01
+
+```cpp
+/*
+ Exemple WiFiEsp : Serveur Web
+
+ Un serveur Web simple qui affiche la valeur des entrées analogiques
+ via une page web en utilisant un module ESP8266.
+ Ce sketch affichera l'adresse IP de votre module ESP8266 (une fois connecté)
+ dans le moniteur série. Vous pourrez ensuite ouvrir cette adresse dans un navigateur
+ pour afficher la page web.
+ La page web sera automatiquement actualisée toutes les 20 secondes.
+
+ Pour plus de détails, voir : http://yaab-arduino.blogspot.com/p/wifiesp.html
+*/
+
+#include "WiFiEsp.h"
+
+#define AT_BAUD_RATE 115200
+
+const char ssid[] = "TechniquesInformatique-Etudiant";  // SSID (nom) de votre réseau
+const char pass[] = "shawi123";                         // Mot de passe de votre réseau (WPA ou clé WEP)
+int status = WL_IDLE_STATUS;     // État de la connexion WiFi
+int reqCount = 0;                // Nombre de requêtes reçues
+
+WiFiEspServer server(80);
+
+void setup()
+{
+  // Initialiser la liaison série pour le débogage
+  Serial.begin(AT_BAUD_RATE);
+  // Initialiser la liaison série pour le module ESP
+  Serial1.begin(AT_BAUD_RATE);
+  // Initialiser le module ESP
+  WiFi.init(&Serial1);
+
+  // Vérifier la présence du shield
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println("Module WiFi non détecté");
+    while (true);
+  }
+
+  // Tentative de connexion au réseau WiFi
+  while (status != WL_CONNECTED) {
+    Serial.print("Tentative de connexion au réseau WPA : ");
+    Serial.println(ssid);
+    status = WiFi.begin(ssid, pass);
+  }
+
+  Serial.println("Connecté au réseau");
+  printWifiStatus();
+
+  // Démarrer le serveur web sur le port 80
+  server.begin();
+}
+
+void loop()
+{
+  // Écouter les clients entrants
+  WiFiEspClient client = server.available();
+  if (client) {
+    Serial.println("Nouveau client");
+    bool currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+
+        if (c == '\n' && currentLineIsBlank) {
+          Serial.println("Envoi de la réponse");
+
+          client.print(
+            "HTTP/1.1 200 OK\r\n"
+            "Content-Type: text/html\r\n"
+            "Connection: close\r\n"
+            "Refresh: 20\r\n"
+            "\r\n");
+          client.print("<!DOCTYPE HTML>\r\n");
+          client.print("<html>\r\n");
+          client.print("<h1>Bonjour le monde !</h1>\r\n");
+          client.print("Requêtes reçues : ");
+          client.print(++reqCount);
+          client.print("<br>\r\n");
+          client.print("Entrée analogique A0 : ");
+          client.print(analogRead(0));
+          client.print("<br>\r\n");
+          client.print("</html>\r\n");
+          break;
+        }
+        if (c == '\n') {
+          currentLineIsBlank = true;
+        }
+        else if (c != '\r') {
+          currentLineIsBlank = false;
+        }
+      }
+    }
+    delay(10);
+    client.stop();
+    Serial.println("Client déconnecté");
+  }
+}
+
+void printWifiStatus()
+{
+  Serial.print("SSID : ");
+  Serial.println(WiFi.SSID());
+
+  IPAddress ip = WiFi.localIP();
+  Serial.print("Adresse IP : ");
+  Serial.println(ip);
+
+  Serial.println();
+  Serial.print("Pour voir cette page en action, ouvrez un navigateur à l'adresse http://");
+  Serial.println(ip);
+  Serial.println();
+}
+  
+```
+
 
 ---
+
 ## Le shield ESP8266
 
 Documentation pour ce modèle
