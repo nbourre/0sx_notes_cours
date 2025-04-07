@@ -24,10 +24,10 @@
    3. [Capteur ultrasonique](c06/c06c_dht11/C06b_lcd_1602.md)
    4. [Capteur d'humidité](c06/c06d_hcsr04/C06b_lcd_1602.md)
 8. Semaine 08
-   1. [Machine à états](./c07/c07a_machine_a_etats/readme.md)
-   2. [Communication i2c](./c07/c07b_i2c/readme.md)
-   3. [Moteur pas-à-pas](./c07/c07c_stepper/readme.md)
-   4. [Servomoteur](./c07/c07d_servo/readme.md)
+   1. [Servomoteur](./c07/c07a_servo/)
+   2. [Machine à états](./c07/c07b_machine_a_etats/readme.md)
+   3. [Communication i2c](./c07/c07c_i2c/readme.md)
+   4. [Moteur pas à pas](./c07/c07d_stepper/readme.md)
 9. Semaine 09
    1. [Lecture du port série](./c08/c08a_serial_read/readme.md)
    2. [Programmation orientée objet base](./c08/c08b_poo_base/readme.md)
