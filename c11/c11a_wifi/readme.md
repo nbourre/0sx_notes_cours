@@ -12,13 +12,14 @@
     - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
     - [Initialisation du module](#initialisation-du-module)
       - [Fonctions d'aide](#fonctions-daide)
-    - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
   - [Le shield ESP8266](#le-shield-esp8266)
     - [Branchement](#branchement-1)
     - [Requis - IMPORTANT!!](#requis---important)
     - [Code pour configurer le wifi](#code-pour-configurer-le-wifi-1)
-      - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web-1)
-      - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
+- [Exemples pour communiquer avec le module ESP8266](#exemples-pour-communiquer-avec-le-module-esp8266)
+  - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
+  - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
+- [Résumé](#résumé)
 - [Références](#références)
 
 
@@ -123,24 +124,30 @@ void setup() {
   while (!Serial)
     ;
 
-  // Adapter selon votre branchement
-  Serial3.begin(AT_BAUD_RATE);
-  WiFi.init(&Serial3);
+  
+  // Démarre la communication série avec le module ESP (connecté à Serial1)
+  Serial1.begin(AT_BAUD_RATE);
+
+  // Initialise la bibliothèque WiFiEspAT avec ce port série
+  WiFi.init(&Serial1);           
 
   // Cela peut prendre un certain temps pour que le module wifi soit prêt
   // Voir 1 minute dans la documentation
   if (WiFi.status() == WL_NO_SHIELD) {
     Serial.println();
     Serial.println("La communication avec le module WiFi a échoué!");
-    // ne pas continuer
+
+    // Clignote 2.1 pour indiquer cette erreur
     errorState(2, 1);
   }
 
   Serial.print("Attempting to connect to WPA SSID: ");
   Serial.println(ssid);
+
   // Tentative de connexion au Wifi
   while (status != WL_CONNECTED) {
     Serial.print(".");
+
     // Connecter au ssid
     status = WiFi.begin(ssid, pass);
   }
@@ -249,10 +256,6 @@ void errorState(int codeA, int codeB) {
 }
 ```
 </details>
-
----
-
-### Exemple de code - Serveur Web
 
 
 ---
@@ -451,7 +454,13 @@ void errorState(int codeA, int codeB) {
 
 ```
 
-#### Exemple de code - Serveur Web
+---
+
+# Exemples pour communiquer avec le module ESP8266
+Une fois la configuration faite, il est possible de communiquer avec le module ESP8266. Il y a plusieurs exemples disponibles dans la librairie `WiFiEspAT`. Voici deux exemples qui montrent comment utiliser le module ESP8266 pour créer un serveur web.
+Le premier exemple est un serveur web qui affiche la valeur des broches d'entrée analogique. Le deuxième exemple est un serveur web qui permet d'allumer ou d'éteindre une DEL en fonction de ce qui a été reçu par le module Wifi.
+
+## Exemple de code - Serveur Web
 
 Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
 
@@ -473,14 +482,7 @@ par Juraj Andrassy https://github.com/jandrassy
 
 #include <WiFiEspAT.h>
 
-// Emuler Serial1 sur les broches 6/7 si non présent
-#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
-#include <SoftwareSerial.h>
-SoftwareSerial Serial1(6, 7);  // RX, TX
-#define AT_BAUD_RATE 9600
-#else
 #define AT_BAUD_RATE 115200
-#endif
 
 WiFiServer server(80);
 
@@ -494,7 +496,7 @@ void setup() {
 
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("La communication avec le module WiFi a échoué !");
-    // ne pas continuer
+    // ne pas continuer et aller dans une boucle d'erreur
     errorState();
   }
 
@@ -582,27 +584,19 @@ void errorState() {
 
 ```
 
-#### Exemple - Allumer une DEL
+## Exemple - Allumer une DEL
 
 Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui a été reçu par le module Wifi.
 
 **Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
 
-**Important 2 :** On doit avoir la classe `RingBuffer`. Dans mon [dossier des projets](https://github.com/nbourre/0sx_projets_cours), elle disponible dans le dossier `wifi_webServer_led`.
+**Important 2 :** On doit avoir la classe `RingBuffer`. Dans mon [dossier des projets](https://github.com/nbourre/0sx_projets_cours), elle disponible dans le dossier [`appareils/wifi/wifi_webServer_led`](https://github.com/nbourre/0sx_projets_cours/tree/main/appareils/wifi/wifi_webServer_led).
 
 ```cpp
 #include <WiFiEspAT.h>
 #include "RingBuffer.h"
 
-// Pour Arduino UNO
-// Emuler Serial1 sur les broches 6/7 si non présent
-#if defined(ARDUINO_ARCH_AVR) && !defined(HAVE_HWSERIAL1)
-#include <SoftwareSerial.h>
-SoftwareSerial Serial1(6, 7);  // RX, TX
-#define AT_BAUD_RATE 9600
-#else
 #define AT_BAUD_RATE 115200
-#endif
 
 WiFiServer server(80);
 
@@ -729,6 +723,13 @@ void sendHTTPHeader(WiFiClient client) {
   client.println();
 }
 ```
+
+---
+
+# Résumé
+Dans cet article, on voit comment utiliser le module ESP8266 connecté à un Arduino Mega via un port série. On a vu comment configurer le module pour se connecter à un réseau wifi et comment créer un serveur web pour communiquer avec le module.
+
+N'oubliez pas que la configuration pour connecter le module à un réseau wifi doit être faite une seule fois. Ensuite, il est possible de l'utiliser pour communiquer avec le module sans le reconfigurer.
 
 ---
 
