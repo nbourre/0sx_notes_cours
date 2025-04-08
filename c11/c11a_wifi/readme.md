@@ -341,7 +341,7 @@ void loop()
           client.println("<head>");
           // actualisez la page automatiquement toutes les 5 secondes
           client.println("<meta http-equiv=\"refresh\" content=\"5\">");
-          client.println("<meta charset="UTF-8">");
+          client.println("<meta charset=\"UTF-8\">");
           client.println("</head>");
           client.println("<body>");
           client.print("<h1>Bonjour le monde !</h1>\r\n");
