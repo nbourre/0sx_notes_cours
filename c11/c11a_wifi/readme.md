@@ -339,13 +339,25 @@ void loop()
             "\r\n");
           client.print("<!DOCTYPE HTML>\r\n");
           client.print("<html>\r\n");
+          client.println("<head>");
+          // actualisez la page automatiquement toutes les 5 secondes
+          client.println("<meta http-equiv=\"refresh\" content=\"5\" charset=\"UTF-8\">");
+          client.println("</head>");
           client.print("<h1>Bonjour le monde !</h1>\r\n");
           client.print("Requêtes reçues : ");
           client.print(++reqCount);
           client.print("<br>\r\n");
-          client.print("Entrée analogique A0 : ");
-          client.print(analogRead(0));
-          client.print("<br>\r\n");
+          
+          // afficher la valeur des broches d'entrée analogique
+          for (int analogChannel = 0; analogChannel < 4; analogChannel++) {
+            int sensorReading = analogRead(analogChannel);
+            client.print("Entree analogique ");
+            client.print(analogChannel);
+            client.print(" est ");
+            client.print(sensorReading);
+            client.println("<br />");
+          }
+          
           client.print("</html>\r\n");
           break;
         }
@@ -377,7 +389,7 @@ void printWifiStatus()
   Serial.println(ip);
   Serial.println();
 }
-  
+
 ```
 
 
