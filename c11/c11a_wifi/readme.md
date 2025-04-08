@@ -335,14 +335,15 @@ void loop()
             "HTTP/1.1 200 OK\r\n"
             "Content-Type: text/html\r\n"
             "Connection: close\r\n"
-            "Refresh: 20\r\n"
             "\r\n");
           client.print("<!DOCTYPE HTML>\r\n");
           client.print("<html>\r\n");
           client.println("<head>");
           // actualisez la page automatiquement toutes les 5 secondes
-          client.println("<meta http-equiv=\"refresh\" content=\"5\" charset=\"UTF-8\">");
+          client.println("<meta http-equiv=\"refresh\" content=\"5\">");
+          client.println("<meta charset="UTF-8">");
           client.println("</head>");
+          client.println("<body>");
           client.print("<h1>Bonjour le monde !</h1>\r\n");
           client.print("Requêtes reçues : ");
           client.print(++reqCount);
@@ -357,7 +358,7 @@ void loop()
             client.print(sensorReading);
             client.println("<br />");
           }
-          
+          client.println("</body>");
           client.print("</html>\r\n");
           break;
         }
