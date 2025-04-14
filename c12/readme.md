@@ -12,7 +12,7 @@
   - [La qualité de service (QoS)](#la-qualité-de-service-qos)
 - [Intégration MQTT avec Arduino](#intégration-mqtt-avec-arduino)
 - [Exemple à utiliser](#exemple-à-utiliser)
-- [La librarie WiFiEspAT](#la-librarie-wifiespat)
+- [La librarie WiFiEspAT ou WiFiEsp](#la-librarie-wifiespat-ou-wifiesp)
 - [La librarie PubSubClient](#la-librarie-pubsubclient)
   - [Initialisation du client MQTT](#initialisation-du-client-mqtt)
   - [Configuration du client au serveur MQTT](#configuration-du-client-au-serveur-mqtt)
@@ -77,9 +77,9 @@ Les sujets peuvent contenir des caractères alphanumériques, les tirets et les 
 
 Le caractère `+` est un caractère de remplacement. Il peut être utilisé pour remplacer un seul niveau de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/+` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, etc.
 
-On peut aussi utiliser le `+` pour s'inscrire à un sujet qui contient plusieurs niveaux de hiérarchie. Par exemple, le sujet `maison/salon/+/temperature` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/chambre/temperature`, `maison/salon/cuisine/temperature`, etc.
+On peut aussi utiliser le `+` pour s'inscrire à un sujet qui contient plusieurs niveaux de hiérarchie. Par exemple, le sujet `maison/etage_1/+/temperature` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/etage_1/chambre/temperature`, `maison/etage_1/cuisine/temperature`, etc.
 
-Le caractère `#` est un caractère de remplacement. Il peut être utilisé pour remplacer un ou plusieurs niveaux de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/#` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, `maison/salon/chambre/temperature`, `maison/salon/cuisine/temperature`, etc.
+Le caractère `#` est un caractère de remplacement. Il peut être utilisé pour remplacer un ou plusieurs niveaux de hiérarchie dans un sujet. Par exemple, le sujet `maison/etage_1/#` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/etage_1/temperature`, `maison/etage_1/humidite`, `maison/etage_1/chambre/temperature`, `maison/etage_1/cuisine/temperature`, etc.
 
 Voici des exemples de sujets valides avec des caractères spéciaux :
 | Sujet                       | Description                                                           |
@@ -180,14 +180,14 @@ Dans notre situation, nous allons utiliser le MQTT pour un simple échange de do
 
 Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF) ou un ESP01 avec un adaptateur série.
 
-De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
+De plus vous aurez avoir besoin de la librairie `WiFiEspAT`(Shield) ou `WifiEsp` (ESP01) pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
 
 > **Note** : **Pour faire fonctionner l'exemple, il faudra avoir préconfiguré le shield** pour qu'il se connecte au réseau WiFi. Allez voir le cours sur la connexion WiFi pour plus d'informations.
 
 ---
 
 # Exemple à utiliser
-Nous allons utiliser l'exemple `mqtt_test` qui se retrouve dans le dossier des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
+Nous allons utiliser l'exemple `mqtt_test` (ou `mqtt_test_esp01`) qui se retrouve dans le dossier des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
 
 Voici le code entier de l'exemple :
 <details><summary>Cliquez pour le voir</summary>
@@ -428,9 +428,9 @@ Je vais expliquer les points importants dans les prochaines sections.
 
 ---
 
-# La librarie WiFiEspAT
+# La librarie WiFiEspAT ou WiFiEsp
 
-Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c10/c10b_wifi/readme.md).
+Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c11/c11a_wifi/readme.md).
 
 Dans l'exemple, il y a la fonction `wifiInit()` qui initialise le shield et le connecte au réseau WiFi.
 
@@ -549,7 +549,7 @@ La librairie `PubSubClient` permet de se connecter à un serveur MQTT et d'envoy
 Ensuite, il faudra avoir un serveur MQTT sur lequel se connecter. Pour cela, on va utiliser mon serveur MQTT à l'adresse indiquée dans le code. Au moment d'écrire ces lignes, l'adresse ip est `216.128.180.194`.
 
 ## Initialisation du client MQTT
-La première étape sera d'initialiser le client. Le constructeur peut prendre différent type de client que l'on retrouve réguilièrement dans les librairies Arduino. Dans notre cas, on va utiliser le client `WiFiClient`.
+La première étape sera d'initialiser le client. Le constructeur peut prendre différent type de client que l'on retrouve réguilièrement dans les librairies Arduino. Dans notre cas, on va utiliser le client `WiFiClient` (ou `WifiEspClient`).
 
 ```cpp
 
@@ -560,6 +560,8 @@ PubSubClient client(espClient);
 ```
 
 On pourra ensuite utiliser les fonctions de l'objet `client` pour se connecter au serveur MQTT et envoyer/recevoir des messages.
+
+---
 
 ## Configuration du client au serveur MQTT
 Pour configurer le client au serveur MQTT, on utilise la fonction `setServer()`.
@@ -572,6 +574,8 @@ client.setServer(mqtt_server, 1883);
 - Le premier paramètre est l'adresse ip du serveur MQTT. Le deuxième paramètre est le port sur lequel le serveur écoute. Dans notre cas, c'est le port 1883.
 
 Pour nos besoins, on configure le client au serveur MQTT dans la fonction `setup()`.
+
+---
 
 ## Connexion au serveur MQTT
 Pour se connecter au serveur MQTT, on utilise la fonction `connect()`. La fonction retourne un booléeen qui indique si la connexion a réussi ou non.
@@ -591,6 +595,7 @@ if(!client.connect(DEVICE_NAME, MQTT_USER, MQTT_PASS)) {
 }
 ```
 
+---
 
 ## Configuration de la fonction de rappel
 La fonction de rappel est une fonction qui sera appelée par la librairie `PubSubClient` quand un message est reçu. On peut donc utiliser cette fonction pour traiter les messages reçus.
@@ -640,6 +645,8 @@ Pour que recevoir un message, il faut que le client s'abonne au *topic* sur lequ
 
 > **Note** : La fonction `strcmp()` permet de comparer deux chaînes de caractères. Elle retourne 0 si les deux chaînes sont identiques. Une valeur positive si le premier caractère différent a une valeur plus grande dans la première chaîne. Une valeur négative si le premier caractère différent a une valeur plus grande dans la deuxième chaîne.
 
+---
+
 ## S'abonner à un sujet
 Pour s'abonner à un sujet, on utilise la fonction `subscribe()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut s'abonner.
 
@@ -652,6 +659,8 @@ client.subscribe("lancePatate");
 ```
 
 Lorsque l'on s'abonne à un topic, on reçoit tous les messages qui sont publiés sur ce topic. On peut donc s'abonner à plusieurs topics. Il suffira ensuite de traiter les messages reçus dans la fonction de rappel.
+
+---
 
 ## Publier un message
 Pour public un message, on utilise la fonction `publish()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut publier le message et le message à publier.
@@ -700,6 +709,8 @@ Souvent la forme du message est en format JSON, mais ça peut être n'importe qu
 
 Dans le cas de l'exemple, on publie un message périodiquement. On peut aussi publier un message à la demande. Par exemple, on peut publier un message quand on appuie sur un bouton.
 
+---
+
 ## Le JSON
 Dans la section sur la publication de message, on a voit la construction d'un message en format JSON. Nous allons voir les bases du JSON.
 
@@ -725,10 +736,24 @@ Le service MQTT qui reçoit l'information peut ensuite décoder le message et ex
 ---
 
 # Exercice
-1. Adapter l'exemple pour qu'il publie un message sur le sujet `etd/XX` à toutes les minutes.
-   1. Le XX sera le numéro du shield wifi qui est sur le collant.
-   2. Le nom de l'appareil (`DEVICE_NAME`) sera votre numéro de matricule.
-   3. Le message doit contenir la température, l'humidité et le temps du système divisé par 1000 que vous lisez avec le capteur DHT11.
+
+- Vous pouvez voir l'interface pour le prochain laboratoire. L'adresse est "http://arduino.nb.shawinigan.info/etd/".
+- Le format attendu des messages est le suivant :
+  
+  ```json
+  {
+    "name" : "Nick",
+    "matricule" : 25,
+    "motor" : 1,
+    "uptime" : 1000,
+    "distance" : 25,
+    "angle" : 37,
+    "colour" : "FF00AA"
+  }
+  ```
+
+
+1. Adapter l'exemple pour qu'il publie un message sur le sujet `etd/XX` à toutes les minutes avec le contenu de l'exemple du format attendu ci-haut.
 
 ---
 # Annexes
