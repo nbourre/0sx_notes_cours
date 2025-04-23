@@ -1,6 +1,7 @@
 # MQTT <!-- omit in toc -->
 
 # Table des matières <!-- omit in toc -->
+- [Notes pour le prof](#notes-pour-le-prof)
 - [Qu'est-ce que le MQTT?](#quest-ce-que-le-mqtt)
 - [Concepts](#concepts)
   - [Le courtier (*broker*)](#le-courtier-broker)
@@ -25,6 +26,14 @@
 - [Annexes](#annexes)
   - [Exemples supplémentaires pour la gestion des topics](#exemples-supplémentaires-pour-la-gestion-des-topics)
 - [Références](#références)
+
+---
+
+# Notes pour le prof
+
+Le port **websocket** du serveur MQTT est 3901 et non 9001. Le port **mqtt** est inchangé, c'est le port 1883.
+
+---
 
 # Qu'est-ce que le MQTT?
 Le MQTT est un protocole (Message Queuing Telemetry Transport) de messagerie simple, léger et relativement simple à implémenter. Il est conçu pour les communications entre machines dans des environnements où la bande passante et la latence sont des contraintes importantes. Nous allons l'utiliser pour communiquer entre notre Arduino et un serveur MQTT.
