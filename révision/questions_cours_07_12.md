@@ -95,34 +95,11 @@
 <details>
 <summary>Réponses</summary>
 
-1. `WiFiClient`, `PubSubClient`, ou `WiFiEsp` selon le module.
+1. `WifiEspAT` pour la connexion Wifi et `PubSubClient` pour la communication MQTT.
 2. `publish()` envoie un message, `subscribe()` écoute un canal (topic).
 3. **MQTT** — Message Queuing Telemetry Transport.
 4. Quality of Service — indique la fiabilité de livraison (0, 1 ou 2).
 5. Pour éviter les conflits et déconnexions imprévues sur le broker.
-
-</details>
-
----
-
-## Cours 12 : Infrarouge, fin du projet
-
-Pas vu en 2025
-
-1. Quelle bibliothèque permet de recevoir des signaux infrarouges?
-2. Quel type de données est typiquement transmis par une télécommande IR?
-3. Pourquoi faut-il souvent “décoder” les signaux IR?
-4. Peut-on contrôler plusieurs appareils avec la même télécommande IR?
-5. Quelle approche utilise-t-on pour détecter l’appui sur un bouton IR?
-
-<details>
-<summary>Réponses</summary>
-
-1. `IRremote.h`
-2. Un code numérique codé sur 32 bits (souvent en hexadécimal).
-3. Car le protocole utilisé dépend de la marque de la télécommande.
-4. Oui, si les codes sont compatibles ou si l’on les reprogramme.
-5. On utilise `irrecv.decode()` puis on lit `results.value`.
 
 </details>
 

@@ -13,7 +13,7 @@
   - [La qualité de service (QoS)](#la-qualité-de-service-qos)
 - [Intégration MQTT avec Arduino](#intégration-mqtt-avec-arduino)
 - [Exemple à utiliser](#exemple-à-utiliser)
-- [La librarie WiFiEspAT ou WiFiEsp](#la-librarie-wifiespat-ou-wifiesp)
+- [La librarie WiFiEspAT](#la-librarie-wifiespat)
 - [La librarie PubSubClient](#la-librarie-pubsubclient)
   - [Initialisation du client MQTT](#initialisation-du-client-mqtt)
   - [Configuration du client au serveur MQTT](#configuration-du-client-au-serveur-mqtt)
@@ -31,7 +31,7 @@
 
 # Notes pour le prof
 
-Le port **websocket** du serveur MQTT est 3901 et non 9001. Le port **mqtt** est inchangé, c'est le port 1883.
+Le port **websocket** du serveur MQTT est 3901 et non 9001. Le port **mqtt** est inchangé, c'est le port 1883. Ceci dans le but d'accomoder les restrictions du département.
 
 ---
 
@@ -189,7 +189,7 @@ Dans notre situation, nous allons utiliser le MQTT pour un simple échange de do
 
 Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF) ou un ESP01 avec un adaptateur série.
 
-De plus vous aurez avoir besoin de la librairie `WiFiEspAT`(Shield) ou `WifiEsp` (ESP01) pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
+De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionner le shield. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino.
 
 > **Note** : **Pour faire fonctionner l'exemple, il faudra avoir préconfiguré le shield** pour qu'il se connecte au réseau WiFi. Allez voir le cours sur la connexion WiFi pour plus d'informations.
 
@@ -437,7 +437,7 @@ Je vais expliquer les points importants dans les prochaines sections.
 
 ---
 
-# La librarie WiFiEspAT ou WiFiEsp
+# La librarie WiFiEspAT
 
 Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c11/c11a_wifi/readme.md).
 
