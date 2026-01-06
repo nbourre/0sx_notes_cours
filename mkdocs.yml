@@ -3,6 +3,23 @@ theme:
   name: material
   language: fr
 
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 2-4
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      base_path: .
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
 nav:
   - Accueil: index.md
   - Cours 01:
