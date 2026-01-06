@@ -55,5 +55,7 @@ nav:
     - Index: c10/index.md
     - Refactorisation: c10/c10a_refactorisation/index.md
     - Matrice de LED: c10/c10b_max7219/index.md
-  - Cours 11: c11/index.md
-  - Cours 12: c12/index.md    
+  - Cours 11:
+    - Index: c11/index.md
+    - Wifi: c11/c11a_wifi/index.md
+  - Cours 12 - MQTT: c12/index.md
