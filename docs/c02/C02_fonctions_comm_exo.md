@@ -13,7 +13,7 @@
   - Exemple de sortie : `LED allumée` ou `LED éteinte`
 
 ## Amélioration de code
-Ci-bas il y a [l'exemple](C02_fonctions_comm.md#état-de-lapplication) que l'on retrouve dans le cours. Il permet de faire clignoter une DEL à 1 Hz et à 4 Hz.
+Ci-bas il y a [l'exemple](C02_fonctions_comm.md#etat-de-lapplication) que l'on retrouve dans le cours. Il permet de faire clignoter une DEL à 1 Hz et à 4 Hz.
 
 ```cpp
 //définir la broche de la DEL

@@ -1,20 +1,20 @@
 # Électricité de base <!-- omit in toc -->
 
-- [L'électricité sur les appareils](#lélectricité-sur-les-appareils)
+- [L'électricité sur les appareils](#lelectricite-sur-les-appareils)
   - [⚡ Le Voltage (Tension Électrique)](#le-voltage-tension-electrique)
     - [⚠️ Importance de respecter la tension](#importance-de-respecter-la-tension)
     - [🔄 La polarité : un facteur essentiel](#la-polarite-un-facteur-essentiel)
     - [🔍 Courant continu (DC) vs courant alternatif (AC)](#courant-continu-dc-vs-courant-alternatif-ac)
-  - [L'ampérage](#lampérage)
+  - [L'ampérage](#lamperage)
     - [Exemples](#exemples)
   - [*Important Life skill*](#important-life-skill)
-  - [L'électricité de l'Arduino](#lélectricité-de-larduino)
+  - [L'électricité de l'Arduino](#lelectricite-de-larduino)
     - [Entrée](#entree)
     - [Sortie](#sortie)
   - [Résumé](#resume)
 - [Faire un montage électrique](#faire-un-montage-electrique)
   - [Avant de commencer, très important](#avant-de-commencer-tres-important)
-  - [Documentation - Introduction à l'Arduino](#documentation---introduction-à-larduino)
+  - [Documentation - Introduction à l'Arduino](#documentation---introduction-a-larduino)
   - [Branchement de base](#branchement-de-base)
   - [Brancher une DEL](#brancher-une-del)
   - [Brancher un bouton](#brancher-un-bouton)
@@ -22,7 +22,7 @@
 - [Exercices](#exercices)
 - [Références](#references)
 
-# L'électricité sur les appareils
+# L'électricité sur les appareils {#lelectricite-sur-les-appareils}
 L'objectif de cette section n'est pas de vous donner une formation scientifique sur ce qu'est le voltage, l'ampérage, etc. D'ailleurs, ce sont des notions que vous avez vu au secondaire. Je vous suggère de vous référer à votre cours de physique pour vous rafraîchir la mémoire.
 
 L'objectif est plutôt de savoir comment et où vous pouvez mesurer ces valeurs pour vous assurer que votre circuit fonctionne correctement.
@@ -79,7 +79,7 @@ Le **courant alternatif (AC)** est plus courant dans les applications de **haute
 ---
 
 
-## L'ampérage
+## L'ampérage 
 L'ampérage est la quantité de courant qui circule dans un circuit. L'ampérage est mesuré en ampère (A).
 
 Un appareil ou composant consomme de l'ampérage. Vous pouvez brancher un adaptateur qui peut fournir plus d'ampérage qu'un appareil a besoin. Car l'appareil ne consommera pas plus d'ampérage que ce qu'il a besoin.
@@ -116,7 +116,7 @@ Voici quelques exemples de fiches signalétiques :
 | ![Alt text](assets/adaptateur_03.jpg) | Adaptateur avec sortie de 5V en courant continu pouvant fournir 1A avec une fiche USB |
 | ![Alt text](assets/adaptateur_04.jpg) | Adaptateur avec plusieurs valeurs de sortie. Il s'agit d'un adapteur de type USB-C |
 
-## L'électricité de l'Arduino
+## L'électricité de l'Arduino {#lelectricite-de-larduino}
 ### Entrée
 Sur votre Arduino, on utilise généralement le port USB pour alimenter la carte. Le voltage d'entrée est de 5V. Cependant, il y a aussi un port d'alimentation externe qui peut être utilisé pour alimenter la carte. Ce port peut accepter un voltage de 7 à 12V. C'est le voltage que vous pouvez utiliser pour alimenter votre carte.
 
@@ -149,10 +149,10 @@ La **convention** veut que les **fils rouges soient branchés sur les fils posit
  
 **Je retrancherai des points si vous ne respectez pas cette convention!**
 
-## Documentation - Introduction à l'Arduino
+## Documentation - Introduction à l'Arduino {#documentation---introduction-a-larduino}
 👉👉👉👉 **Head's up pour le prof!!** 👈👈👈👈
 
-Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](../intro_arduino_jp/index.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
+Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](../intro_arduino_jp/index.md).
 
 ## Branchement de base
 Dans votre kit, je vous suggère le branchement de base permanent suivant :
