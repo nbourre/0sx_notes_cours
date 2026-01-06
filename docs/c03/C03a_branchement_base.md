@@ -152,7 +152,7 @@ La **convention** veut que les **fils rouges soient branchés sur les fils posit
 ## Documentation - Introduction à l'Arduino
 👉👉👉👉 **Head's up pour le prof!!** 👈👈👈👈
 
-Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](../intro_arduino_jp/readme.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
+Parcourir l'excellent document de Jean-Philippe Boulard sur l'[introduction à l'Arduino](../intro_arduino_jp/index.md#platine-dexp%C3%A9rimentation-sans-soudure-breadboard).
 
 ## Branchement de base
 Dans votre kit, je vous suggère le branchement de base permanent suivant :

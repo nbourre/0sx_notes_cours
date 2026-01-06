@@ -506,7 +506,7 @@ void loop(void) {
 
 ---
 
-**[Retour au sommaire du cours](../README.md)**  
+**[Retour au sommaire du cours](../index.md)**  
 
 *Fin de l’exemple pour un module unique : on a retiré la section multimatices.*
 

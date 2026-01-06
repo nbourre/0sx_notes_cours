@@ -439,7 +439,7 @@ Je vais expliquer les points importants dans les prochaines sections.
 
 # La librarie WiFiEspAT
 
-Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c11/c11a_wifi/readme.md).
+Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c11/c11a_wifi/index.md).
 
 Dans l'exemple, il y a la fonction `wifiInit()` qui initialise le shield et le connecte au réseau WiFi.
 

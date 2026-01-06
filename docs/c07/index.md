@@ -5,8 +5,8 @@
 ![alt text](<assets/DALL·E 2024-03-04 09.47.28.webp>)
 
 ## Contenu
-- [Servomoteur](./c07a_servo/readme.md)
-- [Machine à états](./c07b_fsm/readme.md)
-- [Communication i2c](./c07c_i2c/readme.md)
-- [Moteur pas à pas](./c07d_stepper/readme.md)
+- [Servomoteur](./c07a_servo/index.md)
+- [Machine à états](./c07b_fsm/index.md)
+- [Communication i2c](./c07c_i2c/index.md)
+- [Moteur pas à pas](./c07d_stepper/index.md)
 

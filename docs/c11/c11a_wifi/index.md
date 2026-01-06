@@ -21,7 +21,7 @@
 
 
 # Introduction
-Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../../c08/c08a_serial_read/readme.md).
+Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../../c08/c08a_serial_read/index.md).
 
 Dans ce cours, nous allons voir comment communiquer avec un Arduino Mega via le port série en utilisant un shield qui possède un microontrôleur ESP8266.
 
