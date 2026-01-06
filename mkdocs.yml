@@ -7,8 +7,15 @@ nav:
   - Accueil: index.md
   - Cours 01: c01/index.md
   - Cours 02:
-    - Fonctions de communication: docs/c02/C02_fonctions_comm.md
-    - Exercices pratiques: docs/c02/C02_fonctions_comm_exo.md
+    - Fonctions de communication: c02/C02_fonctions_comm.md
+    - Exercices pratiques: c02/C02_fonctions_comm_exo.md
   - Cours 03: c03/index.md 
   - Cours 04: c04/index.md
-  
+  - Cours 05: c05/index.md
+  - Cours 06: c06/index.md
+  - Cours 07: c07/index.md
+  - Cours 08: c08/index.md
+  - Cours 09: c09/index.md
+  - Cours 10: c10/index.md
+  - Cours 11: c11/index.md
+  - Cours 12: c12/index.md    
