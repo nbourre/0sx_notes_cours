@@ -44,5 +44,6 @@
   - [c10a_refactorisation/readme.md](./c10/c10a_refactorisation/readme.md)
   - [c10b_max7219/readme.md](./c10/c10b_max7219/readme.md)
 - [Cours 11](./c11/readme.md)
+  - [c11a_wifi/_archives.md](./c11/c11a_wifi/_archives.md)
   - [c11a_wifi/readme.md](./c11/c11a_wifi/readme.md)
 - [Cours 12](./c12/readme.md)

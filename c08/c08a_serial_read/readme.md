@@ -282,6 +282,9 @@ void afficherErreur() {
 
 ```
 
+> Note : Si vous faites votre propre fonction pour la gestion des entrées dans le port série, n'utilisez pas `serialEvent()` car cela pourrait causer des conflits. Pour chaque port, c'est soit l'un, soit l'autre.
+
+
 ---
 
 # Fonction `serial.readStringUntil()`
