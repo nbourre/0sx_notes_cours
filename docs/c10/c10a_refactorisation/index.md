@@ -33,7 +33,7 @@ Vous avez travaillé sur un projet qui fonctionnait pour les besoins du moment. 
 
 La refactorisation est le processus de modification du code source pour améliorer sa structure interne sans changer son comportement externe. La refactorisation est généralement effectuée pour améliorer la lisibilité du code, faciliter sa maintenance et augmenter sa flexibilité pour les futures évolutions du logiciel. Elle peut également être effectuée pour réduire la complexité du code ou pour éliminer les défauts de conception.
 
-> **Note :** Il faudra comprendre les concepts des classes et des objets pour bien apprécier la refactorisation. Si ce n'est pas le cas, vous pouvez consulter le cours sur [les classes et les objets](../c08/c08b_poo_base/index.md).
+> **Note :** Il faudra comprendre les concepts des classes et des objets pour bien apprécier la refactorisation. Si ce n'est pas le cas, vous pouvez consulter le cours sur [les classes et les objets](../../c08/c08b_poo_base/index.md).
 
 # Les principes de la refactorisation
 La refactorisation est un processus qui peut être appliqué à n'importe quel code, mais il existe des principes qui peuvent vous aider à améliorer votre code.

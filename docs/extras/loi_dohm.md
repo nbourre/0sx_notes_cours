@@ -37,7 +37,7 @@ $$R = \frac{5V - 2V}{20mA} = 150\Omega$$
 
 # Résumé
 
-![Alt text](../assets/ohms_law.png)
+![Alt text](assets/ohms_law.png)
 
 # Références
 - [Calcul de résistance pour une led](http://fantaisyland.fr/calcul-resistance-led/)
