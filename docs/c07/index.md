@@ -6,7 +6,7 @@
 
 ## Contenu
 - [Servomoteur](./c07a_servo/readme.md)
-- [Machine à états](./c07b_machine_a_etats/readme.md)
+- [Machine à états](./c07b_fsm/readme.md)
 - [Communication i2c](./c07c_i2c/readme.md)
 - [Moteur pas à pas](./c07d_stepper/readme.md)
 

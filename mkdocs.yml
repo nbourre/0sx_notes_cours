@@ -36,7 +36,12 @@ nav:
     - L'écran LCD 1602: c06/c06b_lcd/index.md
     - Le capteur d'humidité et de température DHT11: c06/c06c_dht11/index.md
     - Le capteur de distance: c06/c06d_hcsr04/index.md
-  - Cours 07: c07/index.md
+  - Cours 07:
+    - index: c07/index.md
+    - Servo moteur: c07/c07a_servo/index.md
+    - Machine à états: c07/c07b_fsm/index.md
+    - Communication I2C: c07/c07c_i2c/index.md
+    - Moteur pas à pas: c07/c07d_stepper/index.md
   - Cours 08: c08/index.md
   - Cours 09: c09/index.md
   - Cours 10: c10/index.md
