@@ -1,6 +1,6 @@
 
-# Fonction en C++
-## Syntaxe
+## Fonction en C++
+### Syntaxe
 Voici comment déclarer une fonction en Arduino :
 
 ```cpp	
@@ -13,7 +13,7 @@ Le mot-clé `type` peut être remplacé par le type de données du résultat ret
 
 ---
 
-## Fonction avec retour de valeur
+### Fonction avec retour de valeur
 
 Voici un exemple de déclaration d'une fonction qui retourne un entier et qui prend deux entiers en paramètre :
 
@@ -53,7 +53,7 @@ Dans cet exemple, la fonction `additionner` prend deux entiers en paramètre et 
 
 ---
 
-## Fonction sans retour de valeur (procédure)
+### Fonction sans retour de valeur (procédure)
 Parfois, on doit répéter des instructions sans que celles-ci n'aient à retourner une valeur. Dans ce cas, on peut déclarer une fonction sans type de retour. On parle alors de **procédure** ou de fonction `void`.
 
 ```cpp

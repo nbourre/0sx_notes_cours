@@ -1,6 +1,6 @@
-# Moteur DC et contrôleur L293D <!-- omit in toc -->
+## Moteur DC et contrôleur L293D
 
-# Table des matières <!-- omit in toc -->
+## Table des matières
 - [Introduction](#introduction)
 - [Le moteur DC](#le-moteur-dc)
 - [Le contrôleur de moteur L293D](#le-contrôleur-de-moteur-l293d)
@@ -12,7 +12,7 @@
 - [Exercices](#exercices)
 - [Références](#références)
 
-# Introduction
+## Introduction
 Dans cette leçon, nous allons voir comment contrôler un moteur DC avec un contrôleur de moteur de type "pont en H".
 
 Votre kit Arduino contient un contrôleur de moteur L293D ainsi qu'un moteur DC.
@@ -21,7 +21,7 @@ Votre kit Arduino contient un contrôleur de moteur L293D ainsi qu'un moteur DC.
 
 ---
 
-# Le moteur DC
+## Le moteur DC
 Le moteur DC (Direct Current) est un moteur électrique qui fonctionne avec un courant continu. Il est composé d'un rotor et d'un stator. Le rotor est la partie mobile du moteur et le stator est la partie fixe. Le moteur DC est utilisé dans de nombreux appareils électriques tels que les ventilateurs, les jouets, les robots, les voitures, etc.
 
 Dans votre kit, il s'agit d'un moteur DC 130. Il est petit, léger et peu coûteux. Il est parfait pour les débutants.
@@ -34,10 +34,10 @@ On peut inverser le sens de rotation du moteur en inversant les fils de branchem
 
 ---
 
-# Le contrôleur de moteur L293D
+## Le contrôleur de moteur L293D
 Le contrôleur de moteur L293D est un circuit intégré qui permet de contrôler un moteur DC. Il est composé de deux ponts en H. Chaque pont en H est composé de quatre transistors. Le L293D peut contrôler deux moteurs DC ou un moteur pas à pas.
 
-## Premièrement, qu'est-ce qu'un pont en H?
+### Premièrement, qu'est-ce qu'un pont en H?
 Un pont en H est un circuit électronique qui permet de contrôler la direction du courant électrique. Il est composé de quatre transistors. Deux transistors sont utilisés pour contrôler le courant dans un sens et les deux autres transistors sont utilisés pour contrôler le courant dans l'autre sens.
 
 ![alt text](assets/H-bridge_mod.png)
@@ -59,7 +59,7 @@ Voici une animation montrant le fonctionnement d'un pont en H.
 
 ![alt text](assets/H-Bridge-Working-Motor-Direction-Control-Animation.gif)
 
-## Le contrôleur de moteur L293D
+### Le contrôleur de moteur L293D
 Maintenant que l'on sait en quoi consiste un pont en H, on peut comprendre comment fonctionne le contrôleur de moteur L293D.
 
 ![alt text](assets/L293D.jpg)
@@ -91,7 +91,7 @@ Voici un diagramme de branchement pour contrôler un moteur DC avec le L293D et 
 
 ---
 
-## Tableau logique de contrôle du moteur DC avec le L293D
+### Tableau logique de contrôle du moteur DC avec le L293D
 
 Voici un tableau logique pour contrôler un moteur DC avec le L293D.
 
@@ -102,7 +102,7 @@ Voici un tableau logique pour contrôler un moteur DC avec le L293D.
 | LOW       | HIGH      | Direction 2      |
 | HIGH      | HIGH      | Arrêt            |
 
-## Exemple de code
+### Exemple de code
 Suivant le diagramme de branchement précédemment montré, voici un exemple de code pour contrôler le moteur DC.
 
 ```cpp
@@ -159,16 +159,16 @@ void loop() {
 
 Dans l'exemple ci-dessus avec le analogueWrite, on utilise la fonction `analogWrite` pour contrôler la vitesse du moteur. La fonction `analogWrite` permet de contrôler la vitesse du moteur en modulant la largeur d'impulsion (PWM). La valeur de `i` varie de 0 à 255. Plus la valeur est grande, plus le moteur tourne vite.
 
-## Important
+### Important
 Les moteurs ne fonctionnent pas comme des LED. Les moteurs ont une inertie. C'est-à-dire qu'ils ne démarrent pas ou ne s'arrêtent pas instantanément. Si on met une valeur trop faible pour le PWM, le moteur ne tournera pas et chauffera. Ainsi, il est important de connaitre la valeur minimale pour que le moteur démarre et utiliser celle-ci pour le seuil de démarrage. 
 
 ---
 
-# Exercices
+## Exercices
 1. Branchez le moteur DC et le contrôleur de moteur L293D à votre Arduino. Utilisez le code précédent pour faire tourner le moteur dans un sens, puis dans l'autre sens, puis arrêtez-le.
 2. Modifiez le code pour permettre d'arrêter ou activer le moteur via le port série. Par exemple, si l'utilisateur tape `1`, le moteur tourne dans un sens, si l'utilisateur tape `2`, le moteur tourne dans l'autre sens, si l'utilisateur tape `0`, le moteur s'arrête.
 
 ---
 
-# Références
+## Références
 - [Learn Coding with Arduino IDE – L293D With DC Motor](https://osoyoo.com/2017/10/10/arduino-lesson-l293d-with-dc-motor/)

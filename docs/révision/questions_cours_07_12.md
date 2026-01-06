@@ -1,6 +1,6 @@
-# 🧠 Questions de révision – Arduino 420-0SX-SW
+## 🧠 Questions de révision – Arduino 420-0SX-SW
 
-## Cours 07 : Servo, machine à états, I2C, Stepper
+### Cours 07 : Servo, machine à états, I2C, Stepper
 
 1. Quelle fonction permet de déplacer un servomoteur vers un angle spécifique?
 2. Quelle bibliothèque est fréquemment utilisée pour contrôler un servomoteur?
@@ -21,7 +21,7 @@
 
 ---
 
-## Cours 08 : Communication série avancée, POO de base
+### Cours 08 : Communication série avancée, POO de base
 
 1. Quelle fonction permet de lire les données entrantes sur le port série?
 2. Quel est l’intérêt de la programmation orientée objet dans un projet Arduino?
@@ -42,7 +42,7 @@
 
 ---
 
-## Cours 09 : Moteur DC, machine à états revisitée
+### Cours 09 : Moteur DC, machine à états revisitée
 
 1. Quel composant a-t-on vu qui permet de contrôler la direction et la vitesse d’un moteur DC?
 2. Quelle est la fonction utilisée pour contrôler un moteur avec PWM?
@@ -63,7 +63,7 @@
 
 ---
 
-## Cours 10 : Refactorisation, Matrice MAX7219
+### Cours 10 : Refactorisation, Matrice MAX7219
 
 1. Qu'est-ce que la refactorisation du code?
 2. Quel est l'avantage d’utiliser une classe pour piloter un écran?
@@ -84,7 +84,7 @@
 
 ---
 
-## Cours 11 : Communication WiFi (ESP), MQTT
+### Cours 11 : Communication WiFi (ESP), MQTT
 
 1. Quelle bibliothèque est souvent utilisée avec les modules ESP8266 ou ESP32?
 2. Quelle est la différence entre `client.publish()` et `client.subscribe()`?

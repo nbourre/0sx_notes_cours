@@ -1,4 +1,4 @@
-# Cours 03
+## Cours 03
 
 ![alt text](<assets/DALL-E 2025-02-03 a.webp>)
 

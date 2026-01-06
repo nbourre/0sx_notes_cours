@@ -1,8 +1,8 @@
-# Le moteur pas-à-pas <!-- omit in toc -->
+# Le moteur pas-à-pas
 
 ![Alt text](assets/stepper_motor.jpg)
 
-# Table des matières <!-- omit in toc -->
+# Table des matières
 - [Introduction](#introduction)
 	- [Utilisation](#utilisation)
 - [Fonctionnement d'un moteur pas-à-pas](#fonctionnement-dun-moteur-pas-à-pas)

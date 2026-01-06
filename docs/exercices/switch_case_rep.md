@@ -1,7 +1,7 @@
-# switch-case - Réponses
+## switch-case - Réponses
 Voici les réponses aux exercices sur les `switch-case`.
 
-# Exercice 1
+## Exercice 1
 
 ```cpp
 switch (input) {
@@ -20,7 +20,7 @@ switch (input) {
 }
 ```
 
-# Exercice 2
+## Exercice 2
 
 ```cpp
 switch (mode) {
@@ -39,7 +39,7 @@ switch (mode) {
 }
 ```
 
-# Exercice 3
+## Exercice 3
 
 ```cpp
 switch (buttonState) {
@@ -55,7 +55,7 @@ switch (buttonState) {
 }
 ```
 
-# Exercice 4
+## Exercice 4
 
 ```cpp
 enum MotorSpeed { STOP, REVERSE_FULL, REVERSE_HALF, FORWARD_HALF, FORWARD_FULL };
@@ -89,7 +89,7 @@ switch (receivedValue) {
 
 Dans cet exercice, nous avons défini une énumération MotorSpeed avec cinq valeurs possibles: `STOP`, `REVERSE_FULL`, `REVERSE_HALF`, `FORWARD_HALF`, et `FORWARD_FULL`. Ensuite, nous avons utilisé un bloc switch/case pour déterminer la valeur de motorSpeed à partir de la valeur reçue en série.
 
-# Exercice 5
+## Exercice 5
 
 ```cpp
 
@@ -109,7 +109,7 @@ switch (sensorValue) {
 }
 ```
 
-# Exercice 6
+## Exercice 6
 
 ```cpp
 switch (analogValue) {

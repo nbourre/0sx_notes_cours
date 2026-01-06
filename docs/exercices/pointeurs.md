@@ -1,4 +1,4 @@
-# Pointeurs - Exercices
+## Pointeurs - Exercices
 Voici quelques exercices pour vous pratiquez à l'utilisation des pointeurs.
 
 1. Écrivez une fonction qui prend deux pointeurs vers des entiers et les additionne. La fonction doit renvoyer le résultat de l'addition.
@@ -9,5 +9,5 @@ Voici quelques exercices pour vous pratiquez à l'utilisation des pointeurs.
 
 **Note**: Pour les exercices 2 à 5, il est important de vérifier si les pointeurs passés en paramètres sont valides (non NULL) avant de les utiliser.
 
-## Solutions
+### Solutions
 Les solutions sont disponibles dans le fichier [pointeurs_rep.md](pointeurs_rep.md).

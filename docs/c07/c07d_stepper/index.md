@@ -1,33 +1,20 @@
-# Le moteur pas-à-pas <!-- omit in toc -->
+# Le moteur pas-à-pas
 
 ![Alt text](assets/stepper_motor.jpg)
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-	- [Utilisation](#utilisation)
-- [Fonctionnement d'un moteur pas-à-pas](#fonctionnement-dun-moteur-pas-à-pas)
-- [Le moteur pas-à-pas 28BYJ-48](#le-moteur-pas-a-pas-28byj-48)
-	- [Le filage](#le-filage)
-	- [Rapport de réduction de l'engrenage](#rapport-de-réduction-de-lengrenage)
-- [Le module de contrôle ULN2003](#le-module-de-controle-uln2003)
-- [Branchement](#branchement)
-- [Exemple de code avec la librairie `AccelStepper`](#exemple-de-code-avec-la-librairie-accelstepper)
-	- [Explication du code](#explication-du-code)
-- [Exercices](#exercices)
-- [Références](#references)
+---
 
-
-# Introduction
+## Introduction
 Votre kit contient un moteur pas-à-pas (*stepper mtor*) 28BYJ-48 avec un module monté avec un driver ULN2003.
 
-## Utilisation
+### Utilisation
 On retrouve les moteurs pas-à-pas dans plusieurs applications comme les lecteurs de disques, les disques durs, les imprimantes, les robots, etc.
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z5v90dUOg4E/0.jpg)](https://www.youtube.com/watch?v=z5v90dUOg4E)
 
 > **Zone le fun :** Jetez un coup d'oeil sur le [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
 
-# Fonctionnement d'un moteur pas-à-pas
+## Fonctionnement d'un moteur pas-à-pas
 Les moteurs pas-à-pas utilisent une roue dentée et des électroaimants pour faire avancer la roue d'un "pas" à la fois.
 
 Chaque impulsion haute envoyée alimente la bobine, attirant les dents les plus proches de la roue dentée et faisant tourner le moteur par incréments d'angle précis et fixes appelés pas.
@@ -47,7 +34,7 @@ En alimentant les bobines dans la séquence correcte, le moteur est mis en rotat
 > 
 > [Cet article](https://lastminuteengineers.com/28byj48-stepper-motor-arduino-tutorial/) explique en détail le fonctionnement du moteur pas-à-pas et comment le contrôler avec un Arduino.
 
-# Le moteur pas-à-pas 28BYJ-48
+## Le moteur pas-à-pas 28BYJ-48
 
 Le 28BYJ-48 est un moteur pas-à-pas unipolaire à 5 fils qui fonctionne sous 5V. Il est parfait pour les projets qui nécessitent un positionnement précis, comme l'ouverture et la fermeture d'une ventilation.
 
@@ -57,7 +44,7 @@ Malgré sa petite taille, le moteur fournit un couple décent de 34.3 mN.m à un
 
 Le seul inconvénient est qu'il consomme relativement beaucoup d'énergie, même lorsqu'il est à l'arrêt.
 
-## Le filage
+### Le filage
 
 Le moteur pas-à-pas 28BYJ-48 possède cinq fils. Les broches sont les suivantes :
 
@@ -73,7 +60,7 @@ Le fil rouge est toujours tiré vers le haut (HIGH), donc lorsque l'autre fil es
 
 Le moteur pas-à-pas ne tourne que lorsque les phases sont alimentées dans une séquence logique connue sous le nom de séquence de pas.
 
-## Rapport de réduction de l'engrenage
+### Rapport de réduction de l'engrenage
 
 Selon la fiche technique, lorsque le moteur 28BYJ-48 est utilisé en mode pas complet, chaque pas correspond à une rotation de 11,25°. Cela signifie qu'il y a 32 pas par tour (360°/11,25° = 32).
 
@@ -85,7 +72,7 @@ Cela signifie qu'en réalité, il y a 2038 pas (32*63,68395 pas par tour = 2037,
 
 ---
 
-# Le module de contrôle ULN2003
+## Le module de contrôle ULN2003
 
 Étant donné que le moteur pas-à-pas 28BYJ-48 consomme une quantité importante de puissance, il ne peut pas être contrôlé directement par un microcontrôleur tel que l'Arduino. Pour contrôler le moteur, un circuit intégré de commande tel que l'ULN2003 est nécessaire ; par conséquent, ce moteur est généralement livré avec une carte de commande basée sur l'ULN2003.
 
@@ -103,7 +90,7 @@ Il y a un cavalier ON/OFF sur la carte pour désactiver le moteur pas-à-pas si 
 
 ![Alt text](assets/ULN2003-Stepper-Motor-Driver-Pinout.png)
 
-# Branchement
+## Branchement
 
 Connectons le moteur à notre Arduino !
 
@@ -121,7 +108,7 @@ Le diagramme suivant montre le branchement typique d'un montage.
 
 ![alt text](assets/wiring.png)
 
-# Exemple de code avec la librairie `AccelStepper`
+## Exemple de code avec la librairie `AccelStepper`
 
 La librairie `AccelStepper` est une librairie permettant de contrôler les moteurs pas-à-pas. Elle est plus rapide et plus flexible que la librairie `Stepper` qui vient par défaut. Surtout, elle n'est pas bloquante, ce qui signifie que vous pouvez exécuter d'autres tâches pendant le mouvement du moteur.
 
@@ -168,7 +155,7 @@ void loop() {
 }
 ```
 
-## Explication du code
+### Explication du code
 
 `MOTOR_INTERFACE_TYPE` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
 
@@ -211,7 +198,7 @@ void loop() {
 
 ---
 
-# Exercices
+## Exercices
 1. Tester différents paramètres de vitesse et accélération
    - Modifiez `setMaxSpeed()` et `setAcceleration()` pour observer les effets sur le mouvement.
 2. Faire tourner le moteur à l’infini dans un seul sens
@@ -222,14 +209,14 @@ void loop() {
    - Branchez un potentiomètre sur A0 et utilisez `analogRead(A0)` pour modifier `setMaxSpeed()`.
 ---
 
-# Références
+## Références
 - [Control 28BYJ-48 Stepper Motor with ULN2003 Driver](https://lastminuteengineers.com/28byj48-stepper-motor-arduino-tutorial/)
 - [AccelStepper The missing manual](https://hackaday.io/project/183279-accelstepper-the-missing-manual)
 
 <!--
 ARCHIVE
 
-# Exemple de code avec la librairie `Stepper`
+## Exemple de code avec la librairie `Stepper`
 
 > **Mise en garde :** La **librairie `Stepper` est bloquante**. Cela signifie que le programme ne peut pas faire autre chose tant que le moteur est en mouvement. Si vous avez besoin d'exécuter d'autres tâches pendant le mouvement du moteur, vous devrez utiliser une autre bibliothèque. Je suggère `AccelStepper`.
 

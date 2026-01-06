@@ -1,23 +1,14 @@
-# Le capteur ultrasonique <!-- omit in toc -->
+# Le capteur ultrasonique
 
 
-# Moment du secondaire : "Meh ça sert à quoi..." <!-- omit in toc -->
+## Moment du secondaire : "Meh ça sert à quoi..."
 
 Au secondaire, vous avez tous déjà appris que le son avait une vitesse définie dans l'air soit environ $343 m/s$. Vous vous demandiez peut-être à quoi cela pouvait servir de le savoir? Eh bien, c'est justement ce que nous allons voir dans ce chapitre. Nous allons utiliser cette vitesse pour mesurer des distances.
-
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Fonctionnement du capteur HC-SR04](#fonctionnement-du-capteur-hc-sr04)
-- [Utilisation du HC-SR04 avec Arduino](#utilisation-du-hc-sr04-avec-arduino)
-- [Utilisation de la library HCSR04 de Gamegine](#utilisation-de-la-library-hcsr04-de-gamegine)
-- [Conclusion](#conclusion)
-- [Exercices](#exercices)
-- [Annexe](#annexe)
 
 ---
 
 
-# Introduction
+## Introduction
 
 ![Alt text](assets/hcsr04.jpg)
 
@@ -27,7 +18,7 @@ Ce capteur est inclus dans votre kit de démarrage Arduino. Il est peu dispendie
 
 ---
 
-# Fonctionnement du capteur HC-SR04
+## Fonctionnement du capteur HC-SR04
 
 Le HC-SR04 utilise des ondes sonores pour mesurer la distance entre le capteur et un objet. Le capteur émet un signal ultrasonique et attend que le signal soit réfléchi par un objet. Le temps qu'il faut pour que le signal revienne est ensuite mesuré. Cette mesure de temps peut être utilisée pour calculer la distance entre le capteur et l'objet.
 
@@ -41,7 +32,7 @@ Le HC-SR04 est composé de deux éléments principaux : l'émetteur ultrasonique
 > 
 > ![Image avec deux chiens et un chat couchés sur un coussin](assets/dog_and_cat2.jpg)
 
-# Utilisation du HC-SR04 avec Arduino
+## Utilisation du HC-SR04 avec Arduino
 
 Le HC-SR04 est compatible avec la plupart des cartes Arduino. Pour utiliser le capteur avec Arduino, nous devons d'abord connecter le capteur à la carte.
 
@@ -98,7 +89,7 @@ La distance mesurée est ensuite affichée sur le moniteur série de la carte Ar
 >  
 > La vitesse du son est de 343 m/s au niveau de la mer. La vitesse du son en centimètres par microseconde est donc de 0.0343 cm/µs.
 
-# Utilisation de la library HCSR04 de Gamegine
+## Utilisation de la library HCSR04 de Gamegine
 Voici un exemple d'utilisation de la librairie "hcsr04" de Gamegine pour mesurer la distance à l'aide du capteur HC-SR04 avec une carte Arduino.
 
 Tout d'abord, nous devons installer la librairie. Pour ce faire, ouvrez l'IDE Arduino et suivez ces étapes :
@@ -144,16 +135,16 @@ En utilisant la librairie "hcsr04", il est possible de mesurer la distance avec 
 
 ---
 
-# Conclusion
+## Conclusion
 
 Le capteur HC-SR04 est un composant électronique utile pour mesurer la distance dans les projets Arduino. Il est facile à utiliser et permet de mesurer des distances avec une grande précision. En utilisant ce capteur avec un écran LCD, il est possible de créer des projets pratiques tels que le contrôle de la distance de sécurité entre une voiture et un obstacle.
 
 ---
 
-# Exercices
+## Exercices
 1. Réaliser un programme qui mesure la distance à l'aide du capteur HC-SR04 et qui affiche le résultat dans le moniteur série à toutes les 100 ms.
 
-# Annexe
+## Annexe
 
 > ***Food for thought*!! -- Les classes et les objets**
 > 

@@ -1,6 +1,6 @@
-# Zone de dépannage pour l'Arduino
+## Zone de dépannage pour l'Arduino
 
-# Je ne suis plus capable d'envoyer du code
+## Je ne suis plus capable d'envoyer du code
 Est-ce que j'ai :
 - [ ] bien branché mon Arduino?
 - [ ] sélectionné le bon port?

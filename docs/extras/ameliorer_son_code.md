@@ -1,4 +1,4 @@
-# Améliorer son code <!-- omit in toc -->
+## Améliorer son code
 
 - [Introduction](#introduction)
 - [Général](#general)
@@ -15,20 +15,20 @@
     - [Modèle d'une fonction de tâche](#modèle-dune-fonction-de-tâche)
 
 
-# Introduction
+## Introduction
 Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces astuces sont basées sur mon expérience personnelle et sur des bonnes pratiques de programmation.
 
-# Général
-## Favoriser la lisibilité du code
+## Général
+### Favoriser la lisibilité du code
 - Si vous revenez sur votre code dans quelques mois, vous serez content de l'avoir écrit de manière lisible
 - Vous ne savez pas si votre code est lisible? Demandez à un collègue de le lire
 - Vous pouvez utiliser des commentaires pour expliquer des segments de code
 
-# Variables
-## Noms de variables
+## Variables
+### Noms de variables
 - Utilisez des noms de variables explicites. Par exemple, préférez `temperatureBasse` à `tb`.
 
-## Portée des variables
+### Portée des variables
 - Utilisez des variables locales plutôt que des variables globales
 - Est-ce que la variable doit être partagée entre plusieurs fonctions?
   - Oui, utilisez une variable globale
@@ -39,12 +39,12 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 - Est-ce qu'il s'agit d'une valeur qui ne doit pas être modifiée?
   - Oui, utilisez une constante
 
-# Fonctions
+## Fonctions
 - Est-ce que la fonction fait plus d'une chose?
   - Oui, séparez la fonction en plusieurs fonctions
   - Non, la fonction est correcte
 
-# États et tâches
+## États et tâches
 - Est-ce que votre programme a plusieurs états?
   - Créez un diagramme d'états pour modéliser le comportement de votre programme
   - Créez une machine à états (enumération, `switch`, etc.)
@@ -55,14 +55,14 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 - Créez une fonction pour chaque tâche
   - Nommez la fonction de manière explicite par exemple avec le suffixe `Task`
 
-# Classe
+## Classe
 - Utilisez des classes pour la création de systèmes complexes
   - Par exemple, un système de ventilation peut être modélisé par une classe `Ventilation` qui possède un moteur, un capteur de température, etc.
 - Une classe ne doit pas faire plus d'une chose. Elle ne gère qu'un seul aspect du système
 
-# Autres astuces
-## Utilisez des modèles de fonctions
-### Modèle d'une fonction d'état
+## Autres astuces
+### Utilisez des modèles de fonctions
+#### Modèle d'une fonction d'état
 
 ```cpp
 // ct <-- current time
@@ -103,7 +103,7 @@ void modeleState(unsigned long ct)
 }
 ```
 
-### Modèle d'une fonction de tâche
+#### Modèle d'une fonction de tâche
 
 ```cpp
 // ct <-- current time

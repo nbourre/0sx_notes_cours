@@ -1,18 +1,8 @@
-# Les librairies <!-- omit in toc -->
-
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Exemples de librairies Arduino](#exemples-de-librairies-arduino)
-- [Comment utiliser une librairie Arduino](#comment-utiliser-une-librairie-arduino)
-- [Utiliser les exemples](#utiliser-les-exemples)
-- [Utiliser une librairie dans votre programme](#utiliser-une-librairie-dans-votre-programme)
-- [Mise en pratique](#mise-en-pratique)
-- [Conclusion](#conclusion)
-- [Références](#references)
+# Les librairies
 
 ---
 
-# Introduction
+## Introduction
 Imaginons que vous vouliez faire un programme avec 1 seul bouton pour exécuter 3 actions différentes.
 
 Par exemple, un montage avec 1 seul bouton pour allumer une DEL.
@@ -30,7 +20,7 @@ Les librairies Arduino sont des ensembles de codes et de fonctions qui permetten
 
 Avec un peu plus d'expérience, vous pourriez éventuellement écrire vous-même les librairies pour vos projet.
 
-# Exemples de librairies Arduino
+## Exemples de librairies Arduino
 Voici quelques exemples de librairies Arduino courantes :
 
 - `OneButton` : Cette librairie ajoute des fonctionnalités pour contrôler des boutons. Elle fournit des fonctions pour détecter les appuis sur le bouton et les relâchements.
@@ -41,7 +31,7 @@ Voici quelques exemples de librairies Arduino courantes :
 
 ---
 
-# Comment utiliser une librairie Arduino
+## Comment utiliser une librairie Arduino
 Pour utiliser une librairie Arduino, vous devez d'abord la télécharger et l'installer sur votre ordinateur. 
 
 L'IDE Arduino possède un gestionnaire de librairies qui permet grandement de faciliter l'installation de celles-ci.
@@ -65,7 +55,7 @@ Une fois que vous avez importé la librairie, vous pouvez utiliser les fonctions
 
 ---
 
-# Utiliser les exemples
+## Utiliser les exemples
 Généralement, les créateurs de librairies fournissent des exemples pour vous aider à utiliser leurs librairies. Ces exemples sont des programmes qui utilisent les fonctions de la librairie pour réaliser des tâches spécifiques.
 
 Ceux-ci sont très utiles pour apprendre à utiliser une librairie. Vous pouvez les utiliser comme point de départ pour votre propre projet.
@@ -76,7 +66,7 @@ Pour accéder aux exemples, vous devez cliquer sur "Fichier" dans la barre d'out
 
 ---
 
-# Utiliser une librairie dans votre programme
+## Utiliser une librairie dans votre programme
 Pour utiliser une librairie dans votre programme, vous devez l'importer en utilisant la directive `#include`. La directive `#include` permet d'importer du code d'une autre source dans votre programme. Dans le cas des librairies Arduino, vous devez importer le fichier de la librairie que vous voulez utiliser.
 
 Pour connaître le nom de la librairie, ouvrez un exemple de la librairie et regardez la première ligne du programme. Vous verrez quelque chose comme ceci :
@@ -88,7 +78,7 @@ Pour connaître le nom de la librairie, ouvrez un exemple de la librairie et reg
 
 ---
 
-# Mise en pratique
+## Mise en pratique
 Réalisez un montage avec un bouton et une DEL (Celle intégrée).
 - Branchez le bouton sur la broche 2.
 - Installez la librairie suivante :
@@ -251,11 +241,11 @@ void serialPrintTask(unsigned long now) {
 
 ----
 
-# Conclusion
+## Conclusion
 En résumé, les librairies Arduino sont des outils puissants pour ajouter des fonctionnalités à votre projet. Pour les utiliser, vous devez les télécharger, les installer et les importer dans votre programme. Une fois que vous avez importé une librairie, vous pouvez utiliser les fonctions qu'elle offre pour simplifier votre code et accélérer le développement.
 
 ---
 
-# Références
+## Références
 - [Arduino - Librairies](https://www.arduino.cc/en/Guide/Libraries)
 - [Documentation de la librairie OneButton](https://github.com/mathertel/OneButton)

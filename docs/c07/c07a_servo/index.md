@@ -1,4 +1,4 @@
-# Le servomoteur <!-- omit in toc -->
+# Le servomoteur
 
 ![Alt text](assets/servo-samples.jpg)
 

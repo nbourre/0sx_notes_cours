@@ -1,32 +1,10 @@
-# La refactorisation <!-- omit in toc -->
+# La refactorisation
 
 ![alt text](<DALL·E 2024-03-22 14.15.48.webp>)
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Les principes de la refactorisation](#les-principes-de-la-refactorisation)
-  - [Les principes SOLID](#les-principes-solid)
-    - [Le principe de responsabilité unique (Single Responsibility Principle)](#le-principe-de-responsabilite-unique-single-responsibility-principle)
-    - [Le principe d'ouverture/fermeture (Open/Closed Principle)](#le-principe-douverturefermeture-openclosed-principle)
-- [Étude de cas](#etude-de-cas)
-  - [Identification des problèmes](#identification-des-problemes)
-  - [Analyse du projet](#analyse-du-projet)
-  - [Déterminer les responsabilités de chaque classe](#determiner-les-responsabilites-de-chaque-classe)
-    - [Classe `Eclairage`](#classe-eclairage)
-    - [Classe `Affichage`](#classe-affichage)
-  - [Code principal](#code-principal)
-- [Exercices](#exercices)
-  - [Système d'alarme](#système-dalarme)
-    - [Requis](#requis)
-  - [Affichage](#affichage)
-    - [Requis](#requis-1)
-- [Résumé](#resume)
-- [Annexe](#annexe)
-  - [Fonction membre en ligne](#fonction-membre-en-ligne)
-  - [Initialisation des membres objets](#initialisation-des-membres-objets)
+---
 
-
-# Introduction
+## Introduction
 Voici une mise en situation.
 
 Vous avez travaillé sur un projet qui fonctionnait pour les besoins du moment. Mais maintenant, vous devez ajouter une nouvelle fonctionnalité. Vous vous rendez compte que le code est difficile à comprendre et à modifier. Si vous effectuez des modifications, vous risquez de casser le code existant. Vous décidez donc de le réécrire pour l'améliorer. C'est ce que l'on appelle la **refactorisation**.
@@ -35,21 +13,21 @@ La refactorisation est le processus de modification du code source pour amélior
 
 > **Note :** Il faudra comprendre les concepts des classes et des objets pour bien apprécier la refactorisation. Si ce n'est pas le cas, vous pouvez consulter le cours sur [les classes et les objets](../../c08/c08b_poo_base/index.md).
 
-# Les principes de la refactorisation
+## Les principes de la refactorisation
 La refactorisation est un processus qui peut être appliqué à n'importe quel code, mais il existe des principes qui peuvent vous aider à améliorer votre code.
 
-## Les principes SOLID
+### Les principes SOLID
 Les principes [SOLID](https://fr.wikipedia.org/wiki/SOLID_(informatique)) sont des principes de programmation orientée objet qui peuvent être appliqués à n'importe quel langage de programmation. Ils sont souvent utilisés pour décrire les bonnes pratiques de la programmation orientée objet.
 
 À votre niveau, soit 1ère année, nous allons voir 2 principes des 5 principes du SOLID.
 
-### Le principe de responsabilité unique (Single Responsibility Principle)
+#### Le principe de responsabilité unique (Single Responsibility Principle)
 Le principe de responsabilité unique (SRP) stipule qu'**une classe doit avoir une seule responsabilité**. Si une classe a plusieurs responsabilités, cela signifie qu'elle est trop complexe et qu'elle doit être divisée en plusieurs classes.
 
-### Le principe d'ouverture/fermeture (Open/Closed Principle)
+#### Le principe d'ouverture/fermeture (Open/Closed Principle)
 Le principe d'ouverture/fermeture (OCP) stipule qu'une classe doit être ouverte à l'extension, mais fermée à la modification. **Cela signifie que vous devez pouvoir ajouter de nouvelles fonctionnalités sans modifier le code existant.**
 
-# Étude de cas
+## Étude de cas
 Pour pratiquer la refactorisation, nous allons refaire le laboratoire 04 soit celui de l'éclairage automatique. Nous allons étudier le code qui suit. Il s'agit du code de votre collègue Vincent Bureau (Merci! 🙂).
 
 ```cpp
@@ -137,7 +115,7 @@ void loop() {
 
 > **Remarques :** Vous allez remarquer que j'identifie plusieurs problèmes dans le code et **c'est normal**. Vous êtes en apprentissage et cela fait partie du processus. Au fur et à mesure de votre formation, vous allez apprendre à identifier les problèmes, à les résoudre et à les éviter.
 
-## Identification des problèmes
+### Identification des problèmes
 
 Avant de faire la refactorisation, il faut identifier les problématiques du code actuel. 
 
@@ -161,7 +139,7 @@ Les questions que l'on peut se poser seraient "Est-ce que ça sert pour cette fo
 
 Ce sont tous des problématiques que la refactorisation va permettre de résoudre.
 
-## Analyse du projet
+### Analyse du projet
 La première étape sera de déterminer les différents systèmes de ce projet.
 
 Les grandes lignes du projet étaient ceci :
@@ -185,12 +163,12 @@ Pour le système de distance, nous n'avons pas besoin de faire de classe, car on
 
 > **Note :** Je sais que nous avons le système d'alarme, mais on se concentre sur le système d'éclairage automatique.
 
-## Déterminer les responsabilités de chaque classe
+### Déterminer les responsabilités de chaque classe
 Nous avons donc besoin de 2 classes pour ce projet. Nous allons maintenant déterminer les responsabilités de chaque classe.
 
 Pour l'instant, on n'a pas besoin de classe pour la distance. Nous allons donc nous concentrer sur les 2 autres classes.
 
-### Classe `Eclairage`
+#### Classe `Eclairage`
 La classe `Eclairage` va gérer le système d'éclairage. Elle va lire la valeur du capteur de luminosité et allumer la DEL lorsque la luminosité est trop basse.
 
 Dans sa première moutures, les fonctions publiques de cette classe seront :
@@ -263,7 +241,7 @@ void Eclairage::update(){
 }
 ```
 
-### Classe `Affichage`
+#### Classe `Affichage`
 Pour la classe `Affichage`, celle-ci va recevoir les données des autres classes et les afficher sur l'écran LCD. Ne sachant pas encore tous les systèmes qui devront afficher de l'information, nous allons développer une classe indépendante de tout autre système.
 
 On veut rafraîchir l'affichage à toutes les temps données. On a donc besoin d'une fonction pour indiquer le temps entre chaque rafraîchissement.
@@ -376,7 +354,7 @@ void Affichage::update(){
 > ```
 
 
-## Code principal
+### Code principal
 Une fois que les classes sont réalisées, il ne reste plus qu'à les utiliser dans le code principal. 
 
 ```cpp
@@ -419,11 +397,11 @@ Voilà! Le code principal est maintenant beaucoup plus lisible et facile à comp
 
 ---
 
-# Exercices
-## Système d'alarme
+## Exercices
+### Système d'alarme
 Refactorisez le code du laboratoire du système d'alarme.
 
-### Requis
+#### Requis
 - La classe devra se nommer `Alarme`.
 - Le constructeur devra avoir les broches pour le détecteur de distance, les broches des DEL et le broche du buzzer.
   - La signature sera donc `Alarme(uint8_t echoPin, uint8_t triggerPin, uint8_t ledRed, uint8_t ledBlue, uint8_t buzzerPin);`
@@ -435,10 +413,10 @@ Refactorisez le code du laboratoire du système d'alarme.
 - Il devra y avoir la fonction `update()` qui mettra à jour l'état de l'alarme.
   - On devra mettre à jour la distance à tous les 10 ms.
 
-## Affichage
+### Affichage
 Le code du LCD est assez pêle-mêle. Refactorisez le code pour qu'il soit plus lisible.
 
-### Requis
+#### Requis
 Il n'est pas nécessaire de créer une classe pour cet exercice. Il suffit de créer des éléments qui permettront de rendre le code plus lisible.
 
 Ajoutez une énumération nommée `LCDState` pour l'état de l'affichage. Les états serviront à indiquer quels messages à afficher. Ils seront les suivants :
@@ -544,15 +522,15 @@ void lcdDataReceived() {
 
 ---
 
-# Résumé
+## Résumé
 Dans ce tutoriel, nous avons vu comment utiliser les classes pour organiser le code. Nous avons vu comment définir une classe et comment utiliser les attributs et les méthodes d'une classe. Nous avons aussi vu comment utiliser les classes dans le code principal.
 
 Il faut se rappeler que si j'utilise un attribut qui est un objet, il faudra faire une référence à cet objet à l'aide du symbole `&` dans le constructeur de la classe.
 
 ---
 
-# Annexe
-## Fonction membre en ligne
+## Annexe
+### Fonction membre en ligne
 Dans le code de la classe `Affichage`, nous avons utilisé une fonction membre en ligne. C'est une fonction qui est définie dans la classe, mais qui n'est pas définie dans le fichier `.cpp`. Cette fonction est définie dans le fichier `.h` et est donc accessible partout où la classe est incluse.
 
 Elle possède généralement peu de lignes de code et est donc plus facile à lire et à comprendre.
@@ -576,7 +554,7 @@ class Affichage {
 };
 ```
 
-## Initialisation des membres objets
+### Initialisation des membres objets
 Dans le code de la classe `Affichage`, nous avons initialisé les membres objets dans le constructeur de la classe. C'est une bonne pratique de faire cela, car cela permet de définir les valeurs par défaut des membres objets. De plus, certains membres objets n'ont pas de constructeur par défaut, il faut donc les initialiser dans le constructeur de la classe.
 
 Voici la syntaxe générale pour initialiser les membres objets :

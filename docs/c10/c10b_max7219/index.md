@@ -1,21 +1,8 @@
-# Contrôler une matrice de LED (MAX7219) avec la librairie U8g2 <!-- omit in toc -->
-
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Comment fonctionne une matrice de LED?](#comment-fonctionne-une-matrice-de-led)
-- [Le MAX7219](#le-max7219)
-- [La librairie U8g2](#la-librairie-u8g2)
-- [Matériel requis](#materiel-requis)
-- [Branchement](#branchement)
-- [Code d’exemple](#code-dexemple)
-  - [Explication du code](#explication-du-code)
-- [Fonctions de bases utiles](#fonctions-de-bases-utiles)
-- [Faire défiler du texte](#faire-defiler-du-texte)
-- [Références](#references)
+# Contrôler une matrice de LED (MAX7219) avec la librairie U8g2
 
 ---
 
-# Introduction
+## Introduction
 
 ![alt text](assets/8x8-Dot-Matrix-Display.jpg)
 
@@ -27,7 +14,7 @@ Le MAX7219 est un circuit intégré qui permet de contrôler des matrices de LED
 
 ---
 
-# Comment fonctionne une matrice de LED?
+## Comment fonctionne une matrice de LED?
 En excluant le MAX7219, une matrice de LED est un ensemble de diodes électroluminescentes (LED) organisées en lignes et colonnes. Chaque LED peut être allumée ou éteinte individuellement. 
 
 Voici le schéma représentant une matrice de LED 8×8 :
@@ -48,7 +35,7 @@ Des modules comme le **MAX7219** simplifient cette tâche.
 
 ---
 
-# Le MAX7219
+## Le MAX7219
 Comme mentionné précédemment, le **MAX7219** est un circuit intégré qui permet de contrôler des matrices de LED. Il utilise une interface SPI pour communiquer avec un microcontrôleur, ce qui réduit le nombre de broches nécessaires pour contrôler plusieurs LED.
 
 ![alt text](assets/8-8-led-dot-led-matrix-display-module-with-max7219-ic-3-1000x1000.png)
@@ -61,7 +48,7 @@ Le MAX7219 est capable de gérer plusieurs matrices en série, ce qui permet d'a
 
 ---
 
-# La librairie U8g2
+## La librairie U8g2
 Pour contrôler le MAX7219, il n'est pas nécessaire d'utiliser une bibliothèque. Cependant, l'utilisation d'une bibliothèque facilite grandement le processus. La bibliothèque **U8g2** est l'une des plus populaires pour la gestion d'afficheurs graphiques et de matrices de LED.
 
 Elle offre une interface simple pour dessiner des formes, afficher du texte et gérer la luminosité.
@@ -70,13 +57,13 @@ Elle offre une interface simple pour dessiner des formes, afficher du texte et g
 
 ---
 
-# Matériel requis
+## Matériel requis
 En plus du matériel usuel pour faire fonctionner un Arduino, vous aurez besoin de :
 - **1** matrice de LED 8×8 avec contrôleur **MAX7219**  
 
 ---
 
-# Branchement
+## Branchement
 Le module MAX7219 communique via un bus de type **SPI** (Serial Peripheral Interface). Les broches habituelles pour un branchement SPI sont :
 - **MOSI** (Master Out Slave In)
 - **MISO** (Master In Slave Out)
@@ -94,7 +81,7 @@ Par exemple :
 - **CS** (Chip Select) → 32
 
 
-# Code d’exemple
+## Code d’exemple
 Voici un code minimaliste avec la librairie **u8g2**. On installe la bibliothèque « **U8g2** » via le gestionnaire de bibliothèques Arduino. Ensuite, on peut utiliser la classe `U8G2_MAX7219_64X8_...` ou `U8G2_MAX7219_32X8_...` selon la taille de votre module. Ici, c’est un **8×8** unique, donc 8 colonnes × 8 rangées :
 
 ```cpp
@@ -150,7 +137,7 @@ void loop() {
 }
 ```
 
-## Explication du code
+### Explication du code
 1. **Inclusion des bibliothèques** :  
    - `U8g2lib.h` : fournit les classes permettant de gérer divers écrans, y compris le MAX7219.
 2. **Instantiation** :  
@@ -170,7 +157,7 @@ void loop() {
 
 ---
 
-# Fonctions de bases utiles
+## Fonctions de bases utiles
 
 Voici un tableau des fonctions de base qui peuvent être utiles pour dessiner sur la matrice de LED :
 
@@ -407,7 +394,7 @@ void loop() {
 
 ---
 
-# Faire défiler du texte
+## Faire défiler du texte
 Je vous fournis un exemple de code pour faire défiler du texte sur la matrice de LED. Vous pouvez l'adapter selon vos besoins.
 
 <details>
@@ -512,7 +499,7 @@ void loop(void) {
 
 ---
 
-# Références
+## Références
 - [Interfacing 8x8 LED Matrix with Arduino](https://www.circuitstoday.com/interfacing-8x8-led-matrix-with-arduino)
 - [Interfacing MAX7219 LED Dot Matrix Display with Arduino](https://lastminuteengineers.com/max7219-dot-matrix-arduino-tutorial/)
 - [Vidéo : How to control 8x8 LED Matrix with MAX7219](https://www.youtube.com/watch?v=SGjQ-E3UD7A)

@@ -1,4 +1,4 @@
-# Robot Ranger <!-- omit in toc -->
+## Robot Ranger
 
 - [Plan de leçon](#plan-de-leçon)
 - [mBot Ranger de MakeBlock](#mbot-ranger-de-makeblock)
@@ -23,7 +23,7 @@
 
 name : plan_lecon
 
-# Plan de leçon
+## Plan de leçon
 
 - MakeBlock mBot Ranger
 - Spécifications
@@ -32,14 +32,14 @@ name : plan_lecon
 
 ---
 
-# mBot Ranger de MakeBlock
+## mBot Ranger de MakeBlock
 - Le robot utilisé sera le mBot Ranger de la compagnie MakeBlock
 - [Page officielle](https://www.makeblock.com/steam-kits/mbot-ranger)
   
 ![](../img/mBot-Ranger_500_EN.png)
 
 ---
-# Spécifications
+## Spécifications
 - Moteurs avec encodeur
 - Châssis en aluminium
 - Capteur ultrason
@@ -50,7 +50,7 @@ name : plan_lecon
 - Carte-mère compatible avec le Arduino Mega
 -
 ---
-# Le robot
+## Le robot
 
 ![](../img/PXL_20220926_173204042.jpg)
 - Capteur ultrason
@@ -79,25 +79,25 @@ name : plan_lecon
 - Port USB type B
 - Port d'alimentation
 ---
-# Pin out
+## Pin out
 ![](../img/auriga_pinout.png)
 - Observer les différentes étiquettes, elles font références aux différentes broches du Arduino
 
-## Points saillants
+### Points saillants
 - Les broches SDA et SDL sont représentées à plusieurs reprises
 - Une anneau de DEL RGB
 - Un MPU-6050
 - Un module Bluetooth
 ---
 
-# Différences avec le Arduino Mega
+## Différences avec le Arduino Mega
 - Plusieurs ports sont occupés par les différents composants
   - Voir le Pin out
 - Les ports de connexion sont compatibles avec les connecteurs RJ25
 - La carte-mère est appelé "**Auriga**"  
 ---
 
-# Configuration de l'environnement
+## Configuration de l'environnement
 - Avoir la dernière version de l'Arduino IDE
 - Télécharger la dernière version des librairies MakeBlock
   - https://github.com/Makeblock-official/Makeblock-Libraries
@@ -109,7 +109,7 @@ name : plan_lecon
 
 ---
 
-# Premier test
+## Premier test
 - Dans un nouveau projet Arduino, copier le code que l'on retrouve ci-bas
 - Compiler l'application
 - Téléverser le projet sur le robot
@@ -314,13 +314,13 @@ Il se peut qu'Arduino IDE ne reconnaisse pas la carte du robot. Il faudra alors 
 
 ---
 
-# Analyse du code testé  
+## Analyse du code testé  
 - Les classes de MakeBlock débutent avec le préfix `Me`
   - Exemples : MeRGBLed, MeGyro, etc.
   - Il y a certains bogues pour le `MeAuriga` dans la librairie
 
 ---
-# Gyroscope
+## Gyroscope
 - Modèle MPU-6050
 - Configuré sur l'adresse 0x69 pour le `MeAuriga`
 - Utiliser la classe `MeGyro`
@@ -351,7 +351,7 @@ void loop()
 }
 ```
 ---
-# Exercices
+## Exercices
 À l'aide des exemples, testez les composants suivants:
 - Le capteur de son
   - Affichez le niveau de son dans le port série
@@ -361,6 +361,6 @@ void loop()
 - Le capteur de puissance
   - Affichez dans le moniteur série la puissance de la batterie restante.
 ---
-# Références
+## Références
 - <a href="https://support.makeblock.com/hc/en-us/articles/1500004053721-Programming-mBot-Ranger-in-Arduino" target="_blank">Programming mBot Ranger in Arduino</a>
 - https://www.instructables.com/Advanced-Makeblock-Sensors-DIY/

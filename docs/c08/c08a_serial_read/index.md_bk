@@ -1,6 +1,6 @@
-# Lecture de données à partir du port série <!-- omit in toc -->
+## Lecture de données à partir du port série
 
-# Table des matières <!-- omit in toc -->
+## Table des matières
 - [Introduction](#introduction)
 - [Arduino Mega : Spécificités](#arduino-mega--spécificités)
 - [Fonctions importantes de base](#fonctions-importantes-de-base)
@@ -17,11 +17,11 @@
 - [Références](#références)
 
 
-# Introduction
+## Introduction
 
 Dans cet article, nous allons apprendre comment utiliser le port série d'un Arduino pour lire des données provenant du port série. Vous avez déjà appris à utiliser le port série pour envoyer des données de l'Arduino à l'ordinateur, nous allons donc nous concentrer sur la lecture de données dans cet article.
 
-# Arduino Mega : Spécificités
+## Arduino Mega : Spécificités
 Le Arduino Mega dispose de 4 ports série. Le port série 0 est utilisé pour la communication avec l'ordinateur. Les ports série 1, 2 et 3 sont utilisés pour la communication avec des périphériques externes.
 
 Voici un tableau avec les broches utilisées pour chaque port série :
@@ -35,20 +35,20 @@ Voici un tableau avec les broches utilisées pour chaque port série :
 
 > **Note** : On ne branche généralement rien sur les broches TX et RX du port série 0 car elles sont utilisées pour la communication avec l'ordinateur. Si vous branchez quelque chose sur ces broches, vous ne pourrez probablement plus téléverser de programme sur l'Arduino Mega.
 
-# Fonctions importantes de base
+## Fonctions importantes de base
 Les fonctions importantes pour la lecture de données à partir du port série sont :
 
 - `Serial.begin()` : Initialise le port série.
 - `Serial.available()` : Retourne le nombre de caractères (octets) disponibles dans le tampon de réception.
 - `Serial.read()` : Lit un caractère du tampon de réception.
 
-# Utilisation
+## Utilisation
 
 Pour savoir si des données sont disponibles dans le tampon (*buffer*) de réception, on utilise la fonction `Serial.available()`. Cette fonction retourne le nombre d'octet disponibles à la lecture dans le buffer de réception. Si le nombre d'octet est supérieur à 0, alors on peut lire chaque octet avec la fonction `Serial.read()`.
 
 Il faut toujours regarder si des données sont disponibles dans le buffer de réception avant de lire le caractère. Si vous lisez un octet alors qu'aucune donnée n'est disponible, vous risquez de lire un octet aléatoire.
 
-# Exemple de contrôle via le PC
+## Exemple de contrôle via le PC
 
 Voici un exemple de code qui allume et éteint la LED_BUILTIN de l'Arduino Mega après avoir reçu une commande via le port série :
 
@@ -91,7 +91,7 @@ void afficherErreur() {
 
 ```
 
-## Explication du code
+### Explication du code
 Dans ce code, nous avons tout d'abord initialisé le port série avec une vitesse de transmission de 9600 bauds et la broche LED_BUILTIN comme une sortie numérique dans la fonction "setup()".
 
 Dans la boucle `loop()`, nous avons utilisé la fonction `Serial.available()` pour vérifier si des données ont été reçues via le port série. **Si des données sont disponibles**, nous lisons la commande envoyée en utilisant la fonction `Serial.read()`. Si la commande est égale à '1', nous exécutons la fonction `cmdAllumer()`, si la commande est égale à '0', nous exécutons la fonction `cmdEteindre()` et si la commande est différente de '1' ou '0', nous exécutons la fonction `afficherErreur()`.
@@ -100,7 +100,7 @@ En somme, ce code vous montre comment utiliser le port série pour recevoir des 
 
 ---
 
-# Exemple de contrôle via un appareil sur Série 3
+## Exemple de contrôle via un appareil sur Série 3
 
 Voici un exemple modifié du précédent qui permet de contrôler la LED_BUILTIN de l'Arduino Mega via un appareil sur le port série 3 :
 
@@ -148,7 +148,7 @@ void afficherErreur() {
 
 L'appareil connecté pourrait être un module Bluetooth, un autre Arduino, un Raspberry Pi, etc.
 
-# Convertir un nombre en entier
+## Convertir un nombre en entier
 Pour convertir un nombre en entier, on utilise la fonction `Serial.parseInt()`. Par défaut, cette fonction retourne le premier nombre entier trouvé dans le buffer de réception.
 
 Voici un exemple de code qui utilise `parseInt` pour lire un nombre entier. Ensuite, on utilise ce nombre pour ajuster la luminosité de la LED_BUILTIN de l'Arduino Mega :
@@ -170,7 +170,7 @@ void loop() {
 
 Notez qu'il y a aussi la fonction `Serial.parseFloat()` qui permet de lire un nombre à virgule flottante. Le format de la valeur envoyée du PC doit être `123.45` par exemple.
 
-# Fonction `serialEvent()`
+## Fonction `serialEvent()`
 
 Vous remarquez dans les exemples que nous avons utilisé la fonction `Serial.available()` pour vérifier si des données sont disponibles dans le tampon de réception. Cependant, il existe une autre fonction qui permet de faire la même chose : `serialEvent()`. Cette **fonction événementielle** est appelée automatiquement lorsque des données sont disponibles dans le buffer de réception. Cela permet d'éviter d'avoir à vérifier si des données sont disponibles dans le buffer de réception à chaque fois que l'on veut lire des données.
 
@@ -222,7 +222,7 @@ void serialEvent() {
 
 ```
 
-## Explication du code
+### Explication du code
 Dans ce code, nous avons utilisé la fonction `serialEvent` pour lire des données à partir du port série. La fonction `serialEvent` est appelée automatiquement chaque fois qu'une nouvelle donnée arrive sur le port série. Dans cette fonction, nous avons utilisé une boucle `while` pour lire chaque caractère entrant et l'ajouter à la chaîne `inputString`. Lorsque nous rencontrons un saut de ligne, nous définissons un drapeau `stringCompleteFlag` pour indiquer que la chaîne est complète et prête à être traitée dans la boucle principale.
 
 En somme, la fonction `serialEvent` est une alternative à la fonction `Serial.available()` pour lire des données à partir du port série. Vous pouvez utiliser l'une ou l'autre en fonction de vos besoins et de votre style de programmation.
@@ -287,7 +287,7 @@ void afficherErreur() {
 
 ---
 
-# Fonction `serial.readStringUntil()`
+## Fonction `serial.readStringUntil()`
 Supposons que vous voulez lire une commande avec des paramètres envoyée via le port série. Par exemple, vous désirez envoyer des commandes dans un format comme `pin:13,1` pour allumer la LED connectée à la broche 13 ou encore `pin:A4,read` pour lire la valeur à la broche `A4`. Vous pouvez utiliser la fonction `serial.readStringUntil()` pour lire la commande complète et ensuite la traiter.
 
 Voici un exemple complexe de code qui utilise `serial.readStringUntil()` avec `serialEvent` pour lire des commandes avec des paramètres envoyées via le port série :
@@ -432,7 +432,7 @@ int analogPinToDigitalPin(int analogPin) {
 
 ```
 
-## Explication du code
+### Explication du code
 Dans ce code qui peut sembler relativement complexe est plus simple qu'on peut y penser. En effet, j'ai subdivisé le code en plusieurs fonctions pour le rendre plus lisible et plus facile à comprendre. Cela permet de mieux organiser le code et de le rendre plus modulaire. Cela permet aussi de réutiliser certaines parties du code dans d'autres projets.
 
 
@@ -441,11 +441,11 @@ Dans ce code qui peut sembler relativement complexe est plus simple qu'on peut y
 
 ---
 
-# Exercices
+## Exercices
 1. Essayez le code de l'exemple de la section "Fonction `serial.readStringUntil()`" pour voir comment il fonctionne.
 2. Avec votre plaquette d'expérimentation, s'il y a un composant simple d'installer, essayez d'interagir avec lui via le port série. Par exemple, vous pouvez allumer et éteindre une LED, lire la valeur d'un capteur, etc.
 
 ---
 
-# Références
+## Références
 - [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)

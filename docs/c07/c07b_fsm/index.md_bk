@@ -1,11 +1,11 @@
-# La machine à états finis <!-- omit in toc -->
+# La machine à états finis
 
 > **Note :** Cet article est une réinterprétation de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
 > 
 
 ![Alt text](fsm/fsm_base.drawio.svg)
 
-# Table des matières <!-- omit in toc -->
+# Table des matières
 - [Introduction](#introduction)
 - [Pourquoi utiliser une machine à états finis?](#pourquoi-utiliser-une-machine-à-états-finis)
 - [Détails](#détails)

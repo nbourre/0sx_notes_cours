@@ -1,28 +1,14 @@
-# Découverte du protocole I2C avec Arduino <!-- omit in toc -->
+# Découverte du protocole I2C avec Arduino
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Qu'est-ce que le protocole I2C ?](#quest-ce-que-le-protocole-i2c-)
-- [Fonctionnement de base d'I2C](#fonctionnement-de-base-di2c)
-- [Utilité d'I2C dans le contexte Arduino](#utilité-di2c-dans-le-contexte-arduino)
-- [Fonctionnement en programmation](#fonctionnement-en-programmation)
-- [Exemple : Lecture d'un accéléromètre MPU-6050](#exemple--lecture-dun-accéléromètre-mpu-6050)
-- [Exemple : Contrôle d'écran LCD 1602 I2C](#exemple--contrôle-décran-lcd-1602-i2c)
-- [Exemple : MPU-6050 avec la librairie Adafruit](#exemple-mpu-6050-avec-la-librairie-adafruit)
-- [Exemples d'appareils communs utilisant I2C](#exemples-dappareils-communs-utilisant-i2c)
-- [Conclusion](#conclusion)
-- [Exercices](#exercices)
-- [Références](#references)
+---
 
-
-
-# Introduction
+## Introduction
 Lorsqu'on travaille avec des projets Arduino, il est fréquent de rencontrer des capteurs et des périphériques qui communiquent via le protocole I2C. Cette méthode de communication est particulièrement intéressante pour les étudiants, car elle permet de simplifier les connexions entre les dispositifs et de gagner en flexibilité. Dans cet article, nous allons explorer les bases du protocole I2C, son utilité et un exemple d'application.
 
-# Qu'est-ce que le protocole I2C ?
+## Qu'est-ce que le protocole I2C ?
 I2C, abréviation de "Inter-Integrated Circuit", est un protocole de communication inventé par Philips (aujourd'hui NXP) en 1982. Il est conçu pour établir une communication bidirectionnelle entre plusieurs périphériques électroniques sur un même circuit imprimé. Il fonctionne en mode maître-esclave, c'est-à-dire qu'un seul maître (généralement un microcontrôleur comme l'Arduino) contrôle plusieurs esclaves (comme des capteurs, des écrans LCD, etc.).
 
-# Fonctionnement de base d'I2C
+## Fonctionnement de base d'I2C
 Le protocole I2C fonctionne en mode **maître-esclave**. Le maître est le dispositif qui contrôle les autres périphériques. Il peut envoyer des données à un esclave, mais aussi recevoir des données de l'esclave. Les esclaves sont les périphériques qui reçoivent des données du maître et qui peuvent envoyer des données au maître. Dans le cas d'un Arduino, le maître est l'Arduino lui-même et les esclaves sont les capteurs et les périphériques qui communiquent avec l'Arduino.
 
 Le protocole I2C utilise deux lignes de communication: **SDA** (*Serial Data*) et **SCL** (*Serial Clock*). SDA est responsable de la transmission des données, tandis que SCL synchronise les dispositifs en fournissant une horloge partagée. Tous les dispositifs esclaves sont connectés en parallèle à ces deux lignes, ce qui permet de réduire considérablement le nombre de câbles nécessaire.
@@ -40,14 +26,14 @@ Certains appareils permettent de modifier l'adresse à l'aide de configuration. 
 > **Question :** Sachant que les adresses sont de 7 bits, combien d'adresses différentes sont possibles?<details><summary>Réponse</summary>
 > 128 appareils</details>
 
-# Utilité d'I2C dans le contexte Arduino
+## Utilité d'I2C dans le contexte Arduino
 Le protocole I2C est très utile dans les projets Arduino pour plusieurs raisons :
 
 1. Simplicité de câblage : Comme I2C n'utilise que deux lignes de communication, cela simplifie grandement le câblage et réduit l'encombrement sur la carte
 2. Scalabilité : Étant donné que plusieurs dispositifs peuvent être connectés au même bus I2C, il est facile d'ajouter de nouveaux périphériques sans affecter la configuration existante.
 3. Compatibilité : De nombreux capteurs et périphériques couramment utilisés avec Arduino sont compatibles avec I2C, comme les capteurs de température, les écrans OLED, les accéléromètres, etc.
 
-# Fonctionnement en programmation
+## Fonctionnement en programmation
 Le fonctionnement générale pour communiquer avec un appareil I2C est le suivant :
 1. Initialiser la communication I2C avec la fonction `Wire.begin()`
 2. Exécuter la fonction `Wire.beginTransmission()` pour commencer la transmission. Cette fonction prend en paramètre l'adresse du périphérique.
@@ -65,7 +51,7 @@ Le fonctionnement générale pour communiquer avec un appareil I2C est le suivan
 
 On s'aperçoit que la communication i2c est plus complexe que la communication série. C'est pourquoi il est important de bien lire la documentation du périphérique pour savoir comment communiquer avec lui.
 
-# Exemple : Lecture d'un accéléromètre MPU-6050
+## Exemple : Lecture d'un accéléromètre MPU-6050
 
 ![Alt text](assets/mpu6050_bb.svg)
 
@@ -123,7 +109,7 @@ Heureusement, plusieurs appareils possèdent une librairie pour faciliter leur e
 
 > **Note :** Lorsque vous voyez les opérateurs `<<` et `>>` il s'agit de l'opérateur de décalage binaire. Il permet de décaler les bits d'un octet vers la gauche ou la droite. L'opérateur `|` permet de combiner deux octets en un seul. Il s'agit d'un "ou binaire". L'opérateur `&` permet de combiner deux octets en un seul. Il s'agit d'un "et binaire".
 
-# Exemple : Contrôle d'écran LCD 1602 I2C
+## Exemple : Contrôle d'écran LCD 1602 I2C
 Voici un exemple de code pour contrôler un écran LCD 1602 I2C avec l'Arduino Mega. L'écran LCD 1602 I2C est un écran LCD 16x2 avec un contrôleur I2C intégré. Il est donc très facile de le connecter à l'Arduino Mega en utilisant seulement deux broches (SDA et SCL). Voici le code :
 
 ```cpp
@@ -158,7 +144,7 @@ Pour réaliser cet exemple, il faut importer la librairie `LCD_I2C`.
 
 ![Alt text](assets/branchement_lcd_i2c_bb.png)
 
-# Exemple : MPU-6050 avec la librairie Adafruit
+## Exemple : MPU-6050 avec la librairie Adafruit
 Voici un exemple avec la librairie fournie par Adafruit. Cette librairie est très simple à utiliser et permet de lire les données de l'accéléromètre et du gyroscope. Voici le code :
 
 ```cpp
@@ -220,7 +206,7 @@ Si l'on compare avec la version sans librairie, on remarque que le code est beau
 > 
 > Si vous ne comprenez pas ce concept, vous pouvez consulter le tutoriel sur les pointeurs.
 
-# Exemples d'appareils communs utilisant I2C
+## Exemples d'appareils communs utilisant I2C
 Voici quelques exemples d'appareils et de capteurs populaires qui fonctionnent avec le protocole I2C et sont souvent utilisés dans des projets Arduino :
 
 1. **MPU-6050 :** Un capteur combinant un accéléromètre et un gyroscope sur un seul module. Il est fréquemment utilisé dans les projets de stabilisation, de contrôle de mouvement et de navigation.
@@ -243,16 +229,16 @@ Voici quelques exemples d'appareils et de capteurs populaires qui fonctionnent a
 1. **BMP280 :** Un capteur de pression atmosphérique et de température de Bosch Sensortec. Il est couramment utilisé dans les projets météorologiques et d'altimétrie.
 ![Alt text](assets/bmp280.webp)
 
-# Conclusion
+## Conclusion
 Le protocole I2C est un moyen simple et efficace de communiquer avec divers périphériques dans les projets Arduino. Il permet de simplifier le câblage et d'interagir facilement avec de nombreux capteurs et périphériques. En comprenant les bases d'I2C et en maîtrisant son utilisation, vous pourrez créer des projets plus complexes et plus performants.
 
 ---
 
-# Exercices
+## Exercices
 1. À l'aide de votre kit, ajoutez à votre montage le module LCD i2c et affichez le texte "Hello World" sur l'écran LCD.
 2. Ajoutez l'ensemble des appareils i2c qui sont présent dans votre kit et affichez les valeurs que vous lisez sur l'écran LCD.
 
 ---
 
-# Références
+## Références
 - [& - Arduino Reference](https://www.arduino.cc/reference/en/language/structure/pointer-access-operators/reference/)

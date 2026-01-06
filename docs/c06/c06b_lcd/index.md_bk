@@ -1,8 +1,8 @@
-# L'écran LCD 1602 - Partie 01 <!-- omit in toc -->
+## L'écran LCD 1602 - Partie 01
 
 ![LCD 1602](assets/lcd_1602.jpg)
 
-# Table des matières <!-- omit in toc -->
+## Table des matières
 - [Introduction](#introduction)
 - [LCD 1602 (mode 4 bits)](#lcd-1602-mode-4-bits)
   - [Fonctionnalités principales](#fonctionnalités-principales)
@@ -19,7 +19,7 @@
 
 ---
 
-# Introduction
+## Introduction
 
 - Les écrans LCD (Liquid Crystal Display) sont très répandus (montres, cadrans de voiture, cafetières, etc.).
 - Un LCD 1602 offre 2 lignes de 16 caractères, donc un total de 32 caractères.
@@ -28,22 +28,22 @@
 
 ---
 
-# LCD 1602 (mode 4 bits)
+## LCD 1602 (mode 4 bits)
 
-## Fonctionnalités principales
+### Fonctionnalités principales
 
 - **Affichage de caractères** (dont certains caractères spéciaux ou accentués).
 - **Réglage de la luminosité** et du contraste.
 - **Fonctionnement en mode 4 bits** ou 8 bits (4 bits est plus courant pour économiser des broches).
 
-## Spécifications rapides
+### Spécifications rapides
 
 - Le module LCD 1602 possède 16 broches.
 - On l’alimente en 5V.
 - On peut ajuster le contraste (V0) via un potentiomètre.
 - Le branchement « 4 bits » nécessite moins de broches Arduino que le mode 8 bits.
 
-## Exemple de branchement en mode 4 bits
+### Exemple de branchement en mode 4 bits
 
 - **Broches LCD**  
   - GND, R/W et K → Ground  
@@ -60,9 +60,9 @@
 
 ---
 
-# Utilisation avec la bibliothèque `LiquidCrystal`
+## Utilisation avec la bibliothèque `LiquidCrystal`
 
-## Exemple de base
+### Exemple de base
 
 Points clés :  
 - Inclure la bibliothèque `LiquidCrystal` standard  
@@ -89,7 +89,7 @@ void loop() {
 }
 ```
 
-## Exemple avec défilement (scrolling)
+### Exemple avec défilement (scrolling)
 
 - Utilise `scrollDisplayLeft()` ou `scrollDisplayRight()`
 - Permet de faire défiler le texte sur l’écran  
@@ -131,7 +131,7 @@ void loop() {
 }
 ```
 
-## Fonctions utiles
+### Fonctions utiles
 
 - **`lcd.begin(16, 2)`** : initialise l’affichage (16 colonnes, 2 lignes).
 - **`lcd.print("message")`** : affiche un texte à la position courante.
@@ -141,7 +141,7 @@ void loop() {
 
 ---
 
-# Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)
+## Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)
 
 Dans certains kits, on trouve un module LCD 1602 avec une interface I2C. Cela permet de réduire le nombre de broches utilisées sur l’Arduino.
 
@@ -177,7 +177,7 @@ Pour ceux qui possèdent un module LCD 1602 **avec** une interface I2C :
 
 ---
 
-# Exercices
+## Exercices
 
 1. **Branchement**  
    - Réalisez le branchement du LCD adapté à votre situation (mode 4 bits ou I2C).
@@ -190,7 +190,7 @@ Pour ceux qui possèdent un module LCD 1602 **avec** une interface I2C :
 
 ---
 
-# Références
+## Références
 
 - [Arduino LCD Tutorial](https://howtomechatronics.com/tutorials/arduino/lcd-tutorial/)
 - [7 Arduino LCD tricks](https://www.baldengineer.com/arduino-lcd-display-tips.html)

@@ -1,53 +1,15 @@
-# Introduction <!-- omit in toc -->
+# Les premiers pas
 > "Un éléphant, ça se mange une bouchée à la fois." - Proverbe africain
-
-# Table des matières <!-- omit in toc -->
-- [Les premiers pas](#les-premiers-pas)
-  - [Moodle](#moodle)
-  - [Installation de Git](#installation-de-git)
-    - [Tester si Git est déjà installé](#tester-si-git-est-deja-installe)
-    - [Installation de Git (Si nécessaire)](#installation-de-git-si-necessaire)
-  - [Compte GitHub](#compte-github)
-  - [Logiciel](#logiciel)
-  - [Configuration du matériel](#configuration-du-materiel)
-  - [Installation des pilotes - Si nécessaire](#installation-des-pilotes-si-necessaire)
-- [À propos de cette leçon](#a-propos-de-cette-lecon)
-- [Les communautés Arduino](#les-communautes-arduino)
-- [Qu'est-ce qu'un Arduino?](#quest-ce-quun-arduino)
-- [Quel Arduino?](#quel-arduino)
-  - [Raspberry Pi](#raspberry-pi)
-  - [Autres microcontrôleurs](#autres-microcontroleurs)
-- [Différence entre un microcontrôleur et un microprocesseur](#difference-entre-un-microcontroleur-et-un-microprocesseur)
-  - [Définition générale](#definition-generale)
-    - [Microprocesseur (CPU)](#microprocesseur-cpu)
-    - [Microcontrôleur (MCU)](#microcontroleur-mcu)
-    - [Résumé des différences](#resume-des-differences)
-  - [Comparaison détaillée](#comparaison-detaillee)
-    - [1. Puissance de calcul](#1-puissance-de-calcul)
-    - [2. Gestion de la mémoire](#2-gestion-de-la-memoire)
-    - [3. Système d’exploitation](#3-systeme-dexploitation)
-    - [4. Consommation d’énergie](#4-consommation-denergie)
-    - [5. Coût](#5-cout)
-    - [6. Applications types](#6-applications-types)
-  - [Exemples concrets](#exemples-concrets)
-  - [Conclusion](#conclusion)
-- [Le matériel du cours](#le-materiel-du-cours)
-  - [Achat](#achat)
-- [Exercices](#exercices)
-- [Exemple de questions pour une évaluation](#exemple-de-questions-pour-une-evaluation)
-- [Pour les curieux](#pour-les-curieux)
-- [Références](#references)
 
 ---
 
-# Les premiers pas
 ## Moodle
 Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir un compte Moodle et être inscrit à mon cours.
 
 - **Lien vers le cours** : [Moodle](https://ena.cshawi.ca/course/view.php?id=19)
 - **Code pour le cours** : `Groupe1!` (lundi pm) ou `Groupe2!` (mardi am)
 
-<!-- ## Teams
+<!-- #### Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
 
 - **Lien vers [Teams](https://teams.microsoft.com/l/team/19%3aMAZuLdF2Thx9FkXHF9_mGFCZCWK-L2k1FJXH2zkjL7k1%40thread.tacv2/conversations?groupId=d000a4c4-3d3d-4b05-af28-3d69589e53d3&tenantId=b03caa02-c798-45ad-a2bd-41c7e4851423)** -->
@@ -83,7 +45,7 @@ GitHub est un site permettant aux développeurs de partager leur code. Il est ut
 
 Tout au long de votre parcours académique, vous devrez créer des projets et les envoyer sur GitHub. Vous devrez aussi cloner des projets de vos profs et les modifier.
 
-## Logiciel
+## Logiciels
 Vous devez installer le logiciel Arduino sur votre ordinateur. Vous pouvez le télécharger [ici](https://www.arduino.cc/en/Main/Software).
 
 Vous devez télécharger la version Windows avec MSI Installer. Cliquez sur le lien pour télécharger le fichier. Une fois le fichier téléchargé, lancez l'installation.
@@ -114,7 +76,7 @@ Je vous invite à suivre la procédure sur ce site (Anglais): [Sparkfun - How to
 
 ---
 
-# À propos de cette leçon
+## À propos de cette leçon
 Cette leçon n'enseigne pas vraiment l'électronique. Elle sert plutôt à s'assurer que tout est prêt pour les prochaines leçons. Elle permettra de vérifier que la carte fonctionne comme prévu et que l'ordinateur que vous utilisez est compatible.
 
 Considérez ce tutoriel comme la "base" de votre voyage. Si les choses se compliquent, revenez ici et revérifiez cette leçon!
@@ -125,7 +87,7 @@ J'ai fait un petite procédure de dépannage pour l'Arduino. Vous pouvez la cons
 
 ---
 
-# Les communautés Arduino
+## Les communautés Arduino
 Avant de débuter, je vous invite à vous joindre une des différentes communautés Arduino. Ce sont pour la plupart des communautés très actives et il y a beaucoup de ressources disponibles.
 
 Voici une liste de différentes communautés Arduino. Vous pouvez les consulter pour trouver des projets intéressants à faire ou encore trouver de l'aide pour vos projets.
@@ -141,7 +103,7 @@ Voici une liste de différentes communautés Arduino. Vous pouvez les consulter 
 ---
 
 
-# Qu'est-ce qu'un Arduino?
+## Qu'est-ce qu'un Arduino?
 
 Arduino est le nom de la petite carte de circuit électronique que vous allez utiliser comme outil pour étudier et explorer la programmation et l'électronique.
 
@@ -156,7 +118,7 @@ Elle est fabriquée par arduino.cc, une société dirigée par Massimo Banzi, PD
 > **Jargon web** :
 > tl;dr : "too long; didn't read" - "trop long, j'ai pas lu" - en gros, c'est une abréviation pour dire que le texte est trop long et que vous n'avez pas le temps de le lire. C'est une expression utilisée sur internet pour dire que vous n'avez pas le temps de lire un texte trop long. **On l'utilise aussi pour signifier un résumé d'un texte trop long.**
 
-# Quel Arduino?
+### Quel Arduino?
 Au cours des dix années qui ont suivi la sortie d'Arduino, il y a eu une énorme prolifération de centaines de "cartes Arduino" différentes disponibles. D'un côté, il existe un Arduino pour chaque type d'application spécialisée, mais d'un autre côté, cela peut devenir assez confus!
 
 Dans ce cours, nous allons nous concentrer sur l'**Arduino Mega** qui est un Arduino plus puissant que l'Arduino UNO. Elle est en fait sa grande soeur. Elle est plus puissante et plus rapide avec une tonne de mémoire et de broches en plus, et une puce différente, l'ATmega2560. C'est une bonne mise à jour lorsqu'un projet ne rentre plus dans un UNO.
@@ -184,7 +146,7 @@ Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles
   </tr>
 </table>
 
-## Raspberry Pi
+### Raspberry Pi
 Certains d'entre vous ont peut-être déjà entendu parler du Raspberry Pi ou même en possèdent un. Toutefois, il s'agit d'un tout autre type de carte que l'Arduino.
 
 Le Raspberry Pi (rpi) est une carte de développement qui est très populaire pour les projets de programmation. Il est plus puissant que l'Arduino et peut être utilisé pour faire beaucoup de choses tel qu'un serveur web, de musique, de vidéos, etc. Il est également beaucoup plus cher que l'Arduino.
@@ -200,7 +162,7 @@ En plus des différentes versions, il y a plusieurs éditions de rpi.
 
 Nous sommes rendu à la 5e version du rpi.
 
-## Autres microcontrôleurs
+### Autres microcontrôleurs
 Il existe des milliers de microcontrôleurs différents sur le marché. Chacun a ses propres avantages et inconvénients. Certains sont plus puissants, d'autres sont plus petits, d'autres sont plus économes en énergie, etc.
 
 Pour les débutants et hobbyistes, on retrouve souvent les microcontrôleurs suivants :
@@ -211,11 +173,11 @@ Pour les débutants et hobbyistes, on retrouve souvent les microcontrôleurs sui
 
 ---
 
-# Différence entre un microcontrôleur et un microprocesseur
+## Différence entre un microcontrôleur et un microprocesseur
 Les termes **microprocesseur** et **microcontrôleur** sont souvent utilisés de manière interchangeable. Toutefois, bien qu'ils partagent des similitudes, ils possèdent des différences fondamentales qui influencent leur usage dans divers domaines.
 
-## Définition générale
-### Microprocesseur (CPU)
+### Définition générale
+#### Microprocesseur (CPU)
 Un **microprocesseur** est un circuit intégré servant d’unité centrale de traitement (**CPU**) pour un ordinateur ou un système embarqué. Il exécute des instructions en effectuant des opérations arithmétiques et logiques sur des données numériques.
 
 - **Caractéristiques** :
@@ -223,7 +185,7 @@ Un **microprocesseur** est un circuit intégré servant d’unité centrale de t
   - Hautes performances, capable d’exécuter plusieurs tâches simultanément.
   - Présent dans les **ordinateurs**, **serveurs**, **tablettes**, et **smartphones**.
 
-### Microcontrôleur (MCU)
+#### Microcontrôleur (MCU)
 Un **microcontrôleur** est un système intégré sur une seule puce qui regroupe :
 - Un processeur.
 - De la mémoire (RAM et ROM).
@@ -234,7 +196,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Intégration optimisée pour des applications autonomes.
   - Utilisé dans les **appareils embarqués** comme les **machines à laver**, **robots**, **systèmes de contrôle industriel**.
 
-### Résumé des différences
+#### Résumé des différences
 | Critère             | Microprocesseur | Microcontrôleur |
 |---------------------|----------------|----------------|
 | **Unité de calcul** | CPU seul       | CPU + RAM/ROM + E/S intégrés |
@@ -243,16 +205,14 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 | **Consommation**    | Élevée         | Faible |
 | **Coût**           | Plus cher      | Peu coûteux |
 
-
-
 ---
 
-## Comparaison détaillée
-### 1. Puissance de calcul
+### Comparaison détaillée
+#### 1. Puissance de calcul
 - **Microprocesseur** : Très performant avec des fréquences d’horloge allant de 1 à 4 GHz. Optimisé pour **le multitâche et les traitements lourds**.
 - **Microcontrôleur** : Fréquences bien plus faibles (généralement quelques MHz à centaines de MHz). Suffisant pour des **opérations en temps réel**.
 
-### 2. Gestion de la mémoire
+#### 2. Gestion de la mémoire
 - **Microprocesseur** :
   - Dépend d’une mémoire **externe** (RAM, ROM, SSD, etc.).
   - Permet une **grande flexibilité** dans la gestion des ressources.
@@ -260,7 +220,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Mémoire **intégrée**, souvent limitée à quelques **Ko à Mo**.
   - L’accès mémoire est plus rapide grâce à son **intégration sur la puce**.
 
-### 3. Système d’exploitation
+#### 3. Système d’exploitation
 - **Microprocesseur** :
   - Nécessite un **système d’exploitation** (Windows, Linux, Android).
   - Conçu pour gérer **plusieurs processus simultanément**.
@@ -268,7 +228,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - Fonctionne généralement **sans OS**, avec un **micrologiciel** dédié.
   - Peut utiliser un **RTOS (Real-Time Operating System)** pour des applications plus complexes.
 
-### 4. Consommation d’énergie
+#### 4. Consommation d’énergie
 - **Microprocesseur** :
   - Consommation **élevée** (plusieurs watts à dizaines de watts).
   - Nécessite un **système de refroidissement**.
@@ -276,11 +236,11 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
   - **Très économe** en énergie (quelques mW à W).
   - Idéal pour les **appareils alimentés par batterie**.
 
-### 5. Coût
+#### 5. Coût
 - **Microprocesseur** : Cher (de **50$ à plusieurs centaines** selon la performance).
 - **Microcontrôleur** : Peu coûteux (**moins de 1$ à quelques dizaines de dollars**).
 
-### 6. Applications types
+#### Applications types
 | Type de Système | Microprocesseur | Microcontrôleur |
 |----------------|----------------|----------------|
 | **PC et Serveurs** | ✅ | ❌ |
@@ -291,7 +251,7 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 ---
 
-## Exemples concrets
+#### Exemples concrets
 | Composant | Type | Caractéristiques | Prix Approx. |
 |-----------|------|-----------------|-------------|
 | **AMD Ryzen 7 9800X3D** | Microprocesseur | 8 cœurs, 5 GHz, multi-threading | ~700$ |
@@ -300,16 +260,16 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 ---
 
-## Conclusion
+### Conclusion
 Les **microprocesseurs** sont parfaits pour des systèmes nécessitant **beaucoup de puissance et de flexibilité**, tandis que les **microcontrôleurs** sont optimisés pour **les systèmes autonomes** nécessitant **une faible consommation d’énergie** et une exécution **en temps réel**.
 
 Ainsi, dans le cadre de vos cours en robotique et systèmes embarqués, l’apprentissage et l’usage des **microcontrôleurs** comme ceux présents sur **Arduino** sont essentiels, car ils répondent aux exigences de **temps réel**, **faible consommation** et **coût réduit** nécessaires aux systèmes autonomes.
 
 ---
 
-# Le matériel du cours
+## Le matériel du cours
 
-## Achat
+### Achat
 Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage et d'un ordinateur. Voici les liens pour acheter les items requis sur Amazon:
 - [Arduino Mega](https://a.co/d/5wpBN96).
 - [Plaque de support pour Arduino](https://a.co/d/fz2aTpk).
@@ -318,7 +278,7 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 
 ---
 
-# Exercices
+## Exercices
 1. Branchez la carte Arduino à votre ordinateur.
 2. Ouvrez le logiciel Arduino IDE.
 3. Trouvez l'exemple "Blink". Où est-il situé?
@@ -329,7 +289,7 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 
 ---
 
-# Exemple de questions pour une évaluation
+## Exemple de questions pour une évaluation
 1. Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un rpi au lieu d'un Arduino.
 2. Nommez deux raisons pour lesquelles, il serait mieux d'utiliser un Arduino au lieu d'un rpi.
 3. Combien de broches numériques y a-t-il sur une carte Arduino Mega?
@@ -347,7 +307,7 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 </details>
 
 ---
-# Pour les curieux
+## Pour les curieux
 
 [![Thumbnail](https://img.youtube.com/vi/Tak8Pz4GSn8/0.jpg)](https://www.youtube.com/watch?v=Tak8Pz4GSn8)
 
@@ -355,6 +315,6 @@ Je vous suggère la chaîne Youtube de [Deus Ex Silicium](https://www.youtube.co
 
 ---
 
-# Références
-- [Ladyada's Learn Arduino - Lesson #2](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-2)
+## Références
+- [Ladyada's Learn Arduino - Lesson ##2](https://learn.adafruit.com/ladyadas-learn-arduino-lesson-number-2)
 - [All3DP : Microprocessor vs Microcontroller](https://all3dp.com/2/difference-between-microprocessor-and-microcontroller/)

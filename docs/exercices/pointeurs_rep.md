@@ -1,4 +1,4 @@
-# Pointeurs - Exercices - Solutions
+## Pointeurs - Exercices - Solutions
 
 Voici les solutions pour les exercices sur les pointeurs :
 

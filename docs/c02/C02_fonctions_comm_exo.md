@@ -1,7 +1,7 @@
-# Les fonctions de base et la communication <!-- omit in toc -->
-# Exercices <!-- omit in toc -->
+# Les fonctions de base et la communication
+## Exercices
 
-## Plusieurs états
+### Plusieurs états
 1. Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
    <details><summary>Astuces</summary>
    
@@ -12,7 +12,7 @@
 2. Modifiez le programme précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
   - Exemple de sortie : `LED allumée` ou `LED éteinte`
 
-## Amélioration de code
+### Amélioration de code
 Ci-bas il y a [l'exemple](C02_fonctions_comm.md#etat-de-lapplication) que l'on retrouve dans le cours. Il permet de faire clignoter une DEL à 1 Hz et à 4 Hz.
 
 ```cpp
@@ -60,7 +60,7 @@ void loop() {
 3. Affichez à l'ordinateur l'état de l'application à chaque changement d'état.
    - **Précision :** On ne veut pas afficher l'état de l'application à chaque fois que la DEL change d'état. On veut afficher l'état de l'application seulement quand l'état de l'application change.
 
-## Défi
+### Défi
 4. Modifiez le code en programmant une fonction pour chaque état de l'application et appelez la fonction correspondante à l'état de l'application.
    - Donc 2 fonctions par exemple `void un_hertz()` et `void quatre_hertz()`.
 

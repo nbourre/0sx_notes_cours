@@ -1,4 +1,4 @@
-# Programmer en tâches <!-- omit in toc -->
+## Programmer en tâches
 
 - [Introduction](#introduction)
 - [Exemple disfonctionnel](#exemple-disfonctionnel)
@@ -9,12 +9,12 @@
   - [Exercices](#exercices)
 
 
-# Introduction
+## Introduction
 La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
 
 La programmation multitâches est utilisée dans les systèmes embarqués pour exécuter plusieurs tâches en "même temps". Par exemple, un système embarqué peut exécuter une tâche pour lire les données d'un capteur, une autre tâche pour traiter les données, et une autre tâche pour afficher les données sur un écran.
 
-# Exemple disfonctionnel
+## Exemple disfonctionnel
 Disons que je désire faire clignoter 2 DEL à des fréquences différentes. Disons que la DEL 1 doit clignoter à 1 Hz et que la DEL 2 doit clignoter à 2 Hz. Voici un exemple de code qui pourrait faire ça:
 
 ```cpp
@@ -76,7 +76,7 @@ void loop() {
 
 Si je veux ajouter une DEL qui clignote à 3Hz. Ça va être une défi!!
 
-# Améliorer l'exemple en utilisant millis()
+## Améliorer l'exemple en utilisant millis()
 On peut améliorer l'exemple en utilisant la fonction `millis()`. La fonction `millis()` retourne le nombre de millisecondes depuis que le programme a commencé à s'exécuter. On peut utiliser cette fonction pour déterminer quand allumer et éteindre les DEL. Voici un exemple de code qui pourrait faire ça:
 
 ```cpp
@@ -115,7 +115,7 @@ C'est déjà une nette amélioration, car maintenant le code n'est plus blocant 
 
 En effet, on peut voir les blocs de code qui s'exécutent pour la DEL 1 et les blocs de code qui s'exécutent pour la DEL 2. On peut aussi voir que le code est plus court.
 
-# Améliorer l'exemple en utilisant des fonctions
+## Améliorer l'exemple en utilisant des fonctions
 On peut encore améliorer l'exemple en utilisant des fonctions en tant que tâche.
 
 Pour ce faire, **il faut identifier les tâches à exécuter**. Dans notre exemple, on a deux tâches:
@@ -273,7 +273,7 @@ Malgré un code plus long, il est beaucoup plus facile à comprendre et à modif
 
 ---
 
-# Encore une amélioration
+## Encore une amélioration
 
 Observez cette partie de code. Que remarquez-vous?
 
@@ -356,7 +356,7 @@ Il y a encore place à l'amélioration. Cependant, nous allons voir cela dans un
 
 ---
 
-## Lecture d'entrées
+### Lecture d'entrées
 Pour la lecture d'entrées tel que des boutons ou potentiomètres, on peut lire leur état au début de la fonction `loop` et passer la valeur aux fonctions nécessitant cette valeur.
 
 Par exemple, si on veut faire clignoter une LED lorsque le bouton est appuyé, on peut faire:
@@ -404,7 +404,7 @@ int buttonToggleTask() {
 
 ---
 
-## Exercices
+### Exercices
 - Pour le TP3, assurez-vous d'utiliser des fonctions. Votre boucle `loop` devrait être la plus courte possible, mais aussi la plus compréhensible.
 
 

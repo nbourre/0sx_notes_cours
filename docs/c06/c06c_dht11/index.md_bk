@@ -1,10 +1,10 @@
-# Capteur de température et d'humidité DHT11 <!-- omit in toc -->
+## Capteur de température et d'humidité DHT11
 
 ![Alt text](assets/DHT11_Sensor_Pinout_600x600.webp)
 
 DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
-# Table des matières <!-- omit in toc -->
+## Table des matières
 - [ATTENTION - Risque de bris de matériel](#attention---risque-de-bris-de-matériel)
 - [Introduction](#introduction)
 - [Utilité](#utilité)
@@ -22,7 +22,7 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
 ---
 
-# ATTENTION - Risque de bris de matériel
+## ATTENTION - Risque de bris de matériel
 Prenez le temps d'observer l'ordre des broches de votre DHT-11. Si vous ne le branchez pas comme il faut, vous risquez de briser votre capteur.
 
 Le "S" indique la broche du signal. Il se peut que le GND et Vcc ne soient pas indiqués. Dans ce cas, il faudra tester avec un multimètre pour trouver les bonnes broches.
@@ -52,17 +52,17 @@ Il y a deux modèles fréquent de DHT-11. Les deux possèdent 3 broches, mais l'
 ---
 
 
-# Introduction
+## Introduction
 
 Le capteur DHT11 est un capteur d'humidité et de température qui peut être utilisé avec l'Arduino Mega pour mesurer la température et l'humidité de l'environnement. Ce capteur utilise un signal numérique pour transmettre les données de température et d'humidité, et est facile à utiliser avec l'Arduino Mega.
 
 ---
 
-# Utilité
+## Utilité
 
 Le DHT11 est souvent utilisé dans des projets de contrôle de l'environnement, comme le contrôle de la température et de l'humidité dans une serre ou une chambre de culture. Il peut également être utilisé pour mesurer la température et l'humidité dans un habitat, un laboratoire ou une cave à vin, par exemple.
 
-# Cas d'utilisation
+## Cas d'utilisation
 
 Le DHT11 peut être utilisé dans de nombreux projets différents, notamment :
 
@@ -70,9 +70,9 @@ Le DHT11 peut être utilisé dans de nombreux projets différents, notamment :
 - Projets de domotique, tels que le contrôle de la température et de l'humidité dans une maison ou un appartement.
 - Projets de surveillance de l'environnement, tels que la surveillance de la température et de l'humidité dans une cave à vin ou un laboratoire.
 
-# Exemples 
+## Exemples 
 
-## Branchement du capteur DHT11
+### Branchement du capteur DHT11
 
 Voici le branchement typique du module DHT11
 ![Alt text](assets/dht11_bb.png)
@@ -80,7 +80,7 @@ Voici le branchement typique du module DHT11
 > **Attention!!** : Le branchement du DHT11 peut varier en fonction du modèle. Assurez-vous de bien identifier les broches avant de les brancher. Référez-vous au tableau [ci-dessus](#dht11) pour plus d'informations.
 
 
-## Mesure de température et d'humidité
+### Mesure de température et d'humidité
 
 Dans cet exemple, nous allons utiliser le capteur DHT11 pour mesurer la température et l'humidité de l'environnement. Le code suivant permet de lire les données du capteur et de les afficher sur le moniteur série :
 
@@ -177,7 +177,7 @@ La librairie DHT fournit des fonctions pour lire la température et l'humidité.
 > 
 > En programmation `NaN` signifie "*Not a Number*". Cela signifie que la valeur n'est pas un nombre. Dans notre cas, nous utilisons cette fonction pour vérifier que les valeurs de température et d'humidité sont correctes.
 
-## Exemple de contrôle d'un ventilateur
+### Exemple de contrôle d'un ventilateur
 
 Voici un exemple simple où l'on contrôle un ventilateur.
 
@@ -234,7 +234,7 @@ On met un délai de 2000 ms, car la lecture de la température est plutôt l;len
 
 En utilisant le capteur DHT11, nous pouvons facilement mesurer la température et l'humidité de l'environnement et réaliser des projets de contrôle de l'environnement tels que la surveillance de la température et de l'humidité dans une serre, une chambre de culture ou un habitat ou tout autre système nécessitant une surveillance de température.
 
-## Schéma pour brancher un ventilateur
+### Schéma pour brancher un ventilateur
 Voici un schéma électrique qui permet de brancher un ventilateur DC sur la carte Arduino avec le matériel dont vous disposez.
 
 ![Alt text](assets/ventilateur.png)
@@ -263,15 +263,15 @@ Branchement :
 > 
 > Dans le cas de l'exemple avec le ventilateur, le transistor est utilisé comme un interrupteur contrôlé par un signal de commande.
 
-# Fouiller dans une librairie
+## Fouiller dans une librairie
 Dans le premier exemple, vous avez probablement remarqué la fonction `computeHeatIndex()`. Celle-ci est fournit par la librairie `DHT.h`. Mais comment fait-on pour connaître les autres fonctions disponibles dans cette librairie?
 
-## Utilisation de la documentation
+### Utilisation de la documentation
 La première étape est de consulter la documentation de la librairie. Dans bien des cas, la documentation est disponible sur le site de la librairie DHT.
 
 En ouvrant le Gestionnaire de bibliothèques, vous pouvez accéder à la documentation d'une librairie en cliquant sur le lien "Plus d'informations".
 
-## Lire le fichier .h
+### Lire le fichier .h
 Parfois, il arrive que la documentation ne soit pas disponible. Dans ce cas, il faut fouiller dans le fichier .h de la librairie. Ce fichier contient toutes les fonctions et les variables publiques de la librairie.
 
 Pour ce faire :
@@ -286,7 +286,7 @@ Pour ce faire :
 
 ---
 
-# Exercices
+## Exercices
 1. Créez un programme qui affiche la température et l'humidité sur le moniteur série à toutes les 2 secondes.
    - Soufflez sur le capteur pour observer les effets.
 2. Modifiez le code pour du ventilateur en le remplaçant par une DEL. La DEL doit s'allumer lorsque la température dépasse 30 °C et s'éteindre lorsque la température est inférieure à 30 °C.
@@ -294,5 +294,5 @@ Pour ce faire :
 
 ---
 
-# Références
+## Références
 - [Branchement ventilateur](https://electronics.stackexchange.com/questions/320908/s8050-bjt-is-rated-for-700-ma-but-gets-extremely-hot-when-powering-a-12-volt-700)

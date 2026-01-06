@@ -1,16 +1,6 @@
-# Résistance de rappel et de tirage <!-- omit in toc -->
+# Résistance de rappel et de tirage
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Exemple de résistance de rappel](#exemple-de-resistance-de-rappel)
-- [Exemple de résistance de tirage](#exemple-de-resistance-de-tirage)
-- [Code Arduino](#code-arduino)
-- [Valeur de la résistance](#valeur-de-la-resistance)
-- [Questions](#questions)
-- [Référence](#reference)
-
-
-# Introduction
+## Introduction
 Une broche peut avoir trois états soit 0, 1 ou flottant. Si la broche est connectée à la mise à la terre (*ground*), elle aura une valeur de 0, si elle est connectée à la tension d'alimentation, elle aura une valeur de 1 et si elle n'est connectée à rien, elle aura une valeur **flottante**.
 
 **Une valeur flottante est une valeur dont on ne pourra pas garantir sa vraie valeur**. Sa valeur dépendra de l'environnement, de la température, de la tension d'alimentation, etc. Il s'agit de bruit.
@@ -32,13 +22,13 @@ Voici les deux schémas de résistance de tirage et de rappel.
 
 ![Alt text](assets/schemas/Pull-up-and-Pull-down-Resistor.png)
 
-# Exemple de résistance de rappel
+## Exemple de résistance de rappel
 ![Alt text](assets/schemas/resistance_rappel_bb.png)
 
-# Exemple de résistance de tirage
+## Exemple de résistance de tirage
 ![Alt text](assets/schemas/resistance_tirage_bb.png)
 
-# Code Arduino
+## Code Arduino
 Il est possible d'activé une résistance de tirage sur l'Arduino.
 
 Lors de la configuration d'une broche avec la fonction `pinMode`, il est possible de spécifier la résistance de tirage avec les constantes `INPUT_PULLUP`.
@@ -58,10 +48,10 @@ void loop() {
 > **Attention** : Il n'y a pas de résistance de rappel sur l'Arduino. Il faut donc utiliser une résistance externe.
 >
 
-# Valeur de la résistance
+## Valeur de la résistance
 Il n'y a pas vraiment de valeur de résistance standard pour une résistance de tirage ou de rappel. Une valeur entre 1kΩ et 10kΩ est assez typique. Dans mes montages, j'utilise des **résistances de 4.7kΩ**.
 
-# Questions
+## Questions
 Voici des questions possibles dans une évaluation.
 
 1. Quelle est la différence entre une résistance de rappel et une résistance de tirage?
@@ -80,6 +70,6 @@ Voici des questions possibles dans une évaluation.
 
 ---
 
-# Référence
+## Référence
 - [Youtube : Pull up resistor tutorial](https://www.youtube.com/watch?v=wxjerCHCEMg) - 4 minutes
 - [SparkFun : Pull-up Resistors ](https://learn.sparkfun.com/tutorials/pull-up-resistors/all)

@@ -1,4 +1,4 @@
-# README
+## README
 > "Le succès, c'est tomber sept fois et se relever huit." – Proverbe japonais
 
 1. [Fonctions de base](C02_fonctions_comm.md)

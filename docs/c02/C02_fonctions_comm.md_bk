@@ -1,8 +1,8 @@
-# Les fonctions de base et la communication <!-- omit in toc -->
+## Les fonctions de base et la communication
 > "Tout est difficile avant d’être facile." – Thomas Fuller
 
 ---
-# Table des matières <!-- omit in toc -->
+## Table des matières
 
 - [Introduction](#introduction)
 - [Exemple - Blink](#exemple---blink)
@@ -32,12 +32,12 @@
 
 ---
 
-# Introduction
+## Introduction
 Dans ce cours, nous allons apprendre à utiliser quelques fonctions fondamentales de l'Arduino ainsi que l'échange d'information entre l'Arduino et le PC.
 
 ---
 
-# Exemple - Blink
+## Exemple - Blink
 
 Voici le code de base pour faire clignoter une LED branchée sur la broche 13 de l'Arduino.
 
@@ -85,16 +85,16 @@ void loop() {
 
 ---
 
-# DEL par défaut
+## DEL par défaut
 Une DEL, ou *LED* en anglais, est une petite lampe qui émet de la lumière quand elle est alimentée. DEL est l'acronyme pour **D**iode **É**lectro**L**uminescente (***L**ight-**E**mitting **d**iode*).
 
 Sur les Arduinos, il y a une DEL qui est branchée sur la **broche 13**. C'est la raison pour laquelle on voit souvent des exemples avec cette DEL, car elle est facile à utiliser.
 
 ---
 
-# Fonctions de base
+## Fonctions de base
 
-## pinMode - Gestion des broches
+### pinMode - Gestion des broches
 
 La fonction `pinMode` permet de définir le mode d'une broche. Il y a deux modes principaux : `INPUT` et `OUTPUT`.
 
@@ -115,7 +115,7 @@ Dans l'exemple précédent, nous avons utilisé la fonction `pinMode` pour défi
 
 ---
 
-## digitalWrite
+### digitalWrite
 La fonction digitalWrite en Arduino permet de mettre le niveau logique `HIGH` ou `LOW` sur une **broche numérique**.
 
 `HIGH` vaut 1 et `LOW` vaut 0.
@@ -130,7 +130,7 @@ La fonction `digitalWrite` est souvent utilisée pour contrôler des dispositifs
 
 ---
 
-## delay
+### delay
 La fonction `delay` permet de faire une pause dans le programme. Elle prend en paramètre le nombre de millisecondes à attendre. Elle prend un seul argument, qui est le nombre de millisecondes de pause souhaité.
 
 Voici un exemple d'utilisation de la fonction `delay` :
@@ -149,7 +149,7 @@ La fonction `delay` est souvent utilisée pour créer des temporisations ou des 
 
 ---
 
-## millis
+### millis
 
 La fonction `millis()` dans Arduino est une fonction qui renvoie le nombre de millisecondes qui se sont écoulées depuis le démarrage du microcontrôleur Arduino. Elle peut être utilisée pour calculer des délais précis, tels que le retardement dans une boucle `loop()`. Cela permet aux programmes Arduino d'effectuer des opérations à des intervalles de temps précis, ce qui est très utile pour les projets qui impliquent des délais ou des temps d'exécution.
 
@@ -157,7 +157,7 @@ Elle s'utilise sans paramètre et renvoie un **entier long** (`long int`).
 
 ---
 
-# Exemple `Fade`
+## Exemple `Fade`
 
 Voici un autre exemple de base fournit par Arduino. Il s'agit d'un programme qui fait varier la luminosité d'une DEL en utilisant la fonction `analogWrite`.
   
@@ -186,7 +186,7 @@ void loop() {
 
 ---
 
-## fonction `analogWrite`
+### fonction `analogWrite`
 La fonction `analogWrite` permet de générer une tension analogique sur une **broche PWM**. Elle prend en paramètre le numéro de la broche sur laquelle on veut envoyer le signal et la valeur de la tension souhaitée.
 Pour être plus simple, pensez à une valeur en pourcentage sur 255. Voici quelques exemples :
 
@@ -202,7 +202,7 @@ Nous verrons en cours de session ce qu'est exactement le **PWM**.
 
 ---
 
-# Fonctions de communication série
+## Fonctions de communication série
 Les fonctions de communication permettent d'envoyer et de recevoir des données à partir d'autres périphériques ou d'autres circuits. Elles sont utilisées pour communiquer avec des périphériques externes, comme des capteurs, des écrans LCD, des modules Bluetooth, etc.
 
 Dans ce cours, nous allons nous intéresser aux fonctions de communication suivantes :
@@ -210,7 +210,7 @@ Dans ce cours, nous allons nous intéresser aux fonctions de communication suiva
 - `Serial.print()`
 - `Serial.println()`
 
-## Serial.begin()
+### Serial.begin()
 La fonction `Serial.begin()` permet de configurer la vitesse de communication avec le port série. Elle prend en paramètre la vitesse de communication en bauds. Par exemple, pour configurer la liaison série à 9600 bauds, on utilise la fonction `Serial.begin(9600)`.
 
 Généralement, on utilise la fonction `Serial.begin()` dans la fonction `setup()`.
@@ -231,7 +231,7 @@ void setup() {
 
 ---
 
-## Serial.print() et Serial.println()
+### Serial.print() et Serial.println()
 
 La fonction `Serial.print()` est une fonction dans l'Arduino qui permet d'envoyer des données série à un port série. Il peut être utilisé pour envoyer un message texte, des données numériques ou des données binaires.
 
@@ -303,7 +303,7 @@ void loop() {
 > 
 > Il est important de mettre un délai entre chaque envoi de données via le port série. Si vous ne mettez pas de délai, le programme va envoyer les données aussi vite que possible. Cela peut ralentir le programme et causer des problèmes.
 
-### Exercice
+#### Exercice
 - Envoyez le code de l'exemple précédént sur votre carte Arduino.
 - Que remarquez-vous sur l'Arduino?
 
@@ -315,7 +315,7 @@ La led TX de l'Arduino clignote. Cela signifie que des données sont envoyées s
 
 ---
 
-## Moniteur série
+### Moniteur série
 Pour pouvoir voir les messages envoyés par le programme, il faut ouvrir le moniteur série. Pour cela, cliquez sur le menu `Outils` puis sur `Moniteur série`.
 
 Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vitesse de communication. 
@@ -324,7 +324,7 @@ Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vites
 
 ---
 
-## Port série... mais c'est quoi??
+### Port série... mais c'est quoi??
 Un port série est un port de communication qui permet d'envoyer et de recevoir des données. Il est composé de 2 fils, un fil pour envoyer des données et un fil pour recevoir des données.
 
 Dans le cas des Arduino, un port série est utilisé pour envoyer des données à l'ordinateur. Il est également possible d'utiliser un port série pour envoyer des données à un autre Arduino.
@@ -333,7 +333,7 @@ Les ports séries sont identifiés par les lettres **TX** et **RX**. Le fil TX (
 
 ---
 
-### Questions
+#### Questions
 - Regardez votre Arduino et identifiez les broches TX et RX. Combien en comptez-vous?
 - Quels sont les numros des broches TX et RX sur l'Arduino Mega?
 
@@ -354,7 +354,7 @@ Les ports séries sur le Mega sont les suivants :
 
 ---
 
-## Port série : La science
+### Port série : La science
 Les ports séries utilisent un protocole de communication série, qui signifie que les données sont transmises bit par bit, plutôt que par paquet comme dans le cas des ports USB ou Ethernet.
 
 Vous allez parfois voir le terme **UART** qui signifie **Universal Asynchronous Receiver/Transmitter**. C'est un protocole de communication série qui permet de transmettre des données entre 2 périphériques. Cependant, il s'agit principalement de la même chose que le port série.
@@ -363,7 +363,7 @@ Il est important de noter que pour utiliser les ports série, il est nécessaire
 
 ---
 
-## Résumé
+### Résumé
 - On doit initialiser le port série avec la fonction `Serial.begin()`.
 - Pour lire et envoyer de l’information, il faut que le logiciel soit à la même vitesse que l’appareil
   - Donc si l’appareil est à 9600, **il faut que le logiciel soit aussi à la même vitesse**
@@ -372,10 +372,10 @@ Il est important de noter que pour utiliser les ports série, il est nécessaire
 
 ---
 
-# Algorithme simple pour gérer les états
+## Algorithme simple pour gérer les états
 Les états dans Arduino sont utilisés pour stocker l'état actuel d'un périphérique ou d'une variable ou d'un mode. Ils peuvent être utilisés pour contrôler des actions ou des comportements dans un programme. Par exemple, dans un programme de contrôle de DEL, vous pouvez utiliser un état pour stocker l'état actuel de la DEL (allumée ou éteinte).
 
-## État d'un périphérique
+### État d'un périphérique
 Voici un exemple d'utilisation des états pour contrôler une DEL :
 
 ```cpp
@@ -397,7 +397,7 @@ void loop() {
 ```
 
 ---
-## État de l'application
+### État de l'application
 Voici un exemple d'utilisation des états pour contrôler un programme :
 
 ```cpp
@@ -442,7 +442,7 @@ void loop() {
 
 ---
 
-## État de l'application avec fonctions
+### État de l'application avec fonctions
 Voici le même code que précédemment, mais avec des fonctions pour gérer les états :
 
 ```cpp
@@ -518,12 +518,12 @@ En résumé, l'utilisation des états permet de rendre le code plus clair, plus 
 
 ---
 
-# Exercices
+## Exercices
 - [Page d'exercices](C02_fonctions_comm_exo.md)
 
 ---
 
-# Questions
+## Questions
 1. Quelle fonction permet de configurer une broche?
 2. Quelle fonction permet de lire la valeur numérique d'une broche?
 3. Quelle fonction permet d'écrire une valeur numérique sur une broche?

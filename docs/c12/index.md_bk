@@ -1,6 +1,6 @@
-# MQTT <!-- omit in toc -->
+## MQTT
 
-# Table des matières <!-- omit in toc -->
+## Table des matières
 - [Notes pour le prof](#notes-pour-le-prof)
 - [Qu'est-ce que le MQTT?](#quest-ce-que-le-mqtt)
 - [Concepts](#concepts)
@@ -29,25 +29,25 @@
 
 ---
 
-# Notes pour le prof
+## Notes pour le prof
 
 Le port **websocket** du serveur MQTT est 3901 et non 9001. Le port **mqtt** est inchangé, c'est le port 1883. Ceci dans le but d'accomoder les restrictions du département.
 
 ---
 
-# Qu'est-ce que le MQTT?
+## Qu'est-ce que le MQTT?
 Le MQTT est un protocole (Message Queuing Telemetry Transport) de messagerie simple, léger et relativement simple à implémenter. Il est conçu pour les communications entre machines dans des environnements où la bande passante et la latence sont des contraintes importantes. Nous allons l'utiliser pour communiquer entre notre Arduino et un serveur MQTT.
 
 ---
 
-# Concepts
+## Concepts
 MQTT repose sur un modèle de communication basé sur l'abonnement/souscription (publish/subscribe). Dans ce modèle, il y a deux types d'acteurs : les **clients** et le courtier (**broker**). Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Le courtier est un serveur central qui gère les communications entre les clients.
 
 ![Alt text](assets/MQTT_Diagram_gOmDdU4.format-webp.webp)
 
 ---
 
-## Le courtier (*broker*)
+### Le courtier (*broker*)
 Le courtier est un serveur central qui gère les communications entre les clients. Il est responsable de la distribution des messages aux clients abonnés aux sujets correspondants. Il est également responsable de la gestion des connexions et de la persistance des messages. Il est possible d'utiliser un courtier tiers, comme [CloudMQTT](https://www.cloudmqtt.com/), ou d'utiliser un courtier local, comme [Mosquitto](https://mosquitto.org/).
 
 Dans le cas de mon serveur, j'utilise mosquitto. Vous pouvez l'installer sur votre machine en utilisant la commande `sudo apt install mosquitto`.
@@ -69,19 +69,19 @@ Dans un monde idéal, le courtier devrait être protégé par un **certificat SS
 
 ---
 
-## Les clients
+### Les clients
 Les clients sont des appareils qui peuvent se connecter au courtier pour envoyer et recevoir des messages. Les clients peuvent être des capteurs, des actionneurs, des microcontrôleurs (comme l'Arduino) ou d'autres dispositifs capables de se connecter à Internet. Les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants, et publier des messages sur des sujets spécifiques.
 
 ![Alt text](assets/mqtt_diagram.webp)
 
 ---
 
-## Les sujets (*topic*)
+### Les sujets (*topic*)
 Le MQTT utilise des "**sujets**" pour organiser les messages échangés entre les clients et le courtier. Les sujets sont des chaînes de caractères hiérarchiques, semblables à des chemins de fichiers. Par exemple, un sujet peut être "maison/salon/temperature". Les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants, et publier des messages sur des sujets spécifiques.
 
 Par exemple, un thermostat peut publier la température actuelle sur le sujet "maison/salon/temperature". Un autre client peut s'abonner à ce sujet pour recevoir les mises à jour de température. Un autre client peut publier la température désirée sur le sujet "maison/salon/temperature/desiree". Un autre client peut s'abonner à ce sujet pour recevoir les mises à jour de température désirée.
 
-### Les caractères spéciaux
+#### Les caractères spéciaux
 Les sujets peuvent contenir des caractères alphanumériques, les tirets et les tirets bas. De plus, il y a des caractères spéciaux. Les caractères spéciaux sont les caractères suivants : `+` et `#`. Ils ne peuvent pas être utilisés dans les sujets.
 
 Le caractère `+` est un caractère de remplacement. Il peut être utilisé pour remplacer un seul niveau de hiérarchie dans un sujet. Par exemple, le sujet `maison/salon/+` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/salon/temperature`, `maison/salon/humidite`, etc.
@@ -105,12 +105,12 @@ Voici des exemples de sujets valides avec des caractères spéciaux :
 | printer3d/+/temperature     | Un sujet avec un caractère joker '+' pour la température de tous les capteurs d'une imprimante 3D |
 
 ---
-## Les messages (*payload*)
+### Les messages (*payload*)
 Les messages sont les données échangées entre les clients et le courtier. Les messages sont des chaînes de caractères ou données binaires. Les clients peuvent publier des messages sur des sujets spécifiques, et les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants.
 
 Les messages peuvent être aussi simple que `0` ou `1` pour par exemple allumer ou éteindre une lumière, ou plus complexe comme des données de capteurs. Les messages peuvent prendre plusieurs formats, mais un format que l'on retrouve régulièrement est le JSON.
 
-### JSON crash course
+#### JSON crash course
 
 Le JSON est une chaîne de caractères formatée selon un standard. Il est composé de paires clé-valeur. Les clés sont des chaînes de caractères entre guillemets doubles. Les valeurs peuvent être des chaînes de caractères entre guillemets doubles, des nombres, des booléens, des tableaux ou des objets.
 
@@ -170,7 +170,7 @@ C'est la raison principale pour laquelle nous allons utiliserons le JSON pour no
 
 ---
 
-## La qualité de service (QoS)
+### La qualité de service (QoS)
 MQTT offre trois niveaux de qualité de service (QoS) pour les messages échangés entre les clients et le courtier :
 - QoS 0 (Au plus une fois) : Le message est envoyé sans confirmation, ce qui signifie qu'il peut être perdu. On entendra parfois que ce le mécanisme "*Fire and Forget*".
 - QoS 1 (Au moins une fois) : Le message est envoyé avec confirmation, garantissant qu'il sera reçu au moins une fois.
@@ -184,7 +184,7 @@ Dans notre cas, nous allons utilisé le QoS 0. Le QoS 1 et 2 sont plus compliqu�
 
 ---
 
-# Intégration MQTT avec Arduino
+## Intégration MQTT avec Arduino
 Dans notre situation, nous allons utiliser le MQTT pour un simple échange de données entre votre Arduino et un serveur MQTT. J'aurai préalablement configuré le serveur MQTT, car cela sort du cadre de ce cours. Vous n'aurez qu'à vous connecter à ce serveur. Vous pourrez alors envoyer des données à votre Arduino et recevoir des données de votre Arduino.
 
 Pour utiliser MQTT, vous allez avoir besoin d'une bibliothèque MQTT telle que `PubSubClient`. Vous pouvez l'installer depuis le gestionnaire de bibliothèques de l'IDE Arduino. Ensuite, il faudra que l'appareil soit connecté à un réseau. Pour cela, vous avez entre vos mains le ESP8266 WiFi shield (OAS8266WF) ou un ESP01 avec un adaptateur série.
@@ -195,7 +195,7 @@ De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionn
 
 ---
 
-# Exemple à utiliser
+## Exemple à utiliser
 Nous allons utiliser l'exemple `mqtt_test` (ou `mqtt_test_esp01`) qui se retrouve dans le dossier des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
 
 Voici le code entier de l'exemple :
@@ -437,7 +437,7 @@ Je vais expliquer les points importants dans les prochaines sections.
 
 ---
 
-# La librarie WiFiEspAT
+## La librarie WiFiEspAT
 
 Pour l'utilisation de la librairie WiFiEspAT, il faut que le shield soit configuré pour se connecter au réseau WiFi. Pour cela, référez-vous au cours sur la [connexion WiFi et communication série](../c11/c11a_wifi/index.md).
 
@@ -549,7 +549,7 @@ Jetez un coup d'oeil au début du code complet de l'exemple pour voir comment fa
 
 ---
 
-# La librarie PubSubClient
+## La librarie PubSubClient
 
 La librairie `PubSubClient` permet de se connecter à un serveur MQTT et d'envoyer et recevoir des messages. Dans la manière que l'on l'utilise, elle est très simple.
 
@@ -557,7 +557,7 @@ La librairie `PubSubClient` permet de se connecter à un serveur MQTT et d'envoy
 
 Ensuite, il faudra avoir un serveur MQTT sur lequel se connecter. Pour cela, on va utiliser mon serveur MQTT à l'adresse indiquée dans le code. Au moment d'écrire ces lignes, l'adresse ip est `216.128.180.194`.
 
-## Initialisation du client MQTT
+### Initialisation du client MQTT
 La première étape sera d'initialiser le client. Le constructeur peut prendre différent type de client que l'on retrouve réguilièrement dans les librairies Arduino. Dans notre cas, on va utiliser le client `WiFiClient` (ou `WifiEspClient`).
 
 ```cpp
@@ -572,7 +572,7 @@ On pourra ensuite utiliser les fonctions de l'objet `client` pour se connecter a
 
 ---
 
-## Configuration du client au serveur MQTT
+### Configuration du client au serveur MQTT
 Pour configurer le client au serveur MQTT, on utilise la fonction `setServer()`.
 
 ```cpp
@@ -586,7 +586,7 @@ Pour nos besoins, on configure le client au serveur MQTT dans la fonction `setup
 
 ---
 
-## Connexion au serveur MQTT
+### Connexion au serveur MQTT
 Pour se connecter au serveur MQTT, on utilise la fonction `connect()`. La fonction retourne un booléeen qui indique si la connexion a réussi ou non.
 
 Elle peut prendre plusieurs paramètres, mais il faut au moins le nom du client. **Le nom du client doit être unique pour le serveur MQTT** sinon la connexion échouera.
@@ -606,7 +606,7 @@ if(!client.connect(DEVICE_NAME, MQTT_USER, MQTT_PASS)) {
 
 ---
 
-## Configuration de la fonction de rappel
+### Configuration de la fonction de rappel
 La fonction de rappel est une fonction qui sera appelée par la librairie `PubSubClient` quand un message est reçu. On peut donc utiliser cette fonction pour traiter les messages reçus.
 
 On utilise la fonction `setCallback()` pour configurer la fonction de rappel.
@@ -656,7 +656,7 @@ Pour que recevoir un message, il faut que le client s'abonne au *topic* sur lequ
 
 ---
 
-## S'abonner à un sujet
+### S'abonner à un sujet
 Pour s'abonner à un sujet, on utilise la fonction `subscribe()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut s'abonner.
 
 ```cpp
@@ -671,7 +671,7 @@ Lorsque l'on s'abonne à un topic, on reçoit tous les messages qui sont publié
 
 ---
 
-## Publier un message
+### Publier un message
 Pour public un message, on utilise la fonction `publish()`. Cette fonction prend en paramètre le nom du topic sur lequel on veut publier le message et le message à publier.
 
 La fonction `publish()` retourne un booléen qui indique si le message a été publié ou non.
@@ -720,7 +720,7 @@ Dans le cas de l'exemple, on publie un message périodiquement. On peut aussi pu
 
 ---
 
-## Le JSON
+### Le JSON
 Dans la section sur la publication de message, on a voit la construction d'un message en format JSON. Nous allons voir les bases du JSON.
 
 ```cpp
@@ -744,7 +744,7 @@ Le service MQTT qui reçoit l'information peut ensuite décoder le message et ex
 
 ---
 
-# Exercice
+## Exercice
 
 - Vous pouvez voir l'interface pour le prochain laboratoire. L'adresse est "http://arduino.nb.shawinigan.info/etd/".
 - Le format attendu des messages est le suivant :
@@ -765,8 +765,8 @@ Le service MQTT qui reçoit l'information peut ensuite décoder le message et ex
 1. Adapter l'exemple pour qu'il publie un message sur le sujet `etd/XX` à toutes les minutes avec le contenu de l'exemple du format attendu ci-haut.
 
 ---
-# Annexes
-## Exemples supplémentaires pour la gestion des topics
+## Annexes
+### Exemples supplémentaires pour la gestion des topics
 
 ```cpp
 // Fonction pour définir la couleur de la DEL RGB
@@ -845,6 +845,6 @@ void mqttEvent(char* topic, byte* payload, unsigned int length) {
 ```
 
 ---
-# Références
+## Références
 - [Qu'est-ce que le MQTT?](https://aws.amazon.com/fr/what-is/mqtt/)
 - [MQTT - Wildcards - IBM](https://www.ibm.com/docs/en/wip-mg/5.0.0?topic=publishsubscribe-wildcards)

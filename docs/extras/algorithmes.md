@@ -1,4 +1,4 @@
-# Algorithme pour trouver la valeur minimal
+## Algorithme pour trouver la valeur minimal
 
 Voici un algorithme pour trouver la valeur minimal et maximal d'un capteur sur A0.
     
@@ -38,7 +38,7 @@ void loop() {
 }
 ```
 
-# Utiliser un tableau de caractères pour écrire sur le LCD
+## Utiliser un tableau de caractères pour écrire sur le LCD
 Voici un exemple de bout de code pour écrire sur le LCD avec un tableau de caractères.
 
 ```cpp

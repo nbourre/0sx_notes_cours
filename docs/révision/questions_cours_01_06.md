@@ -1,8 +1,8 @@
-# Questions de révision pour les cours 01 à 06
+## Questions de révision pour les cours 01 à 06
 
 ---
 
-## Cours 01 : Introduction, Programmation de base
+### Cours 01 : Introduction, Programmation de base
 
 1. Quelle est la différence entre un microcontrôleur et un microprocesseur?  
 2. Quelle fonction est exécutée une seule fois au démarrage d’un programme Arduino?  
@@ -27,7 +27,7 @@
 
 ---
 
-## Cours 02 : Fonctions, Communication série
+### Cours 02 : Fonctions, Communication série
 
 1. Quelle fonction permet de définir le mode d'une broche (entrée ou sortie)?  
 2. Quelle est la différence entre `Serial.print()` et `Serial.println()`?  
@@ -48,7 +48,7 @@
 
 ---
 
-## Cours 03 : Branchement, Anti-rebond, sans délai
+### Cours 03 : Branchement, Anti-rebond, sans délai
 
 1. À quoi sert une résistance de rappel (pull-down) ou de tirage (pull-up)?  
 2. Quelle broche est utilisée par défaut pour la LED intégrée sur l’Arduino?  
@@ -69,7 +69,7 @@
 
 ---
 
-## Cours 04 : Lecture et écriture analogique
+### Cours 04 : Lecture et écriture analogique
 
 1. Quelle est la plage de valeurs retournée par la fonction `analogRead()`?
 2. À quoi sert la fonction `map()`?  
@@ -90,7 +90,7 @@
 
 ---
 
-## Cours 05 : Composants analogiques, Tâches
+### Cours 05 : Composants analogiques, Tâches
 
 1. Qu’est-ce qu’un diviseur de tension? Donnez un exemple concret.  
 2. Quelle est la principale différence entre un programme utilisant `delay()` et un utilisant `millis()`?  
@@ -109,7 +109,7 @@
 
 ---
 
-## Cours 06 : Librairies, Capteurs, LCD
+### Cours 06 : Librairies, Capteurs, LCD
 
 1. Donnez un avantage à utiliser une librairie Arduino.  
 2. Quelle librairie a-t-on utilisée pour l'écran LCD I2C?

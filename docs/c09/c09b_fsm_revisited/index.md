@@ -1,23 +1,9 @@
-# Revisitons la machine à états finis <!-- omit in toc -->
+# Revisitons la machine à états finis
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Rappel états et transitions](#rappel-etats-et-transitions)
-- [Les états](#les-etats)
-  - [L'entrée](#lentrée)
-  - [L'exécution](#lexécution)
-  - [La sortie](#la-sortie)
-  - [Exemple](#exemple)
-  - [Résumé](#resume)
-- [Définir les états requis](#definir-les-etats-requis)
-- [Utiliser la programmation orientée objet](#utiliser-la-programmation-orientee-objet)
-  - [Définir la classe](#definir-la-classe)
-- [Conclusion](#conclusion)
-
-# Introduction
+## Introduction
 Nous avons vu les bases de la programmation orientée objet en C++ dans le cours précédent. Nous allons maintenant voir comment utiliser la programmation orientée objet pour créer une machine à états finis.
 
-# Rappel états et transitions
+## Rappel états et transitions
 Nous avons vu comment utiliser des fonctions pour exécuter des actions en fonction de l'état dans le cours précédent.
 
 Pour le rappel, voici un modèle d'état simple en utilisant une fonction.
@@ -75,10 +61,10 @@ Dans certaines situations, les états nécessitaient une certaine préparation a
 
 **Prenez note que les entrées et sorties peuvent être optionnelles**. Par exemple, si vous avez un état qui ne nécessite pas de préparation avant de s'exécuter, vous n'aurez pas besoin d'une fonction d'entrée.
 
-# Les états
+## Les états
 Un état peut être séparé en 3 parties: l'entrée, l'exécution et la sortie. L'entrée est exécutée lorsque l'état est activé. L'exécution est exécutée tant que l'état est actif. La sortie est exécutée lorsque l'état est désactivé.
 
-## L'entrée
+### L'entrée
 L'entrée est exécutée lorsque l'état est activé. Elle est utilisée pour préparer l'état avant son exécution. Par exemple, si nous avons un état qui doit allumer une DEL avant de s'exécuter, nous allons utiliser l'entrée pour allumer la DEL.
 
 Si on prend le modèle précédent, l'entrée est le code d'initialisation de l'état.
@@ -104,7 +90,7 @@ Si on prend le modèle précédent, l'entrée est le code d'initialisation de l'
   // ...
 ```
 
-## L'exécution
+### L'exécution
 L'exécution est exécutée tant que l'état est actif. Elle est utilisée pour exécuter l'état. 
 
 Par exemple, le moteur doit tourner. Nous allons utiliser l'exécution pour
@@ -122,7 +108,7 @@ faire tourner le moteur.
   // ...
 ```
 
-## La sortie
+### La sortie
 La sortie est exécutée lorsqu'une transition est validée. Elle est utilisée pour terminer l'état.
 
 Par exemple, le moteur tourne tant et aussi longtemps qu'un bouton n'est pas appuyé. De plus, on veut que la DEL s'éteigne lorsque le moteur arrête de tourner. Nous allons utiliser la sortie pour éteindre la DEL.
@@ -159,7 +145,7 @@ Par exemple, le moteur tourne tant et aussi longtemps qu'un bouton n'est pas app
 ```
 
 
-## Exemple
+### Exemple
 
 Voici un exemple quasiment complet d'une machine à états finis qui gère l'état d'un moteur lorsqu'un bouton est appuyé.
 
@@ -270,7 +256,7 @@ void motorSpinState() {
 }
 ```
 
-## Résumé
+### Résumé
 
 La mécanique de la machine à états finis est simple. Il suffit de définir :
 - les états requis
@@ -286,7 +272,7 @@ Les sorties sont déclenchées par des transitions. Les transitions sont déclen
 
 ---
 
-# Définir les états requis
+## Définir les états requis
 Avant de commencer à coder, il est important de définir les états requis pour notre machine à états finis. De plus, il faut aussi définir les transitions entre les états.
 
 Un astuce qui permet de simplifier la structure de l'application est de se faire un schéma de la machine à états finis. Cela permet de visualiser les états et les transitions.
@@ -313,7 +299,7 @@ On identifie deux transitions:
 
 ---
 
-# Utiliser la programmation orientée objet
+## Utiliser la programmation orientée objet
 Reprenons l'exemple précédent, mais convertissons-le en utilisant la programmation orientée objet. Nous allons aussi modifier le projet.
 - Avant que le moteur entre en action, pour avertir l'utilisateur on doit faire clignoter une DEL pendant 3 secondes.
 - Pendant que le moteur tourne, la DEL doit être allumée.
@@ -332,7 +318,7 @@ stateDiagram-v2
 ```
 
 
-## Définir la classe
+### Définir la classe
 La classe doit avoir un constructeur qui prend en paramètre la broche du bouton, la broche de la DEL ainsi que celle du moteur. Elle doit aussi avoir une fonction `update()` qui devra être appelée dans la fonction `loop()`.
 
 Voici le code pour l'entête de la classe.
@@ -539,5 +525,5 @@ Le `static_cast<Motor*>(context)` nous permet de convertir le paramètre génér
 
 ---
 
-# Conclusion
+## Conclusion
 Nous avons vu comment réaliser une machine à états finis dans une classe qui définit un système. Lorsque nous sommes en mesure de déterminer les éléments d'un système, nous pouvons les encapsuler dans une classe. Cela nous permet de mieux structurer notre code et de le rendre plus lisible.

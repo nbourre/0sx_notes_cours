@@ -1,9 +1,9 @@
 
 
-### Code pour configurer le wifi
+#### Code pour configurer le wifi
 Pour utiliser le ESP-01, il faudra utiliser la librairie "WifiEsp.h" qui permet de communiquer avec le module.
 
-### Initialisation du module
+#### Initialisation du module
 ```cpp
 
 #include <WiFiEsp.h>
@@ -81,7 +81,7 @@ void loop() {
 }
 ```
 
-#### Fonctions d'aide
+##### Fonctions d'aide
 Code pour les fonctions supplémentaires `printWifiStatus` et `errorState`.
 
 <details><summary>Ouvrir pour voir le code</summary>
@@ -172,7 +172,7 @@ void errorState(int codeA, int codeB) {
 
 ---
 
-### Exemple de code pour le ESP-01
+#### Exemple de code pour le ESP-01
 
 ```cpp
 /*

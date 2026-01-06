@@ -1,4 +1,4 @@
-# Composants analogues <!-- omit in toc -->
+## Composants analogues
 
 - [Diviseur de tension](#diviseur-de-tension)
   - [Utilité](#utilité)
@@ -12,7 +12,7 @@
 - [Références](#références)
 
 
-# Diviseur de tension
+## Diviseur de tension
 Un diviseur de tension est un circuit électrique composé de deux résistances en série qui permet de réduire la tension d'une source d'alimentation électrique. **En divisant la tension d'entrée en une tension plus faible**, le diviseur de tension permet de fournir une tension de sortie adaptée aux besoins d'autres composants du circuit.
 
 Voici le schéma d'un diviseur de tension.
@@ -29,18 +29,18 @@ où $V_{in}$ est la tension d'entrée, $R_1$ est la valeur de la première rési
 
 Les diviseurs de tension sont couramment utilisés dans de nombreux circuits électroniques. Ils peuvent être utilisés pour mesurer la tension d'une source d'alimentation électrique ou pour réguler la vitesse d'un moteur. En somme, le diviseur de tension est un outil précieux pour les ingénieurs et les techniciens qui travaillent avec des circuits électriques.
 
-## Utilité
+### Utilité
 Les diviseurs de tension sont utilisés dans de nombreux circuits électroniques pour réduire la tension d'une source d'alimentation électrique à une valeur plus faible. Ils sont couramment utilisés dans les circuits de mesure de tension, les circuits de régulation de vitesse des moteurs, les circuits de contrôle de la luminosité des LED, et les circuits de contrôle de la température.
 
-## Potentiomètre
+### Potentiomètre
 Sans que vous le sachiez, vous avez utilisé un diviseur de tension dans quelques montages électroniques. En effet, le potentiomètre est un diviseur de tension!
 
 ![Alt text](assets/potentiometre_diviseur_tension.gif)
 
-## Calculatrice en ligne
+### Calculatrice en ligne
 Voici un [lien](https://learn.sparkfun.com/tutorials/voltage-dividers/all) vers un article sur les diviseurs de tension qui contient une calculatrice en ligne qui permet de calculer la tension de sortie d'un diviseur de tension.
 
-# Photorésistance
+## Photorésistance
 Une photorésistance, également connue sous le nom de cellule photoconductrice, est un composant électronique qui varie sa résistance électrique en réponse à la quantité de lumière qu'elle reçoit. Elle est donc sensible à la lumière et peut être utilisée pour détecter la présence ou l'absence de lumière dans un circuit.
 
 Voici une photo d'une photorésistance.
@@ -57,7 +57,7 @@ La quantité de lumière détectée par une photorésistance dépend de sa rési
 
 Les photorésistances sont couramment utilisées dans de nombreux appareils électroniques, tels que les détecteurs de lumière, les systèmes de contrôle d'éclairage automatique, les capteurs de sécurité et les caméras. Elles peuvent également être utilisées dans des applications plus créatives, comme des projets d'art interactif ou de science citoyenne, où la lumière est utilisée comme une variable de contrôle.
 
-## Arduino
+### Arduino
 La **photorésistance** peut être connectée à l'Arduino en réalisant un circuit de **diviseur de tension**.
 
 Pour lire la valeur de la photorésistance, il est nécessaire d'utiliser la fonction `analogRead()` de l'Arduino, qui permet de lire la tension sur une broche d'entrée analogique et de la convertir en une valeur numérique. La valeur lue par la photorésistance sera plus élevée lorsque la quantité de lumière est faible, et plus faible lorsque la quantité de lumière est élevée.
@@ -80,7 +80,7 @@ On peut modifier la valeur de résistance selon la nécessité. Une valeur de r�
 
 > **Votre kit** : Dans votre kit, la photorésistance semble avoir une valeur de résistance de 10 kΩ. Vous pouvez donc utiliser la résistance de 4.7 kΩ pour limiter le courant qui traverse la photorésistance.
 
-# Thermistance
+## Thermistance
 Une thermistance est un type de capteur de température qui varie sa résistance électrique en fonction de la température ambiante. Plus précisément, une thermistance est un type de résistance dont la valeur de résistance diminue lorsque la température augmente, et inversement, la valeur de résistance augmente lorsque la température diminue.
 
 ![alt text](assets/Arduino-Thermistor-Temperature-Sensor-Voltage-Divider-Circuit.jpg)
@@ -100,7 +100,7 @@ Comme la photorésistance, la thermistance peut être utilisé dans un montage d
 
 En utilisant la formule de Steinhart-Hart, on peut calculer la température à partir de la résistance lue par le diviseur de tension. On peut ensuite utiliser cette valeur de température pour contrôler des actions en fonction de la température, tels que l'allumage ou l'extinction d'un ventilateur ou le déclenchement d'une alarme de température élevée ou basse.
 
-## Code
+### Code
 
 Voici un exemple de code pour lire la valeur de la thermistance et afficher la température sur le moniteur série de l'Arduino.
 
@@ -143,13 +143,13 @@ void loop() {
 
 ---
 
-# Exercices
+## Exercices
 - Réaliser un montage avec une photorésistance et une LED. La LED doit s'allumer lorsque la lumière est faible et s'éteindre lorsque la lumière est forte.
 - Réaliser le montage avec la thermistance et une LED. La LED doit s'allumer lorsque la température est élevée et s'éteindre lorsque la température est basse.
 - Convertir le code de la thermistance pour que ce soit dans une fonction qui reçoit en paramètre la valeur lue par la thermistance et qui retourne la température en degré Celsius.
 
 
-# Références
+## Références
 - https://learn.adafruit.com/photocells
 - https://circuitdigest.com/microcontroller-projects/interfacing-Thermistor-with-arduino
 - https://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/

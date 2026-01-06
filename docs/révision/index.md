@@ -1,8 +1,8 @@
-# Révision pour l'évaluation finale
+## Révision pour l'évaluation finale
 
 ---
 
-# Volet pratique
+## Volet pratique
 - La programmation orientée objet
 - Les tâches
   - Savoir comment créer et utiliser une tâche
@@ -16,7 +16,7 @@
 - La programmation sans la fonction `delay()`
 - Le moniteur série
 
-## Exemples de question
+### Exemples de question
 Voici quelques exemples de questions qui pourraient être posées lors de l'évaluation finale. Ces questions ne sont pas nécessairement représentatives de ce qui sera demandé lors de l'évaluation finale. Elles sont là pour vous donner une idée du genre de question qui pourrait être posée. La meilleure façon de vous préparer est de faire les exercices de révision et de vous pratiquer à faire des programmes qui utilisent les concepts mentionnés ci-dessus.
 
 Il n'y aura qu'une seule question pratique à l'évaluation finale.
@@ -25,7 +25,7 @@ Il n'y aura qu'une seule question pratique à l'évaluation finale.
 - Faites un programme qui fait clignoter une DEL à l'aide d'un bouton. Si l'utilisateur clique une fois sur le bouton, la DEL clignote 1 fois par seconde, s'il clique 2 fois, la DEL clignotera 2 fois ainsi de suite jusqu'à 5 fois. Après la 5e fois, la DEL s'éteint. À chaque clic, le nombre de clignotement s'affiche dans le moniteur série.
 - Faites un programme qui accepte un chiffre de 0 à 9 entrée par le port série. Le chiffre indique le nombre de clignotement par seconde que doit faire une DEL. Si l'utilisateur entre 0, la DEL s'éteint. Si l'utilisateur entre 1, la DEL clignote 1 fois par seconde. Si l'utilisateur entre 2, la DEL clignote 2 fois par seconde ainsi de suite jusqu'à 9. Si l'utilisateur entre une valeur non valide, la DEL clignote 20 fois par seconde et le programme affiche un message d'erreur dans le moniteur série.
 
-## Critères d'évaluation
+### Critères d'évaluation
 Voici les principaux critères d'évaluation qui seront utilisés pour évaluer votre programme. Il est possible que d'autres critères soient utilisés.
 - Le programme compile sans erreur
 - Le programme fonctionne comme demandé
@@ -36,13 +36,13 @@ Voici les principaux critères d'évaluation qui seront utilisés pour évaluer 
 
 ---
 
-# Volet théorique
+## Volet théorique
 En plus des connaissances du volet pratique, vous devez être en mesure de répondre aux questions qui pourraient être en lien avec les notions suivantes:
 - Les concepts derrière la programmation orientée objet
 - Les concepts derrière le MQTT
 - La refactorisation
 
-## Exemples de question
+### Exemples de question
 Voici des exemples de questions qui pourraient être posées lors de l'évaluation finale. Ces questions ne sont pas nécessairement représentatives de ce qui sera demandé lors de l'évaluation finale. Elles sont là pour vous donner une idée du genre de question qui pourrait être posée. La meilleure façon de vous préparer est de faire les exercices de révision et de vous pratiquer à faire des programmes qui utilisent les concepts mentionnés ci-dessus.
 
 - Expliquez-vous en vos mots ce qu'est un sujet dans le contexte du MQTT.
@@ -58,6 +58,6 @@ Voici des exemples de questions qui pourraient être posées lors de l'évaluati
 - Quel est l'avantage d'utiliser une librairie pour gérer un bouton?
 - Pourquoi met-on une résistance de tirage vers le haut ou vers le bas sur un bouton?
 
-## Révisions des cours
+### Révisions des cours
 - [Révision - Cours 1 à 6](questions_cours_01_06.md)
 - [Révision - Cours 7 à 12](questions_cours_07_12.md)

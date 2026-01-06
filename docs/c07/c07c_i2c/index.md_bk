@@ -1,6 +1,6 @@
-# Découverte du protocole I2C avec Arduino <!-- omit in toc -->
+# Découverte du protocole I2C avec Arduino
 
-# Table des matières <!-- omit in toc -->
+# Table des matières
 - [Introduction](#introduction)
 - [Qu'est-ce que le protocole I2C ?](#quest-ce-que-le-protocole-i2c-)
 - [Fonctionnement de base d'I2C](#fonctionnement-de-base-di2c)

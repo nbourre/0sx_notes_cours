@@ -1,31 +1,21 @@
-# Le traceur série <!-- omit in toc -->
+# Le traceur série
 
-# Table des matières <!-- omit in toc -->
-- [Objectifs](#objectifs)
-- [Introduction](#introduction)
-- [Démarrer le traceur](#demarrer-le-traceur)
-- [Utiliser le traceur](#utiliser-le-traceur)
-  - [Exemple](#exemple)
-- [Calcul de la valeur moyenne d'un signal](#calcul-de-la-valeur-moyenne-dun-signal)
-- [Exercice](#exercice)
-- [Références](#references)
-
-# Objectifs
+## Objectifs
 - Savoir comment utiliser le traceur des courbes avec Arduino (Oscilloscope)
 - Savoir afficher une ou plusieurs courbes avec Arduino
 - Savoir calculer la valeur moyenne d’un signal
 
-# Introduction
+## Introduction
 Dans ce cours, nous allons voir comment utiliser le traceur des courbes avec Arduino. Le traceur des courbes est un outil très utile pour visualiser les signaux analogiques.
 
 ![Alt text](assets/c04_plotter.gif)
 
-# Démarrer le traceur
+## Démarrer le traceur
 Pour démarrer le traceur série, il faut aller dans le menu `Outils` et sélectionner `Traceur série`.
 
 ![Alt text](assets/c04_plotter_menu.png)
 
-# Utiliser le traceur
+## Utiliser le traceur
 Pour utiliser le traceur, il faut d'abord envoyer des données dans le port série. Le format des données est le suivant :
 
 `nomValeur:Valeur[,nomValeur2:Valeur2[,...]]`
@@ -36,7 +26,7 @@ Par exemple, si on veut envoyer la valeur 10 pour la courbe `Courbe1` et la vale
 
 Il faut terminer la chaîne de caractères par un retour à la ligne (`\n`) soit en utilisant la fonction `Serial.println()`;
 
-## Exemple
+### Exemple
 Dans cet exemple, nous allons afficher la valeur de la tension mesurée par une photorésistance sur le port A0.
 
 ```cpp
@@ -58,7 +48,7 @@ Branchement de la photorésistance sur l'Arduino Mega
 
 ---
 
-# Calcul de la valeur moyenne d'un signal
+## Calcul de la valeur moyenne d'un signal
 Pour calculer la valeur moyenne d'un signal, il faut faire la moyenne des valeurs lues sur un certain nombre de points. Par exemple, si on veut calculer la valeur moyenne de la tension mesurée par une photorésistance, on peut lire la valeur de la tension 10 fois et faire la moyenne des 10 valeurs lues.
 
 ```cpp
@@ -128,13 +118,13 @@ void serialPrintTask() {
 ```
 ---
 
-# Exercice
+## Exercice
 - Ajouter une photoresistance sur votre platine et tester le code ci-dessus en visualisant les données dans le traceur série.
 - Si ce n'est déjà fait, ajouter un potentiomètre sur votre platine et tester le code ci-dessus en visualisant les données de la photoresistance et du potentiomètre dans le traceur série.
 - Modifier le code pour avoir une courbe de valeur moyenne de la valeur mesurée par la photoresistance.
 
 ---
 
-# Références
+## Références
 - https://arduinogetstarted.com/tutorials/arduino-light-sensor
 

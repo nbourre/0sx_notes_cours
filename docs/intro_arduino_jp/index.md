@@ -1,6 +1,6 @@
-# ARDUINO <!-- omit in toc -->
+## ARDUINO
 
-# Guide d’introduction  <!-- omit in toc -->
+## Guide d’introduction 
 
 <img src="media/image1.png" alt="Arduino — Wikipédia" />
 
@@ -37,9 +37,9 @@
 
 ---
 
-# Introduction
+## Introduction
 
-# Qu’est-ce que Arduino?
+## Qu’est-ce que Arduino?
 
 Arduino est une plateforme de prototypage de type « *Open-Source* »
 utilisant un circuit électronique et un microcontrôleur. Le
@@ -53,7 +53,7 @@ similitudes. Voici les trois (3) modèles les plus communément utilisés :
 
 ---
 
-## Arduino NANO
+### Arduino NANO
 
 Il s’agit du modèle de base de petite dimension (45mm x 18mm). Le
 contrôleur **ATMega328** fonctionne à 16MHz et il possède une mémoire de
@@ -65,7 +65,7 @@ contrôleur **ATMega328** fonctionne à 16MHz et il possède une mémoire de
 
 ---
 
-## Arduino UNO R3
+### Arduino UNO R3
 
 Il s’agit du modèle le plus commun. Il dispose du même nombre de
 connecteurs analogue (*pins*) que le modèle NANO. De dimension moyenne
@@ -79,7 +79,7 @@ alt="Une image contenant équipement électronique, circuit Description génér�
 
 ---
 
-## Arduino MEGA 2560 (rev3)
+### Arduino MEGA 2560 (rev3)
 
 Il s’agit du modèle plus *costaud*. De plus grande dimension (54mm x
 102mm), il dispose de 54 connecteurs (*pins*) entrée et sortie. Il est
@@ -93,7 +93,7 @@ alt="Une image contenant équipement électronique, circuit Description génér�
 
 ---
 
-## Comparaison entre les tailles
+### Comparaison entre les tailles
 
 <img src="media/image6.png"
 alt="Une image contenant texte, équipement électronique, circuit Description générée automatiquement" />
@@ -104,7 +104,7 @@ alt="Une image contenant texte, équipement électronique, circuit Description g
 
 ---
 
-### Tableau résumé
+#### Tableau résumé
 
 Tableau résumé des caractéristiques de base des trois principaux
 modèles :
@@ -115,7 +115,7 @@ modèles :
 | UNO R3           | 54mm x 69mm   | ATMega328P     | 32KB        | 14                       | USB-B   |
 | MEGA 2560 (rev3) | 54mm x 102mm  | ATM2560        | 256KB       | 54                       | USB-B   |
 
-## Références
+### Références
 
 Site officiel d’Arduino :
 - <https://www.arduino.cc/en/Guide/Introduction>
@@ -123,7 +123,7 @@ Site officiel d’Arduino :
 
 ---
 
-# Composantes de base
+## Composantes de base
 
 Voici une liste de composantes de base qui sont utilisées pour la
 conception de projets simples. Vous trouverez des photos, schémas et
@@ -133,7 +133,7 @@ composantes** » à la suite de cette section.
 
 ---
 
-## Câble USB type USB-B
+### Câble USB type USB-B
 
 <img src="media/image7.jpeg" />
 
@@ -150,7 +150,7 @@ d’alimentation).
 
 ---
 
-## Platine d'expérimentation sans soudure (*Breadboard*)
+### Platine d'expérimentation sans soudure (*Breadboard*)
 
 <img src="media/image9.jpeg" />
 
@@ -177,7 +177,7 @@ La platine d’expérimentation permet de réaliser un montage avec des composan
 
 Figure : Branchement interne d'une platine d’expérimentation
 
-### Schéma de branchement
+#### Schéma de branchement
 
 Voici un schéma de branchement pour vous aider à comprendre l'intérieur de la platine d'expérimentation.
 
@@ -185,7 +185,7 @@ Voici un schéma de branchement pour vous aider à comprendre l'intérieur de la
 
 ---
 
-## Fil de raccordement M/M (*Jumper wires*)
+### Fil de raccordement M/M (*Jumper wires*)
 
 <img src="media/image14.png" />
 
@@ -198,7 +198,7 @@ Les fils de raccordement M/M (pour Mâle/Mâle) sont utilisés pour lier des com
 
 [Source : Hackster.io](https://www.hackster.io/super-kid/windows-remote-arduino-windows-remote-arduino-experience-a5ea4d)
 
-## Fil de raccordement M/F (*Jumper wires)*
+### Fil de raccordement M/F (*Jumper wires)*
 
 <img src="media/image17.png"  />
 
@@ -216,7 +216,7 @@ carte Arduino. Ils existent dans différentes longueurs et couleurs.
 
 ---
 
-## Attache batterie 9V (*9V battery snap*)
+### Attache batterie 9V (*9V battery snap*)
 
 <img src="media/image20.png"/>
 
@@ -225,7 +225,7 @@ alimentation électrique sans être rattachée au port USB de l’ordinateur.
 
 ---
 
-## DEL (*LED*)
+### DEL (*LED*)
 
 (Blanche, rouge, verte, bleue, jaune)
 
@@ -276,7 +276,7 @@ Truc : Ça fait un « - » comme négatif</p></li>
 > \(1\) Source :
 > <https://fr.wikipedia.org/wiki/Diode_%C3%A9lectroluminescente>
 
-### Intensité
+#### Intensité
 
 Il est important de ne pas dépasser l’intensité admissible d’une DEL
 pour ne pas la faire griller. ***<u>L’ajout d’une
@@ -286,7 +286,7 @@ DEL RVB (LED RGB)
 
 Voir la section « **[Autres composantes](#autres-composantes)** » pour plus de détails sur les DEL RVB.
 
-## Résistance (*Resistor*)
+### Résistance (*Resistor*)
 
 <img src="media/image24.jpeg" />
 
@@ -306,9 +306,9 @@ Pour connaitre la valeur d’une résistance, vous pouvez :
 
   Mnémotechnique pour se souvenir de l'ordre des couleurs : **N**otre **B**ar **R**ouge **O**uvre **J**eudi **V**endredi **B**onne **V**odka **G**rosse **B**ière
 
-# Autres composantes
+## Autres composantes
 
-## DEL RVB (*LED RGB*)
+### DEL RVB (*LED RGB*)
 
 <img src="media/image27.png" />
 
@@ -328,7 +328,7 @@ Utiliser la Cathode (tige la plus grande) comme point de référence. Les autres
 
 [Source : www.lighting.philips.be](https://www.lighting.philips.be/fr/assistance/assistance-produit/faqs/white-light-and-colour/what-does-rgb-led-mean)
 
-## Bouton poussoir momentané
+### Bouton poussoir momentané
 
 Dans les kits fournis, il y a quelques boutons poussoirs.
 
@@ -342,11 +342,11 @@ sont généralement recouverts d’un plastique pour le design. Pouvez-vous
 en nommer quelques objets du quotidien qui possèderaient des boutons
 similaires?
 
-### Références
+#### Références
 - <https://arduinogetstarted.com/tutorials/arduino-button>
 - [https://www.cs.uregina.ca](https://www.cs.uregina.ca/Links/class-info/207/Online/Lab3/)
 
-# Ressources et références
+## Ressources et références
 
 - [Site officiel ARDUINO](https://www.arduino.cc/)
 - [Guide du « *MEGA2560 Starter Kit* »](https://cdn.shopify.com/s/files/1/0069/6513/3376/files/the_most_complete_starter_kit_for_mega_v1.0.17.7.9.pdf?5732344175148787081)

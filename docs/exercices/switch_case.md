@@ -1,7 +1,7 @@
-# switch-case - Exercices
+## switch-case - Exercices
 Voici quelques exercices pour vous pratiquez à l'utilisation des `switch-case`.
 
-# Exercice 1
+## Exercice 1
 Considérez le code suivant:
 
 ```cpp
@@ -19,7 +19,7 @@ if (input == 'A') {
 
 Transformez ce code en utilisant un bloc `switch/case` pour contrôler les broches de l'Arduino en fonction de la valeur de input.
 
-# Exercice 2
+## Exercice 2
 Considérez le code suivant:
 
 ```cpp
@@ -36,7 +36,7 @@ if (mode == 1) {
 
 Remplacez les conditions if/else if par un bloc `switch/case` pour afficher le message correspondant au mode sélectionné.
 
-# Exercice 3
+## Exercice 3
 Considérez le code suivant:
 
 ```cpp
@@ -51,7 +51,7 @@ if (buttonState == LOW) {
 
 Réécrivez ce code en utilisant un bloc `switch/case` pour gérer les différentes durées de délai en fonction de l'état du bouton.
 
-# Exercice 4
+## Exercice 4
 Considérez le code suivant:
 
 ```cpp
@@ -78,7 +78,7 @@ if (receivedValue == '0') {
 ```
 
 
-# Exercice 5
+## Exercice 5
 Considérez le code suivant:
 
 ```cpp
@@ -95,7 +95,7 @@ if (sensorValue == 0) {
 
 Réécrivez ce code en utilisant un bloc `switch/case` pour gérer l'affichage de différentes informations sur un écran en fonction de la valeur du capteur.
 
-# Exercice 6 - Extra recherche
+## Exercice 6 - Extra recherche
 Vous devez effectuer une recherche sur Internet pour trouver la réponse à cet exercice, car il se peut que vous n'ayez pas encore vu les switch-case qui utilisent des plages de valeurs.
 
 Considérez le code suivant:
@@ -114,5 +114,5 @@ if (analogValue < 200) {
 
 Réécrivez ce code en utilisant un bloc `switch/case` pour gérer la luminosité de la LED en fonction de la valeur de analogValue.
 
-# Réponses
+## Réponses
 Les réponses aux exercices sont disponibles [ici](switch_case_rep.md).

@@ -1,10 +1,10 @@
 class: center, middle
 
-# Title
+## Title
 
 ---
 
-# Agenda
+## Agenda
 
 1. Introduction
 2. Deep-dive
@@ -12,6 +12,6 @@ class: center, middle
 
 ---
 
-# Introduction
+## Introduction
 
 blablabla

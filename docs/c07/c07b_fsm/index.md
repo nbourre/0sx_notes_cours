@@ -1,36 +1,19 @@
-# La machine à états finis <!-- omit in toc -->
+# La machine à états finis
 
 > **Note :** Cet article est une réinterprétation de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
 > 
 
 ![Alt text](fsm/fsm_base.drawio.svg)
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [Pourquoi utiliser une machine à états finis?](#pourquoi-utiliser-une-machine-a-etats-finis)
-- [Détails](#details)
-- [Cas d'étude l'ampoule](#cas-détude-lampoule)
-- [Implémentation](#implementation)
-  - [Rappel : Énumération](#rappel-enumeration)
-  - [Rappel : Switch case](#rappel-switch-case)
-- [Mise en pratique : Arduino](#mise-en-pratique-arduino)
-  - [Exercice 1 : Allumer une LED](#exercice-1-allumer-une-led)
-  - [Exercice 2 : le double-clic](#exercice-2-le-double-clic)
-  - [Exercice 3 : Le chronomètre](#exercice-3-le-chronometre)
-- [Annexe](#annexe)
-  - [Autre exemple de diagramme d'état](#autre-exemple-de-diagramme-détat)
-- [Exercices](#exercices)
-- [Références](#references)
-
 ---
 
-# Introduction
+## Introduction
 
 Les **machines à états finis** sont un outil puissant pour contrôler le comportement des programmes sur un Arduino. Elles permettent de décrire l'état du système et comment il évolue en réponse aux entrées et sorties. Les machines à états finis sont utiles pour définir des comportements complexes en utilisant des algorithmes simples, et elles peuvent être implémentées efficacement sur un microcontrôleur comme l'Arduino. En utilisant des machines à états finis, les programmeurs peuvent décrire clairement et de manière organisée les différents états possibles du système, les transitions entre ces états et les actions à effectuer à chaque étape. Cela peut être particulièrement utile pour des projets impliquant des systèmes autonomes, tels que des robots ou des dispositifs IoT, où le comportement doit être précis et cohérent.
 
 ---
 
-# Pourquoi utiliser une machine à états finis?
+## Pourquoi utiliser une machine à états finis?
 
 En utilisant des machines à états finis, les programmeurs peuvent concevoir des systèmes qui ont des comportements complexes, tout en conservant un code facile à lire, à maintenir et à déboguer.
 
@@ -38,7 +21,7 @@ Il s'agit d'une méthode de développement complémentaire à la programmation p
 
 ---
 
-# Détails
+## Détails
 
 - Une machine peut avoir un ou plusieurs états.
 - Pour passer d’un état à l’autre, il y a une transition.
@@ -48,7 +31,7 @@ Il s'agit d'une méthode de développement complémentaire à la programmation p
 
 ---
 
-# Cas d'étude l'ampoule
+## Cas d'étude l'ampoule
 
 - Pensez à une ampoule qui peut avoir 2 états soit allumée ou éteinte
 - Pour passer d’un état à l’autre on appuie sur un bouton
@@ -71,7 +54,7 @@ Il s'agit d'une méthode de développement complémentaire à la programmation p
 
 ---
 
-# Implémentation
+## Implémentation
 
 Pour faciliter l’implémentation d’une FSM, nous allons utilisé deux principes de programmation
 - L’énumération
@@ -79,7 +62,7 @@ Pour faciliter l’implémentation d’une FSM, nous allons utilisé deux princi
 
 ---
 
-## Rappel : Énumération
+### Rappel : Énumération
 
 L’énumération est un type de donnée qui consiste en un ensemble de valeurs nommées
 
@@ -120,7 +103,7 @@ On définit ainsi un type `Etat` qui peut prendre les valeurs `LAMP_ETEINTE` ou 
 
 ---
 
-## Rappel : Switch case
+### Rappel : Switch case
 
 On vous laisse le soin de lire la doc de programmation sur le [switch/case](https://arduinogetstarted.com/reference/arduino-switch-case). Son intérêt réside dans le fait que bien souvent dans nos machines à état, on aura besoin de dire "si l'état courant est celui ci, alors faire cela, sinon si l'état courant est celui là alors faire autre chose etc... Si vous avez de nombreux états possibles, tous ces tests imbriqués rendent le code difficile à lire et le `switch/case` simplifie tout cela. En combinant cela habilement avec notre `enum`, on pourra par exemple écrire
 
@@ -149,7 +132,7 @@ Etat etatCourant = LAMP_ETEINTE;
 ---
 
 
-# Mise en pratique : Arduino
+## Mise en pratique : Arduino
 
 Construisons un cas un peu similaire à celui de la minuterie, mais un peu plus complexe pour avoir de nombreux états à gérer.
 
@@ -182,7 +165,7 @@ Voilà à partir de là on va effectuer 3 exercices pour comprendre comment fonc
 
 ---
 
-## Exercice 1 : Allumer une LED
+### Exercice 1 : Allumer une LED
 Dans cet exercice nous souhaitons démarrer avec tout éteint et que le bouton serve à allumer les LEDs les unes à la suite des autres pour éclairer de plus en plus fort par exemple (ou ici faire des couleurs):
 
 - Premier appui la LED verte s'allume    
@@ -351,7 +334,7 @@ Pour faire simple, grâce au `switch/case` on regarde quel est notre état coura
 
 ---
 
-## Exercice 2 : le double-clic
+### Exercice 2 : le double-clic
 Dans cet exercice nous souhaitons compliquer un peu le fonctionnement de notre machine précédente.
 
 C'est bien gentil de pouvoir augmenter la luminosité petit à petit, mais il y a des gens pressés sur terre et donc on nous demande maintenant de modifier notre machine pour qu'un double-clic sur le bouton allume toutes les LEDS si elles n'étaient pas déjà toutes allumées et les éteignent toutes si elles étaient toute allumées.
@@ -412,7 +395,7 @@ void doubleclick()
 > **Remarque :** Dans un `case` lorsqu'il n'y a pas de `break`, cela signifie que l'on veut passer à l'exécution du `case` suivant. C'est ce que l'on fait ici pour les cas `REPOS`, `ETAT_V`, `ETAT_VJ` et `ETAT_VJO` qui sont tous identiques.
 
 ---
-## Exercice 3 : Le chronomètre
+### Exercice 3 : Le chronomètre
 Dans cet exercice, on nous demande de nous montrer économe... Il ne faut pas laisser la lumière allumée trop longtemps et donc on nous demande de mettre une minuterie. Le cahier des charges stipule : "Si la lumière est allumée plus de 15 secondes sans action de la part de l'utilisateur, alors tout éteindre."
 
 Maintenant nous sommes rodés. On voit tout de suite qu'il s'agit d'un nouveau type d'événement qu'il va falloir prendre en compte dans notre machine à état : le temps qui passe.
@@ -638,8 +621,8 @@ Bon codage à toutes et tous !
 
 ---
 
-# Annexe
-## Autre exemple de diagramme d'état
+## Annexe
+### Autre exemple de diagramme d'état
 
 Voici un exemple simple qui gère le temps d'allumages d'un système de feux de circulation.
 
@@ -720,12 +703,12 @@ bool timeElapsed(unsigned long duration) {
 
 ---
 
-# Exercices
+## Exercices
 1. Utilisez le concept de machine à état pour votre laboratoire en cours.
 
 ---
 
-# Références
+## Références
 - [Billet sur la programmation d'automate fini/Machine à état fini](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532)
 
 ---

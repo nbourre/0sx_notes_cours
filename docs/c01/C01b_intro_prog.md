@@ -1,39 +1,9 @@
-# Introduction <!-- omit in toc -->
+## Introduction
 > "Un voyage de mille lieues commence toujours par un premier pas." – Lao Tseu
-
-# Table des matières <!-- omit in toc -->
-- [Le langage de programmation](#le-langage-de-programmation)
-  - [Exemples](#exemples)
-- [Comment programmer un Arduino](#comment-programmer-un-arduino)
-- [La fonction `setup`](#la-fonction-setup)
-- [La fonction `loop`](#la-fonction-loop)
-- [Cycle de vie d'un programme Arduino](#cycle-de-vie-dun-programme-arduino)
-  - [📌 Explications du diagramme :](#explications-du-diagramme)
-- [Les principaux types de données](#les-principaux-types-de-donnees)
-  - [🛠 Déclaration et utilisation](#declaration-et-utilisation)
-  - [🏗 Comparaison des types et exemples d'utilisation](#comparaison-des-types-et-exemples-dutilisation)
-  - [⚠ Précision et limitations du type `float`](#precision-et-limitations-du-type-float)
-  - [🔥 Problèmes de conversion `float → int`](#problemes-de-conversion-float-int)
-- [📌 Les variables en Arduino](#les-variables-en-arduino)
-  - [📍 La portée des variables](#la-portee-des-variables)
-    - [1️⃣ Variables globales](#1-variables-globales)
-    - [2️⃣ Variables locales](#2-variables-locales)
-    - [3️⃣ Variables statiques](#3-variables-statiques)
-  - [🔄 Illustration de la portée des variables](#illustration-de-la-portee-des-variables)
-  - [🔘 Application pratique des variables statiques](#application-pratique-des-variables-statiques)
-  - [✅ Bonnes pratiques](#bonnes-pratiques)
-- [Wokwi - Simulateur Arduino](#wokwi-simulateur-arduino)
-  - [Créer un projet](#creer-un-projet)
-  - [Exercice - Premier projet](#exercice-premier-projet)
-- [Exercices](#exercices)
-  - [Recherches](#recherches)
-  - [Questions](#questions)
-  - [Programmation](#programmation)
-    - [Défi](#defi)
 
 ---
 
-# Le langage de programmation
+### Le langage de programmation
 Arduino utilise un langage de programmation spécifique appelé "Arduino Language" ou "Arduino C++".
 
 Le langage Arduino est basé sur le langage C++, avec des modifications et des extensions spécifiques pour permettre une utilisation facile des fonctionnalités du microcontrôleur Arduino. Il est donc recommandé de connaître les bases du langage C++ avant de se lancer dans la programmation Arduino.
@@ -42,7 +12,7 @@ Le langage Arduino est basé sur le langage C++, avec des modifications et des e
 > 
 > Si vous avez déjà programmé en C# ou Java, vous verrez que le langage Arduino est très proche de ces langages. C'est d'ailleurs pour cette raison que le langage Arduino est souvent utilisé pour initier les débutants à la programmation embarquée.
 
-## Exemples
+#### Exemples
 
 Voici quelques exemples de structures de base du langage Arduino :
 
@@ -97,7 +67,7 @@ void maFonctionAvecParametres(int param1, float param2) {
 
 Il existe également de nombreuses fonctions prédéfinies dans le langage Arduino qui permettent d'interagir avec le microcontrôleur et ses périphériques (lecture et écriture sur les pins, gestion de l'horloge, gestion de la communication série, etc.).
 
-# Comment programmer un Arduino
+### Comment programmer un Arduino
 
 Voici la structure de base d'un programme Arduino :
 
@@ -139,7 +109,7 @@ void loop() {
 }
 ```
 
-# La fonction `setup`
+### La fonction `setup`
 La fonction `setup` est exécutée une seule fois au démarrage du programme Arduino, avant la boucle infinie de la fonction `loop`.
 
 Elle est généralement utilisée pour mettre en place l'environnement de travail du programme, c'est-à-dire pour configurer les paramètres et les dispositifs nécessaires au bon fonctionnement du programme.
@@ -183,7 +153,7 @@ void loop() {
 
 ---
 
-# La fonction `loop`
+### La fonction `loop`
 La fonction `loop` est exécutée en boucle, c'est-à-dire qu'elle est répétée indéfiniment. C'est là que se trouve le code principal du programme.
 
 Cette boucle est très pratique dans les programmes Arduino car elle permet de mettre en place des actions qui sont répétées de manière périodique, comme la lecture de données sensorielles, l'affichage de données sur un écran ou encore la commande de dispositifs tels que des moteurs ou des LED.
@@ -208,11 +178,11 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 > }
 > ```
 
-# Cycle de vie d'un programme Arduino
+### Cycle de vie d'un programme Arduino
 
 ![alt text](assets/lifecycle.drawio.svg)
 
-## 📌 Explications du diagramme :
+#### 📌 Explications du diagramme :
 1. **Démarrage** :
    - L'Arduino est alimenté et initialise son matériel.
    - Il charge ensuite le programme stocké en mémoire.
@@ -227,7 +197,7 @@ Cette boucle est très pratique dans les programmes Arduino car elle permet de m
 
 ---
 
-# Les principaux types de données
+## Les principaux types de données
 Le langage Arduino, basé sur le C++, offre plusieurs types de données adaptés aux contraintes des microcontrôleurs. Voici un tableau des principaux types disponibles :
 
 | Type             | Description                               | Limite Inférieure       | Limite Supérieure         |
@@ -243,7 +213,7 @@ Le langage Arduino, basé sur le C++, offre plusieurs types de données adaptés
 
 > ⚠ **Attention** : Sur les cartes basées sur des microcontrôleurs AVR (comme l’**Arduino Mega**), `double` est identique à `float` (32 bits). Sur d’autres plateformes (ESP32, ARM), `double` peut être en **64 bits**.
 
-## 🛠 Déclaration et utilisation
+### 🛠 Déclaration et utilisation
 
 Voici un exemple de déclaration de variables utilisant ces types :
 
@@ -259,7 +229,7 @@ bool etat = true;
 ```
 
 
-## Comparaison des types et exemples d'utilisation
+### Comparaison des types et exemples d'utilisation
 
 | Type            | Taille (octets) | Exemples d'utilisation                                      |
 |----------------|---------------|--------------------------------------------------------------|
@@ -274,11 +244,11 @@ bool etat = true;
 
 Étant programmé pour un appareil très limité en ressource, il est important de choisir le type de données le plus adapté pour stocker vos données, afin de maximiser l'efficacité et la précision de votre programme. Par exemple, il n'est pas recommandé d'utiliser un type `float` pour stocker des nombres entiers, car cela peut entraîner une perte de précision. De même, il est préférable d'utiliser un type `long` ou `unsigned long` pour stocker des nombres très grands, plutôt que de dépasser la limite supérieure du type `int`.
 
-## ⚠ Précision et limitations du type `float`
+### ⚠ Précision et limitations du type `float`
 
 Le type `float` est utile pour les calculs à virgule flottante, mais il a **une précision limitée** (7 chiffres significatifs). Il utilise une **représentation binaire**, ce qui peut entraîner des erreurs d'arrondi.
 
-## 🔥 Problèmes de conversion `float → int`
+### 🔥 Problèmes de conversion `float → int`
 
 ```cpp
 float d = 123456.789;
@@ -289,15 +259,15 @@ Il est donc important de prendre en compte ces limitations lors de l'utilisation
 
 ---
 
-# 📌 Les variables en Arduino
+## 📌 Les variables en Arduino
 Une **variable** est un espace mémoire utilisé pour stocker une valeur. En programmation Arduino, les variables permettent de **manipuler des données dynamiquement** et sont essentielles à l'exécution des programmes.
 
 ---
 
-## 📍 La portée des variables
+### 📍 La portée des variables
 La **portée** d’une variable définit où elle est accessible dans le programme. On distingue trois types principaux :
 
-### 1️⃣ Variables globales
+#### 1️⃣ Variables globales
 ✅ **Définition** :  
 - Déclarées **en dehors de toutes les fonctions**.
 - Accessibles **partout** dans le programme.
@@ -323,7 +293,7 @@ void loop() {
 
 ---
 
-### 2️⃣ Variables locales
+#### 2️⃣ Variables locales
 ✅ **Définition** :  
 - Déclarées **à l’intérieur d’une fonction**.
 - **Inaccessibles en dehors** de cette fonction.
@@ -346,7 +316,7 @@ void loop() {
 
 ---
 
-### 3️⃣ Variables statiques
+#### 3️⃣ Variables statiques
 ✅ **Définition** :  
 - Déclarées **dans une fonction avec `static`**.
 - **Conservent leur valeur** entre les appels de la fonction.
@@ -369,7 +339,7 @@ void loop() {
 
 ---
 
-## 🔄 Illustration de la portée des variables
+### 🔄 Illustration de la portée des variables
 Le programme ci-dessous met en évidence **l’évolution des variables locales, globales et statiques**.
 
 📌 **Exemple détaillé :**
@@ -414,7 +384,7 @@ void loop() {
 
 ---
 
-## 🔘 Application pratique des variables statiques
+### 🔘 Application pratique des variables statiques
 Un exemple concret : **compter le nombre de pressions sur un bouton sans utiliser de variable globale**.
 
 📌 **Exemple avec bouton :**
@@ -443,21 +413,21 @@ void boutonClic() {
 
 ---
 
-## ✅ Bonnes pratiques
+### ✅ Bonnes pratiques
 ✔ **Privilégier les variables locales** pour éviter les conflits et améliorer la clarté du code.  
 ✔ **Utiliser `static`** quand une valeur doit être conservée entre appels sans être globale.  
 ✔ **Limiter les variables globales** aux cas où elles sont vraiment nécessaires (ex. : timers, état général).  
 
 ---
 
-# Wokwi - Simulateur Arduino
+## Wokwi - Simulateur Arduino
 Il existe plusieurs sites qui permettent de simuler une partie des fonctionnalités de l'Arduino. Toutefois, je préconise Wokwi. Il est gratuit, il est en ligne, il est simple d'utilisation et il est très complet.
 
 Plusieurs de mes captures d'écran proviendront de [Wokwi](https://wokwi.com/).
 
 Simuler un projet sur un simulateur avant d'effectuer les branchements physiques permet de s'assurer que notre code fonctionne.
 
-## Créer un projet
+### Créer un projet
 Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
 
 <!-- <video src="wokwi_new_project.mp4" width=640></video> -->
@@ -466,7 +436,7 @@ https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8
 
 ---
 
-## Exercice - Premier projet
+### Exercice - Premier projet
 1. Si ce n'est déjà fait, créez un compte GitHub.
 2. Connectez-vous à [Wokwi](https://wokwi.com/) avec votre compte GitHub.
 3. À partir du logiciel Arduino IDE, ouvrir le projet exemple "Blink".
@@ -477,8 +447,8 @@ https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8
 
 ---
 
-# Exercices
-## Recherches
+## Exercices
+### Recherches
 Dans le but de vous habituer à faire des recherches sur Google, j'ai expressément mis des questions où l'information n'est pas directement dans ce document.
 
 1. Dans certains exemples de code, on retrouve des noms de variable tout en majuscule. Pour quelle raison?
@@ -487,7 +457,7 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 4. Que fait la fonction `pinMode()`?
 5. Combien de mémoire RAM possède le Arduino Mega?
 
-## Questions
+### Questions
 1. Quelle est la différence entre une variable locale et une variable globale?
 2. Quel type de variable est-il préférable d'utiliser pour stocker le temps en milliseconde?
 3. Si je veux partager une variable entre les fonctions, quelle sera la portée de la variable que devrais-je prendre?
@@ -513,12 +483,12 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 10. Exemple : Conserver l'heure globale du système. Conserver l'état d'un composant pour l'ensemble du système.
 </details>
 
-## Programmation
+### Programmation
 1. Modifiez le programme "Blink" pour faire clignoter la LED 5 fois par seconde.
 2. Modifiez le programme "Fade" pour faire réagir la LED qui est intégrée sur le Arduino.
 3. Modifiez le programme "Fade" pour faire graduer la LED plus rapidement.
 
-### Défi
+#### Défi
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
 
 https://user-images.githubusercontent.com/2332679/210662345-958f0043-521b-4025-aea2-3f0cf3fe7d0e.mp4

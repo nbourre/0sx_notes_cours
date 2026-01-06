@@ -1,33 +1,17 @@
-# Début Wifi <!-- omit in toc -->
+# Début Wifi
 
 ![alt text](<assets/DALL·E 2024-03-21 08.57.44.webp>)
 
-# Table des matières <!-- omit in toc -->
-- [Introduction](#introduction)
-- [ESP8266](#esp8266)
-  - [Les commandes AT](#les-commandes-at)
-- [Le ESP8266 et le shield ESP8266](#le-esp8266-et-le-shield-esp8266)
-  - [Le ESP-01](#le-esp-01)
-    - [Branchement](#branchement)
-  - [Le shield ESP8266](#le-shield-esp8266)
-    - [Branchement](#branchement-1)
-    - [Requis - IMPORTANT!!](#requis-important)
-    - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
-- [Exemples pour communiquer avec le module ESP8266](#exemples-pour-communiquer-avec-le-module-esp8266)
-  - [Exemple de code - Serveur Web](#exemple-de-code-serveur-web)
-  - [Exemple - Allumer une DEL](#exemple-allumer-une-del)
-- [Résumé](#resume)
-- [Références](#references)
+---
 
-
-# Introduction
+## Introduction
 Nous avons vu les notions de lecture pour le port série dans le cours suivant : [Lecture de données à partir du port série](../../c08/c08a_serial_read/index.md).
 
 Dans ce cours, nous allons voir comment communiquer avec un Arduino Mega via le port série en utilisant un shield qui possède un microontrôleur ESP8266.
 
 ![Alt text](assets/esp8266-wifi-shield-desc2.jpg)
 
-# ESP8266
+## ESP8266
 Avant de débuter avec le shield, nous devons en connaître un peu plus sur l'ESP8266.
 
 L'ESP8266 est un microcontrôleur qui peut être programmé en langage Arduino. Si vous êtes un nouveau programmeur qui commence à programmer en C, vous pourriez être intéressé par cette petite puce car elle est facile à utiliser et offre une grande variété de fonctionnalités.
@@ -50,7 +34,7 @@ En résumé, l'ESP8266 est un microcontrôleur puissant et facile à utiliser qu
 
 ---
 
-## Les commandes AT
+### Les commandes AT
 Si le module ESP8266 est programmé avec le **firmware AT**, il peut être contrôlé par des commandes AT. Ainsi, il ne sera pas nécessaire de programmer directement le module ESP8266 pour l'utiliser. Il suffit de lui envoyer des commandes AT via le port série.
 
 Les commandes AT sont des commandes que le module ESP8266, avec le bon firmware, comprend. Ces commandes sont envoyées au module ESP8266 via le port série. Le module ESP8266 répondra à ces commandes avec des données ou des informations.
@@ -63,12 +47,12 @@ Dans notre cas, nous utilisons une librairie qui cachera ces commandes AT. Ce qu
 
 ---
 
-# Le ESP8266 et le shield ESP8266
+## Le ESP8266 et le shield ESP8266
 Dans le cours, il y a deux modèles pour le module ESP8266. Le premier est le module ESP-01 et le deuxième est le shield ESP8266. Pour le cours, le code est identique pour les deux modules.
 
 👉 **ATTENTION!! Lisez la documentation qui s'applique à votre module.** 👈
 
-## Le ESP-01
+### Le ESP-01
 Documentation pour ce modèle
 
 ![alt text](assets/esp01_shield.jpg)
@@ -77,14 +61,14 @@ Le module ESP-01 est un module Wi-Fi basé sur le SoC ESP8266. Il est équipé d
 
 Celui utilisé en classe vient aussi avec un shield qui expose les broches RX et TX pour la communication série. Ainsi, il est possible de le brancher directement sur un Arduino.
 
-### Branchement
+#### Branchement
 Le branchement est simple. Il suffit de brancher la broche RX du module ESP-01 sur la broche TX3 du Mega et la broche TX du module ESP-01 sur la broche RX3 du Mega.
 
 ![alt text](assets/branchement_rxtx.jpg)
 
 ---
 
-## Le shield ESP8266
+### Le shield ESP8266
 
 Documentation pour ce modèle
 
@@ -99,7 +83,7 @@ Ce Shield WiFi est basé sur ESP-12F. Avec ce Shield, vous pouvez facilement con
 - Pile de protocoles TCP/IP intégrée, et supporte plusieurs connexions TCP Client
 - Supporte une riche série de commandes AT pour Socket
 
-### Branchement
+#### Branchement
 La documentation en ligne montre un branchement du shield sur un Arduino Uno. Pour le branchement sur un Arduino Mega, il faut désactiver les cavaliers comme montré sur l'image ci-dessous.
 
 Ensuite, il faut brancher une des broches ESP_RX sur la broche TX1 du Mega et la broche ESP_TX sur la broche RX1 du Mega.
@@ -108,10 +92,10 @@ Ensuite, il faut brancher une des broches ESP_RX sur la broche TX1 du Mega et la
 
 Dans le code, il faudra alors utiliser les fonctions `Serial1` pour échanger avec le module.
 
-### Requis - IMPORTANT!!
+#### Requis - IMPORTANT!!
 Pour le cours, il faut installer la librairie **WiFiEspAT** pour pouvoir utiliser le shield.
 
-### Code pour configurer le wifi
+#### Code pour configurer le wifi
 Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois ou à chaque fois que l'on désire de changer de réseau wifi.
 
 ```cpp
@@ -281,11 +265,11 @@ void errorState(int codeA, int codeB) {
 
 ---
 
-# Exemples pour communiquer avec le module ESP8266
+## Exemples pour communiquer avec le module ESP8266
 Une fois la configuration faite, il est possible de communiquer avec le module ESP8266. Il y a plusieurs exemples disponibles dans la librairie `WiFiEspAT`. Voici deux exemples qui montrent comment utiliser le module ESP8266 pour créer un serveur web.
 Le premier exemple est un serveur web qui affiche la valeur des broches d'entrée analogique. Le deuxième exemple est un serveur web qui permet d'allumer ou d'éteindre une DEL en fonction de ce qui a été reçu par le module Wifi.
 
-## Exemple de code - Serveur Web
+### Exemple de code - Serveur Web
 
 Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
 
@@ -409,7 +393,7 @@ void errorState() {
 
 ```
 
-## Exemple - Allumer une DEL
+### Exemple - Allumer une DEL
 
 Voici un exemple dans lequel on allume ou éteint une DEL en fonction de ce qui a été reçu par le module Wifi.
 
@@ -551,14 +535,14 @@ void sendHTTPHeader(WiFiClient client) {
 
 ---
 
-# Résumé
+## Résumé
 Dans cet article, on voit comment utiliser le module ESP8266 connecté à un Arduino Mega via un port série. On a vu comment configurer le module pour se connecter à un réseau wifi et comment créer un serveur web pour communiquer avec le module.
 
 N'oubliez pas que la configuration pour connecter le module à un réseau wifi doit être faite une seule fois. Ensuite, il est possible de l'utiliser pour communiquer avec le module sans le reconfigurer.
 
 ---
 
-# Références
+## Références
 - [Site officiel : ESP8266](https://www.espressif.com/en/products/socs/esp8266)
 - [Documentation libraire WiFiEspAT](https://github.com/JAndrassy/WiFiEspAT)
 - [Web Server LED](https://github.com/bportaluri/WiFiEsp/blob/master/examples/WebServerLed/WebServerLed.ino)

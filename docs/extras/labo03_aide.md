@@ -1,8 +1,8 @@
-# Laboratoire 03 : Aide
+## Laboratoire 03 : Aide
 
 Dans le laboratoire 03, votre système doit effectuer différentes tâches. 
 
-# Retour sur l'énoncé
+## Retour sur l'énoncé
 Regardons l'énoncé du laboratoire 03.
 
 - Démarrage : Les DEL s’allument un à la suite de l’autre pendant 250 ms chaque et ensuite s’éteignent;
@@ -17,7 +17,7 @@ Regardons l'énoncé du laboratoire 03.
   - La valeur du niveau de luminosité doit être entre 0 et 100.
     - 0 étant noir et 100 plein éclairage
 
-# Identification des tâches
+## Identification des tâches
 Regardons les différentes tâches que nous devons effectuer.
 - Gestion du démarrage : Tâches de démarrage du système.
 - Gestion des axes : Tâches de gestion des intensités des DEL selon les axes X et Y.
@@ -28,7 +28,7 @@ Regardons les différentes tâches que nous devons effectuer.
 Implicement, on observe que certaines tâches ont priorité sur d'autres. En effet, tout semble indiquer que le clic a priorité la gestion des intensités.
 Vous devez donc gérer les priorités des tâches. Pour ce faire, vous pouvez utiliser des drapeaux (ou sémaphores) pour indiquer si une tâche est en cours d'exécution ou non.
 
-# Gestion du démarrage
+## Gestion du démarrage
 Le démarrage est une tâche qui doit être effectuée au démarrage du système et on n'y revient jamais. On peut donc mettre cette tâche dans le démarrage.
 
 ```pseudocode
@@ -39,7 +39,7 @@ démarrage
 
 ```
 
-# Gestion du clic
+## Gestion du clic
 Le clic est une tâche qui doit être effectuée à chaque fois qu'on appuie sur le bouton. À la lecture de l'énoncé, on constate que ce code doit être exécuté peu importe l'état du système. On peut donc mettre cette tâche dans la boucle principale.
 
 On se souvent que l'on a vu en classe que l'on peut lire le moment où le bouton est relâché.
@@ -103,7 +103,7 @@ boucle principale
 ```
 
 
-# Gestion des axes - mode normal
+## Gestion des axes - mode normal
 La gestion des axes se fait lorsque le système est en mode normal.
 
 ```pseudocode
@@ -120,7 +120,7 @@ gestionDesAxes{
 
 ```
 
-# Luminositée
+## Luminositée
 À toutes les 100 ms, le niveau de luminosité doit être envoyé peu importe le mode du système. On peut donc appeler cette tâche dans la boucle principale.
 
 Le pseudocode de celle-ci est le suivant.
@@ -137,7 +137,7 @@ luminositeTache{
 
 ```
 
-# État du bouton
+## État du bouton
 À toutes les 100 ms, l'état du bouton doit être envoyé peu importe le mode du système. On peut donc appeler cette tâche dans la boucle principale.
 
 ```pseudocode
