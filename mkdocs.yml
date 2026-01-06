@@ -1,4 +1,4 @@
-site_name: 0SX - Notes de cours
+site_name: Développement de systèmes embarqués (420-0SX - Cégep de Shawinigan)
 theme:
   name: material
   language: fr
@@ -9,7 +9,14 @@ nav:
   - Cours 02:
     - Fonctions de communication: c02/C02_fonctions_comm.md
     - Exercices pratiques: c02/C02_fonctions_comm_exo.md
-  - Cours 03: c03/index.md 
+  - Cours 03: 
+    - Index: c03/index.md
+    - Branchements de base: c03/C03a_branchement_base.md
+    - Branchements exercices: c03/C03a_branchement_base_exo.md
+    - Résistance de rappel: c03/C03b_resistance_de_rappel.md
+    - Programmation sans délai: c03/C03c_sans_delai.md
+    - Programmation anti-rebond: c03/C03d_logique_antirebond.md
+    - Exercices pratiques: c03/C03_pratiques.md
   - Cours 04: c04/index.md
   - Cours 05: c05/index.md
   - Cours 06: c06/index.md
