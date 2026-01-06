@@ -20,7 +20,12 @@ nav:
     - Programmation sans délai: c03/C03c_sans_delai.md
     - Programmation anti-rebond: c03/C03d_logique_antirebond.md
     - Exercices pratiques: c03/C03_pratiques.md
-  - Cours 04: c04/index.md
+  - Cours 04:
+    - Index: c04/index.md
+    - Fonction `analogRead()`: c04/C04a_fonction_analogRead.md
+    - Fonction `analogWrite()`: c04/C04b_fonction_analogWrite.md
+    - Traceur série: c04/C04c_traceur_serie.md
+    - Exercices pratiques: c04/C04x_exercices.md
   - Cours 05: c05/index.md
   - Cours 06: c06/index.md
   - Cours 07: c07/index.md
