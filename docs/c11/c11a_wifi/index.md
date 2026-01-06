@@ -11,13 +11,13 @@
     - [Branchement](#branchement)
   - [Le shield ESP8266](#le-shield-esp8266)
     - [Branchement](#branchement-1)
-    - [Requis - IMPORTANT!!](#requis---important)
+    - [Requis - IMPORTANT!!](#requis-important)
     - [Code pour configurer le wifi](#code-pour-configurer-le-wifi)
 - [Exemples pour communiquer avec le module ESP8266](#exemples-pour-communiquer-avec-le-module-esp8266)
-  - [Exemple de code - Serveur Web](#exemple-de-code---serveur-web)
-  - [Exemple - Allumer une DEL](#exemple---allumer-une-del)
-- [Résumé](#résumé)
-- [Références](#références)
+  - [Exemple de code - Serveur Web](#exemple-de-code-serveur-web)
+  - [Exemple - Allumer une DEL](#exemple-allumer-une-del)
+- [Résumé](#resume)
+- [Références](#references)
 
 
 # Introduction

@@ -5,10 +5,10 @@
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Principe de fonctionnement](#principe-de-fonctionnement)
-- [Schéma](#schéma)
+- [Schéma](#schema)
 - [Code](#code)
   - [Moment du clic](#moment-du-clic)
-- [Résumé](#résumé)
+- [Résumé](#resume)
 - [Exercice](#exercice)
 
 # Introduction

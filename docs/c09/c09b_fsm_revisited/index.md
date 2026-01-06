@@ -2,16 +2,16 @@
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Rappel états et transitions](#rappel-états-et-transitions)
-- [Les états](#les-états)
+- [Rappel états et transitions](#rappel-etats-et-transitions)
+- [Les états](#les-etats)
   - [L'entrée](#lentrée)
   - [L'exécution](#lexécution)
   - [La sortie](#la-sortie)
   - [Exemple](#exemple)
-  - [Résumé](#résumé)
-- [Définir les états requis](#définir-les-états-requis)
-- [Utiliser la programmation orientée objet](#utiliser-la-programmation-orientée-objet)
-  - [Définir la classe](#définir-la-classe)
+  - [Résumé](#resume)
+- [Définir les états requis](#definir-les-etats-requis)
+- [Utiliser la programmation orientée objet](#utiliser-la-programmation-orientee-objet)
+  - [Définir la classe](#definir-la-classe)
 - [Conclusion](#conclusion)
 
 # Introduction

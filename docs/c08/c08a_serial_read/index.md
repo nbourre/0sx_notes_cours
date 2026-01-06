@@ -2,19 +2,19 @@
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Arduino Mega : Spécificités](#arduino-mega--spécificités)
+- [Arduino Mega : Spécificités](#arduino-mega-specificites)
 - [Fonctions importantes de base](#fonctions-importantes-de-base)
 - [Utilisation](#utilisation)
-- [Exemple de contrôle via le PC](#exemple-de-contrôle-via-le-pc)
+- [Exemple de contrôle via le PC](#exemple-de-controle-via-le-pc)
   - [Explication du code](#explication-du-code)
-- [Exemple de contrôle via un appareil sur Série 3](#exemple-de-contrôle-via-un-appareil-sur-série-3)
+- [Exemple de contrôle via un appareil sur Série 3](#exemple-de-controle-via-un-appareil-sur-serie-3)
 - [Convertir un nombre en entier](#convertir-un-nombre-en-entier)
 - [Fonction `serialEvent()`](#fonction-serialevent)
   - [Explication du code](#explication-du-code-1)
 - [Fonction `serial.readStringUntil()`](#fonction-serialreadstringuntil)
   - [Explication du code](#explication-du-code-2)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 # Introduction

@@ -3,11 +3,11 @@
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Qu'est-ce qu'un pointeur?](#quest-ce-quun-pointeur)
-- [Déclaration et initialisation des pointeurs](#déclaration-et-initialisation-des-pointeurs)
-- [Accéder à la valeur pointée](#accéder-à-la-valeur-pointée)
+- [Déclaration et initialisation des pointeurs](#declaration-et-initialisation-des-pointeurs)
+- [Accéder à la valeur pointée](#acceder-a-la-valeur-pointee)
 - [Exemples de programmation](#exemples-de-programmation)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 # Introduction

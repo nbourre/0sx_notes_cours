@@ -5,13 +5,13 @@
 - [Comment fonctionne une matrice de LED?](#comment-fonctionne-une-matrice-de-led)
 - [Le MAX7219](#le-max7219)
 - [La librairie U8g2](#la-librairie-u8g2)
-- [Matériel requis](#matériel-requis)
+- [Matériel requis](#materiel-requis)
 - [Branchement](#branchement)
 - [Code d’exemple](#code-dexemple)
   - [Explication du code](#explication-du-code)
 - [Fonctions de bases utiles](#fonctions-de-bases-utiles)
-- [Faire défiler du texte](#faire-défiler-du-texte)
-- [Références](#références)
+- [Faire défiler du texte](#faire-defiler-du-texte)
+- [Références](#references)
 
 ---
 

@@ -2,20 +2,20 @@
 
 # Table des matières <!-- omit in toc -->
 - [Qu'est-ce qu'une valeur analogique?](#quest-ce-quune-valeur-analogique)
-- [Comment un microcontrôleur peut-il lire une valeur analogique?](#comment-un-microcontrôleur-peut-il-lire-une-valeur-analogique)
-- [Perte de précision](#perte-de-précision)
+- [Comment un microcontrôleur peut-il lire une valeur analogique?](#comment-un-microcontroleur-peut-il-lire-une-valeur-analogique)
+- [Perte de précision](#perte-de-precision)
 - [Les Arduinos](#les-arduinos)
 - [Exemples de cas pratique](#exemples-de-cas-pratique)
-- [Le potentiomètre](#le-potentiomètre)
+- [Le potentiomètre](#le-potentiometre)
   - [Fonctionnement interne](#fonctionnement-interne)
 - [La fonction `analogRead()`](#la-fonction-analogread)
 - [Exemples](#exemples)
   - [Base](#base)
-  - [Sélection de DEL](#sélection-de-del)
+  - [Sélection de DEL](#selection-de-del)
 - [La fonction `map()`](#la-fonction-map)
   - [Exemple de code avec la fonction `map()`](#exemple-de-code-avec-la-fonction-map)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 # Qu'est-ce qu'une valeur analogique?
@@ -190,7 +190,7 @@ int valeur_convertie = map(valeur, 0, 1023, 255, 0);
 ```
 
 ## Exemple de code avec la fonction `map()`
-Voici le même exemple que [Sélection de DEL](#sélection-de-del) mais avec la fonction `map()`.
+Voici le même exemple que [Sélection de DEL](#selection-de-del) mais avec la fonction `map()`.
 
 
 > **Note** : L'exemple n'est pas le plus efficace, mais il ne sert qu'à illustrer une utilisation de la fonction `map()`.

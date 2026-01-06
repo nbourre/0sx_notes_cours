@@ -3,11 +3,11 @@
 - [Introduction](#introduction)
 - [Utiliser `millis()` comme `delay()`](#utiliser-millis-comme-delay)
 - [Pourquoi utiliser `millis()` au lieu de `delay()`?](#pourquoi-utiliser-millis-au-lieu-de-delay)
-  - [`millis()` est plus précis](#millis-est-plus-précis)
+  - [`millis()` est plus précis](#millis-est-plus-precis)
   - [`millis()` n'est pas bloquant](#millis-nest-pas-bloquant)
-- [Exemple : un planificateur de tâches simple](#exemple--un-planificateur-de-tâches-simple)
+- [Exemple : un planificateur de tâches simple](#exemple-un-planificateur-de-taches-simple)
 - [Explication de la limite de `millis()`](#explication-de-la-limite-de-millis)
-- [Références](#références)
+- [Références](#references)
 
 # Introduction
 La fonction `delay()` qui est populaire auprès des débutants a un gros problème. En effet, elle bloque le programme pendant un certain temps. Pendant ce temps, le programme ne fait rien. C'est comme si le programme était en pause. C'est un problème car si le programme est en pause, il ne peut pas réagir aux événements qui se produisent. Par exemple, si le programme est en pause pendant 1 seconde, il ne peut pas réagir à un appui sur un bouton pendant cette seconde.

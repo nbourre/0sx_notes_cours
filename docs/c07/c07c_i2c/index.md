@@ -8,11 +8,11 @@
 - [Fonctionnement en programmation](#fonctionnement-en-programmation)
 - [Exemple : Lecture d'un accéléromètre MPU-6050](#exemple--lecture-dun-accéléromètre-mpu-6050)
 - [Exemple : Contrôle d'écran LCD 1602 I2C](#exemple--contrôle-décran-lcd-1602-i2c)
-- [Exemple : MPU-6050 avec la librairie Adafruit](#exemple--mpu-6050-avec-la-librairie-adafruit)
+- [Exemple : MPU-6050 avec la librairie Adafruit](#exemple-mpu-6050-avec-la-librairie-adafruit)
 - [Exemples d'appareils communs utilisant I2C](#exemples-dappareils-communs-utilisant-i2c)
 - [Conclusion](#conclusion)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 

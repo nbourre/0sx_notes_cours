@@ -8,7 +8,7 @@
 - [Utiliser une librairie dans votre programme](#utiliser-une-librairie-dans-votre-programme)
 - [Mise en pratique](#mise-en-pratique)
 - [Conclusion](#conclusion)
-- [Références](#références)
+- [Références](#references)
 
 ---
 

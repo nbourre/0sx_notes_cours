@@ -5,16 +5,16 @@
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [LCD 1602 (mode 4 bits)](#lcd-1602-mode-4-bits)
-  - [Fonctionnalités principales](#fonctionnalités-principales)
-  - [Spécifications rapides](#spécifications-rapides)
+  - [Fonctionnalités principales](#fonctionnalites-principales)
+  - [Spécifications rapides](#specifications-rapides)
   - [Exemple de branchement en mode 4 bits](#exemple-de-branchement-en-mode-4-bits)
-- [Utilisation avec la bibliothèque `LiquidCrystal`](#utilisation-avec-la-bibliothèque-liquidcrystal)
+- [Utilisation avec la bibliothèque `LiquidCrystal`](#utilisation-avec-la-bibliotheque-liquidcrystal)
   - [Exemple de base](#exemple-de-base)
-  - [Exemple avec défilement (scrolling)](#exemple-avec-défilement-scrolling)
+  - [Exemple avec défilement (scrolling)](#exemple-avec-defilement-scrolling)
   - [Fonctions utiles](#fonctions-utiles)
-- [Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)](#alternative-i2c-avec-la-bibliothèque-lcd_i2c-de-blackhat)
+- [Alternative I2C (avec la bibliothèque `LCD_I2C` de blackhat)](#alternative-i2c-avec-la-bibliotheque-lcd-i2c-de-blackhat)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 ---

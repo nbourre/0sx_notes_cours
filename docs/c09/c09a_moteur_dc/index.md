@@ -3,14 +3,14 @@
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [Le moteur DC](#le-moteur-dc)
-- [Le contrôleur de moteur L293D](#le-contrôleur-de-moteur-l293d)
+- [Le contrôleur de moteur L293D](#le-controleur-de-moteur-l293d)
   - [Premièrement, qu'est-ce qu'un pont en H?](#premièrement-quest-ce-quun-pont-en-h)
   - [Le contrôleur de moteur L293D](#le-contrôleur-de-moteur-l293d-1)
-  - [Tableau logique de contrôle du moteur DC avec le L293D](#tableau-logique-de-contrôle-du-moteur-dc-avec-le-l293d)
+  - [Tableau logique de contrôle du moteur DC avec le L293D](#tableau-logique-de-controle-du-moteur-dc-avec-le-l293d)
   - [Exemple de code](#exemple-de-code)
   - [Important](#important)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 # Introduction
 Dans cette leçon, nous allons voir comment contrôler un moteur DC avec un contrôleur de moteur de type "pont en H".

@@ -1,16 +1,16 @@
 # Améliorer son code <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Général](#général)
-  - [Favoriser la lisibilité du code](#favoriser-la-lisibilité-du-code)
+- [Général](#general)
+  - [Favoriser la lisibilité du code](#favoriser-la-lisibilite-du-code)
 - [Variables](#variables)
   - [Noms de variables](#noms-de-variables)
-  - [Portée des variables](#portée-des-variables)
+  - [Portée des variables](#portee-des-variables)
 - [Fonctions](#fonctions)
-- [États et tâches](#états-et-tâches)
+- [États et tâches](#etats-et-taches)
 - [Classe](#classe)
 - [Autres astuces](#autres-astuces)
-  - [Utilisez des modèles de fonctions](#utilisez-des-modèles-de-fonctions)
+  - [Utilisez des modèles de fonctions](#utilisez-des-modeles-de-fonctions)
     - [Modèle d'une fonction d'état](#modèle-dune-fonction-détat)
     - [Modèle d'une fonction de tâche](#modèle-dune-fonction-de-tâche)
 

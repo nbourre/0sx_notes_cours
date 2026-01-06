@@ -4,7 +4,7 @@
 - [Exemple disfonctionnel](#exemple-disfonctionnel)
 - [Améliorer l'exemple en utilisant millis()](#améliorer-lexemple-en-utilisant-millis)
 - [Améliorer l'exemple en utilisant des fonctions](#améliorer-lexemple-en-utilisant-des-fonctions)
-- [Encore une amélioration](#encore-une-amélioration)
+- [Encore une amélioration](#encore-une-amelioration)
   - [Lecture d'entrées](#lecture-dentrées)
   - [Exercices](#exercices)
 

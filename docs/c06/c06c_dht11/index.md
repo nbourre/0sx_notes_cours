@@ -5,20 +5,20 @@
 DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
 # Table des matières <!-- omit in toc -->
-- [ATTENTION - Risque de bris de matériel](#attention---risque-de-bris-de-matériel)
+- [ATTENTION - Risque de bris de matériel](#attention-risque-de-bris-de-materiel)
 - [Introduction](#introduction)
-- [Utilité](#utilité)
+- [Utilité](#utilite)
 - [Cas d'utilisation](#cas-dutilisation)
 - [Exemples](#exemples)
   - [Branchement du capteur DHT11](#branchement-du-capteur-dht11)
   - [Mesure de température et d'humidité](#mesure-de-température-et-dhumidité)
   - [Exemple de contrôle d'un ventilateur](#exemple-de-contrôle-dun-ventilateur)
-  - [Schéma pour brancher un ventilateur](#schéma-pour-brancher-un-ventilateur)
+  - [Schéma pour brancher un ventilateur](#schema-pour-brancher-un-ventilateur)
 - [Fouiller dans une librairie](#fouiller-dans-une-librairie)
   - [Utilisation de la documentation](#utilisation-de-la-documentation)
   - [Lire le fichier .h](#lire-le-fichier-h)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 ---
 

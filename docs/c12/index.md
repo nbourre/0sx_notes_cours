@@ -7,12 +7,12 @@
   - [Le courtier (*broker*)](#le-courtier-broker)
   - [Les clients](#les-clients)
   - [Les sujets (*topic*)](#les-sujets-topic)
-    - [Les caractères spéciaux](#les-caractères-spéciaux)
+    - [Les caractères spéciaux](#les-caracteres-speciaux)
   - [Les messages (*payload*)](#les-messages-payload)
     - [JSON crash course](#json-crash-course)
-  - [La qualité de service (QoS)](#la-qualité-de-service-qos)
-- [Intégration MQTT avec Arduino](#intégration-mqtt-avec-arduino)
-- [Exemple à utiliser](#exemple-à-utiliser)
+  - [La qualité de service (QoS)](#la-qualite-de-service-qos)
+- [Intégration MQTT avec Arduino](#integration-mqtt-avec-arduino)
+- [Exemple à utiliser](#exemple-a-utiliser)
 - [La librarie WiFiEspAT](#la-librarie-wifiespat)
 - [La librarie PubSubClient](#la-librarie-pubsubclient)
   - [Initialisation du client MQTT](#initialisation-du-client-mqtt)
@@ -24,8 +24,8 @@
   - [Le JSON](#le-json)
 - [Exercice](#exercice)
 - [Annexes](#annexes)
-  - [Exemples supplémentaires pour la gestion des topics](#exemples-supplémentaires-pour-la-gestion-des-topics)
-- [Références](#références)
+  - [Exemples supplémentaires pour la gestion des topics](#exemples-supplementaires-pour-la-gestion-des-topics)
+- [Références](#references)
 
 ---
 
@@ -738,7 +738,7 @@ Voici le message en format JSON produit.
 }
 ```
 
-> **Rappel :** sprintf permet d'écrire dans un tableau de caractères. Il prend en paramètre le tableau de caractères, la chaîne de caractères formatée et les valeurs à insérer dans la chaîne de caractères. Voir [les notes sur l'écriture sur un LCD](../extras/algorithmes.md#utiliser-un-tableau-de-caractères-pour-écrire-sur-le-lcd)
+> **Rappel :** sprintf permet d'écrire dans un tableau de caractères. Il prend en paramètre le tableau de caractères, la chaîne de caractères formatée et les valeurs à insérer dans la chaîne de caractères. Voir [les notes sur l'écriture sur un LCD](../extras/algorithmes.md#utiliser-un-tableau-de-caracteres-pour-ecrire-sur-le-lcd)
 
 Le service MQTT qui reçoit l'information peut ensuite décoder le message et extraire les informations qui l'intéressent.
 

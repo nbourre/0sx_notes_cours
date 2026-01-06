@@ -7,7 +7,7 @@
   - [Installer l'extension Arduino](#installer-lextension-arduino)
 - [Ouvrir un projet Arduino](#ouvrir-un-projet-arduino)
 - [Configurer l'extension Arduino](#configurer-lextension-arduino)
-- [Vérifier ou téléverser un projet Arduino](#vérifier-ou-téléverser-un-projet-arduino)
+- [Vérifier ou téléverser un projet Arduino](#verifier-ou-televerser-un-projet-arduino)
 - [Avantages de VSCode](#avantages-de-vscode)
 - [Exercices](#exercices)
 

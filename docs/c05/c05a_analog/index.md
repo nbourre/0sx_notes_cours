@@ -1,15 +1,15 @@
 # Composants analogues <!-- omit in toc -->
 
 - [Diviseur de tension](#diviseur-de-tension)
-  - [Utilité](#utilité)
-  - [Potentiomètre](#potentiomètre)
+  - [Utilité](#utilite)
+  - [Potentiomètre](#potentiometre)
   - [Calculatrice en ligne](#calculatrice-en-ligne)
-- [Photorésistance](#photorésistance)
+- [Photorésistance](#photoresistance)
   - [Arduino](#arduino)
 - [Thermistance](#thermistance)
   - [Code](#code)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 # Diviseur de tension

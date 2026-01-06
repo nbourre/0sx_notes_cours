@@ -6,15 +6,15 @@
 - [Introduction](#introduction)
 	- [Utilisation](#utilisation)
 - [Fonctionnement d'un moteur pas-à-pas](#fonctionnement-dun-moteur-pas-à-pas)
-- [Le moteur pas-à-pas 28BYJ-48](#le-moteur-pas-à-pas-28byj-48)
+- [Le moteur pas-à-pas 28BYJ-48](#le-moteur-pas-a-pas-28byj-48)
 	- [Le filage](#le-filage)
 	- [Rapport de réduction de l'engrenage](#rapport-de-réduction-de-lengrenage)
-- [Le module de contrôle ULN2003](#le-module-de-contrôle-uln2003)
+- [Le module de contrôle ULN2003](#le-module-de-controle-uln2003)
 - [Branchement](#branchement)
 - [Exemple de code avec la librairie `AccelStepper`](#exemple-de-code-avec-la-librairie-accelstepper)
 	- [Explication du code](#explication-du-code)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 
 # Introduction

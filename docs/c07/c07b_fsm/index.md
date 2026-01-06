@@ -7,20 +7,20 @@
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Pourquoi utiliser une machine à états finis?](#pourquoi-utiliser-une-machine-à-états-finis)
-- [Détails](#détails)
+- [Pourquoi utiliser une machine à états finis?](#pourquoi-utiliser-une-machine-a-etats-finis)
+- [Détails](#details)
 - [Cas d'étude l'ampoule](#cas-détude-lampoule)
-- [Implémentation](#implémentation)
-  - [Rappel : Énumération](#rappel--énumération)
-  - [Rappel : Switch case](#rappel--switch-case)
-- [Mise en pratique : Arduino](#mise-en-pratique--arduino)
-  - [Exercice 1 : Allumer une LED](#exercice-1--allumer-une-led)
-  - [Exercice 2 : le double-clic](#exercice-2--le-double-clic)
-  - [Exercice 3 : Le chronomètre](#exercice-3--le-chronomètre)
+- [Implémentation](#implementation)
+  - [Rappel : Énumération](#rappel-enumeration)
+  - [Rappel : Switch case](#rappel-switch-case)
+- [Mise en pratique : Arduino](#mise-en-pratique-arduino)
+  - [Exercice 1 : Allumer une LED](#exercice-1-allumer-une-led)
+  - [Exercice 2 : le double-clic](#exercice-2-le-double-clic)
+  - [Exercice 3 : Le chronomètre](#exercice-3-le-chronometre)
 - [Annexe](#annexe)
   - [Autre exemple de diagramme d'état](#autre-exemple-de-diagramme-détat)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 ---
 

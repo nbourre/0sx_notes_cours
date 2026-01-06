@@ -3,12 +3,12 @@
 # Table des matières <!-- omit in toc -->
 - [Objectifs](#objectifs)
 - [Introduction](#introduction)
-- [Démarrer le traceur](#démarrer-le-traceur)
+- [Démarrer le traceur](#demarrer-le-traceur)
 - [Utiliser le traceur](#utiliser-le-traceur)
   - [Exemple](#exemple)
 - [Calcul de la valeur moyenne d'un signal](#calcul-de-la-valeur-moyenne-dun-signal)
 - [Exercice](#exercice)
-- [Références](#références)
+- [Références](#references)
 
 # Objectifs
 - Savoir comment utiliser le traceur des courbes avec Arduino (Oscilloscope)

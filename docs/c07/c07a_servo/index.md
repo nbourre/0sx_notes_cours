@@ -3,7 +3,7 @@
 ![Alt text](assets/servo-samples.jpg)
 
 # Table des matières <!-- omit in toc -->
-- [Mise en garde - Risque de bris](#mise-en-garde---risque-de-bris)
+- [Mise en garde - Risque de bris](#mise-en-garde-risque-de-bris)
 - [Introduction](#introduction)
 - [Utilisation](#utilisation)
 - [Votre kit](#votre-kit)
@@ -11,7 +11,7 @@
   - [Branchement](#branchement)
 - [Exemple de code](#exemple-de-code)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 ---
 

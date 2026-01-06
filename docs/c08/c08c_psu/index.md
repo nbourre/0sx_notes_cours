@@ -4,12 +4,12 @@
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Fonctionnalités](#fonctionnalités)
+- [Fonctionnalités](#fonctionnalites)
 - [Utilisation](#utilisation)
   - [Branchement](#branchement)
   - [Configuration des cavaliers](#configuration-des-cavaliers)
   - [Branchement à l'Arduino](#branchement-à-larduino)
-- [Références](#références)
+- [Références](#references)
  
 # Introduction
 Dans votre kit, vous avez un module de puissance qui vous permet de brancher des appareils qui consomment plus de courant que votre Arduino. Ce module est composé d'un régulateur de tension. Le régulateur de tension permet de convertir une tension d'entrée de 5V à 12V en une tension de sortie de 3.3V ou 5V. Dans ce chapitre, nous allons voir comment utiliser ce module pour commander un appareil qui consomme plus de courant que votre Arduino.

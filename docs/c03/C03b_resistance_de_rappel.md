@@ -2,12 +2,12 @@
 
 # Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
-- [Exemple de résistance de rappel](#exemple-de-résistance-de-rappel)
-- [Exemple de résistance de tirage](#exemple-de-résistance-de-tirage)
+- [Exemple de résistance de rappel](#exemple-de-resistance-de-rappel)
+- [Exemple de résistance de tirage](#exemple-de-resistance-de-tirage)
 - [Code Arduino](#code-arduino)
-- [Valeur de la résistance](#valeur-de-la-résistance)
+- [Valeur de la résistance](#valeur-de-la-resistance)
 - [Questions](#questions)
-- [Référence](#référence)
+- [Référence](#reference)
 
 
 # Introduction

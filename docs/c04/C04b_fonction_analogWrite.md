@@ -3,9 +3,9 @@
 ## Table des matières <!-- omit in toc -->
 - [Introduction](#introduction)
 - [PWM : C'est quoi??](#pwm--cest-quoi)
-- [PWM : À quoi ça sert?](#pwm--à-quoi-ça-sert)
+- [PWM : À quoi ça sert?](#pwm-a-quoi-ca-sert)
 - [Exercices](#exercices)
-- [Références](#références)
+- [Références](#references)
 
 ---
 
