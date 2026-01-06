@@ -56,9 +56,15 @@ La fonction pour lire une valeur analogique est `analogRead()`. Cette fonction p
 ### Base
 Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branché sur la broche A0 et l'affiche sur le moniteur série.
 
-| Animation | Code |
-|---|---|
-| ![](assets/pot_exemple_bas.gif) | ```cpp
+<div class="grid" markdown>
+
+<div markdown>
+![](assets/pot_exemple_bas.gif){ width="100%" }
+</div>
+
+<div markdown>
+
+```cpp
 void setup() {
   Serial.begin(9600);
 }
@@ -68,8 +74,10 @@ void loop() {
   Serial.println(valeur);
   delay(1000);
 }
-``` |
+```
 
+</div>
+</div>
 
 ---
 
