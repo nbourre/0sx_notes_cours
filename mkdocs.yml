@@ -7,7 +7,7 @@ markdown_extensions:
   - admonition
   - toc:
       permalink: true
-      toc_depth: 2-4
+      toc_depth: 1-3
   - pymdownx.superfences
   - pymdownx.highlight:
       linenums: true
