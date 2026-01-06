@@ -248,7 +248,7 @@ Cet exemple est disponible [ici](https://wokwi.com/projects/356398829928163329).
 ---
 
 # Exercices
-- [Exercices](c04x_exercices.md)
+- [Exercices](C04x_exercices.md)
 ---
 
 # Références

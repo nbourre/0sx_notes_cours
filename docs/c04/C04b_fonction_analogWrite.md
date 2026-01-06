@@ -72,7 +72,7 @@ void loop() {
 ---
 
 # Exercices
-- [Exercices](c04x_exercices.md)
+- [Exercices](C04x_exercices.md)
 
 ---
 
