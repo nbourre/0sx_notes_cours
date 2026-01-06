@@ -90,7 +90,7 @@ Avez-vous déjà touché un adaptateur qui était très chaud? La raison est que
 
 ![Alt text](assets/gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
 
- ### Exemples
+ ### Exemples {#exemples}
  - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur lors des périodes de haute consommation (Ex : *Gaming*).
  - Si vous branchez un adaptateur de 5V en courant continu qui fournit 1A sur un Raspberry Pi 3, votre appareil ne démarrera pas. Le Raspberry Pi 3 nécessite un minimum de 2.5A pour démarrer.
 
