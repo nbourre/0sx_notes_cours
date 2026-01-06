@@ -42,7 +42,11 @@ nav:
     - Machine à états: c07/c07b_fsm/index.md
     - Communication I2C: c07/c07c_i2c/index.md
     - Moteur pas à pas: c07/c07d_stepper/index.md
-  - Cours 08: c08/index.md
+  - Cours 08:
+    - Index: c08/index.md
+    - Comm. série lecture: c08/c08a_serial_read/index.md
+    - POO de base: c08/c08b_poo_base/index.md
+    - Unité de puissance: c08/c08c_psu/index.md
   - Cours 09: c09/index.md
   - Cours 10: c10/index.md
   - Cours 11: c11/index.md
