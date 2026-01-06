@@ -11,7 +11,7 @@
   - [📌 Explications du diagramme :](#explications-du-diagramme)
 - [Les principaux types de données](#les-principaux-types-de-donnees)
   - [🛠 Déclaration et utilisation](#declaration-et-utilisation)
-  - [🏗 Comparaison des types et exemples d'utilisation](#-comparaison-des-types-et-exemples-dutilisation)
+  - [🏗 Comparaison des types et exemples d'utilisation](#comparaison-des-types-et-exemples-dutilisation)
   - [⚠ Précision et limitations du type `float`](#precision-et-limitations-du-type-float)
   - [🔥 Problèmes de conversion `float → int`](#problemes-de-conversion-float-int)
 - [📌 Les variables en Arduino](#les-variables-en-arduino)
@@ -259,7 +259,7 @@ bool etat = true;
 ```
 
 
-## 🏗 Comparaison des types et exemples d'utilisation
+## Comparaison des types et exemples d'utilisation
 
 | Type            | Taille (octets) | Exemples d'utilisation                                      |
 |----------------|---------------|--------------------------------------------------------------|

@@ -19,14 +19,14 @@
   - [Serial.print() et Serial.println()](#serialprint-et-serialprintln)
     - [Exercice](#exercice)
   - [Moniteur série](#moniteur-serie)
-  - [Port série... mais c'est quoi??](#port-série-mais-cest-quoi)
+  - [Port série : mais c'est quoi??](#uart)
     - [Questions](#questions)
   - [Port série : La science](#port-serie-la-science)
   - [Résumé](#resume)
 - [Algorithme simple pour gérer les états](#algorithme-simple-pour-gerer-les-etats)
-  - [État d'un périphérique](#état-dun-périphérique)
-  - [État de l'application](#état-de-lapplication)
-  - [État de l'application avec fonctions](#état-de-lapplication-avec-fonctions)
+  - [État d'un périphérique](#etat-dun-peripherique)
+  - [État de l'application](#etat-de-lapplication)
+  - [État de l'application avec fonctions](#etat-de-lapplication-avec-fonctions)
 - [Exercices](#exercices)
 - [Questions](#questions-1)
 
@@ -324,7 +324,7 @@ Il faudra s'assurer de sélectionner le bon port série ainsi que la bonne vites
 
 ---
 
-## Port série... mais c'est quoi??
+## Port série : mais c'est quoi?? {#uart}
 Un port série est un port de communication qui permet d'envoyer et de recevoir des données. Il est composé de 2 fils, un fil pour envoyer des données et un fil pour recevoir des données.
 
 Dans le cas des Arduino, un port série est utilisé pour envoyer des données à l'ordinateur. Il est également possible d'utiliser un port série pour envoyer des données à un autre Arduino.
@@ -375,7 +375,7 @@ Il est important de noter que pour utiliser les ports série, il est nécessaire
 # Algorithme simple pour gérer les états
 Les états dans Arduino sont utilisés pour stocker l'état actuel d'un périphérique ou d'une variable ou d'un mode. Ils peuvent être utilisés pour contrôler des actions ou des comportements dans un programme. Par exemple, dans un programme de contrôle de DEL, vous pouvez utiliser un état pour stocker l'état actuel de la DEL (allumée ou éteinte).
 
-## État d'un périphérique
+## État d'un périphérique {#etat-dun-peripherique}
 Voici un exemple d'utilisation des états pour contrôler une DEL :
 
 ```cpp
@@ -397,7 +397,7 @@ void loop() {
 ```
 
 ---
-## État de l'application
+## État de l'application {#etat-de-lapplication}
 Voici un exemple d'utilisation des états pour contrôler un programme :
 
 ```cpp
@@ -442,7 +442,7 @@ void loop() {
 
 ---
 
-## État de l'application avec fonctions
+## État de l'application avec fonctions {#etat-de-lapplication-avec-fonctions}
 Voici le même code que précédemment, mais avec des fonctions pour gérer les états :
 
 ```cpp
@@ -523,7 +523,7 @@ En résumé, l'utilisation des états permet de rendre le code plus clair, plus 
 
 ---
 
-# Questions
+# Questions {#questions-1}
 1. Quelle fonction permet de configurer une broche?
 2. Quelle fonction permet de lire la valeur numérique d'une broche?
 3. Quelle fonction permet d'écrire une valeur numérique sur une broche?
