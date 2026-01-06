@@ -26,7 +26,10 @@ nav:
     - Fonction `analogWrite()`: c04/C04b_fonction_analogWrite.md
     - Traceur série: c04/C04c_traceur_serie.md
     - Exercices pratiques: c04/C04x_exercices.md
-  - Cours 05: c05/index.md
+  - Cours 05:
+    - Index: c05/index.md
+    - Composants analogiques: c05/c05a_analog/index.md
+    - Programmation en tâche: c05/c05b_taches/index.md
   - Cours 06: c06/index.md
   - Cours 07: c07/index.md
   - Cours 08: c08/index.md
