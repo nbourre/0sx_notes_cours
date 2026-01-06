@@ -5,7 +5,10 @@ theme:
 
 nav:
   - Accueil: index.md
-  - Cours 01: c01/index.md
+  - Cours 01:
+    - Index: c01/index.md
+    - Configuration de l'environnement de travail: c01/C01a_intro_config.md
+    - Introduction à la programmation: c01/C01b_intro_prog.md
   - Cours 02:
     - Fonctions de communication: c02/C02_fonctions_comm.md
     - Exercices pratiques: c02/C02_fonctions_comm_exo.md
