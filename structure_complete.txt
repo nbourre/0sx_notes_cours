@@ -1,0 +1,1605 @@
+Folder PATH listing for volume teba
+Volume serial number is 9045-4BAD
+D:.
+|   .gitignore
+|   all_readmes.md
+|   C0x_fonctions_perso.md
+|   Caratere_arduino.xlsx
+|   concatenated_arduino.md
+|   readme.md
+|   structure_complete.txt
+|   _requirements.txt
+|   
++---.vscode
+|       launch.json
+|       
++---assets
+|   |   2018_Linus_Tech_Tips_logo.svg.png
+|   |   ADC exemple.xlsx
+|   |   c01_ex01.mp4
+|   |   circuit_playground_signal_banner.jpg
+|   |   dog_and_cat.webp
+|   |   firefox_NAw2ztAbzE.png
+|   |   forgot-how-to-goat.gif
+|   |   hot-summer.gif
+|   |   install_driver.png
+|   |   install_driver_browse.png
+|   |   LDR_1480405_6_7_HDR_Enhancer_1.jpg
+|   |   ohms_law.png
+|   |   pwm1.pdn
+|   |   pwm_detail.pdn
+|   |   PWM_duty_cycle_with_label.gif
+|   |   readme.md
+|   |   serialPrint_example.mp4
+|   |   
+|   +---gif
+|   +---pdf
+|   |       AE087-Tutorials.pdf
+|   |       ohms_law.pdf
+|   |       
+|   +---schemas
+|   |       atelier_moisture_secondaire.fzz
+|   |       branchement_base.fzz
+|   |       branchement_bouton.fzz
+|   |       branchement_lcd.fzz
+|   |       branchement_lcd_i2c.fzz
+|   |       branchement_led.fzz
+|   |       branchement_psu.fzz
+|   |       dht11.fzz
+|   |       diviseur_tension.drawio
+|   |       l293d.fzz
+|   |       mpu6050.fzz
+|   |       photoresistance.fzz
+|   |       potentiometre.fzz
+|   |       pullup_resistor.drawio
+|   |       pull_up_resistor.jpg
+|   |       resistance_rappel.fzz
+|   |       resistance_tirage.fzz
+|   |       short_circuit.png
+|   |       
+|   \---video
+|           hcsr04_example.webm
+|           
++---c01
+|   |   C01_intro_config.md
+|   |   C01_intro_prog.md
+|   |   C01_intro_prog_rep.md
+|   |   readme.md
+|   |   
+|   \---assets
+|           arduino.drawio
+|           arduino_50-07.jpg
+|           arduino_flora.png
+|           arduino_ide.png
+|           arduino_ide_board.gif
+|           arduino_mega.jpg
+|           arduino_micro.jpg
+|           arduino_mkr1000.jpg
+|           DALL·E 2024-12-23 11.00.21 - Student learning robotics.webp
+|           DALL·E 2024-12-23 11.00.21 - Student with arduino.webp
+|           Fig-1-MicrocontrollerMicroprocesser.png
+|           Fig-1-MicrocontrollerMicroprocessor-FR.pdn
+|           Fig-1-MicrocontrollerMicroprocessor-FR.png
+|           git_installation.mp4
+|           git_version.gif
+|           introduction-to-microcontrollers-3.png.webp
+|           lifecycle.drawio.svg
+|           program_cycle_vie.png
+|           wokwi_new_project.mp4
+|           
++---c02
+|   |   C02_fonctions_comm.md
+|   |   C02_fonctions_comm_exo.md
+|   |   readme.md
+|   |   
+|   \---assets
+|           arduino_serial_monitor_start.gif
+|           arduino_serial_monitor_start.mp4
+|           c02_blink.gif
+|           ex_serial_print.gif
+|           ex_serial_print.mov
+|           
++---c03
+|   |   C03a_branchement_base.md
+|   |   C03a_branchement_base_exo.md
+|   |   C03b_resistance_de_rappel.md
+|   |   C03c_sans_delai.md
+|   |   C03d_logique_antirebond.md
+|   |   C03e_exercices.md
+|   |   readme.md
+|   |   
+|   \---assets
+|       |   adaptateur_01.jpg
+|       |   adaptateur_02.jpg
+|       |   adaptateur_03.jpg
+|       |   adaptateur_04.jpg
+|       |   appareil_01.jpg
+|       |   appareil_02.jpg
+|       |   arduino_mega.jpg
+|       |   arduino_mega_voltage_regulator.jpg
+|       |   branchement_bouton_input_pullup.png
+|       |   c03_exo_02.drawio.png
+|       |   c03_millis_demo.png
+|       |   DALL-E 2025-02-03 a.webp
+|       |   DALL·E 2025-02-03 13.47.21.webp
+|       |   dc_jack_polarity.jpg
+|       |   dc_jack_symbol.png
+|       |   floating_value.png
+|       |   push_button.jpg
+|       |   switch-debounce-principle.jpg
+|       |   symbol_ac_dc.png
+|       |   
+|       +---gif
+|       |       ABC_counterfit_goods_electrical_chord_sk_150512.gif
+|       |       ball-throw.gif
+|       |       electroboom-electric-shock.gif
+|       |       rango_beans_freeze.gif
+|       |       rango_beans_freeze.mp4
+|       |       vardy_mannequin_challenge.gif
+|       |       
+|       \---schemas
+|               branchement_base_bb.png
+|               branchement_base_psu.png
+|               branchement_led_bb.png
+|               Pull-up-and-Pull-down-Resistor.png
+|               resistance_rappel_bb.png
+|               resistance_tirage_bb.png
+|               
++---c04
+|   |   C04a_fonction_analogRead.md
+|   |   C04b_fonction_analogWrite.md
+|   |   C04c_traceur_serie.md
+|   |   C04x_exercices.md
+|   |   readme.md
+|   |   
+|   \---assets
+|           c04_adc_graph.png
+|           c04_plotter.gif
+|           c04_plotter_menu.png
+|           C04_pwm_output.gif
+|           DALL·E 2025-02-10 10.05.30.webp
+|           Different-types-of-Potentiometers.png
+|           How-Potentiometer-Works-768x231.png
+|           photoresistance.png
+|           Pinout-Mega2560rev3_latest.png
+|           pot_a.gif
+|           pot_b.gif
+|           pot_challenge.gif
+|           pot_exemple_bas.gif
+|           pot_exemple_DEL.gif
+|           pwm1.jpg
+|           pwm_detail.jpg
+|           
++---c05
+|   |   readme.md
+|   |   
+|   +---assets
+|   +---c05a_analog
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           Arduino-Thermistor-Temperature-Sensor-Voltage-Divider-Circuit.jpg
+|   |           diviseur_tension.drawio.png
+|   |           Fritzing_photocell_diagram.png
+|   |           light_cdsanasch.gif
+|   |           light_photocell.jpg
+|   |           photoresistance.png
+|   |           potentiometre_bb.png
+|   |           potentiometre_diviseur_tension.gif
+|   |           
+|   \---c05b_taches
+|           readme.md
+|           
++---c05b_pratique_examen
+|       readme.md
+|       
++---c06
+|   |   readme.md
+|   |   
+|   +---c06a_lib
+|   |       arduino_libraries.gif
+|   |       Arduino_libraries_examples.gif
+|   |       readme.md
+|   |       
+|   +---c06b_lcd
+|   |   |   readme.md
+|   |   |   zreadme.md
+|   |   |   
+|   |   \---assets
+|   |           branchement_lcd_bb.png
+|   |           branchement_lcd_i2c_bb.svg
+|   |           createur_caractere.xlsx
+|   |           LCD-Display-Tutorial.webp
+|   |           lcd_1602.jpg
+|   |           
+|   +---c06c_dht11
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           arduino_burning.gif
+|   |           dht-11 variant.jpg
+|   |           dht11_bb.png
+|   |           dht11_branchement.png
+|   |           DHT11_Sensor_Pinout_600x600.webp
+|   |           trouver_librairie.gif
+|   |           trouver_librairie_code.gif
+|   |           ventilateur.png
+|   |           
+|   \---c06d_hcsr04
+|       |   readme.md
+|       |   
+|       \---assets
+|               brain_food.gif
+|               dog_and_cat2.jpg
+|               hcsr04.jpg
+|               
++---c07
+|   |   readme.md
+|   |   
+|   +---assets
+|   |       DALL·E 2024-03-04 09.47.28.webp
+|   |       
+|   +---c07a_servo
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           120mm_fan_to_100mm_pipe_extended.gif
+|   |           120mm_fan_to_100mm_pipe_extended.webp
+|   |           branchement_servo.fzz
+|   |           branchement_servo_bb.png
+|   |           EDF-thrust-vectoring-optimized.gif
+|   |           m2-res_854p.mp4
+|   |           m2-res_854p.webp
+|   |           servo-samples.jpg
+|   |           sg90.jpg
+|   |           
+|   +---c07b_machine_a_etats
+|   |   |   readme.md
+|   |   |   
+|   |   \---fsm
+|   |           fsm_base.drawio
+|   |           fsm_base.drawio.svg
+|   |           fsm_click_timeout.png
+|   |           fsm_demo.png
+|   |           fsm_demo_pins.png
+|   |           fsm_diagram_01.png
+|   |           fsm_diagram_02.png
+|   |           fsm_diagram_03.png
+|   |           fsm_diagram_04.png
+|   |           fsm_single_click.png
+|   |           wokwi_fsm_base.gif
+|   |           
+|   +---c07c_i2c
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           bmp280.webp
+|   |           branchement_lcd_i2c_bb.png
+|   |           ds1307.jpg
+|   |           I2C-Communication-How-It-Works.webp
+|   |           i2c_lcd_module.jpg
+|   |           lm75-Circuit.jpg
+|   |           mpu6050.jpg
+|   |           mpu6050_bb.svg
+|   |           pca9685.jpg
+|   |           pcf8574.webp
+|   |           ssd1306.JPG
+|   |           
+|   \---c07d_stepper
+|       |   readme.md
+|       |   
+|       \---assets
+|               28byj-48 dimensions.png
+|               28BYJ48-Stepper-Motor-Coil-Structure.png
+|               28BYJ48-Stepper-Motor-Gear-Ratio-Explanation.png
+|               28BYJ48-Stepper-Motor-Pinout.png
+|               install_library.png
+|               Stepper-Motor-Working-Animation.gif
+|               stepper_motor.jpg
+|               ULN2003-Stepper-Motor-Driver-Overview.jpg
+|               ULN2003-Stepper-Motor-Driver-Pinout.png
+|               wiring.png
+|               
++---c08
+|   |   readme.md
+|   |   
+|   +---assets
+|   |       DALL·E 2024-03-15 08.55.13.webp
+|   |       
+|   +---c08a_serial_read
+|   |       readme.md
+|   |       
+|   +---c08b_poo_base
+|   |   |   Exemple diagramme POO.drawio
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           DALL·E 2024-03-18 14.59.55.webp
+|   |           DALL·E 2024-03-18 15.05.20.webp
+|   |           Exemple diagramme POO.png
+|   |           idefix.png
+|   |           pop-art-sweating-businessman-front-fan-office-work-summer-heat-vector-illustration-95769924.webp
+|   |           think-smart.gif
+|   |           
+|   \---c08c_psu
+|       |   readme.md
+|       |   
+|       \---assets
+|               MB102-Breadboard-Power-Supply-Module.jpg
+|               Power-Supply-Module-annote.jpg
+|               Power-Supply-Module-branchement.jpg
+|               
++---c09
+|   |   readme.md
+|   |   
+|   +---c09a_moteur_dc
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   |           DC-Motor-3V-with-Fan.jpg
+|   |           dc_motor_130.webp
+|   |           H-Bridge-Working-Motor-Direction-Control-Animation.gif
+|   |           H-bridge_mod.png
+|   |           hbridge.gif
+|   |           L293D-Pinout.png
+|   |           L293D.jpg
+|   |           l293d_and_dc_motor.svg
+|   |           learn_arduino_L293D.jpg
+|   |           techart_symbols2_1.webp
+|   |           
+|   \---c09b_fsm_revisited
+|           readme.md
+|           
++---c10
+|   |   readme.md
+|   |   
+|   +---assets
+|   |       ChatGPT Image Apr 7, 2025, 08_45_44 AM.png
+|   |       ChatGPT Image Apr 7, 2025, 08_55_05 AM.png
+|   |       
+|   +---c10a_refactorisation
+|   |   |   DALL·E 2024-03-22 14.15.48.webp
+|   |   |   lcd.cpp
+|   |   |   readme.md
+|   |   |   
+|   |   \---assets
+|   \---c10b_max7219
+|       |   readme.md
+|       |   
+|       \---assets
+|               8-8-led-dot-led-matrix-display-module-with-max7219-ic-3-1000x1000.png
+|               8x8-Dot-Matrix-Display.jpg
+|               8x8-LED-Matrix-Interface-with-Arduino-Breadboard-Circuit (Custom).jpg
+|               8X8-Matrix-Pinout.png
+|               LED-Matrix-Display-Working-Animation-Persistence-of-Vision.gif
+|               MAX7219-Dot-Matrix-LED-Display-Module-Pinout.webp
+|               MAX7219-Module-Variants.webp
+|               Wiring-Generic-MAX7219-LED-Display-Module-with-Arduino.webp
+|               
++---c11
+|   |   readme.md
+|   |   
+|   +---assets
+|   |       only-imagination-meme.jpg
+|   |       
+|   \---c11a_wifi
+|       |   readme.md
+|       |   _archives.md
+|       |   
+|       \---assets
+|               branchement_rxtx.jpg
+|               DALL·E 2024-03-21 08.57.44.webp
+|               esp01_shield.jpg
+|               esp8266-wifi-shield-desc2.jpg
+|               ModelosESP.avif
+|               
++---c12
+|   |   readme.md
+|   |   
+|   \---assets
+|           mqtt_diagram.webp
+|           MQTT_Diagram_gOmDdU4.format-webp.webp
+|           qos_meme.webp
+|           
++---datasheets
+|   |   readme.md
+|   |   
+|   \---makerfabs
+|       |   arduino_secrets.h
+|       |   makerfabs_esp8266_shield.md
+|       |   _rb-mkf-14_-_tutorial_sample_code.zip
+|       |   
+|       +---RB_Mkf_14_Sample_code_mega
+|       |       RB_Mkf_14_Sample_code_mega.ino
+|       |       
+|       \---WebServer
+|               WebServer.ino
+|               
++---docs
+|       doc.md
+|       index.html
+|       other.md
+|       readme.md
+|       
++---exercices
+|       .$exercices.drawio.bkp
+|       exercices.drawio
+|       pointeurs.md
+|       pointeurs_rep.md
+|       readme.md
+|       switch_case.md
+|       switch_case_rep.md
+|       
++---extras
+|   |   algorithmes.md
+|   |   ameliorer_son_code.md
+|   |   depannage.md
+|   |   labo03_aide.md
+|   |   loi_dohm.md
+|   |   pointeurs.md
+|   |   readme.md
+|   |   
+|   \---coder_avec_vscode
+|       |   readme.md
+|       |   
+|       \---assets
+|               vscode_explorer.png
+|               vscode_extension_btn.png
+|               vscode_ext_search.gif
+|               vsc_arduino_config.png
+|               vsc_arduino_port.png
+|               vsc_cmd_palette.png
+|               
++---intro_arduino_jp
+|   |   readme.md
+|   |   
+|   \---media
+|           breadboard.pdn
+|           breadboard.png
+|           breadboard_explication.png
+|           image1.png
+|           image10.png
+|           image11.png
+|           image12.png
+|           image13.png
+|           image14.png
+|           image15.jpeg
+|           image17.png
+|           image18.jpeg
+|           image2.png
+|           image20.png
+|           image21.png
+|           image22.png
+|           image24.jpeg
+|           image25.png
+|           image26.png
+|           image27.png
+|           image28.png
+|           image29.png
+|           image3.png
+|           image30.png
+|           image4.png
+|           image5.png
+|           image6.png
+|           image7.jpeg
+|           image8.png
+|           image9.jpeg
+|           
++---révision
+|       questions_cours_01_06.md
+|       questions_cours_07_12.md
+|       readme.md
+|       
++---scripts
+|   |   all_readmes.md
+|   |   copy_cle.py
+|   |   scan_readmes.py
+|   |   
+|   \---.venv
+|       |   .gitignore
+|       |   pyvenv.cfg
+|       |   
+|       +---Include
+|       +---Lib
+|       |   \---site-packages
+|       |       +---pip
+|       |       |   |   py.typed
+|       |       |   |   __init__.py
+|       |       |   |   __main__.py
+|       |       |   |   __pip-runner__.py
+|       |       |   |   
+|       |       |   +---_internal
+|       |       |   |   |   build_env.py
+|       |       |   |   |   cache.py
+|       |       |   |   |   configuration.py
+|       |       |   |   |   exceptions.py
+|       |       |   |   |   main.py
+|       |       |   |   |   pyproject.py
+|       |       |   |   |   self_outdated_check.py
+|       |       |   |   |   wheel_builder.py
+|       |       |   |   |   __init__.py
+|       |       |   |   |   
+|       |       |   |   +---cli
+|       |       |   |   |   |   autocompletion.py
+|       |       |   |   |   |   base_command.py
+|       |       |   |   |   |   cmdoptions.py
+|       |       |   |   |   |   command_context.py
+|       |       |   |   |   |   index_command.py
+|       |       |   |   |   |   main.py
+|       |       |   |   |   |   main_parser.py
+|       |       |   |   |   |   parser.py
+|       |       |   |   |   |   progress_bars.py
+|       |       |   |   |   |   req_command.py
+|       |       |   |   |   |   spinners.py
+|       |       |   |   |   |   status_codes.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           autocompletion.cpython-313.pyc
+|       |       |   |   |           base_command.cpython-313.pyc
+|       |       |   |   |           cmdoptions.cpython-313.pyc
+|       |       |   |   |           command_context.cpython-313.pyc
+|       |       |   |   |           index_command.cpython-313.pyc
+|       |       |   |   |           main.cpython-313.pyc
+|       |       |   |   |           main_parser.cpython-313.pyc
+|       |       |   |   |           parser.cpython-313.pyc
+|       |       |   |   |           progress_bars.cpython-313.pyc
+|       |       |   |   |           req_command.cpython-313.pyc
+|       |       |   |   |           spinners.cpython-313.pyc
+|       |       |   |   |           status_codes.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---commands
+|       |       |   |   |   |   cache.py
+|       |       |   |   |   |   check.py
+|       |       |   |   |   |   completion.py
+|       |       |   |   |   |   configuration.py
+|       |       |   |   |   |   debug.py
+|       |       |   |   |   |   download.py
+|       |       |   |   |   |   freeze.py
+|       |       |   |   |   |   hash.py
+|       |       |   |   |   |   help.py
+|       |       |   |   |   |   index.py
+|       |       |   |   |   |   inspect.py
+|       |       |   |   |   |   install.py
+|       |       |   |   |   |   list.py
+|       |       |   |   |   |   search.py
+|       |       |   |   |   |   show.py
+|       |       |   |   |   |   uninstall.py
+|       |       |   |   |   |   wheel.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           cache.cpython-313.pyc
+|       |       |   |   |           check.cpython-313.pyc
+|       |       |   |   |           completion.cpython-313.pyc
+|       |       |   |   |           configuration.cpython-313.pyc
+|       |       |   |   |           debug.cpython-313.pyc
+|       |       |   |   |           download.cpython-313.pyc
+|       |       |   |   |           freeze.cpython-313.pyc
+|       |       |   |   |           hash.cpython-313.pyc
+|       |       |   |   |           help.cpython-313.pyc
+|       |       |   |   |           index.cpython-313.pyc
+|       |       |   |   |           inspect.cpython-313.pyc
+|       |       |   |   |           install.cpython-313.pyc
+|       |       |   |   |           list.cpython-313.pyc
+|       |       |   |   |           search.cpython-313.pyc
+|       |       |   |   |           show.cpython-313.pyc
+|       |       |   |   |           uninstall.cpython-313.pyc
+|       |       |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---distributions
+|       |       |   |   |   |   base.py
+|       |       |   |   |   |   installed.py
+|       |       |   |   |   |   sdist.py
+|       |       |   |   |   |   wheel.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           base.cpython-313.pyc
+|       |       |   |   |           installed.cpython-313.pyc
+|       |       |   |   |           sdist.cpython-313.pyc
+|       |       |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---index
+|       |       |   |   |   |   collector.py
+|       |       |   |   |   |   package_finder.py
+|       |       |   |   |   |   sources.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           collector.cpython-313.pyc
+|       |       |   |   |           package_finder.cpython-313.pyc
+|       |       |   |   |           sources.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---locations
+|       |       |   |   |   |   base.py
+|       |       |   |   |   |   _distutils.py
+|       |       |   |   |   |   _sysconfig.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           base.cpython-313.pyc
+|       |       |   |   |           _distutils.cpython-313.pyc
+|       |       |   |   |           _sysconfig.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---metadata
+|       |       |   |   |   |   base.py
+|       |       |   |   |   |   pkg_resources.py
+|       |       |   |   |   |   _json.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---importlib
+|       |       |   |   |   |   |   _compat.py
+|       |       |   |   |   |   |   _dists.py
+|       |       |   |   |   |   |   _envs.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           _compat.cpython-313.pyc
+|       |       |   |   |   |           _dists.cpython-313.pyc
+|       |       |   |   |   |           _envs.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           base.cpython-313.pyc
+|       |       |   |   |           pkg_resources.cpython-313.pyc
+|       |       |   |   |           _json.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---models
+|       |       |   |   |   |   candidate.py
+|       |       |   |   |   |   direct_url.py
+|       |       |   |   |   |   format_control.py
+|       |       |   |   |   |   index.py
+|       |       |   |   |   |   installation_report.py
+|       |       |   |   |   |   link.py
+|       |       |   |   |   |   scheme.py
+|       |       |   |   |   |   search_scope.py
+|       |       |   |   |   |   selection_prefs.py
+|       |       |   |   |   |   target_python.py
+|       |       |   |   |   |   wheel.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           candidate.cpython-313.pyc
+|       |       |   |   |           direct_url.cpython-313.pyc
+|       |       |   |   |           format_control.cpython-313.pyc
+|       |       |   |   |           index.cpython-313.pyc
+|       |       |   |   |           installation_report.cpython-313.pyc
+|       |       |   |   |           link.cpython-313.pyc
+|       |       |   |   |           scheme.cpython-313.pyc
+|       |       |   |   |           search_scope.cpython-313.pyc
+|       |       |   |   |           selection_prefs.cpython-313.pyc
+|       |       |   |   |           target_python.cpython-313.pyc
+|       |       |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---network
+|       |       |   |   |   |   auth.py
+|       |       |   |   |   |   cache.py
+|       |       |   |   |   |   download.py
+|       |       |   |   |   |   lazy_wheel.py
+|       |       |   |   |   |   session.py
+|       |       |   |   |   |   utils.py
+|       |       |   |   |   |   xmlrpc.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           auth.cpython-313.pyc
+|       |       |   |   |           cache.cpython-313.pyc
+|       |       |   |   |           download.cpython-313.pyc
+|       |       |   |   |           lazy_wheel.cpython-313.pyc
+|       |       |   |   |           session.cpython-313.pyc
+|       |       |   |   |           utils.cpython-313.pyc
+|       |       |   |   |           xmlrpc.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---operations
+|       |       |   |   |   |   check.py
+|       |       |   |   |   |   freeze.py
+|       |       |   |   |   |   prepare.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---build
+|       |       |   |   |   |   |   build_tracker.py
+|       |       |   |   |   |   |   metadata.py
+|       |       |   |   |   |   |   metadata_editable.py
+|       |       |   |   |   |   |   metadata_legacy.py
+|       |       |   |   |   |   |   wheel.py
+|       |       |   |   |   |   |   wheel_editable.py
+|       |       |   |   |   |   |   wheel_legacy.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           build_tracker.cpython-313.pyc
+|       |       |   |   |   |           metadata.cpython-313.pyc
+|       |       |   |   |   |           metadata_editable.cpython-313.pyc
+|       |       |   |   |   |           metadata_legacy.cpython-313.pyc
+|       |       |   |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |   |           wheel_editable.cpython-313.pyc
+|       |       |   |   |   |           wheel_legacy.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---install
+|       |       |   |   |   |   |   editable_legacy.py
+|       |       |   |   |   |   |   wheel.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           editable_legacy.cpython-313.pyc
+|       |       |   |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           check.cpython-313.pyc
+|       |       |   |   |           freeze.cpython-313.pyc
+|       |       |   |   |           prepare.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---req
+|       |       |   |   |   |   constructors.py
+|       |       |   |   |   |   req_file.py
+|       |       |   |   |   |   req_install.py
+|       |       |   |   |   |   req_set.py
+|       |       |   |   |   |   req_uninstall.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           constructors.cpython-313.pyc
+|       |       |   |   |           req_file.cpython-313.pyc
+|       |       |   |   |           req_install.cpython-313.pyc
+|       |       |   |   |           req_set.cpython-313.pyc
+|       |       |   |   |           req_uninstall.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---resolution
+|       |       |   |   |   |   base.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---legacy
+|       |       |   |   |   |   |   resolver.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           resolver.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---resolvelib
+|       |       |   |   |   |   |   base.py
+|       |       |   |   |   |   |   candidates.py
+|       |       |   |   |   |   |   factory.py
+|       |       |   |   |   |   |   found_candidates.py
+|       |       |   |   |   |   |   provider.py
+|       |       |   |   |   |   |   reporter.py
+|       |       |   |   |   |   |   requirements.py
+|       |       |   |   |   |   |   resolver.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           base.cpython-313.pyc
+|       |       |   |   |   |           candidates.cpython-313.pyc
+|       |       |   |   |   |           factory.cpython-313.pyc
+|       |       |   |   |   |           found_candidates.cpython-313.pyc
+|       |       |   |   |   |           provider.cpython-313.pyc
+|       |       |   |   |   |           reporter.cpython-313.pyc
+|       |       |   |   |   |           requirements.cpython-313.pyc
+|       |       |   |   |   |           resolver.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           base.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---utils
+|       |       |   |   |   |   appdirs.py
+|       |       |   |   |   |   compat.py
+|       |       |   |   |   |   compatibility_tags.py
+|       |       |   |   |   |   datetime.py
+|       |       |   |   |   |   deprecation.py
+|       |       |   |   |   |   direct_url_helpers.py
+|       |       |   |   |   |   egg_link.py
+|       |       |   |   |   |   encoding.py
+|       |       |   |   |   |   entrypoints.py
+|       |       |   |   |   |   filesystem.py
+|       |       |   |   |   |   filetypes.py
+|       |       |   |   |   |   glibc.py
+|       |       |   |   |   |   hashes.py
+|       |       |   |   |   |   logging.py
+|       |       |   |   |   |   misc.py
+|       |       |   |   |   |   packaging.py
+|       |       |   |   |   |   retry.py
+|       |       |   |   |   |   setuptools_build.py
+|       |       |   |   |   |   subprocess.py
+|       |       |   |   |   |   temp_dir.py
+|       |       |   |   |   |   unpacking.py
+|       |       |   |   |   |   urls.py
+|       |       |   |   |   |   virtualenv.py
+|       |       |   |   |   |   wheel.py
+|       |       |   |   |   |   _jaraco_text.py
+|       |       |   |   |   |   _log.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           appdirs.cpython-313.pyc
+|       |       |   |   |           compat.cpython-313.pyc
+|       |       |   |   |           compatibility_tags.cpython-313.pyc
+|       |       |   |   |           datetime.cpython-313.pyc
+|       |       |   |   |           deprecation.cpython-313.pyc
+|       |       |   |   |           direct_url_helpers.cpython-313.pyc
+|       |       |   |   |           egg_link.cpython-313.pyc
+|       |       |   |   |           encoding.cpython-313.pyc
+|       |       |   |   |           entrypoints.cpython-313.pyc
+|       |       |   |   |           filesystem.cpython-313.pyc
+|       |       |   |   |           filetypes.cpython-313.pyc
+|       |       |   |   |           glibc.cpython-313.pyc
+|       |       |   |   |           hashes.cpython-313.pyc
+|       |       |   |   |           logging.cpython-313.pyc
+|       |       |   |   |           misc.cpython-313.pyc
+|       |       |   |   |           packaging.cpython-313.pyc
+|       |       |   |   |           retry.cpython-313.pyc
+|       |       |   |   |           setuptools_build.cpython-313.pyc
+|       |       |   |   |           subprocess.cpython-313.pyc
+|       |       |   |   |           temp_dir.cpython-313.pyc
+|       |       |   |   |           unpacking.cpython-313.pyc
+|       |       |   |   |           urls.cpython-313.pyc
+|       |       |   |   |           virtualenv.cpython-313.pyc
+|       |       |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |           _jaraco_text.cpython-313.pyc
+|       |       |   |   |           _log.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---vcs
+|       |       |   |   |   |   bazaar.py
+|       |       |   |   |   |   git.py
+|       |       |   |   |   |   mercurial.py
+|       |       |   |   |   |   subversion.py
+|       |       |   |   |   |   versioncontrol.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           bazaar.cpython-313.pyc
+|       |       |   |   |           git.cpython-313.pyc
+|       |       |   |   |           mercurial.cpython-313.pyc
+|       |       |   |   |           subversion.cpython-313.pyc
+|       |       |   |   |           versioncontrol.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   \---__pycache__
+|       |       |   |           build_env.cpython-313.pyc
+|       |       |   |           cache.cpython-313.pyc
+|       |       |   |           configuration.cpython-313.pyc
+|       |       |   |           exceptions.cpython-313.pyc
+|       |       |   |           main.cpython-313.pyc
+|       |       |   |           pyproject.cpython-313.pyc
+|       |       |   |           self_outdated_check.cpython-313.pyc
+|       |       |   |           wheel_builder.cpython-313.pyc
+|       |       |   |           __init__.cpython-313.pyc
+|       |       |   |           
+|       |       |   +---_vendor
+|       |       |   |   |   typing_extensions.py
+|       |       |   |   |   vendor.txt
+|       |       |   |   |   __init__.py
+|       |       |   |   |   
+|       |       |   |   +---cachecontrol
+|       |       |   |   |   |   adapter.py
+|       |       |   |   |   |   cache.py
+|       |       |   |   |   |   controller.py
+|       |       |   |   |   |   filewrapper.py
+|       |       |   |   |   |   heuristics.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   serialize.py
+|       |       |   |   |   |   wrapper.py
+|       |       |   |   |   |   _cmd.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---caches
+|       |       |   |   |   |   |   file_cache.py
+|       |       |   |   |   |   |   redis_cache.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           file_cache.cpython-313.pyc
+|       |       |   |   |   |           redis_cache.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           adapter.cpython-313.pyc
+|       |       |   |   |           cache.cpython-313.pyc
+|       |       |   |   |           controller.cpython-313.pyc
+|       |       |   |   |           filewrapper.cpython-313.pyc
+|       |       |   |   |           heuristics.cpython-313.pyc
+|       |       |   |   |           serialize.cpython-313.pyc
+|       |       |   |   |           wrapper.cpython-313.pyc
+|       |       |   |   |           _cmd.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---certifi
+|       |       |   |   |   |   cacert.pem
+|       |       |   |   |   |   core.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __main__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           core.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __main__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---distlib
+|       |       |   |   |   |   compat.py
+|       |       |   |   |   |   database.py
+|       |       |   |   |   |   index.py
+|       |       |   |   |   |   locators.py
+|       |       |   |   |   |   manifest.py
+|       |       |   |   |   |   markers.py
+|       |       |   |   |   |   metadata.py
+|       |       |   |   |   |   resources.py
+|       |       |   |   |   |   scripts.py
+|       |       |   |   |   |   t32.exe
+|       |       |   |   |   |   t64-arm.exe
+|       |       |   |   |   |   t64.exe
+|       |       |   |   |   |   util.py
+|       |       |   |   |   |   version.py
+|       |       |   |   |   |   w32.exe
+|       |       |   |   |   |   w64-arm.exe
+|       |       |   |   |   |   w64.exe
+|       |       |   |   |   |   wheel.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           compat.cpython-313.pyc
+|       |       |   |   |           database.cpython-313.pyc
+|       |       |   |   |           index.cpython-313.pyc
+|       |       |   |   |           locators.cpython-313.pyc
+|       |       |   |   |           manifest.cpython-313.pyc
+|       |       |   |   |           markers.cpython-313.pyc
+|       |       |   |   |           metadata.cpython-313.pyc
+|       |       |   |   |           resources.cpython-313.pyc
+|       |       |   |   |           scripts.cpython-313.pyc
+|       |       |   |   |           util.cpython-313.pyc
+|       |       |   |   |           version.cpython-313.pyc
+|       |       |   |   |           wheel.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---distro
+|       |       |   |   |   |   distro.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __main__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           distro.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __main__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---idna
+|       |       |   |   |   |   codec.py
+|       |       |   |   |   |   compat.py
+|       |       |   |   |   |   core.py
+|       |       |   |   |   |   idnadata.py
+|       |       |   |   |   |   intranges.py
+|       |       |   |   |   |   package_data.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   uts46data.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           codec.cpython-313.pyc
+|       |       |   |   |           compat.cpython-313.pyc
+|       |       |   |   |           core.cpython-313.pyc
+|       |       |   |   |           idnadata.cpython-313.pyc
+|       |       |   |   |           intranges.cpython-313.pyc
+|       |       |   |   |           package_data.cpython-313.pyc
+|       |       |   |   |           uts46data.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---msgpack
+|       |       |   |   |   |   exceptions.py
+|       |       |   |   |   |   ext.py
+|       |       |   |   |   |   fallback.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           exceptions.cpython-313.pyc
+|       |       |   |   |           ext.cpython-313.pyc
+|       |       |   |   |           fallback.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---packaging
+|       |       |   |   |   |   markers.py
+|       |       |   |   |   |   metadata.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   requirements.py
+|       |       |   |   |   |   specifiers.py
+|       |       |   |   |   |   tags.py
+|       |       |   |   |   |   utils.py
+|       |       |   |   |   |   version.py
+|       |       |   |   |   |   _elffile.py
+|       |       |   |   |   |   _manylinux.py
+|       |       |   |   |   |   _musllinux.py
+|       |       |   |   |   |   _parser.py
+|       |       |   |   |   |   _structures.py
+|       |       |   |   |   |   _tokenizer.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           markers.cpython-313.pyc
+|       |       |   |   |           metadata.cpython-313.pyc
+|       |       |   |   |           requirements.cpython-313.pyc
+|       |       |   |   |           specifiers.cpython-313.pyc
+|       |       |   |   |           tags.cpython-313.pyc
+|       |       |   |   |           utils.cpython-313.pyc
+|       |       |   |   |           version.cpython-313.pyc
+|       |       |   |   |           _elffile.cpython-313.pyc
+|       |       |   |   |           _manylinux.cpython-313.pyc
+|       |       |   |   |           _musllinux.cpython-313.pyc
+|       |       |   |   |           _parser.cpython-313.pyc
+|       |       |   |   |           _structures.cpython-313.pyc
+|       |       |   |   |           _tokenizer.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---pkg_resources
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---platformdirs
+|       |       |   |   |   |   android.py
+|       |       |   |   |   |   api.py
+|       |       |   |   |   |   macos.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   unix.py
+|       |       |   |   |   |   version.py
+|       |       |   |   |   |   windows.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __main__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           android.cpython-313.pyc
+|       |       |   |   |           api.cpython-313.pyc
+|       |       |   |   |           macos.cpython-313.pyc
+|       |       |   |   |           unix.cpython-313.pyc
+|       |       |   |   |           version.cpython-313.pyc
+|       |       |   |   |           windows.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __main__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---pygments
+|       |       |   |   |   |   cmdline.py
+|       |       |   |   |   |   console.py
+|       |       |   |   |   |   filter.py
+|       |       |   |   |   |   formatter.py
+|       |       |   |   |   |   lexer.py
+|       |       |   |   |   |   modeline.py
+|       |       |   |   |   |   plugin.py
+|       |       |   |   |   |   regexopt.py
+|       |       |   |   |   |   scanner.py
+|       |       |   |   |   |   sphinxext.py
+|       |       |   |   |   |   style.py
+|       |       |   |   |   |   token.py
+|       |       |   |   |   |   unistring.py
+|       |       |   |   |   |   util.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __main__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---filters
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---formatters
+|       |       |   |   |   |   |   bbcode.py
+|       |       |   |   |   |   |   groff.py
+|       |       |   |   |   |   |   html.py
+|       |       |   |   |   |   |   img.py
+|       |       |   |   |   |   |   irc.py
+|       |       |   |   |   |   |   latex.py
+|       |       |   |   |   |   |   other.py
+|       |       |   |   |   |   |   pangomarkup.py
+|       |       |   |   |   |   |   rtf.py
+|       |       |   |   |   |   |   svg.py
+|       |       |   |   |   |   |   terminal.py
+|       |       |   |   |   |   |   terminal256.py
+|       |       |   |   |   |   |   _mapping.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           bbcode.cpython-313.pyc
+|       |       |   |   |   |           groff.cpython-313.pyc
+|       |       |   |   |   |           html.cpython-313.pyc
+|       |       |   |   |   |           img.cpython-313.pyc
+|       |       |   |   |   |           irc.cpython-313.pyc
+|       |       |   |   |   |           latex.cpython-313.pyc
+|       |       |   |   |   |           other.cpython-313.pyc
+|       |       |   |   |   |           pangomarkup.cpython-313.pyc
+|       |       |   |   |   |           rtf.cpython-313.pyc
+|       |       |   |   |   |           svg.cpython-313.pyc
+|       |       |   |   |   |           terminal.cpython-313.pyc
+|       |       |   |   |   |           terminal256.cpython-313.pyc
+|       |       |   |   |   |           _mapping.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---lexers
+|       |       |   |   |   |   |   python.py
+|       |       |   |   |   |   |   _mapping.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           python.cpython-313.pyc
+|       |       |   |   |   |           _mapping.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---styles
+|       |       |   |   |   |   |   _mapping.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           _mapping.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           cmdline.cpython-313.pyc
+|       |       |   |   |           console.cpython-313.pyc
+|       |       |   |   |           filter.cpython-313.pyc
+|       |       |   |   |           formatter.cpython-313.pyc
+|       |       |   |   |           lexer.cpython-313.pyc
+|       |       |   |   |           modeline.cpython-313.pyc
+|       |       |   |   |           plugin.cpython-313.pyc
+|       |       |   |   |           regexopt.cpython-313.pyc
+|       |       |   |   |           scanner.cpython-313.pyc
+|       |       |   |   |           sphinxext.cpython-313.pyc
+|       |       |   |   |           style.cpython-313.pyc
+|       |       |   |   |           token.cpython-313.pyc
+|       |       |   |   |           unistring.cpython-313.pyc
+|       |       |   |   |           util.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __main__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---pyproject_hooks
+|       |       |   |   |   |   _compat.py
+|       |       |   |   |   |   _impl.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---_in_process
+|       |       |   |   |   |   |   _in_process.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           _in_process.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           _compat.cpython-313.pyc
+|       |       |   |   |           _impl.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---requests
+|       |       |   |   |   |   adapters.py
+|       |       |   |   |   |   api.py
+|       |       |   |   |   |   auth.py
+|       |       |   |   |   |   certs.py
+|       |       |   |   |   |   compat.py
+|       |       |   |   |   |   cookies.py
+|       |       |   |   |   |   exceptions.py
+|       |       |   |   |   |   help.py
+|       |       |   |   |   |   hooks.py
+|       |       |   |   |   |   models.py
+|       |       |   |   |   |   packages.py
+|       |       |   |   |   |   sessions.py
+|       |       |   |   |   |   status_codes.py
+|       |       |   |   |   |   structures.py
+|       |       |   |   |   |   utils.py
+|       |       |   |   |   |   _internal_utils.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __version__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           adapters.cpython-313.pyc
+|       |       |   |   |           api.cpython-313.pyc
+|       |       |   |   |           auth.cpython-313.pyc
+|       |       |   |   |           certs.cpython-313.pyc
+|       |       |   |   |           compat.cpython-313.pyc
+|       |       |   |   |           cookies.cpython-313.pyc
+|       |       |   |   |           exceptions.cpython-313.pyc
+|       |       |   |   |           help.cpython-313.pyc
+|       |       |   |   |           hooks.cpython-313.pyc
+|       |       |   |   |           models.cpython-313.pyc
+|       |       |   |   |           packages.cpython-313.pyc
+|       |       |   |   |           sessions.cpython-313.pyc
+|       |       |   |   |           status_codes.cpython-313.pyc
+|       |       |   |   |           structures.cpython-313.pyc
+|       |       |   |   |           utils.cpython-313.pyc
+|       |       |   |   |           _internal_utils.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __version__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---resolvelib
+|       |       |   |   |   |   providers.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   reporters.py
+|       |       |   |   |   |   resolvers.py
+|       |       |   |   |   |   structs.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---compat
+|       |       |   |   |   |   |   collections_abc.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           collections_abc.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           providers.cpython-313.pyc
+|       |       |   |   |           reporters.cpython-313.pyc
+|       |       |   |   |           resolvers.cpython-313.pyc
+|       |       |   |   |           structs.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---rich
+|       |       |   |   |   |   abc.py
+|       |       |   |   |   |   align.py
+|       |       |   |   |   |   ansi.py
+|       |       |   |   |   |   bar.py
+|       |       |   |   |   |   box.py
+|       |       |   |   |   |   cells.py
+|       |       |   |   |   |   color.py
+|       |       |   |   |   |   color_triplet.py
+|       |       |   |   |   |   columns.py
+|       |       |   |   |   |   console.py
+|       |       |   |   |   |   constrain.py
+|       |       |   |   |   |   containers.py
+|       |       |   |   |   |   control.py
+|       |       |   |   |   |   default_styles.py
+|       |       |   |   |   |   diagnose.py
+|       |       |   |   |   |   emoji.py
+|       |       |   |   |   |   errors.py
+|       |       |   |   |   |   filesize.py
+|       |       |   |   |   |   file_proxy.py
+|       |       |   |   |   |   highlighter.py
+|       |       |   |   |   |   json.py
+|       |       |   |   |   |   jupyter.py
+|       |       |   |   |   |   layout.py
+|       |       |   |   |   |   live.py
+|       |       |   |   |   |   live_render.py
+|       |       |   |   |   |   logging.py
+|       |       |   |   |   |   markup.py
+|       |       |   |   |   |   measure.py
+|       |       |   |   |   |   padding.py
+|       |       |   |   |   |   pager.py
+|       |       |   |   |   |   palette.py
+|       |       |   |   |   |   panel.py
+|       |       |   |   |   |   pretty.py
+|       |       |   |   |   |   progress.py
+|       |       |   |   |   |   progress_bar.py
+|       |       |   |   |   |   prompt.py
+|       |       |   |   |   |   protocol.py
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   region.py
+|       |       |   |   |   |   repr.py
+|       |       |   |   |   |   rule.py
+|       |       |   |   |   |   scope.py
+|       |       |   |   |   |   screen.py
+|       |       |   |   |   |   segment.py
+|       |       |   |   |   |   spinner.py
+|       |       |   |   |   |   status.py
+|       |       |   |   |   |   style.py
+|       |       |   |   |   |   styled.py
+|       |       |   |   |   |   syntax.py
+|       |       |   |   |   |   table.py
+|       |       |   |   |   |   terminal_theme.py
+|       |       |   |   |   |   text.py
+|       |       |   |   |   |   theme.py
+|       |       |   |   |   |   themes.py
+|       |       |   |   |   |   traceback.py
+|       |       |   |   |   |   tree.py
+|       |       |   |   |   |   _cell_widths.py
+|       |       |   |   |   |   _emoji_codes.py
+|       |       |   |   |   |   _emoji_replace.py
+|       |       |   |   |   |   _export_format.py
+|       |       |   |   |   |   _extension.py
+|       |       |   |   |   |   _fileno.py
+|       |       |   |   |   |   _inspect.py
+|       |       |   |   |   |   _log_render.py
+|       |       |   |   |   |   _loop.py
+|       |       |   |   |   |   _null_file.py
+|       |       |   |   |   |   _palettes.py
+|       |       |   |   |   |   _pick.py
+|       |       |   |   |   |   _ratio.py
+|       |       |   |   |   |   _spinners.py
+|       |       |   |   |   |   _stack.py
+|       |       |   |   |   |   _timer.py
+|       |       |   |   |   |   _win32_console.py
+|       |       |   |   |   |   _windows.py
+|       |       |   |   |   |   _windows_renderer.py
+|       |       |   |   |   |   _wrap.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   __main__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           abc.cpython-313.pyc
+|       |       |   |   |           align.cpython-313.pyc
+|       |       |   |   |           ansi.cpython-313.pyc
+|       |       |   |   |           bar.cpython-313.pyc
+|       |       |   |   |           box.cpython-313.pyc
+|       |       |   |   |           cells.cpython-313.pyc
+|       |       |   |   |           color.cpython-313.pyc
+|       |       |   |   |           color_triplet.cpython-313.pyc
+|       |       |   |   |           columns.cpython-313.pyc
+|       |       |   |   |           console.cpython-313.pyc
+|       |       |   |   |           constrain.cpython-313.pyc
+|       |       |   |   |           containers.cpython-313.pyc
+|       |       |   |   |           control.cpython-313.pyc
+|       |       |   |   |           default_styles.cpython-313.pyc
+|       |       |   |   |           diagnose.cpython-313.pyc
+|       |       |   |   |           emoji.cpython-313.pyc
+|       |       |   |   |           errors.cpython-313.pyc
+|       |       |   |   |           filesize.cpython-313.pyc
+|       |       |   |   |           file_proxy.cpython-313.pyc
+|       |       |   |   |           highlighter.cpython-313.pyc
+|       |       |   |   |           json.cpython-313.pyc
+|       |       |   |   |           jupyter.cpython-313.pyc
+|       |       |   |   |           layout.cpython-313.pyc
+|       |       |   |   |           live.cpython-313.pyc
+|       |       |   |   |           live_render.cpython-313.pyc
+|       |       |   |   |           logging.cpython-313.pyc
+|       |       |   |   |           markup.cpython-313.pyc
+|       |       |   |   |           measure.cpython-313.pyc
+|       |       |   |   |           padding.cpython-313.pyc
+|       |       |   |   |           pager.cpython-313.pyc
+|       |       |   |   |           palette.cpython-313.pyc
+|       |       |   |   |           panel.cpython-313.pyc
+|       |       |   |   |           pretty.cpython-313.pyc
+|       |       |   |   |           progress.cpython-313.pyc
+|       |       |   |   |           progress_bar.cpython-313.pyc
+|       |       |   |   |           prompt.cpython-313.pyc
+|       |       |   |   |           protocol.cpython-313.pyc
+|       |       |   |   |           region.cpython-313.pyc
+|       |       |   |   |           repr.cpython-313.pyc
+|       |       |   |   |           rule.cpython-313.pyc
+|       |       |   |   |           scope.cpython-313.pyc
+|       |       |   |   |           screen.cpython-313.pyc
+|       |       |   |   |           segment.cpython-313.pyc
+|       |       |   |   |           spinner.cpython-313.pyc
+|       |       |   |   |           status.cpython-313.pyc
+|       |       |   |   |           style.cpython-313.pyc
+|       |       |   |   |           styled.cpython-313.pyc
+|       |       |   |   |           syntax.cpython-313.pyc
+|       |       |   |   |           table.cpython-313.pyc
+|       |       |   |   |           terminal_theme.cpython-313.pyc
+|       |       |   |   |           text.cpython-313.pyc
+|       |       |   |   |           theme.cpython-313.pyc
+|       |       |   |   |           themes.cpython-313.pyc
+|       |       |   |   |           traceback.cpython-313.pyc
+|       |       |   |   |           tree.cpython-313.pyc
+|       |       |   |   |           _cell_widths.cpython-313.pyc
+|       |       |   |   |           _emoji_codes.cpython-313.pyc
+|       |       |   |   |           _emoji_replace.cpython-313.pyc
+|       |       |   |   |           _export_format.cpython-313.pyc
+|       |       |   |   |           _extension.cpython-313.pyc
+|       |       |   |   |           _fileno.cpython-313.pyc
+|       |       |   |   |           _inspect.cpython-313.pyc
+|       |       |   |   |           _log_render.cpython-313.pyc
+|       |       |   |   |           _loop.cpython-313.pyc
+|       |       |   |   |           _null_file.cpython-313.pyc
+|       |       |   |   |           _palettes.cpython-313.pyc
+|       |       |   |   |           _pick.cpython-313.pyc
+|       |       |   |   |           _ratio.cpython-313.pyc
+|       |       |   |   |           _spinners.cpython-313.pyc
+|       |       |   |   |           _stack.cpython-313.pyc
+|       |       |   |   |           _timer.cpython-313.pyc
+|       |       |   |   |           _win32_console.cpython-313.pyc
+|       |       |   |   |           _windows.cpython-313.pyc
+|       |       |   |   |           _windows_renderer.cpython-313.pyc
+|       |       |   |   |           _wrap.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           __main__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---tomli
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   _parser.py
+|       |       |   |   |   |   _re.py
+|       |       |   |   |   |   _types.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           _parser.cpython-313.pyc
+|       |       |   |   |           _re.cpython-313.pyc
+|       |       |   |   |           _types.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---truststore
+|       |       |   |   |   |   py.typed
+|       |       |   |   |   |   _api.py
+|       |       |   |   |   |   _macos.py
+|       |       |   |   |   |   _openssl.py
+|       |       |   |   |   |   _ssl_constants.py
+|       |       |   |   |   |   _windows.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           _api.cpython-313.pyc
+|       |       |   |   |           _macos.cpython-313.pyc
+|       |       |   |   |           _openssl.cpython-313.pyc
+|       |       |   |   |           _ssl_constants.cpython-313.pyc
+|       |       |   |   |           _windows.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   +---urllib3
+|       |       |   |   |   |   connection.py
+|       |       |   |   |   |   connectionpool.py
+|       |       |   |   |   |   exceptions.py
+|       |       |   |   |   |   fields.py
+|       |       |   |   |   |   filepost.py
+|       |       |   |   |   |   poolmanager.py
+|       |       |   |   |   |   request.py
+|       |       |   |   |   |   response.py
+|       |       |   |   |   |   _collections.py
+|       |       |   |   |   |   _version.py
+|       |       |   |   |   |   __init__.py
+|       |       |   |   |   |   
+|       |       |   |   |   +---contrib
+|       |       |   |   |   |   |   appengine.py
+|       |       |   |   |   |   |   ntlmpool.py
+|       |       |   |   |   |   |   pyopenssl.py
+|       |       |   |   |   |   |   securetransport.py
+|       |       |   |   |   |   |   socks.py
+|       |       |   |   |   |   |   _appengine_environ.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   +---_securetransport
+|       |       |   |   |   |   |   |   bindings.py
+|       |       |   |   |   |   |   |   low_level.py
+|       |       |   |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   |   
+|       |       |   |   |   |   |   \---__pycache__
+|       |       |   |   |   |   |           bindings.cpython-313.pyc
+|       |       |   |   |   |   |           low_level.cpython-313.pyc
+|       |       |   |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |   |           
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           appengine.cpython-313.pyc
+|       |       |   |   |   |           ntlmpool.cpython-313.pyc
+|       |       |   |   |   |           pyopenssl.cpython-313.pyc
+|       |       |   |   |   |           securetransport.cpython-313.pyc
+|       |       |   |   |   |           socks.cpython-313.pyc
+|       |       |   |   |   |           _appengine_environ.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---packages
+|       |       |   |   |   |   |   six.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   +---backports
+|       |       |   |   |   |   |   |   makefile.py
+|       |       |   |   |   |   |   |   weakref_finalize.py
+|       |       |   |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   |   
+|       |       |   |   |   |   |   \---__pycache__
+|       |       |   |   |   |   |           makefile.cpython-313.pyc
+|       |       |   |   |   |   |           weakref_finalize.cpython-313.pyc
+|       |       |   |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |   |           
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           six.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   +---util
+|       |       |   |   |   |   |   connection.py
+|       |       |   |   |   |   |   proxy.py
+|       |       |   |   |   |   |   queue.py
+|       |       |   |   |   |   |   request.py
+|       |       |   |   |   |   |   response.py
+|       |       |   |   |   |   |   retry.py
+|       |       |   |   |   |   |   ssltransport.py
+|       |       |   |   |   |   |   ssl_.py
+|       |       |   |   |   |   |   ssl_match_hostname.py
+|       |       |   |   |   |   |   timeout.py
+|       |       |   |   |   |   |   url.py
+|       |       |   |   |   |   |   wait.py
+|       |       |   |   |   |   |   __init__.py
+|       |       |   |   |   |   |   
+|       |       |   |   |   |   \---__pycache__
+|       |       |   |   |   |           connection.cpython-313.pyc
+|       |       |   |   |   |           proxy.cpython-313.pyc
+|       |       |   |   |   |           queue.cpython-313.pyc
+|       |       |   |   |   |           request.cpython-313.pyc
+|       |       |   |   |   |           response.cpython-313.pyc
+|       |       |   |   |   |           retry.cpython-313.pyc
+|       |       |   |   |   |           ssltransport.cpython-313.pyc
+|       |       |   |   |   |           ssl_.cpython-313.pyc
+|       |       |   |   |   |           ssl_match_hostname.cpython-313.pyc
+|       |       |   |   |   |           timeout.cpython-313.pyc
+|       |       |   |   |   |           url.cpython-313.pyc
+|       |       |   |   |   |           wait.cpython-313.pyc
+|       |       |   |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |   |           
+|       |       |   |   |   \---__pycache__
+|       |       |   |   |           connection.cpython-313.pyc
+|       |       |   |   |           connectionpool.cpython-313.pyc
+|       |       |   |   |           exceptions.cpython-313.pyc
+|       |       |   |   |           fields.cpython-313.pyc
+|       |       |   |   |           filepost.cpython-313.pyc
+|       |       |   |   |           poolmanager.cpython-313.pyc
+|       |       |   |   |           request.cpython-313.pyc
+|       |       |   |   |           response.cpython-313.pyc
+|       |       |   |   |           _collections.cpython-313.pyc
+|       |       |   |   |           _version.cpython-313.pyc
+|       |       |   |   |           __init__.cpython-313.pyc
+|       |       |   |   |           
+|       |       |   |   \---__pycache__
+|       |       |   |           typing_extensions.cpython-313.pyc
+|       |       |   |           __init__.cpython-313.pyc
+|       |       |   |           
+|       |       |   \---__pycache__
+|       |       |           __init__.cpython-313.pyc
+|       |       |           __main__.cpython-313.pyc
+|       |       |           __pip-runner__.cpython-313.pyc
+|       |       |           
+|       |       \---pip-24.3.1.dist-info
+|       |               AUTHORS.txt
+|       |               entry_points.txt
+|       |               INSTALLER
+|       |               LICENSE.txt
+|       |               METADATA
+|       |               RECORD
+|       |               REQUESTED
+|       |               top_level.txt
+|       |               WHEEL
+|       |               
+|       \---Scripts
+|               activate
+|               activate.bat
+|               activate.fish
+|               Activate.ps1
+|               deactivate.bat
+|               pip.exe
+|               pip3.13.exe
+|               pip3.exe
+|               python.exe
+|               pythonw.exe
+|               
++---tmp
+|       out.md
+|       readme.md
+|       
+\---wip
+    +---manette_ir
+    |   |   readme.md
+    |   |   
+    |   \---assets
+    |           couch_potato.png
+    |           infrared-ir-receiver-module.jpg
+    |           ir-receiver.jpg
+    |           IR-Remote-KIT-PIC-1-1.jpg
+    |           irsignal.gif
+    |           ir_exemple.gif
+    |           ledflash.gif
+    |           receiver_wiring.png
+    |           
+    \---PIR
+        |   readme.md
+        |   
+        \---assets
+                Arduino-Wiring-Fritzing-Connections-with-PIR-Sensor.webp
+                Fresnel-Lens-Working.webp
+                HC-SR501-PIR-Sensor-with-Lens.jpg
+                hc-sr501.jpg
+                hc-sr501_back.jpg
+                hc-sr501_calib.jpg
+                HCSR501-PIR-Sensor-Sensitivity-Adjustment.jpg
+                HCSR501-PIR-Sensor-Time-Delay-Adjustment.jpg
+                Passive-Infrared-PIR-Sensor-Pinout-Diagram.png
+                PIR-Sensor-Detection-Zone-Areas-Pattern.webp
+                PIR-Sensor-Working-Animation-Differential-Output.gif
+                PIR-Sensor-Working-Pyroelectric-Sensor-Two-Detection-Slots.webp
+                Project-Interfacing-Passive-Infrared-PIR-Sensor-with-Arduino-Uno.webp
+                
+

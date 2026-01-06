@@ -1,0 +1,7 @@
+site_name: 0SX - Notes de cours
+theme:
+  name: material
+  language: fr
+
+nav:
+  - Accueil: index.md
