@@ -37,7 +37,7 @@ nav:
     - Le capteur d'humidité et de température DHT11: c06/c06c_dht11/index.md
     - Le capteur de distance: c06/c06d_hcsr04/index.md
   - Cours 07:
-    - index: c07/index.md
+    - Index: c07/index.md
     - Servo moteur: c07/c07a_servo/index.md
     - Machine à états: c07/c07b_fsm/index.md
     - Communication I2C: c07/c07c_i2c/index.md
@@ -48,9 +48,12 @@ nav:
     - POO de base: c08/c08b_poo_base/index.md
     - Unité de puissance: c08/c08c_psu/index.md
   - Cours 09:
-    - index: c09/index.md
+    - Index: c09/index.md
     - Moteur DC: c09/c09a_moteur_dc/index.md
     - Retour sur la machine à états: c09/c09b_fsm_revisited/index.md
-  - Cours 10: c10/index.md
+  - Cours 10:
+    - Index: c10/index.md
+    - Refactorisation: c10/c10a_refactorisation/index.md
+    - Matrice de LED: c10/c10b_max7219/index.md
   - Cours 11: c11/index.md
   - Cours 12: c12/index.md    
