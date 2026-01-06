@@ -168,6 +168,8 @@ void blinkLed2() {
 
 Voici un comparatif de l'exemple initiale et de l'exemple final:
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
     <tr  style="vertical-align:top">
         <th>Exemple initial</th>

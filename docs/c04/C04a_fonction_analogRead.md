@@ -84,56 +84,57 @@ void loop() {
 ### Sélection de DEL
 Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branché sur la broche A0 et allume une DEL en fonction de la valeur lue.
 
-<table>
-  <tr>
-    <td>
-      <img src="assets/pot_exemple_DEL.gif" />
-    </td>
-    <td>
+<div class="grid" markdown>
 
-  ```cpp
-  const int ledPins[] = {2, 3, 4, 5};  // Tableau des numéros de broches
-  int potentiometerPin = A0;           
-  int potentiometerValue = 0;          
-  int ledIndex = 0;                   // Index du DEL allume
+<div markdown>
+![](assets/pot_exemple_DEL.gif){ width="100%" }
+</div>
 
-  void setup() {
-    Serial.begin(9600);
-    for (int i = 0; i < 4; i++) {
-      // Initialisation des DEL en sortie
-      pinMode(ledPins[i], OUTPUT); 
-    }
+<div markdown>
+
+```cpp
+const int ledPins[] = {2, 3, 4, 5};  // Tableau des numéros de broches
+int potentiometerPin = A0;           
+int potentiometerValue = 0;          
+int ledIndex = 0;                   // Index du DEL allume
+
+void setup() {
+  Serial.begin(9600);
+  for (int i = 0; i < 4; i++) {
+    // Initialisation des DEL en sortie
+    pinMode(ledPins[i], OUTPUT); 
   }
+}
 
-  void loop() {
-    potentiometerValue = analogRead(potentiometerPin);
-    
-    if (potentiometerValue < 256) {
-      digitalWrite(ledPins[0], HIGH);
-      digitalWrite(ledPins[1], LOW);
-      digitalWrite(ledPins[2], LOW);
-      digitalWrite(ledPins[3], LOW);
-    } else if (potentiometerValue < 512) {
-      digitalWrite(ledPins[0], LOW);
-      digitalWrite(ledPins[1], HIGH);
-      digitalWrite(ledPins[2], LOW);
-      digitalWrite(ledPins[3], LOW);
-    } else if (potentiometerValue < 768) {
-      digitalWrite(ledPins[0], LOW);
-      digitalWrite(ledPins[1], LOW);
-      digitalWrite(ledPins[2], HIGH);
-      digitalWrite(ledPins[3], LOW);
-    } else {
-      digitalWrite(ledPins[0], LOW);
-      digitalWrite(ledPins[1], LOW);
-      digitalWrite(ledPins[2], LOW);
-      digitalWrite(ledPins[3], HIGH);
-    }
+void loop() {
+  potentiometerValue = analogRead(potentiometerPin);
+  
+  if (potentiometerValue < 256) {
+    digitalWrite(ledPins[0], HIGH);
+    digitalWrite(ledPins[1], LOW);
+    digitalWrite(ledPins[2], LOW);
+    digitalWrite(ledPins[3], LOW);
+  } else if (potentiometerValue < 512) {
+    digitalWrite(ledPins[0], LOW);
+    digitalWrite(ledPins[1], HIGH);
+    digitalWrite(ledPins[2], LOW);
+    digitalWrite(ledPins[3], LOW);
+  } else if (potentiometerValue < 768) {
+    digitalWrite(ledPins[0], LOW);
+    digitalWrite(ledPins[1], LOW);
+    digitalWrite(ledPins[2], HIGH);
+    digitalWrite(ledPins[3], LOW);
+  } else {
+    digitalWrite(ledPins[0], LOW);
+    digitalWrite(ledPins[1], LOW);
+    digitalWrite(ledPins[2], LOW);
+    digitalWrite(ledPins[3], HIGH);
   }
-  ```
-  </td>
-  </tr>
-</table>
+}
+```
+
+</div>
+</div>
 
 > Question : Comment pourrait-on améliorer cet exemple sans utiliser de conditionnelles?
 

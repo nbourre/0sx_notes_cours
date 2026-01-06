@@ -14,45 +14,27 @@ Voici le code de base pour faire clignoter une LED branchée sur la broche 13 de
 
 Nous allons nous y référer pour étudier les fonctions de base.
 
-<table>
-<tr>
-<td>
+<div class="grid cards" markdown>
 
-**Code**
-</td>
-<td>
+- **Code**
+  ```cpp
+  int led = 13;
 
-**Résultat**
-</td>
-</tr>
-<tr>
-<td>
+  void setup() {
+    pinMode(led, OUTPUT);
+  }
 
-```cpp
-int led = 13;
+  void loop() {
+    digitalWrite(led, HIGH);
+    delay(1000);
+    digitalWrite(led, LOW);
+    delay(1000);
+  }
 
-void setup() {
-  pinMode(led, OUTPUT);
-}
+- **Résultat**
+  ![Alt text](assets/c02_blink.gif)
 
-void loop() {
-  digitalWrite(led, HIGH);
-  delay(1000);
-  digitalWrite(led, LOW);
-  delay(1000);
-}
-```
-</td>
-<td>
-
-![Alt text](assets/c02_blink.gif)
-
-</td>
-
-</tr>
-
-
-</table>
+</div>
 
 ---
 
@@ -225,50 +207,31 @@ La fonction `Serial.println()` ajoute un retour à la ligne à la fin du message
 
 Voici un exemple de code qui utilise les fonctions `Serial.print()` et `Serial.println()` :
 
-<table>
-<tr>
-<td>
+<div class="grid cards" markdown>
 
-**Code**
-</td>
-<td>
+- **Code**
+  ```cpp
+  void setup() {
+    // Initialisation du port
+    // série à 9600 baud
+    Serial.begin(9600);
+  }
 
-**Résultat**
-</td>
-</tr>
-<tr>
-<td>
+  int counter = 0;
+  void loop() {
+    Serial.print("Boucle : ");
+    Serial.println(counter);
+    counter++;
 
-```cpp
+    // Délai pour ne pas ralentir le µC
+    delay(500);
+  }
+  ```
 
-void setup() {
-  // Initialisation du port
-  // série à 9600 baud
-  Serial.begin(9600);
-}
+- **Résultat**
+  ![Alt text](assets/ex_serial_print.gif)
 
-int counter = 0;
-void loop() {
-  Serial.print("Boucle : ");
-  Serial.println(counter);
-  counter++;
-
-  // Délai pour ne pas ralentir le µC
-  delay(500);
-}
-
-```
-</td>
-<td>
-
-![Alt text](assets/ex_serial_print.gif)
-
-</td>
-
-</tr>
-
-
-</table>
+</div>
 
 > **Note**
 > 

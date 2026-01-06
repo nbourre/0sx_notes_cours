@@ -17,6 +17,8 @@ Les pointeurs sont l'une des caractéristiques les plus puissantes et distinctiv
 
 Un pointeur est une variable qui stocke l'adresse mémoire d'une autre variable. En d'autres termes, un pointeur "pointe" vers l'emplacement où une autre variable est stockée en mémoire. Les pointeurs sont souvent utilisés pour accéder à des variables et des objets de manière indirecte, ce qui peut faciliter le passage d'informations entre les fonctions et la manipulation de structures de données.
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table width="300" align="center">
 <tr>
 <td>

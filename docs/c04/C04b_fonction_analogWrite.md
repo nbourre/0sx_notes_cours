@@ -23,6 +23,8 @@ Le PWM peut être utilisé à différentes fins. Il peut être utilisé pour fai
 
 Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur la broche 9.
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
     <tr>
         <td>

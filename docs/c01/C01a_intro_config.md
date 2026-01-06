@@ -127,32 +127,25 @@ Dans ce cours, nous allons nous concentrer sur l'**Arduino Mega** qui est un Ard
 
 Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles Arduino que vous pourriez vouloir !
 
-<table>
-  <tr>
-    <td>
-      <img src="assets/arduino_50-07.jpg"/>
-    </td>
-    <td>L'Arduino UNO est un classique, elle est de loin la plus populaire. Elle est basique et bien supportée.</td>
-  </tr>
-  <tr>
-    <td>
-      <img src="assets/arduino_micro.jpg"/>
-    </td>
-    <td>L'Arduino Micro, par contre... est un peu plus petit! Il a une puce Atmega32u4 différente qui peut faire de l'USB natif et peut donc agir comme un clavier ou une souris. Il est fin et possède des connecteurs à broche descendante pour pouvoir le brancher sur une planche à pain.</td>
-  </tr>
-  <tr>
-    <td>
-      <img src="assets/arduino_mkr1000.jpg"/>
-    </td>
-    <td>L'Arduino MKR1000 ressemble un peu à un Arduino Micro mais possède une puce ATSAM ARM 32 bits plus puissante et un WiFi intégré! Une excellente mise à niveau pour les projets liés à l'Internet des objets.</td>
-  </tr>
-  <tr>
-    <td>
-      <img src="assets/arduino_flora.png"/>
-    </td>
-    <td>Il y a aussi les Arduino-compatibles comme le Flora qui est fabriqué par Adafruit. C'est un Arduino rond et portable et plutôt que d'utiliser des fils, vous pouvez le coudre dans les vêtements pour des projets électroniques portables.</td>
-  </tr>
-</table>
+<div class="grid cards" markdown>
+
+- ![](assets/arduino_50-07.jpg)
+  **Arduino UNO**  
+  Carte la plus populaire. Basique, robuste et très bien supportée.
+
+- ![](assets/arduino_micro.jpg)
+  **Arduino Micro**  
+  ATmega32U4 avec USB natif. Compact et parfait pour breadboard.
+
+- ![](assets/arduino_mkr1000.jpg)
+  **Arduino MKR1000**  
+  ARM 32 bits avec Wi-Fi intégré, idéale pour l’IoT.
+
+- ![](assets/arduino_flora.png)
+  **Arduino Flora**  
+  Carte portable et cousable pour projets textiles.
+</div>
+
 
 ### Raspberry Pi
 Certains d'entre vous ont peut-être déjà entendu parler du Raspberry Pi ou même en possèdent un. Toutefois, il s'agit d'un tout autre type de carte que l'Arduino.

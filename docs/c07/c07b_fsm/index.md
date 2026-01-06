@@ -626,6 +626,8 @@ Bon codage à toutes et tous !
 
 Voici un exemple simple qui gère le temps d'allumages d'un système de feux de circulation.
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
 <tr>
 <td>

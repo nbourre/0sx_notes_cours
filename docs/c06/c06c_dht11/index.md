@@ -15,6 +15,8 @@ Il y a deux modèles fréquent de DHT-11. Les deux possèdent 3 broches, mais l'
 
 <a id="dht11" />
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
   <tr>
     <th>DHT-11</th>

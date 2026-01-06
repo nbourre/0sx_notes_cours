@@ -241,6 +241,8 @@ des différences physiques qui vous permettent de différencier le côté
 positif et le côté négatif. Le tableau ci-dessous vous permettra de les
 repérer facilement.
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
 <colgroup>
 <col style="width: 39%" />

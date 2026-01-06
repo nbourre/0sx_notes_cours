@@ -80,6 +80,8 @@ Ce bout de code est assez similaire au premier morceau, sauf qu'il ne bloque pas
 
 **Exercice** : Copiez ce code et envoyez-le à votre carte Arduino. Qu'observez-vous ?
 
+TODO: Convertir en div avec grid voir cours 02
+
 <table>
 <tr>
 <th>Code</th>
