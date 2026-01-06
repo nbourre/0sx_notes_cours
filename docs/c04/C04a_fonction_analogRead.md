@@ -60,7 +60,8 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
   <tr>
     <td>
     
-    ![alt text](assets/pot_exemple_bas.gif)
+
+    <img src="assets/pot_exemple_bas.gif" />
     
     </td>
     <td>

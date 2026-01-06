@@ -51,6 +51,7 @@ Branchement de la photorésistance sur l'Arduino Mega
 ## Calcul de la valeur moyenne d'un signal
 Pour calculer la valeur moyenne d'un signal, il faut faire la moyenne des valeurs lues sur un certain nombre de points. Par exemple, si on veut calculer la valeur moyenne de la tension mesurée par une photorésistance, on peut lire la valeur de la tension 10 fois et faire la moyenne des 10 valeurs lues.
 
+
 ```cpp
 unsigned long currentTime = 0;
 
@@ -116,6 +117,7 @@ void serialPrintTask() {
 }
 
 ```
+
 ---
 
 ## Exercice

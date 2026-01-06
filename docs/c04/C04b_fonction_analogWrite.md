@@ -60,7 +60,7 @@ void loop() {
 </td>
 <td>
 
-![alt text](assets/C04_pwm_output.gif)
+<img src="assets/C04_pwm_output.gif" />
 
 </td>
 </tr>
