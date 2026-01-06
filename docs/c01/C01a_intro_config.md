@@ -129,19 +129,27 @@ Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles
 
 <table>
   <tr>
-    <td><img src="assets/arduino_50-07.jpg"/></td>
+    <td>
+      <img src="assets/arduino_50-07.jpg"/>
+    </td>
     <td>L'Arduino UNO est un classique, elle est de loin la plus populaire. Elle est basique et bien supportée.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_micro.jpg"/></td>
+    <td>
+      <img src="assets/arduino_micro.jpg"/>
+    </td>
     <td>L'Arduino Micro, par contre... est un peu plus petit! Il a une puce Atmega32u4 différente qui peut faire de l'USB natif et peut donc agir comme un clavier ou une souris. Il est fin et possède des connecteurs à broche descendante pour pouvoir le brancher sur une planche à pain.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_mkr1000.jpg"/></td>
+    <td>
+      <img src="assets/arduino_mkr1000.jpg"/>
+    </td>
     <td>L'Arduino MKR1000 ressemble un peu à un Arduino Micro mais possède une puce ATSAM ARM 32 bits plus puissante et un WiFi intégré! Une excellente mise à niveau pour les projets liés à l'Internet des objets.</td>
   </tr>
   <tr>
-    <td><img src="assets/arduino_flora.png"/></td>
+    <td>
+      <img src="assets/arduino_flora.png"/>
+    </td>
     <td>Il y a aussi les Arduino-compatibles comme le Flora qui est fabriqué par Adafruit. C'est un Arduino rond et portable et plutôt que d'utiliser des fils, vous pouvez le coudre dans les vêtements pour des projets électroniques portables.</td>
   </tr>
 </table>

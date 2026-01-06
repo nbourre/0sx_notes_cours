@@ -250,7 +250,9 @@ repérer facilement.
 <thead>
 <tr class="header">
 <th><strong>Anode (+)</strong></th>
-<th rowspan="2"><img src="media/image22.png"/>(1)</th>
+<th rowspan="2">
+<img src="media/image22.png"/>(1)
+</th>
 <th><strong>Cathode (-)</strong></th>
 </tr>
 <tr class="odd">

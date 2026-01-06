@@ -58,7 +58,11 @@ void loop() {
 ```
 
 </td>
-<td><img src="assets/C04_pwm_output.gif"></td>
+<td>
+
+![alt text](assets/C04_pwm_output.gif)
+
+</td>
 </tr>
 </table>
 

@@ -58,7 +58,11 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
 
 <table>
   <tr>
-    <td><img src="assets/pot_exemple_bas.gif" /></td>
+    <td>
+    
+    ![alt text](assets/pot_exemple_bas.gif)
+    
+    </td>
     <td>
 
   ```cpp
@@ -84,7 +88,9 @@ Voici un exemple de code qui lit la valeur analogique d'un potentiomètre branch
 
 <table>
   <tr>
-    <td><img src="assets/pot_exemple_DEL.gif" /></td>
+    <td>
+      <img src="assets/pot_exemple_DEL.gif" />
+    </td>
     <td>
 
   ```cpp
