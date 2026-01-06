@@ -10,6 +10,7 @@ nav:
     - Configuration de l'environnement de travail: c01/C01a_intro_config.md
     - Introduction à la programmation: c01/C01b_intro_prog.md
   - Cours 02:
+    - Index: c02/index.md
     - Fonctions de communication: c02/C02_fonctions_comm.md
     - Exercices pratiques: c02/C02_fonctions_comm_exo.md
   - Cours 03: 
@@ -19,7 +20,7 @@ nav:
     - Résistance de rappel: c03/C03b_resistance_de_rappel.md
     - Programmation sans délai: c03/C03c_sans_delai.md
     - Programmation anti-rebond: c03/C03d_logique_antirebond.md
-    - Exercices pratiques: c03/C03_pratiques.md
+    - Exercices pratiques: c03/C03e_exercices.md
   - Cours 04:
     - Index: c04/index.md
     - Fonction `analogRead()`: c04/C04a_fonction_analogRead.md
