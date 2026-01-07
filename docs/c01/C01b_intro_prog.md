@@ -494,6 +494,11 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 #### Défi
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
 
-https://user-images.githubusercontent.com/2332679/210662345-958f0043-521b-4025-aea2-3f0cf3fe7d0e.mp4
+<video controls muted playsinline style="max-width: 100%; height: auto;">
+  <source src="assets/c01_ex01.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
+<!-- https://user-images.githubusercontent.com/2332679/210662345-958f0043-521b-4025-aea2-3f0cf3fe7d0e.mp4 -->
 
 
