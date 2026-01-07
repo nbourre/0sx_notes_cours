@@ -294,7 +294,9 @@ void loop() {
 ---
 
 #### 2️⃣ Variables locales
-✅ **Définition** :  
+
+✅ **Définition** :
+
 - Déclarées **à l’intérieur d’une fonction**.
 - **Inaccessibles en dehors** de cette fonction.
 - **Réinitialisées à chaque appel** de la fonction.
@@ -318,6 +320,7 @@ void loop() {
 
 #### 3️⃣ Variables statiques
 ✅ **Définition** :  
+
 - Déclarées **dans une fonction avec `static`**.
 - **Conservent leur valeur** entre les appels de la fonction.
 - **Accessibles uniquement dans la fonction où elles sont déclarées**.
@@ -376,6 +379,7 @@ void loop() {
 ```
 
 📝 **Explication des résultats attendus :**
+
 | Type de variable  | Évolution |
 |-------------------|-----------|
 | `variableGlobale`  | Incrémente à chaque cycle de `loop()` |
@@ -414,9 +418,10 @@ void boutonClic() {
 ---
 
 ### ✅ Bonnes pratiques
-✔ **Privilégier les variables locales** pour éviter les conflits et améliorer la clarté du code.  
-✔ **Utiliser `static`** quand une valeur doit être conservée entre appels sans être globale.  
-✔ **Limiter les variables globales** aux cas où elles sont vraiment nécessaires (ex. : timers, état général).  
+
+- **Privilégier les variables locales** pour éviter les conflits et améliorer la clarté du code.  
+- **Utiliser `static`** quand une valeur doit être conservée entre appels sans être globale.  
+- **Limiter les variables globales** aux cas où elles sont vraiment nécessaires (ex. : timers, état général).  
 
 ---
 
