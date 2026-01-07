@@ -37,7 +37,7 @@ Il s'agit d'un outil **primordial pour les développeurs**. Vous devrez l'utilis
 Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
 <video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="assets/git_installation.mp4" type="video/mp4">
+  <source src="../assets/git_installation.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la vidéo.
 </video>
 

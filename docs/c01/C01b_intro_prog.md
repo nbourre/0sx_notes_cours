@@ -436,7 +436,7 @@ Simuler un projet sur un simulateur avant d'effectuer les branchements physiques
 Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
 
 <video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="assets/wokwi_new_project.mp4" type="video/mp4">
+  <source src="../assets/wokwi_new_project.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la vidéo.
 </video>
 
@@ -500,7 +500,7 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 - Créez un programme qui fait clignoter la LED 2 fois dans une seconde. Ensuite, faire un graduation 100% vers 0% sur 1 seconde. Et recommencer.
 
 <video controls muted playsinline style="max-width: 100%; height: auto;">
-  <source src="assets/c01_ex01.mp4" type="video/mp4">
+  <source src="../assets/c01_ex01.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la vidéo.
 </video>
 
