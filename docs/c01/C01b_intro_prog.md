@@ -430,9 +430,12 @@ Simuler un projet sur un simulateur avant d'effectuer les branchements physiques
 ### Créer un projet
 Pour créer un projet, il suffit d'aller dans le bas de la page dans la section "Start from scratch" et de cliquer sur la carte Arduino que l'on souhaite utiliser. Dans notre cas, il s'agira du Arduino Mega.
 
-<!-- <video src="wokwi_new_project.mp4" width=640></video> -->
+<video controls muted playsinline style="max-width: 100%; height: auto;">
+  <source src="assets/wokwi_new_project.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
 
-https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8242-067902a302e1.mp4
+<!-- https://user-images.githubusercontent.com/2332679/210601281-1ecd0f4e-a510-4571-8242-067902a302e1.mp4 -->
 
 ---
 

@@ -25,15 +25,15 @@ extra_javascript:
 nav:
   - Accueil: index.md
   - Cours 01:
-    - Index: c01/index.md
+    - Résumé: c01/index.md
     - Configuration de l'environnement de travail: c01/C01a_intro_config.md
     - Introduction à la programmation: c01/C01b_intro_prog.md
   - Cours 02:
-    - Index: c02/index.md
+    - Résumé: c02/index.md
     - Fonctions de communication: c02/C02_fonctions_comm.md
     - Exercices pratiques: c02/C02_fonctions_comm_exo.md
   - Cours 03: 
-    - Index: c03/index.md
+    - Résumé: c03/index.md
     - Branchements de base: c03/C03a_branchement_base.md
     - Branchements exercices: c03/C03a_branchement_base_exo.md
     - Résistance de rappel: c03/C03b_resistance_de_rappel.md
@@ -41,41 +41,41 @@ nav:
     - Programmation anti-rebond: c03/C03d_logique_antirebond.md
     - Exercices pratiques: c03/C03e_exercices.md
   - Cours 04:
-    - Index: c04/index.md
+    - Résumé: c04/index.md
     - Fonction `analogRead()`: c04/C04a_fonction_analogRead.md
     - Fonction `analogWrite()`: c04/C04b_fonction_analogWrite.md
     - Traceur série: c04/C04c_traceur_serie.md
     - Exercices pratiques: c04/C04x_exercices.md
   - Cours 05:
-    - Index: c05/index.md
+    - Résumé: c05/index.md
     - Composants analogiques: c05/c05a_analog/index.md
     - Programmation en tâche: c05/c05b_taches/index.md
   - Cours 06:
-    - Index: c06/index.md
+    - Résumé: c06/index.md
     - Les librairies: c06/c06a_lib/index.md
     - L'écran LCD 1602: c06/c06b_lcd/index.md
     - Le capteur d'humidité et de température DHT11: c06/c06c_dht11/index.md
     - Le capteur de distance: c06/c06d_hcsr04/index.md
   - Cours 07:
-    - Index: c07/index.md
+    - Résumé: c07/index.md
     - Servo moteur: c07/c07a_servo/index.md
     - Machine à états: c07/c07b_fsm/index.md
     - Communication I2C: c07/c07c_i2c/index.md
     - Moteur pas à pas: c07/c07d_stepper/index.md
   - Cours 08:
-    - Index: c08/index.md
+    - Résumé: c08/index.md
     - Comm. série lecture: c08/c08a_serial_read/index.md
     - POO de base: c08/c08b_poo_base/index.md
     - Unité de puissance: c08/c08c_psu/index.md
   - Cours 09:
-    - Index: c09/index.md
+    - Résumé: c09/index.md
     - Moteur DC: c09/c09a_moteur_dc/index.md
     - Retour sur la machine à états: c09/c09b_fsm_revisited/index.md
   - Cours 10:
-    - Index: c10/index.md
+    - Résumé: c10/index.md
     - Refactorisation: c10/c10a_refactorisation/index.md
     - Matrice de LED: c10/c10b_max7219/index.md
   - Cours 11:
-    - Index: c11/index.md
+    - Résumé: c11/index.md
     - Wifi: c11/c11a_wifi/index.md
   - Cours 12 - MQTT: c12/index.md

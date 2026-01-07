@@ -36,7 +36,11 @@ Il s'agit d'un outil **primordial pour les développeurs**. Vous devrez l'utilis
 
 Vous pouvez le télécharger [**ici**](https://git-scm.com/).
 
-https://github.com/user-attachments/assets/80e18aa8-df44-4598-b647-29d3efd276d4
+<video controls muted playsinline style="max-width: 100%; height: auto;">
+  <source src="assets/git_installation.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la vidéo.
+</video>
+
 
 ## Compte GitHub
 Si vous n'en n'avez pas encore, vous devez créer un compte GitHub. Vous pouvez le faire [**ici**](https://github.com/).
@@ -272,10 +276,11 @@ Ainsi, dans le cadre de vos cours en robotique et systèmes embarqués, l’appr
 
 ### Achat
 Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage et d'un ordinateur. Voici les liens pour acheter les items requis sur Amazon:
+
 - [Arduino Mega](https://a.co/d/5wpBN96).
 - [Plaque de support pour Arduino](https://a.co/d/fz2aTpk).
-  - [Modèle alternatif A](https://a.co/d/cIoFSkc)
-  - [Modèle alternatif B](https://a.co/d/6WJCW0G) : Ce modèle vient avec du matériel pour le Raspberry Pi.
+  - [Modèle alternatif](https://a.co/d/cIoFSkc)
+  - [Recherche](https://www.amazon.ca/s?k=rab+holder&i=electronics&crid=3M2ONCQS25WZH&sprefix=rab+holder%2Celectronics%2C153&ref=nb_sb_noss_1) : Il s'aigt d'un recherche générale sur Amazon. Prenez un modèle avec **livraison rapide**.
 
 ---
 
@@ -297,7 +302,9 @@ Pour ce cours, vous aurez besoin d'un kit d'Arduino Mega sur plaque de montage e
 4. Combien de broches analogiques y a-t-il sur une carte Arduino Mega?
 5. Nommez 2 logiciels qui peuvent être utilisés pour programmer une carte Arduino?
 
-<details><summary>Réponses</summary>
+
+<details markdown>
+<summary>Réponses</summary>
 
 1. Le rpi est plus puissant et peut donc faire plus de choses. Il est aussi plus facile de le connecter à un écran et à un clavier. Il vient avec un système d'exploitation. Il vient avec les connexions réseaux.
 2. L'Arduino est moins cher. L'Arduino est plus économique en énergie. L'Arduino est plus petit et plus facile à transporter. L'Arduino est plus facile à programmer.
