@@ -1,7 +1,15 @@
 site_name: Développement de systèmes embarqués (420-0SX - Cégep de Shawinigan)
+site_url: https://nbourre.github.io/0sx_notes_cours/
 theme:
   name: material
   language: fr
+  features:
+    - search.suggest
+    - search.highlight
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.top
+
 
 markdown_extensions:
   - admonition
