@@ -11,6 +11,7 @@ Bienvenue dans le cours de développement de systèmes embarqués (420-0SX-SW). 
 
 ### Les grandes lignes du cours
 Ce cours a pour but d'initier l'étudiant à la programmation de système embarqué et plus précisément à la programmation de microcontrôleur. Le microcontrôleur utilisé sera le ATMega2560 d'Atmel sur un Arduino Mega. Le cours couvrira les aspects suivants:
+
 - Initiation à la programmation en C/C++ sur Arduino
 - Éléctronique de base adaptée à la programmation de microcontrôleur
 - Montage de circuits électroniques sur cartes de prototypage (*breadboard*)
