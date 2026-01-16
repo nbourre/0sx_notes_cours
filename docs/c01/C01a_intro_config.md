@@ -7,7 +7,7 @@
 Pour avoir accès à certaines de mes notes ou évaluations, vous devrez avoir un compte Moodle et être inscrit à mon cours.
 
 - **Lien vers le cours** : [Moodle](https://ena.cshawi.ca/course/view.php?id=19)
-- **Code pour le cours** : `Groupe1!` (lundi pm) ou `Groupe2!` (mardi am)
+- **Code pour le cours** : `Groupe1!` (Nicolas) ou `Groupe2!` (Maude-Amélie)
 
 <!-- #### Teams
 Pour avoir accès à certaines de mes notes Office, vous devez être dans le Teams du cours.
