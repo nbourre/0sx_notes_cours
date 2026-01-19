@@ -174,6 +174,7 @@ Nous sommes rendu à la 5e version du rpi.
 Il existe des milliers de microcontrôleurs différents sur le marché. Chacun a ses propres avantages et inconvénients. Certains sont plus puissants, d'autres sont plus petits, d'autres sont plus économes en énergie, etc.
 
 Pour les débutants et hobbyistes, on retrouve souvent les microcontrôleurs suivants :
+
 - **ESP32** : Il s'agit d'un microcontrôleur plus puissant que l'ESP8266. Il possède un module WiFi et Bluetooth intégré. On le retrouve souvent dans les appareils connectés.
 - **RP2040** : Il s'agit du microcontrôleur du Raspberry Pi Pico. Il est très puissant et peu coûteux.
 
@@ -188,18 +189,21 @@ Les termes **microprocesseur** et **microcontrôleur** sont souvent utilisés de
 #### Microprocesseur (CPU)
 Un **microprocesseur** est un circuit intégré servant d’unité centrale de traitement (**CPU**) pour un ordinateur ou un système embarqué. Il exécute des instructions en effectuant des opérations arithmétiques et logiques sur des données numériques.
 
-- **Caractéristiques** :
+**Caractéristiques** :
+
   - Nécessite des composants externes pour fonctionner (RAM, ROM, interfaces d'entrée/sortie).
   - Hautes performances, capable d’exécuter plusieurs tâches simultanément.
   - Présent dans les **ordinateurs**, **serveurs**, **tablettes**, et **smartphones**.
 
 #### Microcontrôleur (MCU)
 Un **microcontrôleur** est un système intégré sur une seule puce qui regroupe :
+
 - Un processeur.
 - De la mémoire (RAM et ROM).
 - Des interfaces d'entrée/sortie.
 
-- **Caractéristiques** :
+**Caractéristiques** :
+
   - Conçu pour exécuter une tâche **spécifique** en temps réel.
   - Intégration optimisée pour des applications autonomes.
   - Utilisé dans les **appareils embarqués** comme les **machines à laver**, **robots**, **systèmes de contrôle industriel**.
@@ -222,27 +226,27 @@ Un **microcontrôleur** est un système intégré sur une seule puce qui regroup
 
 #### 2. Gestion de la mémoire
 - **Microprocesseur** :
-  - Dépend d’une mémoire **externe** (RAM, ROM, SSD, etc.).
-  - Permet une **grande flexibilité** dans la gestion des ressources.
+    - Dépend d’une mémoire **externe** (RAM, ROM, SSD, etc.).
+    - Permet une **grande flexibilité** dans la gestion des ressources.
 - **Microcontrôleur** :
-  - Mémoire **intégrée**, souvent limitée à quelques **Ko à Mo**.
-  - L’accès mémoire est plus rapide grâce à son **intégration sur la puce**.
+    - Mémoire **intégrée**, souvent limitée à quelques **Ko à Mo**.
+    - L’accès mémoire est plus rapide grâce à son **intégration sur la puce**.
 
 #### 3. Système d’exploitation
 - **Microprocesseur** :
-  - Nécessite un **système d’exploitation** (Windows, Linux, Android).
-  - Conçu pour gérer **plusieurs processus simultanément**.
+    - Nécessite un **système d’exploitation** (Windows, Linux, Android).
+    - Conçu pour gérer **plusieurs processus simultanément**.
 - **Microcontrôleur** :
-  - Fonctionne généralement **sans OS**, avec un **micrologiciel** dédié.
-  - Peut utiliser un **RTOS (Real-Time Operating System)** pour des applications plus complexes.
+    - Fonctionne généralement **sans OS**, avec un **micrologiciel** dédié.
+    - Peut utiliser un **RTOS (Real-Time Operating System)** pour des applications plus complexes.
 
 #### 4. Consommation d’énergie
 - **Microprocesseur** :
-  - Consommation **élevée** (plusieurs watts à dizaines de watts).
-  - Nécessite un **système de refroidissement**.
+    - Consommation **élevée** (plusieurs watts à dizaines de watts).
+    - Nécessite un **système de refroidissement**.
 - **Microcontrôleur** :
-  - **Très économe** en énergie (quelques mW à W).
-  - Idéal pour les **appareils alimentés par batterie**.
+    - **Très économe** en énergie (quelques mW à W).
+    - Idéal pour les **appareils alimentés par batterie**.
 
 #### 5. Coût
 - **Microprocesseur** : Cher (de **50$ à plusieurs centaines** selon la performance).
