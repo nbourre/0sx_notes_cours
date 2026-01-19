@@ -161,6 +161,7 @@ Nous verrons en cours de session ce qu'est exactement le **PWM**.
 Les fonctions de communication permettent d'envoyer et de recevoir des données à partir d'autres périphériques ou d'autres circuits. Elles sont utilisées pour communiquer avec des périphériques externes, comme des capteurs, des écrans LCD, des modules Bluetooth, etc.
 
 Dans ce cours, nous allons nous intéresser aux fonctions de communication suivantes :
+
 - `Serial.begin()`
 - `Serial.print()`
 - `Serial.println()`
@@ -468,7 +469,7 @@ En résumé, l'utilisation des états permet de rendre le code plus clair, plus 
 6. Quelle fonction permet d'écrire du texte sur le port série?
 7. Quelle fonction arrête momentanément le programme?
 
-<details><summary>Réponses</summary>
+<details markdown><summary>Réponses</summary>
 
 1. `pinMode()`
 2. `digitalRead()`
