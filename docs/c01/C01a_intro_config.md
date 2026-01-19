@@ -130,7 +130,7 @@ Dans ce cours, nous allons nous concentrer sur l'**Arduino Mega** qui est un Ard
 
 ![Alt text](assets/arduino_mega.jpg)
 
-Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles Arduino que vous pourriez vouloir !
+Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles Arduino que vous pourriez vouloir!
 
 <div class="grid cards" markdown>
 
@@ -156,6 +156,8 @@ Au fur et à mesure, vous découvrirez qu'il y a peut-être d'autres compatibles
 Certains d'entre vous ont peut-être déjà entendu parler du Raspberry Pi ou même en possèdent un. Toutefois, il s'agit d'un tout autre type de carte que l'Arduino.
 
 Le Raspberry Pi (rpi) est une carte de développement qui est très populaire pour les projets de programmation. Il est plus puissant que l'Arduino et peut être utilisé pour faire beaucoup de choses tel qu'un serveur web, de musique, de vidéos, etc. Il est également beaucoup plus cher que l'Arduino.
+
+![alt text](assets/rpi_comp.jpg)
 
 En plus des différentes versions, il y a plusieurs éditions de rpi.
 
