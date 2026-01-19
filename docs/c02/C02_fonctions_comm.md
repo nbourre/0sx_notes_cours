@@ -17,6 +17,7 @@ Nous allons nous y référer pour étudier les fonctions de base.
 <div class="grid cards" markdown>
 
 - **Code**
+
   ```cpp
   int led = 13;
 
@@ -30,6 +31,7 @@ Nous allons nous y référer pour étudier les fonctions de base.
     digitalWrite(led, LOW);
     delay(1000);
   }
+  ```
 
 - **Résultat**
   ![Alt text](assets/c02_blink.gif)
