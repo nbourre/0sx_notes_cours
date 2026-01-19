@@ -115,6 +115,7 @@ La fonction `setup` est exécutée une seule fois au démarrage du programme Ard
 Elle est généralement utilisée pour mettre en place l'environnement de travail du programme, c'est-à-dire pour configurer les paramètres et les dispositifs nécessaires au bon fonctionnement du programme.
 
 Voici quelques exemples d'utilisations possibles de la fonction `setup` :
+
 - Définition des modes d'entrée/sortie des pins du microcontrôleur Arduino : en utilisant la fonction `pinMode`, on peut indiquer si une pin doit être utilisée en entrée (par exemple pour lire une valeur provenant d'un bouton ou autre capteur) ou en sortie (par exemple pour envoyer une tension à une LED).
 - Initialisation de paramètres et de variables : la fonction `setup` est souvent utilisée pour initialiser des variables qui seront utilisées tout au long du programme, comme des compteurs ou des variables de configuration.
 - Configuration de périphériques externes : si le programme utilise des périphériques tels que des écrans LCD, des modules WiFi ou des capteurs, la fonction `setup` peut être utilisée pour configurer ces périphériques et les mettre en place pour l'utilisation ultérieure.
@@ -269,6 +270,7 @@ La **portée** d’une variable définit où elle est accessible dans le program
 
 #### 1️⃣ Variables globales
 ✅ **Définition** :  
+
 - Déclarées **en dehors de toutes les fonctions**.
 - Accessibles **partout** dans le programme.
 - Conservent leur valeur pendant toute l’exécution du programme.
@@ -477,7 +479,7 @@ Dans le but de vous habituer à faire des recherches sur Google, j'ai expressém
 9.  Nommez une utilité pour une variable statique.
 10. Nommez une utilité pour une variable globale.
 
-<details><summary>Réponses</summary>
+<details markdown><summary>Réponses</summary>
 
 1. Une variable locale est déclarée à l'intérieur d'une fonction et n'est pas accessible à l'extérieur de la fonction. Une variable globale est déclarée à l'extérieur de toute fonction et est accessible à l'extérieur de toutes les fonctions.
 2. `unsigned long`
