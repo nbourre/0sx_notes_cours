@@ -14,24 +14,28 @@ Voici le code de base pour faire clignoter une LED branchée sur la broche 13 de
 
 Nous allons nous y référer pour étudier les fonctions de base.
 
-<div class="grid cards" markdown>
+<div class="grid cards">
+
+<div markdown>
 
 - **Code**
+  
+```cpp
+int led = 13;
 
-  ```cpp
-  int led = 13;
+void setup() {
+  pinMode(led, OUTPUT);
+}
 
-  void setup() {
-    pinMode(led, OUTPUT);
-  }
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(1000);
+  digitalWrite(led, LOW);
+  delay(1000);
+}
+```
 
-  void loop() {
-    digitalWrite(led, HIGH);
-    delay(1000);
-    digitalWrite(led, LOW);
-    delay(1000);
-  }
-  ```
+</div>
 
 - **Résultat**
   ![Alt text](assets/c02_blink.gif)
