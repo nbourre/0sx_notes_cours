@@ -14,11 +14,11 @@ Voici le code de base pour faire clignoter une LED branchée sur la broche 13 de
 
 Nous allons nous y référer pour étudier les fonctions de base.
 
-<div class="grid cards">
+<div class="grid cards" markdown>
 
 <div markdown>
 
-- **Code**
+**Code**
   
 ```cpp
 int led = 13;
