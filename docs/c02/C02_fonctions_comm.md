@@ -37,8 +37,13 @@ void loop() {
 
 </div>
 
-- **Résultat**
-  ![Alt text](assets/c02_blink.gif)
+<div markdown>
+
+**Résultat**
+
+![Alt text](assets/c02_blink.gif)
+
+</div>
 
 </div>
 
