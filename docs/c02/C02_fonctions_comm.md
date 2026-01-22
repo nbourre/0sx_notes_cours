@@ -16,41 +16,33 @@ Nous allons nous y référer pour étudier les fonctions de base.
 
 <div class="grid cards" markdown>
 
-<div markdown>
 
-**Code**
-  
-```cpp
-int led = 13;
+- **Code**
+  ```cpp
+  int led = 13;
 
-void setup() {
-  pinMode(led, OUTPUT);
-}
+  void setup() {
+    pinMode(led, OUTPUT);
+  }
 
-void loop() {
-  digitalWrite(led, HIGH);
-  delay(1000);
-  digitalWrite(led, LOW);
-  delay(1000);
-}
-```
+  void loop() {
+    digitalWrite(led, HIGH);
+    delay(1000);
+    digitalWrite(led, LOW);
+    delay(1000);
+  }
+  ```
 
-</div>
 
-<div markdown>
-
-**Résultat**
-
-![Alt text](assets/c02_blink.gif)
-
-</div>
+- **Résultat**
+  ![Alt text](assets/c02_blink.gif)
 
 </div>
 
 ---
 
 ## DEL par défaut
-Une DEL, ou *LED* en anglais, est une petite lampe qui émet de la lumière quand elle est alimentée. DEL est l'acronyme pour **D**iode **É**lectro**L**uminescente (***L**ight-**E**mitting **d**iode*).
+Une DEL, ou *LED* en anglais, est une petite lampe qui émet de la lumière quand elle est alimentée. DEL est l'acronyme pour **D**iode **É**lectro**L**uminescente (**L**ight-**E**mitting **D**iode).
 
 Sur les Arduinos, il y a une DEL qui est branchée sur la **broche 13**. C'est la raison pour laquelle on voit souvent des exemples avec cette DEL, car elle est facile à utiliser.
 
@@ -281,7 +273,7 @@ Les ports séries sont identifiés par les lettres **TX** et **RX**. Le fil TX (
 
 #### Questions
 - Regardez votre Arduino et identifiez les broches TX et RX. Combien en comptez-vous?
-- Quels sont les numros des broches TX et RX sur l'Arduino Mega?
+- Quels sont les numéros des broches TX et RX sur l'Arduino Mega?
 
 Le port série 0 est utilisé pour communiquer avec l'ordinateur via le câble USB. En effet, comme la DEL qui est sur le port 13, le port série 0 est branché sur le USB.
 

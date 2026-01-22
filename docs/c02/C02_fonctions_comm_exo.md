@@ -3,13 +3,15 @@
 
 ### Plusieurs états
 1. Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
-   <details><summary>Astuces</summary>
+   <details markdown><summary>Astuces</summary>
    
    - Vous pouvez utiliser une variable pour simuler un "etat" pour la del.
    - Par exemple, si la variable est à 0, la DEL est clignote 2 fois, si la variable est à 1, la DEL clignote 5 fois. À chaque fin d'état, vous changez la valeur de la variable.
 
    </details>  
+
 2. Modifiez le programme précédent qui envoit à l'ordinateur l'état du LED à chaque changement d'état.
+  
   - Exemple de sortie : `LED allumée` ou `LED éteinte`
 
 ### Amélioration de code
