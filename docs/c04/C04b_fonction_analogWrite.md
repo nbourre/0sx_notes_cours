@@ -23,50 +23,44 @@ Le PWM peut être utilisé à différentes fins. Il peut être utilisé pour fai
 
 Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur la broche 9.
 
-TODO: Convertir en div avec grid voir cours 02
 
-<table>
-    <tr>
-        <td>
+<div class="grid cards" markdown>
 
-```cpp
-unsigned long lastTime = 0;
-unsigned long interval = 4;
-unsigned long currentTime = 0;
-int brightness = 0;
-int direction = 1;
+- **Code**
+    ```cpp
+    unsigned long lastTime = 0;
+    unsigned long interval = 4;
+    unsigned long currentTime = 0;
+    int brightness = 0;
+    int direction = 1;
 
-int ledPin = 9;
+    int ledPin = 9;
 
-void setup() {
-    pinMode(ledPin, OUTPUT);
-}
+    void setup() {
+        pinMode(ledPin, OUTPUT);
+    }
 
-void loop() {
-    currentTime = millis();
+    void loop() {
+        currentTime = millis();
 
-    // Gestion de la variation de la luminosité
-    if (currentTime - lastTime >= interval) {
-        lastTime = currentTime;
-        brightness += direction;
+        // Gestion de la variation de la luminosité
+        if (currentTime - lastTime >= interval) {
+            lastTime = currentTime;
+            brightness += direction;
 
-        analogWrite(ledPin, brightness);
+            analogWrite(ledPin, brightness);
 
-        if (brightness >= 255 || brightness <= 0) {
-            direction *= -1;
+            if (brightness >= 255 || brightness <= 0) {
+                direction *= -1;
+            }
         }
     }
-}
-```
+    ```
 
-</td>
-<td>
+- **Résultat**
+  ![Alt text](assets/C04_pwm_output.gif")
 
-<img src="assets/C04_pwm_output.gif" />
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 

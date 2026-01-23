@@ -1,7 +1,7 @@
 # Électricité de base
 
 ## L'électricité sur les appareils {#lelectricite-sur-les-appareils}
-L'objectif de cette section n'est pas de vous donner une formation scientifique sur ce qu'est le voltage, l'ampérage, etc. D'ailleurs, ce sont des notions que vous avez vu au secondaire. Je vous suggère de vous référer à votre cours de physique pour vous rafraîchir la mémoire.
+L'objectif de cette section n'est pas de vous donner une formation scientifique sur ce qu'est le voltage, l'ampérage, etc. D'ailleurs, ce sont des notions que vous avez vu au secondaire (ou lycée). Je vous suggère de vous référer à votre cours de science physique pour vous rafraîchir la mémoire.
 
 L'objectif est plutôt de savoir comment et où vous pouvez mesurer ces valeurs pour vous assurer que votre circuit fonctionne correctement.
 
@@ -69,6 +69,7 @@ Avez-vous déjà touché un adaptateur qui était très chaud? La raison est que
 ![Alt text](assets/gif/ABC_counterfit_goods_electrical_chord_sk_150512.gif)
 
  ### Exemples {#exemples}
+
  - Si vous branchez un adaptateur de portable qui fournit un maximum de 45W sur un portable qui nécessite 90W, vous risquez d'endommager votre portable et votre adaptateur lors des périodes de haute consommation (Ex : *Gaming*).
  - Si vous branchez un adaptateur de 5V en courant continu qui fournit 1A sur un Raspberry Pi 3, votre appareil ne démarrera pas. Le Raspberry Pi 3 nécessite un minimum de 2.5A pour démarrer.
 
@@ -100,7 +101,7 @@ Sur votre Arduino, on utilise généralement le port USB pour alimenter la carte
 
 > **Perle de culture**
 > 
-> L'appareil permet d'avoir un voltage variable en entrée, car il y a un **régulateur de voltage** qui permet de convertir le voltage d'entrée en un voltage de 5V.
+> L'appareil permet d'avoir un voltage variable en entrée, car il y a un **régulateur de tension** qui permet de convertir le voltage d'entrée en un voltage de 5V.
 > 
 >![alt text](assets/arduino_mega_voltage_regulator.jpg)
 > 
@@ -151,6 +152,7 @@ Comme indiquer dans le document d'introduction à l'arduino, pour brancher une D
 Voici un schéma de branchement d'une DEL avec une résistance en série :
 
 ![Alt text](assets/schemas/branchement_led_bb.png)
+
 - La DEL est branchée sur la broche 9 de l'Arduino.
 - Pour la contrôler, il faudra faire un programme.
 

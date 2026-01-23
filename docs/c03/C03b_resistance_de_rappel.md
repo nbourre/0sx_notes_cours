@@ -59,7 +59,8 @@ Voici des questions possibles dans une évaluation.
 3. Si on utilise une résistance de tirage (ou de rappel) sur l'Arduino, quelle sera la valeur du bouton poussoir s'il est appuyé?
 4. Avec ces deux schémas, quel schéma représente le branchement avec la résistance de rappel et quel schéma représente la résistance de tirage?
 
-<details><summary>Réponses</summary>
+<details markdown>
+<summary>Réponses</summary>
 
 1. Une résistance de rappel est une résistance qui est connectée à un circuit pour maintenir un état logique à 0. Une résistance de tirage est une résistance qui est connectée à un circuit pour maintenir un état logique à 1.
 2. `pinMode(numeroBroche, INPUT_PULLUP);`

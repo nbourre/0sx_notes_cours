@@ -3,7 +3,8 @@
 
 ### Plusieurs états
 1. Programmez une DEL pour qu'elle clignote 2 fois dans une seconde et ensuite 5 fois dans une seconde.
-   <details markdown><summary>Astuces</summary>
+   <details markdown>
+   <summary>Astuces</summary>
    
    - Vous pouvez utiliser une variable pour simuler un "etat" pour la del.
    - Par exemple, si la variable est à 0, la DEL est clignote 2 fois, si la variable est à 1, la DEL clignote 5 fois. À chaque fin d'état, vous changez la valeur de la variable.

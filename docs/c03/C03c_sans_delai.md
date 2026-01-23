@@ -80,67 +80,57 @@ Ce bout de code est assez similaire au premier morceau, sauf qu'il ne bloque pas
 
 **Exercice** : Copiez ce code et envoyez-le à votre carte Arduino. Qu'observez-vous ?
 
-TODO: Convertir en div avec grid voir cours 02
+<div class="grid cards" markdown>
 
-<table>
-<tr>
-<th>Code</th>
-<th>Sortie</th>
-</tr>
-<tr>
-<td>
+- **Code**
+  ```cpp
+  unsigned long currentTime = 0;
 
-```cpp
-unsigned long currentTime = 0;
-
-void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-  const int intervalBonjour = 5000;
-  const int intervalSalut = 7000;
-  const int intervalHello = 11000;
-
-  static unsigned long previousBonjour = 0;
-  static unsigned long previousSalut = 0;
-  static unsigned long previousHello = 0;
-
-  currentTime = millis();
-
-  if (currentTime - previousBonjour >= intervalBonjour) {
-    previousBonjour = currentTime;
-    print_time(currentTime);
-    Serial.println("Bonjour!");
+  void setup() {
+    Serial.begin(9600);
   }
 
-  if (currentTime - previousSalut >= intervalSalut) {
-    previousSalut = currentTime;
-    print_time(currentTime);
-    Serial.println("Salut!");
+  void loop() {
+    const int intervalBonjour = 5000;
+    const int intervalSalut = 7000;
+    const int intervalHello = 11000;
+
+    static unsigned long previousBonjour = 0;
+    static unsigned long previousSalut = 0;
+    static unsigned long previousHello = 0;
+
+    currentTime = millis();
+
+    if (currentTime - previousBonjour >= intervalBonjour) {
+      previousBonjour = currentTime;
+      print_time(currentTime);
+      Serial.println("Bonjour!");
+    }
+
+    if (currentTime - previousSalut >= intervalSalut) {
+      previousSalut = currentTime;
+      print_time(currentTime);
+      Serial.println("Salut!");
+    }
+
+    if (currentTime - previousHello >= intervalHello) {
+      previousHello = currentTime;
+      print_time(currentTime);
+      Serial.println("Hello!");
+    }
   }
 
-  if (currentTime - previousHello >= intervalHello) {
-    previousHello = currentTime;
-    print_time(currentTime);
-    Serial.println("Hello!");
+  void print_time(unsigned long time_millis){
+      Serial.print("Time: ");
+      Serial.print(time_millis/1000);
+      Serial.print("s - ");
   }
-}
+  ```
 
-void print_time(unsigned long time_millis){
-    Serial.print("Time: ");
-    Serial.print(time_millis/1000);
-    Serial.print("s - ");
-}
-```
-</td>
-<td>
+- **Résultat**
+  ![Alt text](assets/c03_millis_demo.png)
 
-![Alt text](assets/c03_millis_demo.png)
-
-</td>
-</tr>
-</table>
+</div>
 
 On constate la simplicité de l'implémentation de ce planificateur. Il suffit de vérifier si le temps écoulé depuis la dernière exécution de la tâche est supérieur à l'intervalle souhaité. Si c'est le cas, nous exécutons la tâche et nous mettons à jour le temps de la dernière exécution.
 
