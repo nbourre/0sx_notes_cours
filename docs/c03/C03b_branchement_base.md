@@ -197,7 +197,7 @@ void loop() {
 ```
 
 ## Exercices
-Voir la liste des exercices [ici](C03a_branchement_base_exo.md).
+Voir la liste des exercices [ici](C03b_branchement_base_exo.md).
 
 ## Références
 - [TUTO ARDUINO #1 : INSTALLATION ET FAIRE CLIGNOTER UNE LED!](https://www.youtube.com/watch?v=k0KYfGvZUCw&list=PLm9ko_-biSnQz-1PGorgsi3Q1CSN7HdNh&index=3)
