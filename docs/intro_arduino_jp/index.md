@@ -11,32 +11,6 @@
 
 ---
 
-- [Introduction](#introduction)
-- [Qu’est-ce que Arduino?](#quest-ce-que-arduino)
-  - [Arduino NANO](#arduino-nano)
-  - [Arduino UNO R3](#arduino-uno-r3)
-  - [Arduino MEGA 2560 (rev3)](#arduino-mega-2560-rev3)
-  - [Comparaison entre les tailles](#comparaison-entre-les-tailles)
-    - [Tableau résumé](#tableau-resume)
-  - [Références](#references)
-- [Composantes de base](#composantes-de-base)
-  - [Câble USB type USB-B](#cable-usb-type-usb-b)
-  - [Platine d'expérimentation sans soudure (*Breadboard*)](#platine-dexpérimentation-sans-soudure-breadboard)
-    - [Schéma de branchement](#schema-de-branchement)
-  - [Fil de raccordement M/M (*Jumper wires*)](#fil-de-raccordement-mm-jumper-wires)
-  - [Fil de raccordement M/F (*Jumper wires)*](#fil-de-raccordement-mf-jumper-wires)
-  - [Attache batterie 9V (*9V battery snap*)](#attache-batterie-9v-9v-battery-snap)
-  - [DEL (*LED*)](#del-led)
-    - [Intensité](#intensite)
-  - [Résistance (*Resistor*)](#resistance-resistor)
-- [Autres composantes](#autres-composantes)
-  - [DEL RVB (*LED RGB*)](#del-rvb-led-rgb)
-  - [Bouton poussoir momentané](#bouton-poussoir-momentane)
-    - [Références](#références-1)
-- [Ressources et références](#ressources-et-references)
-
----
-
 ## Introduction
 
 ## Qu’est-ce que Arduino?
@@ -150,7 +124,7 @@ d’alimentation).
 
 ---
 
-### Platine d'expérimentation sans soudure (*Breadboard*)
+### Platine d'expérimentation sans soudure (*Breadboard*) {#platine-dexperimentation-sans-soudure-breadboard}
 
 <img src="media/image9.jpeg" />
 
@@ -346,7 +320,7 @@ sont généralement recouverts d’un plastique pour le design. Pouvez-vous
 en nommer quelques objets du quotidien qui possèderaient des boutons
 similaires?
 
-#### Références
+#### Références {#references-1}
 - <https://arduinogetstarted.com/tutorials/arduino-button>
 - [https://www.cs.uregina.ca](https://www.cs.uregina.ca/Links/class-info/207/Online/Lab3/)
 

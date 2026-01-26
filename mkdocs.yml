@@ -46,8 +46,8 @@ nav:
     - Fonction `analogWrite()`: c03/C03b_fonction_analogWrite.md
     - Branchements de base: c03/C03c_branchement_base.md
     - Branchements exercices: c03/C03c_branchement_base_exo.md
-    - Résistance de rappel: c03/C03d_resistance_de_rappel.md
-    - Programmation anti-rebond: c03/C03e_logique_antirebond.md
+    - Programmation anti-rebond: c03/C03d_logique_antirebond.md
+    - Résistance de rappel: c03/C03e_resistance_de_rappel.md    
     - Exercices pratiques: c03/C03f_exercices.md
   - Cours 04:
     - Résumé: c04/index.md

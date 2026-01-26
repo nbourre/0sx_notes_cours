@@ -11,8 +11,8 @@
 - [Classe](#classe)
 - [Autres astuces](#autres-astuces)
   - [Utilisez des modèles de fonctions](#utilisez-des-modeles-de-fonctions)
-    - [Modèle d'une fonction d'état](#modèle-dune-fonction-détat)
-    - [Modèle d'une fonction de tâche](#modèle-dune-fonction-de-tâche)
+    - [Modèle d'une fonction d'état](#modele-dune-fonction-detat)
+    - [Modèle d'une fonction de tâche](#modele-dune-fonction-de-tache)
 
 
 ## Introduction
@@ -62,7 +62,7 @@ Dans ce document, je vous présente mes astuces pour améliorer votre code. Ces 
 
 ## Autres astuces
 ### Utilisez des modèles de fonctions
-#### Modèle d'une fonction d'état
+#### Modèle d'une fonction d'état {#modele-dune-fonction-detat}
 
 ```cpp
 // ct <-- current time
@@ -103,7 +103,7 @@ void modeleState(unsigned long ct)
 }
 ```
 
-#### Modèle d'une fonction de tâche
+#### Modèle d'une fonction de tâche {#modele-dune-fonction-de-tache}
 
 ```cpp
 // ct <-- current time
