@@ -58,7 +58,7 @@ Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur 
     ```
 
 - **Résultat**
-  ![Alt text](assets/C04_pwm_output.gif")
+  ![Alt text](assets/C04_pwm_output.gif)
 
 </div>
 

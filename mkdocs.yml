@@ -42,10 +42,10 @@ nav:
     - Exercices pratiques: c02/C02_fonctions_comm_exo.md
   - Cours 03: 
     - Résumé: c03/index.md
-    - Branchements de base: c03/C03a_branchement_base.md
-    - Branchements exercices: c03/C03a_branchement_base_exo.md
-    - Résistance de rappel: c03/C03b_resistance_de_rappel.md
-    - Programmation sans délai: c03/C03c_sans_delai.md
+    - Programmation sans délai: c03/C03a_sans_delai.md
+    - Branchements de base: c03/C03b_branchement_base.md
+    - Branchements exercices: c03/C03b_branchement_base_exo.md
+    - Résistance de rappel: c03/C03c_resistance_de_rappel.md
     - Programmation anti-rebond: c03/C03d_logique_antirebond.md
     - Exercices pratiques: c03/C03e_exercices.md
   - Cours 04:
