@@ -23,3 +23,6 @@ Dans tous les cas, ne pas utiliser la fonction `delay()`.
 
 ## Exercice `c03_exo_03`
 1. À chaque fois que le bouton est appuyé, les LED sont allumés successivement dans l'ordre 8, 9, 10, 8, 9, 10, etc.
+
+## Exercices - avec `analogWrite()`
+- Avec le montage de l'[exercices](C03b_fonction_analogWrite.md/#pwm-a-quoi-ca-sert) #4 des notes sur `analogRead`, faire varier des DEL en utilisant la fonction `analogWrite()`.

@@ -18,7 +18,7 @@ Voici en détail pour un signal PWM à 25% de la durée de mise en tension pour 
 
 > **Note** : Par défaut sur le Mega, la fréquence du PWM pour les broches D2 à D12 et D44 à D46 est de 490.20 Hz. Pour les broches D4 et D13, la fréquence est de 980.9 Hz.
 
-## PWM : À quoi ça sert?
+## PWM : À quoi ça sert? {#pwm-a-quoi-ca-sert}
 Le PWM peut être utilisé à différentes fins. Il peut être utilisé pour faire varier la luminosité d'une DEL, la vitesse d'un moteur, la position d'un servo, etc.
 
 Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur la broche 9.
@@ -58,14 +58,14 @@ Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur 
     ```
 
 - **Résultat**
-  ![Alt text](assets/C04_pwm_output.gif)
+  ![Alt text](assets/C03_pwm_output.gif)
 
 </div>
 
 ---
 
 ## Exercices
-- [Exercices](C04x_exercices.md)
+- [Exercices](C03f_exercices.md)
 
 ---
 
