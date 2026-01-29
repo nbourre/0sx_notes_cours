@@ -128,6 +128,7 @@ Ce bout de code est assez similaire au premier morceau, sauf qu'il ne bloque pas
   ```
 
 - **Résultat**
+  <br />
   ![Alt text](assets/c03_millis_demo.png)
 
 </div>
