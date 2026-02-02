@@ -9,6 +9,13 @@
 			"group": "build",
 			"presentation": { "reveal": "always", "panel": "shared" },
 			"problemMatcher": []
+		},
+		{
+			"label": "mkdocs: serve (venv)",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -File .vscode\\scripts\\serve-mkdocs.ps1",
+			"presentation": { "reveal": "always", "panel": "dedicated" },
+			"problemMatcher": []
 		}
 	]
 }
