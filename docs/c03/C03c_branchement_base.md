@@ -176,7 +176,7 @@ Voici un circuit de branchement du bouton **qui doit être programmé en mode `I
 #### Code pour lire le bouton
 Pour lire la valeur du bouton, il faut en premier lieu configurer la broche en mode `INPUT_PULLUP` et ensuite utiliser la fonction `digitalRead()`.
 
-```cpp
+```cpp title="Lecture d'un bouton en mode INPUT_PULLUP"
 // Déclaration des variables
 int bouton = 2; // broche 2
 

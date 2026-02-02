@@ -27,7 +27,7 @@ Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur 
 <div class="grid cards" markdown>
 
 - **Code**
-    ```cpp
+    ```cpp title="Utilisation de analogWrite() pour faire varier la luminosité d'une DEL"
     unsigned long lastTime = 0;
     unsigned long interval = 4;
     unsigned long currentTime = 0;
@@ -44,7 +44,7 @@ Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur 
         currentTime = millis();
 
         // Gestion de la variation de la luminosité
-        if (currentTime - lastTime >= interval) {
+        if (currentTime - lastTime >= interval) { // (1)!
             lastTime = currentTime;
             brightness += direction;
 
@@ -56,6 +56,7 @@ Voici un exemple de code qui fait graduellement varier la tension d'une DEL sur 
         }
     }
     ```
+    1. Remarquez qu'il n'y a pas de `delay()` dans ce code. Cela permettrait de faire d'autres choses dans la boucle `loop()`.
 
 - **Résultat**
   ![Alt text](assets/C03_pwm_output.gif)
