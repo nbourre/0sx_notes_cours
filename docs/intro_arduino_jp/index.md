@@ -126,28 +126,27 @@ d’alimentation).
 
 ### Platine d'expérimentation sans soudure (*Breadboard*) {#platine-dexperimentation-sans-soudure-breadboard}
 
-<img src="media/image9.jpeg" />
+![Alt text](media/image9.jpeg)
 
 La platine d’expérimentation permet de réaliser un montage avec des composantes électroniques sans avoir à les souder.
 
 - Elle est généralement composée de deux (2) sections de cinq (5) points
   linéaires chacune. Le nombre de points peut varier entre 400 et 800
   sur les platines standards. Chaque section peut être alimentée de
-  manière indépendante.
-  <img src="media/image10.png" alt="Une image contenant texte Description générée automatiquement" />
+  manière indépendante.<br/>
+  ![Une image contenant texte Description générée automatiquement](media/image10.png)
 
 - Chaque colonne est identifiée par les lettres de l’alphabet. La
   première section de **A** à **E** et la seconde de **F** à **J**.
 - Tous les points d’une ligne sont rattachés ensemble, i.e. ils agissent
-  comme si c’était un seul fil.
+  comme si c’était un seul fil.<br/>
+  ![alt text](media/image11.png)
+  
 
-  <img src="media/image11.png" alt="Une image contenant équipement électronique, fermer Description générée automatiquement" />
-
-- Une ligne s’arrête avec l’encoche qui délimite les deux sections.
-
-  <img src="media/image12.png" alt="Une image contenant texte, fermer, trouble Description générée automatiquement" />
-
-  <img src="media/image13.png" />
+- Une ligne s’arrête avec l’encoche qui délimite les deux sections.<br/>
+  ![alt text](media/image12.png)
+  
+  ![alt text](media/image13.png)
 
 Figure : Branchement interne d'une platine d’expérimentation
 
@@ -214,8 +213,6 @@ l’électricité que dans un sens ainsi il y a une polarité positive et négat
 des différences physiques qui vous permettent de différencier le côté
 positif et le côté négatif. Le tableau ci-dessous vous permettra de les
 repérer facilement.
-
-TODO: Convertir en div avec grid voir cours 02
 
 <table>
 <colgroup>
