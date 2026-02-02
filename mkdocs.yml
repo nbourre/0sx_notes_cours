@@ -29,6 +29,8 @@ markdown_extensions:
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Accueil: index.md
@@ -87,3 +89,11 @@ nav:
     - Résumé: c11/index.md
     - Wifi: c11/c11a_wifi/index.md
   - Cours 12 - MQTT: c12/index.md
+  - Extras:
+    - Algorithmes: extras/algorithmes.md
+    - Améliorer son code: extras/ameliorer_son_code.md
+    - Créer des fonctions: extras/C0x_fonctions_perso.md
+    - Dépannage: extras/depannage.md
+    - Loi d'Ohm: extras/loi_dohm.md
+    - Les pointeurs: extras/pointeurs.md
+    - Utiliser VS Code avec Arduino: extras/coder_avec_vscode/index.md
