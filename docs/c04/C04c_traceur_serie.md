@@ -29,7 +29,7 @@ Il faut terminer la chaîne de caractères par un retour à la ligne (`\n`) soit
 ### Exemple
 Dans cet exemple, nous allons afficher la valeur de la tension mesurée par une photorésistance sur le port A0.
 
-```cpp
+```cpp title="Exemple pour le traceur série"
 void setup() {
   Serial.begin(9600);
 }
