@@ -14,7 +14,7 @@ Voici un exemple qui remplace `delay()` par `millis()`.
 
 **NE PAS FAIRE CECI DANS VOTRE CODE, C'EST UNE DÉMONSTRATION. LISEZ L'ARTICLE AU COMPLET**
 
-```cpp
+```cpp title="Mauvais exemple d'utilisation de millis()"
 int wait = 1000; // 1000 millisecondes = 1 seconde
 unsigned long currentTime = 0;
 
@@ -50,7 +50,7 @@ L'autre avantage de `millis()` est qu'il ne nous empêchera pas d'exécuter du c
 
 Disons que nous voulons imprimer "Hello" en série une fois par seconde tout en faisant d'autres choses pendant ce temps. Ceci n'est pas possible avec delay() puisqu'il met en pause tout le code. Voici une façon de le faire :
 
-```cpp
+```cpp title="Exemple d'utilisation de millis() sans delay()"
 unsigned long currentTime = 0;
  
 void setup() {
@@ -83,7 +83,7 @@ Ce bout de code est assez similaire au premier morceau, sauf qu'il ne bloque pas
 <div class="grid cards" markdown>
 
 - **Code**
-  ```cpp
+  ```cpp title="Plusieurs tâches à différents intervalles avec millis()"
   unsigned long currentTime = 0;
 
   void setup() {

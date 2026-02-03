@@ -2,11 +2,20 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Test build",
+			"label": "mkdocs: build (venv python)",
 			"type": "shell",
-			"command": "mkdocs build",
-			"problemMatcher": [],
-			"group": "build"
+			"command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+			"args": ["-m", "mkdocs", "build"],
+			"group": "build",
+			"presentation": { "reveal": "always", "panel": "shared" },
+			"problemMatcher": []
+		},
+		{
+			"label": "mkdocs: serve (venv)",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -File .vscode\\scripts\\serve-mkdocs.ps1",
+			"presentation": { "reveal": "always", "panel": "dedicated" },
+			"problemMatcher": []
 		}
 	]
 }

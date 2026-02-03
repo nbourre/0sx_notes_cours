@@ -9,6 +9,9 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.top
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
 
 
 markdown_extensions:
@@ -19,6 +22,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       linenums: true
+      anchor_linenums: true
+      line_spans: true
+      pygments_lang_class: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.snippets:

@@ -18,6 +18,7 @@ Un microcontrôleur ne peut pas lire une valeur analogique directement. Il faut 
 Lors de la conversion d'une valeur analogique en une valeur numérique, il y a une perte de précision. Par exemple, si on convertit une valeur analogique de 0 à 5V en une valeur numérique de 0 à 1023, il y a une perte de précision. En effet, il y a 1024 valeurs numériques possibles, mais il y a une infinité de valeurs analogiques possible entre 0 et 5V (exemple : 3.1416V). Donc la perte de précision est due au tronquage des valeurs numériques.
 
 Exemple :
+
 - Une valeur de 3.1416V sera convertie en une valeur numérique de $3.1416 / 5 * 1023 = 642.77$. Cette valeur sera tronquée à **`642`**.
 
 
@@ -235,7 +236,9 @@ Cet exemple est disponible [ici](https://wokwi.com/projects/356398829928163329).
 ---
 
 ## Exercices
+
 - [Exercices](C04x_exercices.md)
+
 ---
 
 ## Références
