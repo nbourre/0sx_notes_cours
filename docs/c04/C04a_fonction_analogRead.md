@@ -147,6 +147,12 @@ void loop() {
 
 > Question : Comment pourrait-on améliorer cet exemple sans utiliser de conditionnelles?
 
+<!-- 
+Voici une solution possible :
+-  diviser la valeur du potentiomètre par 256 pour obtenir un index entre 0 et 3
+-  faire une boucle qui traverse le tableau de DEL et allume la DEL correspondante à l'index et éteint les autres DEL
+-->
+
 Cet exemple est disponible [ici](https://wokwi.com/projects/356395304066120705).
 
 ---
