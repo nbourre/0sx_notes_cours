@@ -42,6 +42,14 @@ Un potentiomètre est un composant électrique qui agit comme une résistance va
 
 ### Fonctionnement interne
 
+> Rappel : Pour mieux comprendre le fonctionnement du potentiomètre, il est important de comprendre comment une résistance ordinaire est construite. Voici une image d'une résistance :
+> 
+> ![alt text](assets/metal_film_resistor_schematic.png)
+>
+> Une résistance est constituée d'un élément résistif (généralement en métal ou en carbone) qui est entouré de deux bornes. Le courant électrique passe à travers l'élément résistif, ce qui crée une chute de tension. La résistance est mesurée en ohms (Ω).
+
+Voici différentes images représentant le fonctionnement d'un potentiomètre : 
+
 ![Alt text](assets/How-Potentiometer-Works-768x231.png)
 
 ![Alt text](assets/pot_a.gif)
