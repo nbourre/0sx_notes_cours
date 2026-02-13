@@ -33,6 +33,7 @@ markdown_extensions:
   - md_in_html
 
 extra_javascript:
+  - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
