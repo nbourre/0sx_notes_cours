@@ -1,5 +1,14 @@
 # Composants analogues
 
+---
+
+## Objectifs
+- Comprendre le fonctionnement d'un diviseur de tension.
+- Comprendre le fonctionnement d'une photorésistance.
+- Comprendre le fonctionnement d'une thermistance.
+
+---
+
 ## Diviseur de tension
 Un diviseur de tension est un circuit électrique composé de deux résistances en série qui permet de réduire la tension d'une source d'alimentation électrique. **En divisant la tension d'entrée en une tension plus faible**, le diviseur de tension permet de fournir une tension de sortie adaptée aux besoins d'autres composants du circuit.
 

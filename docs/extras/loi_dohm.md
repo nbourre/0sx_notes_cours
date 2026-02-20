@@ -1,28 +1,33 @@
 ## Loi d'Ohm
 
 La loi d'Ohm est une loi physique qui établit la relation entre la tension, l'intensité et la résistance d'un circuit électrique. Elle est exprimée par la formule suivante :
+
 $$U = RI$$
+
 où :
-- `U` est la tension (`V`);
-- `R` la résistance (`Ohm`);
-- `I` l'intensité (`A`).
+
+- $U$ est la tension (`V`);
+- $R$ la résistance (`Ohm`);
+- $I$ l'intensité (`A`).
 
 Cette loi est importante car elle permet de comprendre comment les différents composants d'un circuit électrique interagissent les uns avec les autres et comment ils peuvent être utilisés pour contrôler et mesurer le courant électrique. Elle est utilisée pour toutes les applications électriques, allant de la conception de circuits électroniques à la résolution de problèmes électriques dans les bâtiments et les véhicules.
 
 ## Calculer la résistance nécessaire pour une DEL
 
 Avec la loi d'Ohm, on peut calculer la résistance nécessaire pour faire allumer une DEL. On utilisera la formle suivante pour calculer la résistance nécessaire pour une DEL :
+
 $$R = \frac{U_{max} - U_{DEL}}{I_{DEL}}$$
 
 où :
+
 - $U_{max}$ est la tension maximale du circuit (`V`).
-  - Par exemple `5V` pour un Arduino;
+    - Par exemple `5V` pour un Arduino;
 - $U_{DEL}$ la tension de la DEL (`V`);
-  - Par exemple `2V` pour une DEL rouge;
-  - Note : Il faudra lire la fiche signalétique de la DEL pour connaître sa tension;
+    - Par exemple `2V` pour une DEL rouge;
+    - Note : Il faudra lire la fiche signalétique de la DEL pour connaître sa tension;
 - $I_{DEL}$ l'intensité de la DEL (`A`);
-  - Par exemple `20mA` pour une DEL rouge.
-  - Note : Il faudra lire la fiche signalétique de la DEL pour connaître l'intensité;
+    - Par exemple `20mA` pour une DEL rouge.
+    - Note : Il faudra lire la fiche signalétique de la DEL pour connaître l'intensité;
 
 ### Exemple
 Dans nos kits, nous avons des DEL rouge de 2V et 20mA. Nous allons donc calculer la résistance nécessaire pour une DEL rouge de 2V et 20mA avec une tension maximale de 5V.

@@ -1,11 +1,11 @@
 # Programmer en tâches
 
 ## Introduction
-La programmation multitâches est une technique qui permet d'exécuter plusieurs tâches en même temps. C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
+La programmation multitâches est une technique qui permet d'exécuter "plusieurs tâches en même temps". C'est relativement simple sur un PC, car ils ont plusieurs processeurs. Sur un Arduino, il n'y a qu'un seul processeur. Donc, il n'y a pas vraiment de programmation multitâches. Cependant, il est possible de simuler l'effet multitâche en exécutant des parties de tâche en séquence très rapide.
 
 La programmation multitâches est utilisée dans les systèmes embarqués pour exécuter plusieurs tâches en "même temps". Par exemple, un système embarqué peut exécuter une tâche pour lire les données d'un capteur, une autre tâche pour traiter les données, et une autre tâche pour afficher les données sur un écran.
 
-## Exemple disfonctionnel
+## Exemple **disfonctionnel**
 Disons que je désire faire clignoter 2 DEL à des fréquences différentes. Disons que la DEL 1 doit clignoter à 1 Hz et que la DEL 2 doit clignoter à 2 Hz. Voici un exemple de code qui pourrait faire ça:
 
 ```cpp
@@ -110,6 +110,7 @@ En effet, on peut voir les blocs de code qui s'exécutent pour la DEL 1 et les b
 On peut encore améliorer l'exemple en utilisant des fonctions en tant que tâche.
 
 Pour ce faire, **il faut identifier les tâches à exécuter**. Dans notre exemple, on a deux tâches:
+
 - Clignoter la DEL 1
 - Clignoter la DEL 2
 
@@ -169,96 +170,85 @@ void blinkLed2() {
 Voici un comparatif de l'exemple initiale et de l'exemple final:
 
 TODO: Convertir en div avec grid voir cours 02
+<div class="grid cards" markdown>
 
-<table>
-    <tr  style="vertical-align:top">
-        <th>Exemple initial</th>
-        <th>Exemple final</th>
-    </tr>
-    <tr>
-        <td>
-        
-```cpp
-int led1 = 13;
-int led2 = 12;
+- **Exemple initial**
+  ```cpp
+  int led1 = 13;
+  int led2 = 12;
 
-int rate1 = 500;
-int rate2 = 250;
+  int rate1 = 500;
+  int rate2 = 250;
 
-void setup() {
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-}
-
-void loop() {
-  digitalWrite(led1, HIGH);
-  digitalWrite(led2, HIGH);
-  delay(rate2);
-  digitalWrite(led2, LOW);
-  delay(rate2);
-  digitalWrite(led1, LOW);
-  digitalWrite(led2, HIGH);
-  delay(rate2);
-  digitalWrite(led2, LOW);
-  delay(rate2);
-}
-
-```
-
-</td>
-<td style="vertical-align:top">
-        
-```cpp
-int led1 = 13;
-int led2 = 12;
-
-void setup() {
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-}
-
-void loop() {
-  blinkLed1();
-  blinkLed2();
-}
-
-void blinkLed1() {
-  // Pour sauvegarder la dernière exécution de la fonction
-  static unsigned long previousMillis = 0;
-
-  // Pour obtenir le temps actuel
-  unsigned long currentMillis = millis();
-
-  // Valeur constante
-  const int rate = 500;
-
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
-    digitalWrite(led1, !digitalRead(led1));
+  void setup() {
+    pinMode(led1, OUTPUT);
+    pinMode(led2, OUTPUT);
   }
-}
 
-void blinkLed2() {
-  // Pour sauvegarder la dernière exécution de la fonction
-  static unsigned long previousMillis = 0;
-
-  // Pour obtenir le temps actuel
-  unsigned long currentMillis = millis();
-
-  // Valeur constante
-  const int rate = 250;
-
-  if (currentMillis - previousMillis >= rate) {
-    previousMillis = currentMillis;
-    digitalWrite(led2, !digitalRead(led2));
+  void loop() {
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    delay(rate2);
+    digitalWrite(led2, LOW);
+    delay(rate2);
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, HIGH);
+    delay(rate2);
+    digitalWrite(led2, LOW);
+    delay(rate2);
   }
-}
-```
 
-</td>
-</tr>
-</table>
+  ```
 
+- **Exemple final**    
+  ```cpp
+  int led1 = 13;
+  int led2 = 12;
+
+  void setup() {
+    pinMode(led1, OUTPUT);
+    pinMode(led2, OUTPUT);
+  }
+
+  void loop() {
+    blinkLed1();
+    blinkLed2();
+  }
+
+  void blinkLed1() {
+    // Pour sauvegarder la dernière exécution de la fonction
+    static unsigned long previousMillis = 0;
+
+    // Pour obtenir le temps actuel
+    unsigned long currentMillis = millis();
+
+    // Valeur constante
+    const int rate = 500;
+
+    if (currentMillis - previousMillis >= rate) {
+      previousMillis = currentMillis;
+      digitalWrite(led1, !digitalRead(led1));
+    }
+  }
+
+  void blinkLed2() {
+    // Pour sauvegarder la dernière exécution de la fonction
+    static unsigned long previousMillis = 0;
+
+    // Pour obtenir le temps actuel
+    unsigned long currentMillis = millis();
+
+    // Valeur constante
+    const int rate = 250;
+
+    if (currentMillis - previousMillis >= rate) {
+      previousMillis = currentMillis;
+      digitalWrite(led2, !digitalRead(led2));
+    }
+  }
+  ```
+
+</div>
 
 Malgré un code plus long, il est beaucoup plus facile à comprendre et à modifier.
 

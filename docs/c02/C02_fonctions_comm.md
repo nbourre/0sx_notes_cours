@@ -33,7 +33,6 @@ Nous allons nous y référer pour étudier les fonctions de base.
   }
   ```
 
-
 - **Résultat**
   ![Alt text](assets/c02_blink.gif)
 
