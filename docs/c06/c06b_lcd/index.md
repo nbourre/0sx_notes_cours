@@ -167,13 +167,13 @@ Pour ceux qui possèdent un module LCD 1602 **avec** une interface I2C :
 ## Exercices
 
 1. **Branchement**  
-   - Réalisez le branchement du LCD adapté à votre situation (mode 4 bits ou I2C).
+    - Réalisez le branchement du LCD adapté à votre situation (mode 4 bits ou I2C).
 2. **Caractères spéciaux**  
-   - À l'aide de la bibliothèque adéquate, recherchez la fonction permettant d’afficher un caractère spécial.  
-   - Essayez d’afficher un carré ou une lettre accentuée.
+    - À l'aide de la bibliothèque adéquate, recherchez la fonction permettant d’afficher un caractère spécial.  
+    - Essayez d’afficher un carré ou une lettre accentuée.
 3. **Symboles personnalisés**  
-   - Découvrez comment créer et afficher un symbole personnalisé avec l'exemple `CustomCharacter` dans la bibliothèque respective.
-   - Utilisez le fichier [`createur_caractere.xlsx`](assets/createur_caractere.xlsx) (fourni) pour générer votre propre caractère.
+    - Découvrez comment créer et afficher un symbole personnalisé avec l'exemple `CustomCharacter` dans la bibliothèque respective.
+    - Utilisez le fichier [`createur_caractere.xlsx`](assets/createur_caractere.xlsx) (fourni) pour générer votre propre caractère.
 
 ---
 
