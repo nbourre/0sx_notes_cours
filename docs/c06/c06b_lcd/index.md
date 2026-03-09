@@ -130,6 +130,8 @@ void loop() {
 
 Dans certains kits, on trouve un module LCD 1602 avec une interface I2C. Cela permet de réduire le nombre de broches utilisées sur l’Arduino.
 
+![alt text](assets/71wbEvjqqZL._AC_SL1200_.jpg)
+
 Pour ceux qui possèdent un module LCD 1602 **avec** une interface I2C :
 
 - Il existe la bibliothèque `LCD_I2C` (de blackhat) qui facilite l’utilisation :

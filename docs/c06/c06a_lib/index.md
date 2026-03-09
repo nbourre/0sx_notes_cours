@@ -3,20 +3,21 @@
 ---
 
 ## Introduction
-Imaginons que vous vouliez faire un programme avec 1 seul bouton pour exécuter 3 actions différentes.
+Vous vous rappelez du cours sur la logique du bouton? Imaginons que vous vouliez faire un programme avec 1 seul bouton pour exécuter 3 actions différentes.
 
 Par exemple, un montage avec 1 seul bouton pour allumer une DEL.
+
 - 1 clic allume/éteint la DEL
 - 2 clics fait clignoter la DEL rapidement
 - 3 clics fait graduellement changer la luminosité de la DEL
 
 Comment procéderiez-vous pour réaliser ce programme?
 
-La logique de la gestion du bouton peut être complexe. Il faut gérer les états du bouton, les délais, etc.
+La logique de la gestion du bouton peut être complexe. Il faut gérer les états du bouton, les délais, etc. Il y a une personne qui a déjà fait ce travail pour vous. Il a créé une librairie pour gérer les boutons. On verra comment utiliser cette librairie plus tard.
 
 **Un outil important pour simplifier le développement de projets, ce sont les librairies.**
 
-Les librairies Arduino sont des ensembles de codes et de fonctions qui permettent d'ajouter de nouvelles fonctionnalités à votre projet. Elles ont été créées pour simplifier la tâche de programmation en offrant des fonctions déjà écrites pour l'utilisateur à utiliser dans son propre programme. Les librairies Arduino sont généralement créées par les utilisateurs d'Arduino ou par la communauté Arduino elle-même.
+Les librairies Arduino sont des ensembles de codes et de fonctions qui permettent d'ajouter de nouvelles fonctionnalités à votre projet. Elles ont été créées pour simplifier la tâche de programmation en offrant des fonctions déjà écrites pour l'utilisateur à utiliser dans son propre programme. Les librairies Arduino sont généralement créées par **les utilisateurs d'Arduino ou par la communauté Arduino elle-même**.
 
 Avec un peu plus d'expérience, vous pourriez éventuellement écrire vous-même les librairies pour vos projet.
 
@@ -27,7 +28,7 @@ Voici quelques exemples de librairies Arduino courantes :
 - `HCSR04` : Cette librairie permet de contrôler le capteur de distance à ultrasons HC-SR04 à partir de votre Arduino. Elle fournit des fonctions pour mesurer la distance entre le capteur et un objet.
 - `Servo` : Cette librairie permet de contrôler les servomoteurs à partir de votre Arduino. Elle fournit des fonctions pour contrôler la position et la vitesse du servomoteur.
 - `LiquidCrystal` : Cette librairie permet de contrôler les écrans LCD à partir de votre Arduino. Elle fournit des fonctions pour afficher du texte et des images sur l'écran LCD.
-- `Wire` : Cette librairie permet de communiquer avec des appareils externes en utilisant le protocole I2C. Elle fournit des fonctions pour envoyer et recevoir des données sur un bus I2C.
+- `Wire` : Cette librairie permet de communiquer avec des appareils externes en utilisant le protocole I2C. Elle fournit des fonctions pour envoyer et recevoir des données sur un bus I2C. Elle est souvent utilisée dans les librairies de capteurs pour communiquer avec les capteurs qui utilisent le protocole I2C.
 
 ---
 
@@ -43,13 +44,13 @@ Pour activer le gestionnaire, il suffit de cliquer sur le bouton "Gestionnaire d
 
 Une fois le gestionnaire ouvert, vous pouvez rechercher une librairie en utilisant le champ de recherche. Vous pouvez également parcourir les différentes catégories de librairies pour trouver celle qui vous intéresse.
 
-Une fois que vous avez trouvé la librairie que vous voulez installer, vous pouvez l'installer en cliquant sur le bouton "Installer".
+Une fois que vous avez trouvé la librairie que vous voulez installer, vous pouvez l'installer en cliquant sur le bouton `Installer`.
 
 > **Note :** **Il est important de bien lire la documentation** de la librairie avant de l'installer. Certaines librairies peuvent être incompatibles avec votre projet.
 > 
 > **Astuce :** Écrivez le nom de la composante que vous voulez utiliser dans le champ de recherche pour trouver la librairie qui vous intéresse.
 
-> **Note 2 :** Pour les travaux, j'indiquerai dans la description du travail les librairies à installer. Il y aura le nom de la **librairie** et du **créateur**.
+> **Note 2 :** Pour les travaux, j'indiquerai dans la description du travail les librairies à installer. Il y aura le nom de la **librairie**, du **créateur** et dans certains cas, la version à installer.
 
 Une fois que vous avez importé la librairie, vous pouvez utiliser les fonctions qu'elle offre dans votre programme. Les fonctions disponibles dépendent de la librairie que vous utilisez, alors consultez la documentation de la librairie pour connaître les fonctions disponibles et leur utilisation.
 
@@ -80,7 +81,8 @@ Pour connaître le nom de la librairie, ouvrez un exemple de la librairie et reg
 
 ## Mise en pratique
 Réalisez un montage avec un bouton et une DEL (Celle intégrée).
-- Branchez le bouton sur la broche 2.
+
+- Branchez un bouton sur la broche 2.
 - Installez la librairie suivante :
   - [OneButton de Matthias Hertel](https://github.com/mathertel/OneButton)
   - Prenez le temps de lire la documentation de la librairie.
