@@ -6,35 +6,24 @@ DHT-11 typique que l'on peut trouver sur le marché des hobbyistes.
 
 ---
 
-## ATTENTION - Risque de bris de matériel
+## ATTENTION - Risque de bris de matériel 🧨💥
 Prenez le temps d'observer l'ordre des broches de votre DHT-11. Si vous ne le branchez pas comme il faut, vous risquez de briser votre capteur.
 
 Le "S" indique la broche du signal. Il se peut que le GND et Vcc ne soient pas indiqués. Dans ce cas, il faudra tester avec un multimètre pour trouver les bonnes broches.
 
 Il y a deux modèles fréquent de DHT-11. Les deux possèdent 3 broches, mais l'ordre des broches n'est pas le même. Il est important de bien identifier les broches avant de les brancher.
 
-<a id="dht11" />
+<a name="dht11" />
+<div class="grid cards" markdown>
 
-TODO: Convertir en div avec grid voir cours 02
+- **DHT-11** - Version **avec** trou de montage au dessus des broches
+  ![alt text](assets/DHT11_Sensor_Pinout_600x600.webp)
+  
 
-<table>
-  <tr>
-    <th>DHT-11</th>
-    <th>DHT-11</th>
-  </tr>
-  <tr>
-    <td>
-      <img src="assets/DHT11_Sensor_Pinout_600x600.webp" alt="DHT-11 S">
-      Version avec trou de montage au dessus des broches
-    </td>
-    <td>
-      <img src="assets/dht-11 variant.jpg" alt="DHT-11">
-      Version sans trou de montage
-    </td>
-  </tr>
-</table>
-
-
+- **DHT-11** - Version **sans** trou de montage
+  ![alt text](<assets/dht-11 variant.jpg>)
+  
+</div>
 ---
 
 
@@ -226,11 +215,13 @@ Voici un schéma électrique qui permet de brancher un ventilateur DC sur la car
 ![Alt text](assets/ventilateur.png)
 
 Matériel nécessaire :
+
 - 1 x résistance 220 ohms
 - 1 x moteur DC
 - 1 x [transistor S8050](https://components101.com/transistors/s8050-transistor-pinout-equivalent-datasheet)
 
 Branchement :
+
 - Vous branchez la patte du milieu du transistor sur la résistance et celle-ci sur une broche de sortie de l'Arduino.
 - La patte de gauche du transistor est reliée au ground.
 - La patte de droite du transistor est reliée à la broche du moteur DC.
