@@ -177,6 +177,7 @@ Dans cet exercice nous souhaitons démarrer avec tout éteint et que le bouton s
 Cela resemble fortement à une machine à état que l'on pourrait décrire ainsi
 
 Plusieurs états:
+
 - tout éteint (REPOS)
 - Led Verte allumée (V)
 - Led Verte et Jaune allumées (VJ)
@@ -185,7 +186,7 @@ Plusieurs états:
 
 état initial = repos
 
-action possible = click sur le bouton
+action possible = clic sur le bouton
 
 et voici le diagramme des transitions possibles
 
@@ -626,82 +627,77 @@ Bon codage à toutes et tous !
 
 Voici un exemple simple qui gère le temps d'allumages d'un système de feux de circulation.
 
-TODO: Convertir en div avec grid voir cours 02
+<div class="grid cards" markdown>
 
-<table>
-<tr>
-<td>
+- **Code**
+  ```cpp title="Utilisation de fonctions pour gérer chaque état"
+  enum State { RED, GREEN, YELLOW };
 
-```cpp
-enum State { RED, GREEN, YELLOW };
+  State currentState = RED;
 
-State currentState = RED;
+  unsigned long previousTime = 0;
+  unsigned currentTime = 0;
 
-unsigned long previousTime = 0;
-unsigned currentTime = 0;
+  void loop() {
+    currentTime = millis();
 
-void loop() {
-  currentTime = millis();
-
-  switch (currentState) {
-    case RED:
-      redState();
-      break;
-    case YELLOW:
-      yellowState();
-      break;
-    case GREEN:
-      greenState();
-      break;
+    switch (currentState) {
+      case RED:
+        redState();
+        break;
+      case YELLOW:
+        yellowState();
+        break;
+      case GREEN:
+        greenState();
+        break;
+    }
   }
-}
 
-void redState() {
-  digitalWrite(ledR, HIGH);
-  digitalWrite(ledY, LOW);
-  digitalWrite(ledG, LOW);
-  if (timeElapsed(5000)) {
-    currentState = GREEN;
+  void redState() {
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledY, LOW);
+    digitalWrite(ledG, LOW);
+    if (timeElapsed(5000)) {
+      currentState = GREEN;
+    }
   }
-}
 
-void greenState(){
-  digitalWrite(ledR, LOW);
-  digitalWrite(ledY, LOW);
-  digitalWrite(ledG, HIGH);
-  if (timeElapsed(5000)) {
-    currentState = YELLOW;
+  void greenState(){
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledY, LOW);
+    digitalWrite(ledG, HIGH);
+    if (timeElapsed(5000)) {
+      currentState = YELLOW;
+    }
   }
-}
 
-void yellowState(){
-  digitalWrite(ledR, LOW);
-  digitalWrite(ledY, HIGH);
-  digitalWrite(ledG, LOW);
-  if (timeElapsed(2000)) {
-    currentState = RED;
+  void yellowState(){
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledY, HIGH);
+    digitalWrite(ledG, LOW);
+    if (timeElapsed(2000)) {
+      currentState = RED;
+    }
   }
-}
 
-bool timeElapsed(unsigned long duration) {
-  static unsigned long previousTime = millis();
-  if (millis() - previousTime >= duration) {
-    previousTime = millis();
-    return true;
-  } else {
-    return false;
+  bool timeElapsed(unsigned long duration) {
+    static unsigned long previousTime = millis();
+    if (millis() - previousTime >= duration) {
+      previousTime = millis();
+      return true;
+    } else {
+      return false;
+    }
   }
-}
-```
+  ```
 
-</td>
-<td>
+- **Résultat**
+  <br />
+  ![Alt text](fsm/wokwi_fsm_base.gif)
 
-![Alt text](fsm/wokwi_fsm_base.gif)
 
-</td>
-</tr>
-</table>
+</div>
 
 ---
 

@@ -31,7 +31,7 @@ Par exemple, les conduits de systèmes de chauffage et de climatisation dans les
 ![alt text](assets/EDF-thrust-vectoring-optimized.gif)
 
 ## Votre kit
-Votre kit contient un servomoteur SG90. Il s'agit d'un servomoteur à rotation limitée. Il peut, en théorie, pivoter entre 0 et 180°.
+Votre kit contient un servomoteur SG90. Il s'agit d'un servomoteur à rotation limitée. Il peut, **en théorie**, pivoter entre 0 et 180°.
 
 ![Alt text](assets/sg90.jpg)
 
@@ -57,7 +57,7 @@ Voici le branchement typique pour un servomoteur. Remarquez la présence du modu
 Voici un exemple de code qui permet de contrôler un servomoteur. Le code permet de faire tourner le servomoteur dans un angle de 0 à 170° et de revenir à 0°.
 
 ```cpp
-##include <Servo.h>
+#include <Servo.h>
 
 Servo servo;
 
@@ -82,7 +82,7 @@ Prenez note qu'une fois la position atteinte et qu'il n'y a pas de force qui lui
 Pour se faire on peut utiliser la fonction `servo.detach()`.
 
 ```cpp
-##include <Servo.h>
+#include <Servo.h>
 
 Servo servo;
 
@@ -92,7 +92,7 @@ void setup() {
 
 void loop() {
   servo.attach(3);
-  for (int angle = 0; angle <= 170; angle++) {
+  for (int angle = 10; angle <= 170; angle++) {
     servo.write(angle);
     delay(15);
   }
@@ -100,7 +100,7 @@ void loop() {
   delay(1000);
 
   servo.attach(3);
-  for (int angle = 170; angle >= 0; angle--) {
+  for (int angle = 170; angle >= 10; angle--) {
     servo.write(angle);
     delay(15);
   }
@@ -112,7 +112,7 @@ void loop() {
 ---
 
 ## Exercices
-1. Faites tourner le servomoteur dans un angle de 0 à 170° et de revenir à 0°. Utilisez la fonction `servo.detach()` pour arrêter d'envoyer des pulsations.
+1. Faites tourner le servomoteur dans un angle de 10 à 170° et de revenir à 10°. Utilisez la fonction `servo.detach()` pour arrêter d'envoyer des pulsations.
 2. À l'aide de la communication série, envoyez l'angle à laquelle le servomoteur doit tourner. Utilisez la fonction `servo.detach()` pour arrêter d'envoyer des pulsations lorsque l'angle est atteint.
 
 ---

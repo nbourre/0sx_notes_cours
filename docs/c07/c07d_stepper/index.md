@@ -12,7 +12,7 @@ On retrouve les moteurs pas-à-pas dans plusieurs applications comme les lecteur
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z5v90dUOg4E/0.jpg)](https://www.youtube.com/watch?v=z5v90dUOg4E)
 
-> **Zone le fun :** Jetez un coup d'oeil sur le [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
+> **Zone le fun :** Jetez un coup d'oeil sur ce [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
 
 ## Fonctionnement d'un moteur pas-à-pas
 Les moteurs pas-à-pas utilisent une roue dentée et des électroaimants pour faire avancer la roue d'un "pas" à la fois.
@@ -24,6 +24,7 @@ Le nombre de pas que le moteur pas-à-pas effectue pour une rotation complète d
 ![Alt text](assets/Stepper-Motor-Working-Animation.gif)
 
 La manière dont vous impulsez ces bobines détermine le fonctionnement du moteur.
+
 - La séquence des impulsions détermine le sens de rotation du moteur.
 - La fréquence des impulsions détermine la vitesse du moteur.
 - Le nombre d'impulsions détermine la distance que le moteur parcourra.
