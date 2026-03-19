@@ -1,7 +1,9 @@
-# La machine à états finis
+# La machine à états finis - Première version
 
-> **Note :** Cet article est une réinterprétation de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
-> 
+> **Note 1 :** Cet article est une réinterprétation de l'excellent poste de [J-M-L](https://forum.arduino.cc/t/programmation-automate-fini-machine-a-etat/452532) sur le forum d'Arduino.
+
+
+> **Note 2:** Il s'agit de la première version des machines à états finis. Dans un autre cours, nous allons voir comment faire cela de manière plus élégante et plus facile à maintenir en utilisant des fonctions pour gérer les différents états.
 
 ![Alt text](fsm/fsm_base.drawio.svg)
 
@@ -237,6 +239,7 @@ void loop() {
 Voilà. L'utilisation d'un bouton est relativement simple d'emploi et ça permet de nous concentrer sur notre machine à état (si vous êtes curieux allez voir le [source de la librairie](https://github.com/mathertel/OneButton) et vous verrez que c'est aussi une machine à état).
 
 ---
+
 **Revenons au code**
 Il va falloir déclarer bien sûr toutes les pins utilisées pour les LEDs, instancier le bouton, et coder la machine à état en utilisant une union pour les différents états et on va déclarer une fonction `callback` qui est appelée quand on appuie sur le bouton dans la quelle on aura un beau `switch/case` comme mentionné plus haut.
 

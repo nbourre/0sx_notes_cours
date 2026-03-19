@@ -1,7 +1,9 @@
-## Algorithme pour trouver la valeur minimal
+# Algorithmes variés
+
+## Algorithme pour trouver la valeur minimal et maximal d'un capteur
 
 Voici un algorithme pour trouver la valeur minimal et maximal d'un capteur sur A0.
-    
+
 ```cpp
 // Déclaration des variables
 int valeur = 0;
@@ -36,6 +38,39 @@ void loop() {
   // Attendre 100ms
   delay(100);
 }
+```
+
+### Version avec fonction
+Voici une version de l'algorithme pour trouver la valeur minimal et maximal d'un capteur sur A0 avec une fonction.
+
+```cpp
+// Remplacer le nom de la fonction par le nom du capteur
+int getCapteurXMin(int valeur) {
+  static int valMin = 1023; // Initialisation à 1023 pour la valeur minimale
+  
+  // Si la valeur est plus petite que la valeur minimale
+  if (valeur < valMin) {
+    // La valeur minimale devient la valeur
+    valMin = valeur;
+  }
+
+  // Retourner la valeur lue
+  return valMin;
+}
+
+int getCapteurXMax(int valeur) {
+  static int valMax = 0; // Initialisation à 0 pour la valeur maximale
+  
+  // Si la valeur est plus grande que la valeur maximale
+  if (valeur > valMax) {
+    // La valeur maximale devient la valeur
+    valMax = valeur;
+  }
+
+  // Retourner la valeur lue
+  return valMax;
+}
+
 ```
 
 ## Utiliser un tableau de caractères pour écrire sur le LCD
