@@ -95,7 +95,7 @@ void setup() {
 }
 
 void loop() {
-  if (Serial3.available() > 0) {
+  while (Serial3.available()) {
     int command = Serial3.read();
 
     switch (command) {
@@ -104,6 +104,9 @@ void loop() {
         break;
       case '0':
         cmdEteindre();
+        break;
+      case '\n':
+        // Ignorer les caractères de nouvelle ligne
         break;
       default:
         afficherErreur();
@@ -233,7 +236,7 @@ void loop() {
 }
 
 void serialEvent3() {
-  if (Serial3.available() > 0) {
+  while (Serial3.available()) {
     int command = Serial3.read();
 
     switch (command) {
@@ -242,6 +245,9 @@ void serialEvent3() {
         break;
       case '0':
         cmdEteindre();
+        break;
+      case '\n':
+        // Ignorer les caractères de nouvelle ligne
         break;
       default:
         afficherErreur();
@@ -270,14 +276,12 @@ void afficherErreur() {
 
 ---
 
-## Fonction `serial.readStringUntil()`
-Supposons que vous voulez lire une commande avec des paramètres envoyée via le port série. Par exemple, vous désirez envoyer des commandes dans un format comme `pin:13,1` pour allumer la LED connectée à la broche 13 ou encore `pin:A4,read` pour lire la valeur à la broche `A4`. Vous pouvez utiliser la fonction `serial.readStringUntil()` pour lire la commande complète et ensuite la traiter.
+## Fonction `Serial.readStringUntil()`
+Supposons que vous voulez lire une commande avec des paramètres envoyée via le port série. Par exemple, vous désirez envoyer des commandes dans un format comme `pin:13,1` pour allumer la LED connectée à la broche 13 ou encore `pin:A4,read` pour lire la valeur à la broche `A4`. Vous pouvez utiliser la fonction `Serial.readStringUntil()` pour lire la commande complète et ensuite la traiter.
 
-Voici un exemple complexe de code qui utilise `serial.readStringUntil()` avec `serialEvent` pour lire des commandes avec des paramètres envoyées via le port série :
+Voici un exemple complexe de code qui utilise `Serial.readStringUntil()` avec `serialEvent` pour lire des commandes avec des paramètres envoyées via le port série :
 
 ```cpp
-
-#define DEBUG_MODE 1
 
 String cmd = "";
 bool cmdReceived = false;
@@ -419,13 +423,13 @@ int analogPinToDigitalPin(int analogPin) {
 Dans ce code qui peut sembler relativement complexe est plus simple qu'on peut y penser. En effet, j'ai subdivisé le code en plusieurs fonctions pour le rendre plus lisible et plus facile à comprendre. Cela permet de mieux organiser le code et de le rendre plus modulaire. Cela permet aussi de réutiliser certaines parties du code dans d'autres projets.
 
 
-> **Note** : Il y existe aussi la fonction `Serial.readString()` qui lit une chaîne jusqu'à ce qu'un caractère de nouvelle ligne soit rencontré. Cependànt, cette commande ralentie la fonction attend un certain temps pour lire la chaîne. `Serial.readStringUntil()` est plus rapide car elle lit la chaîne jusqu'à ce qu'un caractère spécifié soit rencontré.
+> **Note** : Il y existe aussi la fonction `Serial.readString()` qui lit une chaîne jusqu'au timeout (1000 ms par défaut). Cependant, je ne suggère pas de l'utiliser car elle bloque l'exécution du programme. `Serial.readStringUntil()` est plus rapide car elle lit la chaîne jusqu'à ce qu'un caractère spécifié soit rencontré.
 
 
 ---
 
 ## Exercices
-1. Essayez le code de l'exemple de la section "Fonction `serial.readStringUntil()`" pour voir comment il fonctionne.
+1. Essayez le code de l'exemple de la section "Fonction `Serial.readStringUntil()`" pour voir comment il fonctionne.
 2. Avec votre plaquette d'expérimentation, s'il y a un composant simple d'installer, essayez d'interagir avec lui via le port série. Par exemple, vous pouvez allumer et éteindre une LED, lire la valeur d'un capteur, etc.
 
 ---
