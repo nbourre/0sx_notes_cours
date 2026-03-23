@@ -5,14 +5,14 @@
 ---
 
 ## Introduction
-Votre kit contient un moteur pas-à-pas (*stepper mtor*) 28BYJ-48 avec un module monté avec un driver ULN2003.
+Votre kit contient un moteur pas-à-pas (*stepper motor*) 28BYJ-48 avec un module de pilotage ULN2003.
 
 ### Utilisation
 On retrouve les moteurs pas-à-pas dans plusieurs applications comme les lecteurs de disques, les disques durs, les imprimantes, les robots, etc.
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/z5v90dUOg4E/0.jpg)](https://www.youtube.com/watch?v=z5v90dUOg4E)
 
-> **Zone le fun :** Jetez un coup d'oeil sur ce [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
+> **Zone le fun :** Jetez un coup d'œil sur ce [site](https://www.thingiverse.com/search?q=uln2003&page=1&type=things&sort=relevant) pour trouver des projets amusants avec le moteur pas-à-pas de votre kit.
 
 ## Fonctionnement d'un moteur pas-à-pas
 Les moteurs pas-à-pas utilisent une roue dentée et des électroaimants pour faire avancer la roue d'un "pas" à la fois.
@@ -41,13 +41,13 @@ Le 28BYJ-48 est un moteur pas-à-pas unipolaire à 5 fils qui fonctionne sous 5V
 
 Étant donné que le moteur n'utilise pas de balais de contact, il a un mouvement relativement précis et est assez fiable.
 
-Malgré sa petite taille, le moteur fournit un couple décent de 34.3 mN.m à une vitesse d'environ 15 RPM. Il offre un bon couple même à l'arrêt et le maintient tant que le moteur reçoit de l'énergie.
+Malgré sa petite taille, le moteur fournit un couple décent de 34,3 mN·m (349 g·cm) à une vitesse d'environ 15 RPM. Il offre un bon couple même à l'arrêt et le maintient tant que le moteur reçoit de l'énergie.
 
 Le seul inconvénient est qu'il consomme relativement beaucoup d'énergie, même lorsqu'il est à l'arrêt.
 
-### Le filage
+### Le câblage
 
-Le moteur pas-à-pas 28BYJ-48 possède cinq fils. Les broches sont les suivantes :
+Le moteur pas-à-pas 28BYJ-48 possède cinq fils. Les broches sont les suivantes:
 
 ![Alt text](assets/28BYJ48-Stepper-Motor-Pinout.png)
 
@@ -93,15 +93,15 @@ Il y a un cavalier ON/OFF sur la carte pour désactiver le moteur pas-à-pas si 
 
 ## Branchement
 
-Connectons le moteur à notre Arduino !
+Connectons le moteur à notre Arduino!
 
 Les connexions sont simples. Commencez par connecter une source d'alimentation externe de 5V au driver ULN2003.
 
-> **Attention :**
+> **Attention:**
 > 
 > Le moteur pas-à-pas peut être alimenté directement depuis l'Arduino, mais cela n'est pas recommandé car le moteur peut générer du bruit électrique sur ses lignes d'alimentation, ce qui peut endommager l'Arduino.
 
-Connectez les entrées `IN1`, `IN2`, `IN3` et `IN4` de la carte de commande aux broches numériques 8, 9, 10 et 11 de l'Arduino, respectivement. Ensuite, connectez le moteur pas-à-pas au driver ULN2003.
+Dans ce cours, nous utilisons des **Arduino Mega 2560**. Connectez les entrées `IN1`, `IN2`, `IN3` et `IN4` de la carte de commande aux broches numériques **31, 33, 35 et 37** de l'Arduino, respectivement. Ensuite, connectez le moteur pas-à-pas au driver ULN2003.
 
 Enfin, assurez-vous que votre circuit et votre Arduino ont une masse commune.
 
@@ -119,7 +119,7 @@ La première étape sera d'installer la librairie `AccelStepper` depuis le gesti
   
   ![Alt text](assets/install_library.png)
 
-Voici un code de base pour faire tourner le moteur dans une direction, puis dans l'autre.
+Voici un code de base pour faire tourner le moteur dans une direction, puis dans l'autre (brochage Mega 2560).
 
 ```cpp
 #include <AccelStepper.h>
@@ -158,10 +158,10 @@ void loop() {
 
 ### Explication du code
 
-`MOTOR_INTERFACE_TYPE` est une constante qui définit le type de moteur que vous utilisez en mode full-step.
+`MOTOR_INTERFACE_TYPE` est une constante qui définit le type de moteur utilisé en mode full-step.
 
 ```
-#define MotorInterfaceType 4
+#define MOTOR_INTERFACE_TYPE 4
 ```
 
 Ensuite, on crée une instance de la classe `AccelStepper` en indiquant le type de moteur, les broches **IN1-IN3-IN2-IN4**.
@@ -170,13 +170,13 @@ Ensuite, on crée une instance de la classe `AccelStepper` en indiquant le type 
 AccelStepper myStepper(MOTOR_INTERFACE_TYPE, IN_1, IN_3, IN_2, IN_4);
 ```
 
-Dans la fonction `setup`, la vitesse maximale autorisée du moteur est réglée sur 1000 (le moteur accélérera jusqu'à cette vitesse lors de l'exécution). Le taux d'accélération/freinage est ensuite défini pour ajouter de l'accélération et du freinage aux mouvements du moteur pas-à-pas.
+Dans la fonction `setup`, la vitesse maximale autorisée du moteur est réglée sur 500 (le moteur accélérera jusqu'à cette vitesse lors de l'exécution). Le taux d'accélération/freinage est ensuite défini pour ajouter de l'accélération et du freinage aux mouvements du moteur pas-à-pas.
 
 La vitesse constante est réglée sur 200. Et, comme le 28BYJ-48 effectue 2038 pas par tour, la position cible est également réglée sur 2038.
 
 ```cpp
-    myStepper.setMaxSpeed(1000);  // Vitesse max en pas/seconde
-    myStepper.setAcceleration(500); // Accélération en pas/seconde²
+	myStepper.setMaxSpeed(500);  // Vitesse max en pas/seconde
+	myStepper.setAcceleration(100); // Accélération en pas/seconde²
 	myStepper.setSpeed(200); // Vitesse constante en pas/seconde
 	myStepper.moveTo(2038); // Position cible
 ```
