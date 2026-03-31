@@ -5,7 +5,16 @@ Dans cette leçon, nous allons voir comment contrôler un moteur DC avec un cont
 
 Votre kit Arduino contient un contrôleur de moteur L293D ainsi qu'un moteur DC.
 
-![alt text](assets/dc_motor_130.webp) ![alt text](assets/L293D.jpg)
+![alt text](assets/dc_motor_130.webp)
+
+![alt text](assets/L293D.jpg)
+
+??? info "Tu en veux plus ou tu n'en a plus?"
+    Si ces pièces ne sont pas dans votre kit, vous pouvez les acheter en ligne ou dans un magasin d'électronique. Voici des liens pour les acheter :
+
+    - [10 x moteur DC 130](https://amzn.to/48j1pdT)
+    - [10 x contrôleur de moteur L293D](https://amzn.to/3Nyf1uY)
+        - [5 x Version sur PCB](https://amzn.to/4bRIB85)
 
 ---
 
@@ -13,6 +22,10 @@ Votre kit Arduino contient un contrôleur de moteur L293D ainsi qu'un moteur DC.
 Le moteur DC (Direct Current) est un moteur électrique qui fonctionne avec un courant continu. Il est composé d'un rotor et d'un stator. Le rotor est la partie mobile du moteur et le stator est la partie fixe. Le moteur DC est utilisé dans de nombreux appareils électriques tels que les ventilateurs, les jouets, les robots, les voitures, etc.
 
 Dans votre kit, il s'agit d'un moteur DC 130. Il est petit, léger et peu coûteux. Il est parfait pour les débutants.
+
+??? tip "Remarque"
+    Comme indiqué, ce moteur est très économique pour faire des petits projets. Voici une capture d'écran prise en 2026 où l'on peut se procurer [10 moteurs DC 130 pour environ 10 CAD](https://amzn.to/48j1pdT).
+    ![alt text](assets/dc_130_cheap.png)
 
 ![alt text](assets/DC-Motor-3V-with-Fan.jpg)
 
@@ -32,16 +45,18 @@ Un pont en H est un circuit électronique qui permet de contrôler la direction 
 
 Ainsi selon ce schéma, si l'on met du courant sur `S1` et `S4`, le moteur tournera dans un sens. Si l'on met du courant sur `S3` et `S2`, le moteur tournera dans l'autre sens.
 
-> **Note:**<br/>
-> Les symboles avec une flèche représente des transistors.
-> 
-> ![alt text](assets/techart_symbols2_1.webp)
->
-> Les transistors peuvent être utilisés, entre autres, pour contrôler le courant électrique. Ils peuvent être utilisés pour fermer ou ouvrir un circuit électrique **comme un interrupteur**. Ils sont contrôlés par un signal électrique envoyé sur leur base. Lorsque le signal est présent, le transistor est ouvert et le courant peut circuler. Lorsque le signal est absent, le transistor est fermé et le courant ne peut pas circuler. 
-> 
-> Dans le cadre du cours, nous n'irons pas plus en détail sur les transistors. Nous nous contenterons de les utiliser comme des interrupteurs. 
-
 ![alt text](assets/hbridge.gif)
+
+??? info "Perle de culture"
+    Les symboles avec une flèche représente des transistors.
+    
+    ![alt text](assets/techart_symbols2_1.webp)
+
+    Les transistors peuvent être utilisés, entre autres, pour contrôler le courant électrique. Ils peuvent être utilisés pour fermer ou ouvrir un circuit électrique **comme un interrupteur**. Ils sont contrôlés par un signal électrique envoyé sur leur base. Lorsque le signal est présent, le transistor est ouvert et le courant peut circuler. Lorsque le signal est absent, le transistor est fermé et le courant ne peut pas circuler. 
+     
+    Dans le cadre du cours, nous n'irons pas plus en détail sur les transistors. Nous nous contenterons de les utiliser comme des interrupteurs. 
+
+
 
 Voici une animation montrant le fonctionnement d'un pont en H.
 
@@ -60,7 +75,7 @@ Le L293D a 16 broches. Voici le diagramme de brochage du L293D.
 
 - `VCC` : Alimentation du circuit intégré. On branche le +5V de l'Arduino sur cette broche.
 - `Ground` : Il y a 4 broches de `Ground`, car les moteurs nécessitent beaucoup de courant ce qui dégage beaucoup de chaleur. Il est donc nécessaire de relier ces broches à la masse pour dissiper celle-ci.
-- `Enable 1, 2` : Permet d'activer ou de désactiver le pont en H. Si on met un signal HIGH sur cette broche, le pont en H est activé. Si on met un signal LOW, le pont en H est désactivé.
+- `Enable 1, 2` : Permet d'activer ou de désactiver le pont en H. Si on met un signal HIGH sur cette broche, le pont en H est activé. Si on met un signal LOW, le pont en H est désactivé. Si l'on désire de toujours l'avoir activé, on peut simplement le brancher au +5V.
   - `Enable 3, 4` : Même chose que `Enable 1, 2` mais pour le deuxième pont en H.
 - `Input 1` : Permet de contrôler le sens de rotation du moteur 1.
 - `Input 2` : Permet de contrôler le sens de rotation du moteur 1.
@@ -68,10 +83,10 @@ Le L293D a 16 broches. Voici le diagramme de brochage du L293D.
 - `Output 1, 2` : Sortie du pont en H pour le moteur 1.
   - `Output 3, 4` : Sortie du pont en H pour le moteur 2.
 
-> **Note:**<br/>
-> Remarquez sur le L293D, il y a une encoche sur le boîtier. Cette encoche indique le sens de la broche 1. C'est-à-dire que la broche 1 est la broche la plus à gauche lorsque l'encoche est en haut.
-> 
-> Il s'agit d'une convention pour les circuits intégrés. La broche 1 est toujours la broche la plus à gauche lorsque l'encoche est en haut.
+!!! note "**Note:**"
+    Remarquez sur le L293D, il y a une encoche sur le boîtier. Cette encoche indique le sens de la broche 1. C'est-à-dire que la broche 1 est la broche la plus à gauche lorsque l'encoche est en haut.
+    
+    Il s'agit d'une *convention pour les circuits intégrés*. La broche 1 est toujours la broche la plus à gauche lorsque l'encoche est en haut.
 
 Voici un diagramme de branchement pour contrôler un moteur DC avec le L293D et un Arduino Mega.
 
@@ -95,8 +110,8 @@ Suivant le diagramme de branchement précédemment montré, voici un exemple de 
 
 ```cpp
 // Définition des broches
-int input1 = 23;
-int input2 = 24;
+int input1 = 44;
+int input2 = 45;
 
 void setup() {
   // Initialisation des broches
@@ -132,13 +147,13 @@ void loop() {
   // Faire tourner le moteur dans un sens
   for (int i = 0; i < 255; i++) {
     analogWrite(input1, i);
-    analogWrite(input2, LOW);
+    analogWrite(input2, 0);
     delay(10);
   }
 
   // Faire tourner le moteur dans l'autre sens
   for (int i = 255; i > 0; i--) {
-    analogWrite(input1, LOW);
+    analogWrite(input1, 0);
     analogWrite(input2, i);
     delay(10);
   }
@@ -147,8 +162,28 @@ void loop() {
 
 Dans l'exemple ci-dessus avec le analogueWrite, on utilise la fonction `analogWrite` pour contrôler la vitesse du moteur. La fonction `analogWrite` permet de contrôler la vitesse du moteur en modulant la largeur d'impulsion (PWM). La valeur de `i` varie de 0 à 255. Plus la valeur est grande, plus le moteur tourne vite.
 
-### Important
-Les moteurs ne fonctionnent pas comme des LED. Les moteurs ont une inertie. C'est-à-dire qu'ils ne démarrent pas ou ne s'arrêtent pas instantanément. Si on met une valeur trop faible pour le PWM, le moteur ne tournera pas et chauffera. Ainsi, il est important de connaitre la valeur minimale pour que le moteur démarre et utiliser celle-ci pour le seuil de démarrage. 
+### Note importante
+Les moteurs ne fonctionnent pas comme des LED. Les moteurs ont une inertie. 
+C'est-à-dire qu'ils ne démarrent pas ou ne s'arrêtent pas instantanément.
+
+**Valeur minimale de démarrage (seuil mort) :** Si on met une valeur PWM 
+trop faible, le moteur ne tournera pas mais continuera à consommer du courant,
+ce qui le fera chauffer inutilement. Pour le moteur DC 130, cette valeur se
+situe généralement entre **50 et 80** (sur 255), mais elle peut varier selon
+le moteur et la charge. Il est donc recommandé de tester votre moteur pour
+trouver sa valeur minimale.
+
+**Exemple de démarrage progressif sécuritaire :**
+```cpp
+const int SEUIL_MIN = 60;  // Valeur minimale pour démarrer le moteur
+
+// Accélération progressive à partir du seuil minimal
+for (int i = SEUIL_MIN; i <= 255; i++) {
+    analogWrite(input1, i);
+    analogWrite(input2, 0);
+    delay(10);
+}
+```
 
 ---
 

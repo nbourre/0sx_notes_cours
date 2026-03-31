@@ -1,76 +1,34 @@
 # Revisitons la machine à états finis
 
 ## Introduction
-Nous avons vu les bases de la programmation orientée objet en C++ dans le cours précédent. Nous allons maintenant voir comment utiliser la programmation orientée objet pour créer une machine à états finis.
+Nous avons vu les bases de la programmation orientée objet en C++ dans le cours précédent. Nous allons maintenant voir comment utiliser la programmation orientée objet pour créer une machine à états finis. Cependant avant de débuter, nous allons voir une nouvelle façon de structurer notre code pour les machines à états finis. Nous allons séparer les blocs d'entrée, d'exécution et de sortie pour chaque état. Cela nous permettra de mieux structurer notre code et de le rendre plus lisible.
 
-## Rappel états et transitions
-Nous avons vu comment utiliser des fonctions pour exécuter des actions en fonction de l'état dans le cours précédent.
+---
 
-Pour le rappel, voici un modèle d'état simple en utilisant une fonction.
+## Première version
+Dans la première version de la machine à états finis, nous avons utilisé une structure simple pour gérer les états et les transitions. Tout le code était regroupé dans une seule fonction pour chaque état.
 
-```cpp
+Il y avait certaines lacunes qui pouvaient devenir compliquées à gérer. Dans plusieurs situations, il est nécessaire de préparer un état avant de l'exécuter ou encore de faire des actions pour sortir d'un état. Par exemple, si nous avons un état qui fait tourner un moteur mais il doit allumer une DEL avant de s'exécuter, nous allons utiliser l'entrée pour allumer la DEL. De plus, si nous avons un état qui doit éteindre une DEL lorsque nous sortons de l'état, nous allons utiliser la sortie pour éteindre la DEL.
 
-void xState(unsigned long cT) {
-  static unsigned long lastTime = 0;
-  const int rate = 500;
+---
 
-  static bool firstTime = true;
-
-  // Code d'ENTRÉE
-  if (firstTime) {
-    // Code d'initialisation de l'état
-    // Reset tes trucs
-    // Exemples : 
-    //   Angle de référence, initialiser le lastTime,
-    //   Chronomètre, etc.
-
-    firstTime = false;
-    return;
-  }
-
-  // Ligne nécessaire si l'on doit temporiser
-  // les appels de cet état
-  if (cT - lastTime < rate) return;
-
-  lastTime = cT;
-
-  // Code d'EXÉCUTION de l'état
-  // Code de la job à faire
-
-  // Code de TRANSITION
-  // Il s'agit de la transition qui permet de sortir de l'état
-  // Qu'est-ce qui fait que l'on sort de l'état?
-  bool transition = false;
-
-  // Il est possible d'avoir plusieurs transitions
-
-  if (transition) {
-    // Code de SORTIE
-    // Code pour terminer l'état
-   
-    firstTime = true;
-    
-    // appState = PROCHAIN_ETAT;
-    
-  }
-}
-
-```
-
-Dans certaines situations, les états nécessitaient une certaine préparation avant de s'exécuter ou encore des modifications pour sortir de l'état. Cela pouvait vous occasionner des petits maux de tête. Nous allons voir comment séparer un état en 3 parties: l'entrée, l'exécution et la sortie.
+## Nouvelle structure
+Comme dans l'exemple précédent, les états nécessitaient une certaine préparation avant de s'exécuter ou encore des modifications pour sortir de l'état. Cela pouvait vous occasionner des petits maux de tête. Nous allons voir comment séparer un état en 3 parties: **l'entrée**, **l'exécution** et **la sortie**.
 
 **Prenez note que les entrées et sorties peuvent être optionnelles**. Par exemple, si vous avez un état qui ne nécessite pas de préparation avant de s'exécuter, vous n'aurez pas besoin d'une fonction d'entrée.
 
+---
+
 ## Les états
-Un état peut être séparé en 3 parties: l'entrée, l'exécution et la sortie. L'entrée est exécutée lorsque l'état est activé. L'exécution est exécutée tant que l'état est actif. La sortie est exécutée lorsque l'état est désactivé.
+Comme indiqué dans la section précédente, un état peut être séparé en 3 parties: l'entrée, l'exécution et la sortie.
 
 ### L'entrée
 L'entrée est exécutée lorsque l'état est activé. Elle est utilisée pour préparer l'état avant son exécution. Par exemple, si nous avons un état qui doit allumer une DEL avant de s'exécuter, nous allons utiliser l'entrée pour allumer la DEL.
 
-Si on prend le modèle précédent, l'entrée est le code d'initialisation de l'état.
+L'entrée est le code d'initialisation de l'état.
 
 ```cpp
-
+  // Drapeau indiquant si c'est la première fois que l'on entre dans l'état
   static bool firstTime = true;
 
   // ...
@@ -83,6 +41,7 @@ Si on prend le modèle précédent, l'entrée est le code d'initialisation de l'
     // Allumer la DEL
     digitalWrite(ledMotorPin, HIGH);
 
+    // Remettre le drapeau à false pour ne pas réexécuter l'entrée au prochain tour de boucle
     firstTime = false;
     return;
   }
@@ -91,7 +50,7 @@ Si on prend le modèle précédent, l'entrée est le code d'initialisation de l'
 ```
 
 ### L'exécution
-L'exécution est exécutée tant que l'état est actif. Elle est utilisée pour exécuter l'état. 
+Les instructions sont exécutées tant que l'état est actif. Ce bloc est utilisé pour exécuter l'état. 
 
 Par exemple, le moteur doit tourner. Nous allons utiliser l'exécution pour
 faire tourner le moteur.
@@ -137,19 +96,62 @@ Par exemple, le moteur tourne tant et aussi longtemps qu'un bouton n'est pas app
 
     firstTime = true;
     
-    appState = MOTOR_SPIN;
+    appState = MOTOR_STOP;
     
   }
 
   // ...
 ```
 
+#### Seconde transition
+Il est possible d'avoir plusieurs transitions. Par exemple, en plus du clic du bouton, nous pouvons aussi faire en sorte que le moteur arrête de tourner après un certain délai. Nous allons utiliser une seconde transition pour cela.
+
+```cpp
+  // moment de sortie
+  static unsigned long exitTime = 0;
+
+  // Code d'entrée
+  if (firstTime) {
+    // Code existant de l'entrée
+    // ...
+
+    exitTime = ct + 3000; // Par exemple, on veut que le moteur arrête de tourner après 3 secondes
+    firstTime = false;
+    // ...
+  }
+    
+
+  // ...
+  // Code de TRANSITION
+  bool transition = buttonPressed;
+  bool transition2 = ct > exitTime;
+
+  if (transition || transition2) {
+    // Code de SORTIE
+    // Code pour terminer l'état
+
+    // Éteindre la DEL
+    digitalWrite(ledMotorPin, LOW);
+
+    // Arrêter le moteur
+    digitalWrite(motorPin, LOW);
+
+    firstTime = true;
+    
+    appState = MOTOR_STOP;
+    
+  }
+```
+ 
+
 
 ### Exemple
 
-Voici un exemple quasiment complet d'une machine à états finis qui gère l'état d'un moteur lorsqu'un bouton est appuyé.
+Voici un exemple quasiment complet d'une machine à états finis qui gère l'état d'un moteur lorsqu'un bouton est appuyé. Le moteur tourne tant que le bouton n'est pas réappuyé ou que 3 secondes ne sont pas écoulées. De plus, une DEL est allumée lorsque le moteur tourne et elle s'éteint lorsque le moteur arrête de tourner.
 
 ```cpp
+#include <OneButton.h>
+
 // Définition des états
 enum State {
     MOTOR_STOP,
@@ -159,7 +161,8 @@ enum State {
 void motorStopState();
 void motorSpinState();
 
-bool buttonPressed = 0;
+OneButton button(buttonPin);
+bool buttonPressed = false;
 
 // Définition des états
 State state = MOTOR_STOP;
@@ -167,11 +170,18 @@ State state = MOTOR_STOP;
 void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(motorPin, OUTPUT);
-  pinMode(buttonPin, INPUT);
+  
+  button.begin();
+  button.attachClick(buttonClick);
 }
 
+void buttonClick() {
+  buttonPressed = true;
+}
+
+
 void loop() {
-  buttonPressed = digitalRead(buttonPin) == LOW;
+  unsigned long currentTime = millis();
 
   switch (state) {
       case MOTOR_STOP:
@@ -181,9 +191,10 @@ void loop() {
           motorSpinState();
           break;
   }
+  button.tick();
 }
 
-void motorStopState() {
+void motorStopState(unsigned long ct) {
     static bool firstTime = true;
 
     if (firstTime) {
@@ -210,21 +221,26 @@ void motorStopState() {
     if (transition) {
         // Code de SORTIE
         // Code pour terminer l'état
+        buttonPressed = false;
 
         firstTime = true;
         state = MOTOR_SPIN;
     }
 }
 
-void motorSpinState() {
+void motorSpinState(unsigned long ct) {
     static bool firstTime = true;
+    static unsigned long exitTime = 0;
 
-    if (firstTime) {
+     if (firstTime) {
         // Code d'initialisation de l'état
         // Initialiser les variables
 
         // Allumer la DEL
         digitalWrite(ledMotorPin, HIGH);
+
+        // Par exemple, on veut que le moteur arrête de tourner après 3 secondes
+        exitTime = ct + 3000; 
 
         firstTime = false;
         return;
@@ -236,13 +252,17 @@ void motorSpinState() {
     // Code de TRANSITION
     // Il s'agit de la transition qui permet de sortir de l'état
     // Qu'est-ce qui fait que l'on sort de l'état?
-    bool transition = !buttonPressed;
+    bool transition = buttonPressed;
+    bool transition2 = ct > exitTime;
 
     // Il est possible d'avoir plusieurs transitions
-
-    if (transition) {
+    if (transition || transition2) {
         // Code de SORTIE
         // Code pour terminer l'état
+
+        // Descendre le drapeau de bouton appuyé
+        // car on a consommé l'événement du bouton appuyé
+        buttonPressed = false;
 
         // Éteindre la DEL
         digitalWrite(ledMotorPin, LOW);
@@ -253,20 +273,29 @@ void motorSpinState() {
         firstTime = true;
         state = MOTOR_STOP;
     }
+
 }
 ```
+
+!!! warning "Attention"
+    Dans le code ci-dessus, les transitions sont fusionnées dans le même bloc, car elles pointent vers le même état. Cependant, il est possible d'avoir des transitions avec des codes de sortie différents. Dans ce cas, il faut séparer les transitions dans des blocs différents.
+    
+    Le code ci-dessus est un exemple pour illustrer la structure d'une machine à états finis. Il n'est pas complet et il peut y avoir des erreurs. Il est de votre responsabilité de compléter le code et de le tester.
+
 
 ### Résumé
 
 La mécanique de la machine à états finis est simple. Il suffit de définir :
+
 - les états requis
 - les transitions entre les états 
 - les fonctions pour chaque état.
 
 La fonction est divisée en 3 parties:
-- l'entrée
-- l'exécution
-- les sorties
+
+- **l'entrée**
+- **l'exécution**
+- **les sorties**
 
 Les sorties sont déclenchées par des transitions. Les transitions sont déclenchées par des événements ou des délais.
 
@@ -301,6 +330,7 @@ On identifie deux transitions:
 
 ## Utiliser la programmation orientée objet
 Reprenons l'exemple précédent, mais convertissons-le en utilisant la programmation orientée objet. Nous allons aussi modifier le projet.
+
 - Avant que le moteur entre en action, pour avertir l'utilisateur on doit faire clignoter une DEL pendant 3 secondes.
 - Pendant que le moteur tourne, la DEL doit être allumée.
 - Pendant que le moteur arrête de tourner, la DEL doit être éteinte graduellement.
@@ -331,7 +361,7 @@ class Motor {
 public:
   enum State { OFF,
                ON,
-               WARN,
+               WARN, // => Avertissement
               };
 
   Motor(int motorPin, int ledPin, int buttonPin);
