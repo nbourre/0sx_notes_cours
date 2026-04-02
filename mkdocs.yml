@@ -112,3 +112,6 @@ nav:
     - Loi d'Ohm: extras/loi_dohm.md
     - Les pointeurs: extras/pointeurs.md
     - Utiliser VS Code avec Arduino: extras/coder_avec_vscode/index.md
+
+not_in_nav: |
+  no_nav/*.md
