@@ -33,6 +33,7 @@ Ce cours a pour but d'initier l'étudiant à la programmation de système embarq
 - [Dépannage](extras/depannage.md)
 - [Loi d'Ohm](extras/loi_dohm.md)
 - [Pointeurs](extras/pointeurs.md)
+- [Calcul de rampe linéaire](extras/calcul_rampe_lineaire.md)
 
 ## Révision
 - [Révision pour l'examen](révision/index.md)

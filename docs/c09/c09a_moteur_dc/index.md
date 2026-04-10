@@ -187,6 +187,11 @@ for (int i = SEUIL_MIN; i <= 255; i++) {
 
 ---
 
+## Extra
+Prenez le temps d'aller lire l'article sur le [calcul de rampe linéaire](../../extras/calcul_rampe_lineaire.md) dans les extras. Il s'agit d'une technique très utile pour faire varier la vitesse du moteur de manière progressive et fluide.
+
+---
+
 ## Exercices
 1. Branchez le moteur DC et le contrôleur de moteur L293D à votre Arduino. Utilisez le code précédent pour faire tourner le moteur dans un sens, puis dans l'autre sens, puis arrêtez-le.
 2. Modifiez le code pour permettre d'arrêter ou activer le moteur via le port série. Par exemple, si l'utilisateur tape `1`, le moteur tourne dans un sens, si l'utilisateur tape `2`, le moteur tourne dans l'autre sens, si l'utilisateur tape `0`, le moteur s'arrête.
