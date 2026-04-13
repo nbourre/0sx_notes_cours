@@ -28,13 +28,13 @@ Le principe de responsabilité unique (SRP) stipule qu'**une classe doit avoir u
 Le principe d'ouverture/fermeture (OCP) stipule qu'une classe doit être ouverte à l'extension, mais fermée à la modification. **Cela signifie que vous devez pouvoir ajouter de nouvelles fonctionnalités sans modifier le code existant.**
 
 ## Étude de cas
-Pour pratiquer la refactorisation, nous allons refaire le laboratoire 04 soit celui de l'éclairage automatique. Nous allons étudier le code qui suit. Il s'agit du code de votre collègue Vincent Bureau (Merci! 🙂).
+Pour pratiquer la refactorisation, nous allons refaire un ancien laboratoire, soit celui de l'éclairage automatique. Nous allons étudier le code qui suit. Il s'agit du code d'un ancien étudiant (Merci pour sa contribution! 🙂).
 
 ```cpp
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 #include <HCSR04.h>
-const int rs = 36, en = 34, d4 = 32, d5 = 30, d6 = 28, d7 = 26;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 const int contrastPin = 38;
 
 HCSR04 hc(12, 11); 
@@ -119,23 +119,24 @@ void loop() {
 
 Avant de faire la refactorisation, il faut identifier les problématiques du code actuel. 
 
-Les questions que l'on peut se poser seraient "Est-ce que ça sert pour cette fonction?", "Est-ce que j'ai un équivalent ailleur?", "Est-ce qu'elle donne un avantage?", etc.
+Les questions que l'on peut se poser seraient "Est-ce que ça sert pour cette fonction?", "Est-ce que j'ai un équivalent ailleurs?", "Est-ce qu'elle donne un avantage?", etc.
 
 - La fonction `ultrason` :
-  - est une fonction qui ne fait qu'appeler une fonction de la librairie `HCSR04`. Est-ce qu'elle donne un avantage?
-  - a le paramètre `currentMillis` qui n'est pas utilisé. Est-ce que ça sert?
+    - est une fonction qui ne fait qu'appeler une fonction de la librairie `HCSR04`. Est-ce qu'elle donne un avantage?
+    - a le paramètre `currentMillis` qui n'est pas utilisé. Est-ce que ça sert?
   
 - La fonction `display` :
-  - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleur?
-  - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleur?
-  - a le paramètre `luminosity`. Est-ce que j'ai un équivalent ailleur?
-  - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
+    - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleurs?
+    - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleurs?
+    - a le paramètre `luminosity`. Est-ce que j'ai un équivalent ailleurs?
+    - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
   
 - La fonction `autoLum` :
-  - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleur?
-  - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleur?
-  - a des éléments qui n'ont pas de lien avec la fonction. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
-  - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
+    - a la variable `currentMillis` qui est modifiée dans la fonction. Erreur de logique?
+    - a le paramètre `currentMillis`. Est-ce que j'ai un équivalent ailleurs?
+    - a le paramètre `distance`. Est-ce que j'ai un équivalent ailleurs?
+    - a des éléments qui n'ont pas de lien avec la fonction. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
+    - est dépendante d'élément externe. Est-ce que tous les éléments qui sont dans la fonction servent à celle-ci?
 
 Ce sont tous des problématiques que la refactorisation va permettre de résoudre.
 
@@ -143,6 +144,7 @@ Ce sont tous des problématiques que la refactorisation va permettre de résoudr
 La première étape sera de déterminer les différents systèmes de ce projet.
 
 Les grandes lignes du projet étaient ceci :
+
 - Lire les valeurs du capteur de luminosité;
 - Calibrer le déclenchement de la lumière avec la valeur minimum et maximum du capteur de luminosité;
 - Allumer une DEL lorsque la luminosité est plus basse qu'un seuil;
@@ -151,6 +153,7 @@ Les grandes lignes du projet étaient ceci :
 - Afficher des valeurs sur l'écran LCD.
 
 Dans ce projet, nous avons 3 systèmes :
+
 - Le système de lecture de la luminosité;
 - Le système de lecture de la distance;
 - Le système d'affichage.
@@ -161,8 +164,6 @@ L'affichage est un système qui a besoin des données des autres systèmes. Il r
 
 Pour le système de distance, nous n'avons pas besoin de faire de classe, car on utilise déjà la librairie `HCSR04` et on ne fait que lire la distance.
 
-> **Note :** Je sais que nous avons le système d'alarme, mais on se concentre sur le système d'éclairage automatique.
-
 ### Déterminer les responsabilités de chaque classe
 Nous avons donc besoin de 2 classes pour ce projet. Nous allons maintenant déterminer les responsabilités de chaque classe.
 
@@ -172,6 +173,7 @@ Pour l'instant, on n'a pas besoin de classe pour la distance. Nous allons donc n
 La classe `Eclairage` va gérer le système d'éclairage. Elle va lire la valeur du capteur de luminosité et allumer la DEL lorsque la luminosité est trop basse.
 
 Dans sa première moutures, les fonctions publiques de cette classe seront :
+
 - `getLuminosity()`; Pour lire la valeur du capteur de luminosité;
 - `update()`; Pour mettre à jour la valeur de la luminosité en continu;
 - `getMinLuminosity()`; Qui retournera la valeur minimum de la luminosité;
@@ -187,8 +189,11 @@ class Eclairage{
     // Constructeur
     Eclairage(int lumSensorPin, int ledPin);
 
+    // Fonction qui retourne la valeur mappée du capteur de luminosité
+    int getLuminosity() { return _luminosity; }
+
     // Fonction qui retourne la valeur du capteur de luminosité
-    int getLuminosity() { return _lumValue; }
+    int getLumValue() { return _lumValue; }
 
     // Fonction qui retourne la valeur minimum du capteur de luminosité
     int getMinLuminosity() { return _lumMin; }
@@ -211,6 +216,7 @@ class Eclairage{
     int _lumValue;
     int _lumMin;
     int _lumMax;
+    int _luminosity;
     int _threshold;
 };
 
@@ -232,8 +238,8 @@ void Eclairage::update(){
   if (_lumValue < _lumMin){
     _lumMin = _lumValue;
   }
-  int luminosity = map(_lumValue,_lumMin,_lumMax,0,100);
-  if (luminosity < _threshold){
+  _luminosity = map(_lumValue,_lumMin,_lumMax,0,100);
+  if (_luminosity < _threshold){
     digitalWrite(_ledPin,HIGH);
   }else{
     digitalWrite(_ledPin,LOW);
@@ -247,6 +253,7 @@ Pour la classe `Affichage`, celle-ci va recevoir les données des autres classes
 On veut rafraîchir l'affichage à toutes les temps données. On a donc besoin d'une fonction pour indiquer le temps entre chaque rafraîchissement.
 
 Dans sa première moutures, les fonctions publiques de cette classe seront :
+
 - `setLine1(String line1)`; Pour définir la première ligne de l'écran LCD;
 - `setLine2(String line2)`; Pour définir la deuxième ligne de l'écran LCD;
 - `update()`; Pour mettre à jour l'affichage sur l'écran LCD;
@@ -386,7 +393,7 @@ void loop() {
 
   eclairage.update();
 
-  affichage.setLine1("Distance: " + String(hc.getDistance()));
+  affichage.setLine1("Distance: " + String(hc.dist()));
   affichage.setLine2("Luminosite: " + String(eclairage.getLuminosity()));
   affichage.update();
 }
@@ -398,26 +405,20 @@ Voilà! Le code principal est maintenant beaucoup plus lisible et facile à comp
 ---
 
 ## Exercices
-### Système d'alarme
-Refactorisez le code du laboratoire du système d'alarme.
+### Laboratoire numéro 4 et 5
+Refactorisez le code du laboratoire 4 et 5 pour qu'il soit plus lisible et organisé.
 
 #### Requis
-- La classe devra se nommer `Alarme`.
-- Le constructeur devra avoir les broches pour le détecteur de distance, les broches des DEL et le broche du buzzer.
-  - La signature sera donc `Alarme(uint8_t echoPin, uint8_t triggerPin, uint8_t ledRed, uint8_t ledBlue, uint8_t buzzerPin);`
-- Il devra y avoir la fonction en ligne `setTriggerDistance(uint16_t triggerDistance)` qui permettra de définir la distance de déclenchement de l'alarme.
-- Il devra y avoir la fonction en ligne `getTriggerDistance()` qui retournera la distance de déclenchement de l'alarme.
-- Il devra y avoir la fonction en ligne `getDistance()` qui retournera la distance du détecteur de distance.
-- Il devra y avoir les états "ON" et "OFF" pour l'alarme.
-  - Dans l'état "ON", si la distance est supérieure à la distance de déclenchement pendant plus de 3 secondes, l'alarme s'arrête.
-- Il devra y avoir la fonction `update()` qui mettra à jour l'état de l'alarme.
-  - On devra mettre à jour la distance à tous les 10 ms.
+- Recréer la classe pour permettre le partage de l'affichage
+- Créer une classe pour le système incluant le moteur (Labo 5).
 
 ### Affichage
 Le code du LCD est assez pêle-mêle. Refactorisez le code pour qu'il soit plus lisible.
 
 #### Requis
 Il n'est pas nécessaire de créer une classe pour cet exercice. Il suffit de créer des éléments qui permettront de rendre le code plus lisible.
+
+**Cet exercice a été fait pour les années passées. Cependant, vous pouvez l'adapter à votre contexte.**
 
 Ajoutez une énumération nommée `LCDState` pour l'état de l'affichage. Les états serviront à indiquer quels messages à afficher. Ils seront les suivants :
 - `ECLAIRAGE` : Affiche la luminosité
@@ -429,6 +430,10 @@ Ajoutez une énumération nommée `LCDState` pour l'état de l'affichage. Les é
 Ajoutez une fonction `lcdTask()` qui sera appelée dans la fonction `loop()`. Cette fonction devra avoir le contenu suivant :
 
 ```cpp
+bool changeState = false;
+
+// ...
+
 void lcdTask() {
   static unsigned long lastUpdate = 0;
   static unsigned long lastMsgChange = 0;
