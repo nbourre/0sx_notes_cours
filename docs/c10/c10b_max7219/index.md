@@ -59,30 +59,33 @@ Elle offre une interface simple pour dessiner des formes, afficher du texte et g
 
 ## Matériel requis
 En plus du matériel usuel pour faire fonctionner un Arduino, vous aurez besoin de :
+
 - **1** matrice de LED 8×8 avec contrôleur **MAX7219**  
 
 ---
 
 ## Branchement
 Le module MAX7219 communique via un bus de type **SPI** (Serial Peripheral Interface). Les broches habituelles pour un branchement SPI sont :
+
 - **MOSI** (Master Out Slave In)
 - **MISO** (Master In Slave Out)
 - **SCK** (Serial Clock)
 - **SS** (Slave Select)  
 - **GND** et **5V**
 
-Cependant, le MAX7219 n'utilise pas la broche **MISO**. Excluant cette broche, le MAX7219 utilise les autres broches SPI pour la communication. 
+Cependant, le MAX7219 n'utilise pas la broche **MISO**. Excluant cette broche, le MAX7219 utilise les autres broches SPI pour la communication.
 
 Selon la configuration que vous allez utiliser avec **u8g2**, vous pouvez choisir d’utiliser **SW SPI** (logiciel) ou **HW SPI** (matériel). Ci-dessous, on présente un branchement en mode **SW SPI** (simulation par logiciel).  
 
 Par exemple :
+
 - **CLC**  (CLOCK)→ 30
 - **DIN** (Data IN) → 34
 - **CS** (Chip Select) → 32
 
 
 ## Code d’exemple
-Voici un code minimaliste avec la librairie **u8g2**. On installe la bibliothèque « **U8g2** » via le gestionnaire de bibliothèques Arduino. Ensuite, on peut utiliser la classe `U8G2_MAX7219_64X8_...` ou `U8G2_MAX7219_32X8_...` selon la taille de votre module. Ici, c’est un **8×8** unique, donc 8 colonnes × 8 rangées :
+Voici un code minimaliste avec la librairie **u8g2**. On installe la bibliothèque « **U8g2** » via le gestionnaire de bibliothèques Arduino. Ensuite, on peut utiliser la classe `U8G2_MAX7219_8X8_F_4W_SW_SPI`, car le kit que l'on a est une matrice **8×8** unique, donc 8 colonnes × 8 rangées.
 
 ```cpp
 #include <U8g2lib.h>
@@ -154,6 +157,8 @@ void loop() {
    - On envoie au module (`sendBuffer`) pour l’affichage réel.  
    - On attend une seconde.  
 
+??? note "Supplément"
+    Il y a d'autres classes pour différents types de modules MAX7219 (par exemple, pour des matrices plus grandes ou des configurations différentes) tel que le format 64x8 et 32x8 qui sont respectivement `U8G2_MAX7219_64X8_F_4W_SW_SPI` et `U8G2_MAX7219_32X8_F_4W_SW_SPI`. Assurez-vous de choisir la classe qui correspond à votre matériel.
 
 ---
 
