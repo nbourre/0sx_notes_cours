@@ -421,6 +421,7 @@ Il n'est pas nécessaire de créer une classe pour cet exercice. Il suffit de cr
 **Cet exercice a été fait pour les années passées. Cependant, vous pouvez l'adapter à votre contexte.**
 
 Ajoutez une énumération nommée `LCDState` pour l'état de l'affichage. Les états serviront à indiquer quels messages à afficher. Ils seront les suivants :
+
 - `ECLAIRAGE` : Affiche la luminosité
 - `ALARME` : Affiche la distance
 - `GARAGE` : Affiche l'état de la porte de garage

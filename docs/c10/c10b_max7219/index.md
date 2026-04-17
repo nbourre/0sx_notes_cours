@@ -174,6 +174,8 @@ Voici un tableau des fonctions de base qui peuvent être utiles pour dessiner su
 | `drawCircle(x, y, r)`   | Dessine un cercle centré à la position `(x, y)` avec un rayon `r`.        |
 | `drawLine(x1, y1, x2, y2)` | Dessine une ligne entre les points `(x1, y1)` et `(x2, y2)`.            |
 | `drawPixel(x, y)`       | Dessine un pixel à la position `(x, y)`.                                   |
+| `drawBitmap(x, y, w, h, bitmap)` | Dessine une image bitmap à la position `(x, y)` avec une largeur `w` et une hauteur `h`. |
+| `drawXBMP(x, y, w, h, bitmap)` | Comme `drawBitmap`, mais pour lire directement dans la mémoire flash (PROGMEM). |
 
 Plusieurs autres fonctions sont disponibles dans [la documentation de la bibliothèque U8g2](https://github.com/olikraus/u8g2/wiki). Vous pouvez également dessiner des images bitmap, des graphiques et d'autres formes.
 
@@ -495,6 +497,228 @@ void loop(void) {
 ```
 
 </details>
+
+---
+
+## Afficher des images bitmap
+Il est aussi possible d’afficher des images bitmap sur la matrice de LED. Voici deux exemples, un utilisant `drawBitmap` et un autre utilisant `drawXBMP` pour lire directement dans la mémoire flash (PROGMEM).
+
+??? note "Exemple d'affichage d'une image bitmap avec `drawBitmap`"
+
+    ```cpp
+    #include <Arduino.h>
+    #include <U8g2lib.h>
+
+    class Matrice8x8 {
+    public:
+      Matrice8x8(uint8_t clk, uint8_t din, uint8_t cs)
+        : _u8g2(U8G2_R0, clk, din, cs, U8X8_PIN_NONE, U8X8_PIN_NONE) {
+      }
+
+      void begin() {
+        _u8g2.begin();
+        _u8g2.clearBuffer();
+        _u8g2.sendBuffer();
+      }
+
+      void afficherSmiley() {
+        _u8g2.clearBuffer();
+        _u8g2.drawBitmap(0, 0, 1, 8, bitmapSmiley);
+        _u8g2.sendBuffer();
+      }
+
+      void afficherCoeur() {
+        _u8g2.clearBuffer();
+        _u8g2.drawBitmap(0, 0, 1, 8, bitmapCoeur);
+        _u8g2.sendBuffer();
+      }
+
+      void afficherFlecheDroite() {
+        _u8g2.clearBuffer();
+        _u8g2.drawBitmap(0, 0, 1, 8, bitmapFlecheDroite);
+        _u8g2.sendBuffer();
+      }
+
+    private:
+      U8G2_MAX7219_8X8_F_4W_SW_SPI _u8g2;
+
+      // 8 colonnes * 8 lignes = 8 octets
+      // drawBitmap(x, y, largeur_en_octets, hauteur_en_pixels, donnees)
+
+      static const uint8_t bitmapSmiley[8];
+      static const uint8_t bitmapCoeur[8];
+      static const uint8_t bitmapFlecheDroite[8];
+    };
+
+    // Définition des bitmaps
+    const uint8_t Matrice8x8::bitmapSmiley[8] = {
+      B00111100,
+      B01000010,
+      B10100101,
+      B10000001,
+      B10100101,
+      B10011001,
+      B01000010,
+      B00111100
+    };
+
+    const uint8_t Matrice8x8::bitmapCoeur[8] = {
+      B01100110,
+      B11111111,
+      B11111111,
+      B11111111,
+      B01111110,
+      B00111100,
+      B00011000,
+      B00000000
+    };
+
+    const uint8_t Matrice8x8::bitmapFlecheDroite[8] = {
+      B00011000,
+      B00011100,
+      B11111110,
+      B11111111,
+      B11111110,
+      B00011100,
+      B00011000,
+      B00000000
+    };
+
+    // Exemple d'utilisation
+    Matrice8x8 matrice(13, 11, 10); // CLK, DIN, CS
+
+    void setup() {
+      matrice.begin();
+
+      matrice.afficherSmiley();
+      delay(1000);
+
+      matrice.afficherCoeur();
+      delay(1000);
+
+      matrice.afficherFlecheDroite();
+    }
+
+    void loop() {
+    }
+    ```
+
+Voici la sortie de l'IDE pour la version avec `drawBitmap` :
+```
+Sketch uses 8310 bytes (3%) of program storage space. Maximum is 253952 bytes.
+Global variables use 520 bytes (6%) of dynamic memory, leaving 7672 bytes for local variables. Maximum is 8192 bytes.
+```
+
+---
+
+??? note "Exemple d'affichage d'une image bitmap avec `drawXBMP`"
+
+    ```cpp
+    #include <Arduino.h>
+    #include <U8g2lib.h>
+    #include <avr/pgmspace.h>
+
+    class Matrice8x8 {
+    public:
+      Matrice8x8(uint8_t clk, uint8_t din, uint8_t cs)
+        : _u8g2(U8G2_R1, clk, din, cs, U8X8_PIN_NONE, U8X8_PIN_NONE) {
+      }
+
+      void begin() {
+        _u8g2.begin();
+      }
+
+      void afficherSmiley() {
+        _u8g2.clearBuffer();
+        _u8g2.drawXBMP(0, 0, 8, 8, bitmapSmiley);
+        _u8g2.sendBuffer();
+      }
+
+      void afficherCoeur() {
+        _u8g2.clearBuffer();
+        _u8g2.drawXBMP(0, 0, 8, 8, bitmapCoeur);
+        _u8g2.sendBuffer();
+      }
+
+      void afficherFleche() {
+        _u8g2.clearBuffer();
+        _u8g2.drawXBMP(0, 0, 8, 8, bitmapFleche);
+        _u8g2.sendBuffer();
+      }
+
+    private:
+      U8G2_MAX7219_8X8_F_4W_SW_SPI _u8g2;
+
+      // Déclaration (dans la classe)
+      static const uint8_t bitmapSmiley[];
+      static const uint8_t bitmapCoeur[];
+      static const uint8_t bitmapFleche[];
+    };
+
+    // Définition (hors classe) avec PROGMEM
+    const uint8_t Matrice8x8::bitmapSmiley[] PROGMEM = {
+      B00111100,
+      B01000010,
+      B10100101,
+      B10000001,
+      B10100101,
+      B10011001,
+      B01000010,
+      B00111100
+    };
+
+    const uint8_t Matrice8x8::bitmapCoeur[] PROGMEM = {
+      B01100110,
+      B11111111,
+      B11111111,
+      B11111111,
+      B01111110,
+      B00111100,
+      B00011000,
+      B00000000
+    };
+
+    const uint8_t Matrice8x8::bitmapFleche[] PROGMEM = {
+      B00011000,
+      B00011100,
+      B11111110,
+      B11111111,
+      B11111110,
+      B00011100,
+      B00011000,
+      B00000000
+    };
+
+    // Utilisation
+    Matrice8x8 matrice(26, 28, 27);
+
+    void setup() {
+      matrice.begin();
+
+
+    }
+
+    void loop() {
+      matrice.afficherSmiley();
+      delay(1000);
+
+      matrice.afficherCoeur();
+      delay(1000);
+
+      matrice.afficherFleche();
+      delay(1000);
+    }
+    ```
+
+Voici la sortie de l'IDE pour la version avec `drawXBMP` :
+```
+Sketch uses 8364 bytes (3%) of program storage space. Maximum is 253952 bytes.
+Global variables use 496 bytes (6%) of dynamic memory, leaving 7696 bytes for local variables. Maximum is 8192 bytes.
+```
+
+??? note "Comparaison des deux méthodes"
+    - `drawBitmap` : les données de l'image sont stockées dans la RAM, ce qui peut consommer plus de mémoire dynamique.
+    - `drawXBMP` avec `PROGMEM` : les données de l'image sont stockées dans la mémoire flash (programme), ce qui libère de la RAM. C'est généralement préférable pour les images statiques. Notez que l'on doit utiliser `PROGMEM` à l'extérieur de la classe pour que les données soient effectivement stockées en flash. 
 
 ---
 
