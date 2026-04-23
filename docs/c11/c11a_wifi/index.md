@@ -269,6 +269,11 @@ void errorState(int codeA, int codeB) {
 Une fois la configuration faite, il est possible de communiquer avec le module ESP8266. Il y a plusieurs exemples disponibles dans la librairie `WiFiEspAT`. Voici deux exemples qui montrent comment utiliser le module ESP8266 pour créer un serveur web.
 Le premier exemple est un serveur web qui affiche la valeur des broches d'entrée analogique. Le deuxième exemple est un serveur web qui permet d'allumer ou d'éteindre une DEL en fonction de ce qui a été reçu par le module Wifi.
 
+À noter que pour les deux exemples, il est nécessaire d'avoir les éléments suivants :
+- Configuration WiFi effectuée (persistante)
+- Librairie WiFiEspAT installée
+- Module connecté correctement
+
 ### Exemple de code - Serveur Web
 
 Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer un serveur web à l'aide d'un module Wifi ESP8266 branché sur le port série.
@@ -276,19 +281,6 @@ Ce code est un exemple d'utilisation de la bibliothèque `WiFiEspAT` pour créer
 **Important :** Il faudra exécuter l'exemple du code pour configurer le module wifi pour se connecter à un réseau wifi de manière persistante avant de pouvoir utiliser ce code.
 
 ```cpp
-/*
-Serveur Web WiFi
-
-Un simple serveur web qui affiche la valeur des broches d'entrée analogique.
-
-Créé le 13 Juillet 2010
-par dlf (Metodo2 srl)
-modifié le 31 mai 2012
-par Tom Igoe
-modifié en juillet 2019 pour la bibliothèque WiFiEspAT
-par Juraj Andrassy https://github.com/jandrassy
-*/
-
 #include <WiFiEspAT.h>
 
 #define AT_BAUD_RATE 115200
@@ -532,6 +524,30 @@ void sendHTTPHeader(WiFiClient client) {
   client.println();
 }
 ```
+
+---
+
+## Dépannage
+
+### Le module WiFi ne répond pas
+- Vérifiez que le module est correctement branché
+- Vérifiez que le firmware AT est installé sur le module (vous pouvez utiliser des exemples de commandes AT pour vérifier)
+    - Si c'est du matériel de la classe, le firmware AT est déjà installé. Sinon, vous pouvez en informer votre enseignant pour obtenir de l'aide
+- Essayez de réduire le taux de baud à 9600 si `115200` ne fonctionne pas
+- Vérifiez que les bons ports RX/TX correspond au port auquel le module est connecté
+
+### La connexion WiFi échoue
+- Vérifiez le SSID et le mot de passe
+- Vérifiez que le réseau WiFi est disponible et actif
+- Essayez de vous rapprocher du routeur WiFi
+- Consultez les messages d'erreur dans le moniteur série pour plus d'informations
+- Si c'est la première fois, exécutez d'abord le sketch de configuration WiFi
+
+### Le serveur web ne répond pas
+- Vérifiez que le module est connecté au WiFi (vérifiez l'adresse IP affichée)
+- Assurez-vous que vous utilisez l'adresse IP correcte dans votre navigateur
+- Vérifiez que le port 80 n'est pas bloqué par un pare-feu
+- Consultez le moniteur série pour voir si le serveur reçoit les connexions entrantes
 
 ---
 
