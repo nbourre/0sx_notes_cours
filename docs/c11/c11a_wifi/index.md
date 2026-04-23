@@ -96,7 +96,7 @@ Dans le code, il faudra alors utiliser les fonctions `Serial1` pour échanger av
 Pour le cours, il faut installer la librairie **WiFiEspAT** pour pouvoir utiliser le shield.
 
 #### Code pour configurer le wifi
-Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de manière persistante. Il faut donc le faire une seule fois ou à chaque fois que l'on désire de changer de réseau wifi.
+Le code suivant permet de configurer le module wifi pour se connecter à un réseau wifi de **manière persistante**. Il faut donc **le faire une seule fois** ou à chaque fois que l'on désire de changer de réseau wifi.
 
 ```cpp
 #include <WiFiEspAT.h>
