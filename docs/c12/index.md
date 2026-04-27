@@ -173,7 +173,7 @@ De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionn
 ---
 
 ## Exemple à utiliser
-Nous allons utiliser l'exemple `mqtt_test` (ou `mqtt_test_esp01`) qui se retrouve dans le dossier `appareils/wifi` des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
+Nous allons utiliser l'exemple `mqtt_test` qui se retrouve dans le dossier `appareils/wifi` des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
 
 Voici le code entier de l'exemple :
 
