@@ -270,6 +270,7 @@ Une fois la configuration faite, il est possible de communiquer avec le module E
 Le premier exemple est un serveur web qui affiche la valeur des broches d'entrée analogique. Le deuxième exemple est un serveur web qui permet d'allumer ou d'éteindre une DEL en fonction de ce qui a été reçu par le module Wifi.
 
 À noter que pour les deux exemples, il est nécessaire d'avoir les éléments suivants :
+
 - Configuration WiFi effectuée (persistante)
 - Librairie WiFiEspAT installée
 - Module connecté correctement

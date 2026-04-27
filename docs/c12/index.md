@@ -26,6 +26,7 @@ Le courtier est un serveur central qui gère les communications entre les client
 Dans le cas de mon serveur, j'utilise mosquitto. Vous pouvez l'installer sur votre machine en utilisant la commande `sudo apt install mosquitto`.
 
 Voici les étapes pour tester votre serveur MQTT :
+
 - Lancez le serveur en utilisant la commande `mosquitto`.
 - Connectez-vous à votre serveur en utilisant la commande `mosquitto_sub -h localhost -t "test"`.
 - Dans une autre instance de ligne de commandes, publiez un message en utilisant la commande `mosquitto_pub -h localhost -t "test" -m "Hello World!"`.
@@ -64,6 +65,7 @@ On peut aussi utiliser le `+` pour s'inscrire à un sujet qui contient plusieurs
 Le caractère `#` est un caractère de remplacement. Il peut être utilisé pour remplacer un ou plusieurs niveaux de hiérarchie dans un sujet. Par exemple, le sujet `maison/etage_1/#` peut être utilisé pour s'abonner à tous les messages publiés sur les sujets `maison/etage_1/temperature`, `maison/etage_1/humidite`, `maison/etage_1/chambre/temperature`, `maison/etage_1/cuisine/temperature`, etc.
 
 Voici des exemples de sujets valides avec des caractères spéciaux :
+
 | Sujet                       | Description                                                           |
 |-----------------------------|-----------------------------------------------------------------------|
 | maison/salon/temperature    | Un sujet standard pour la température du salon                       |
@@ -78,6 +80,7 @@ Voici des exemples de sujets valides avec des caractères spéciaux :
 | printer3d/+/temperature     | Un sujet avec un caractère joker '+' pour la température de tous les capteurs d'une imprimante 3D |
 
 ---
+
 ### Les messages (*payload*)
 Les messages sont les données échangées entre les clients et le courtier. Les messages sont des chaînes de caractères ou données binaires. Les clients peuvent publier des messages sur des sujets spécifiques, et les clients peuvent s'abonner à un ou plusieurs sujets pour recevoir les messages correspondants.
 
@@ -145,6 +148,7 @@ C'est la raison principale pour laquelle nous allons utiliserons le JSON pour no
 
 ### La qualité de service (QoS)
 MQTT offre trois niveaux de qualité de service (QoS) pour les messages échangés entre les clients et le courtier :
+
 - QoS 0 (Au plus une fois) : Le message est envoyé sans confirmation, ce qui signifie qu'il peut être perdu. On entendra parfois que ce le mécanisme "*Fire and Forget*".
 - QoS 1 (Au moins une fois) : Le message est envoyé avec confirmation, garantissant qu'il sera reçu au moins une fois.
 - QoS 2 (Exactement une fois) : Le message est envoyé avec un mécanisme de contrôle qui garantit qu'il sera reçu une seule fois.
@@ -172,6 +176,7 @@ De plus vous aurez avoir besoin de la librairie `WiFiEspAT` pour faire fonctionn
 Nous allons utiliser l'exemple `mqtt_test` (ou `mqtt_test_esp01`) qui se retrouve dans le dossier des [projets du cours](https://github.com/nbourre/0sx_projets_cours/). Il s'agit d'un exemple simple qui permet de publier et de souscrire à un sujet MQTT. Nous allons pouvoir l'intégrer dans notre projet pour envoyer des données à notre serveur MQTT.
 
 Voici le code entier de l'exemple :
+
 <details><summary>Cliquez pour le voir</summary>
 
 ```cpp
